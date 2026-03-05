@@ -1,209 +1,223 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "057dd5cc6bea6434fdb788e6c93f3f3d",
-  "translation_date": "2025-10-11T11:59:59+00:00",
-  "source_file": "02-Security/mcp-security-best-practices-2025.md",
-  "language_code": "ta"
-}
--->
-# MCP பாதுகாப்பு சிறந்த நடைமுறைகள் - ஆகஸ்ட் 2025 புதுப்பிப்பு
+# MCP பாதுகாப்பு சிறந்த நடைமுறைகள் - பிப்ரவரி 2026 புதுப்பிப்பு
 
-> **முக்கியம்**: இந்த ஆவணம் சமீபத்திய [MCP Specification 2025-06-18](https://spec.modelcontextprotocol.io/specification/2025-06-18/) பாதுகாப்பு தேவைகள் மற்றும் அதிகாரப்பூர்வ [MCP Security Best Practices](https://modelcontextprotocol.io/specification/2025-06-18/basic/security_best_practices) ஆகியவற்றை பிரதிபலிக்கிறது. எப்போதும் தற்போதைய விவரக்குறிப்பை அணுகி புதுப்பிக்கப்பட்ட வழிகாட்டுதல்களைப் பெறுங்கள்.
+> **முக்கியமானது**: இந்த ஆவணம் சமீபத்திய [MCP விவரக்குறிப்பு 2025-11-25](https://spec.modelcontextprotocol.io/specification/2025-11-25/) பாதுகாப்பு தேவைகள் மற்றும் அதிகாரப்பூர்வ [MCP பாதுகாப்பு சிறந்த நடைமுறைகள்](https://modelcontextprotocol.io/specification/2025-11-25/basic/security_best_practices) ஆகியவற்றைக் குறிக்கிறது. எப்போதும் தற்போத்திய விவரக்குறிப்பைப் பயன்படுத்தி மிகத் துல்லியமான வழிகாட்டுதலுக்காக பார்க்கவும்.
 
-## MCP செயல்பாடுகளுக்கான அடிப்படை பாதுகாப்பு நடைமுறைகள்
+## 🏔️ நடைமுறை பாதுகாப்பு பயிற்சி
 
-Model Context Protocol பாரம்பரிய மென்பொருள் பாதுகாப்பை விட அதிகமான சவால்களை உருவாக்குகிறது. இந்த நடைமுறைகள் அடிப்படை பாதுகாப்பு தேவைகள் மற்றும் MCP-க்கு தனித்துவமான அச்சுறுத்தல்களை, உதாரணமாக prompt injection, tool poisoning, session hijacking, confused deputy பிரச்சினைகள் மற்றும் token passthrough பாதிப்புகளை கையாளுகின்றன.
+உண்மையான நடைமுறை அனுபவத்துக்காக, நாம் **[MCP பாதுகாப்பு சங்க மாநாட்டு பணிமனை (Sherpa)](https://azure-samples.github.io/sherpa/)** - Azure இல் MCP சேவையகங்களை பாதுகாப்பதற்கான ஒருங்கிணைந்த வழிகாட்டியுடன் கூடிய பயணம் - பரிந்துரைக்கின்றோம். பணிமனை OWASP MCP Top 10 ஆபத்துகளை "பலவீனம் → விவசாயம் → சரி செய்தல் → உறுதிப்படுத்தல்" முறையில் விரிவாக ஆராய்கிறது.
 
-### **கட்டாயமான பாதுகாப்பு தேவைகள்**
+இந்த ஆவணத்தில் உள்ள அனைத்து நடைமுறைகளும் Azure-க்கு தனிப்பட்ட நடைமுறை வழிகாட்டுதலுக்கான **[OWASP MCP Azure பாதுகாப்பு வழிகாட்டி](https://microsoft.github.io/mcp-azure-security-guide/)** உடன் இணங்குகின்றன.
 
-**MCP Specification-இன் முக்கிய தேவைகள்:**
+## MCP அமல்களுக்கான முக்கிய பாதுகாப்பு நடைமுறைகள்
 
-> **MUST NOT**: MCP சேவைகள் **MUST NOT** MCP சேவைக்கு வெளியில் வழங்கப்பட்ட tokens-ஐ ஏற்கக்கூடாது  
+Model Context Protocol வழக்கமான மென்பொருள் பாதுகாப்பை மீறி தனித்துவமான பாதுகாப்பு சவால்களை அறிமுகப்படுத்துகிறது. இந்த நடைமுறைகள் அடிப்படையான பாதுகாப்பு தேவைகளையும் MCP-க்கு தனித்துவமான அச்சுறுத்தல்கள் ஆகியவற்றை கையாள்கின்றன; இதில் prompt injection, tool poisoning, session hijacking, confused deputy பிரச்சனைகள் மற்றும் token passthrough பாதிப்புகள் அடங்கும்.
+
+### **கடந்து வரிசையாக பாதுகாப்பு தேவைகள்** 
+
+**MCP விவரக்குறிப்பிலிருந்து முக்கிய தேவைகள்:**
+
+### **கடந்து வரிசையாக பாதுகாப்பு தேவைகள்** 
+
+**MCP விவரக்குறிப்பிலிருந்து முக்கிய தேவைகள்:**
+
+> **எதிர்க்கப்பட வேண்டும்**: MCP சேவையகங்கள் MCP சேவையகத்துக்கே குறிப்பிடமாக வழங்கப்படாத எந்த token-ஐயும் ஏற்கக் கூடாது
 > 
-> **MUST**: Authorization செயல்படுத்தும் MCP சேவைகள் **MUST** அனைத்து உள்ளீட்டு கோரிக்கைகளையும் சரிபார்க்க வேண்டும்  
+> **கட்டாயம்**: MCP சேவையகங்கள் அங்கீகாரம் செயலாக்குகையில் அனைத்து அடுக்கும் கோரிக்கைகளையும் சரிபார்க்க வேண்டும்
 >  
-> **MUST NOT**: MCP சேவைகள் **MUST NOT** authentication-க்கு sessions-ஐ பயன்படுத்தக்கூடாது  
+> **எதிர்க்கப்பட வேண்டும்**: MCP சேவையகங்கள் அங்கீகாரத்திற்கு sessions பயன்படுத்தக் கூடாது
 >
-> **MUST**: Static client IDs-ஐ பயன்படுத்தும் MCP proxy சேவைகள் **MUST** ஒவ்வொரு dynamic client-க்கும் பயனர் ஒப்புதலைப் பெற வேண்டும்  
+> **கட்டாயம்**: ஸ்திரமான client IDs பயன்படுத்தும் MCP proxy சேவையகங்கள் ஒவ்வொரு இயங்குநிலை பதிவு செய்யப்பட்ட கிளையன்டுக்குமான பயனர் அனுமதியை பெற வேண்டும்
 
 ---
 
-## 1. **Token பாதுகாப்பு & Authentication**
+## 1. **Token பாதுகாப்பு மற்றும் அங்கீகாரம்**
 
-**Authentication & Authorization கட்டுப்பாடுகள்:**
-   - **கடுமையான Authorization மதிப்பீடு**: MCP சேவையின் authorization logic-ஐ முழுமையாக audit செய்து, resources-ஐ அணுகுவதற்கு உரிய பயனர்கள் மற்றும் clients மட்டுமே அனுமதிக்கப்படுவதை உறுதிசெய்யவும்  
-   - **வெளியக அடையாள வழங்குநர் ஒருங்கிணைப்பு**: Microsoft Entra ID போன்ற நிறுவப்பட்ட identity providers-ஐ பயன்படுத்தவும்; custom authentication-ஐ உருவாக்க வேண்டாம்  
-   - **Token Audience Validation**: MCP சேவைக்கு வழங்கப்பட்ட tokens-ஐ மட்டுமே validate செய்யவும்; upstream tokens-ஐ ஏற்க வேண்டாம்  
-   - **சரியான Token Lifecycle**: பாதுகாப்பான token rotation, expiration policies-ஐ செயல்படுத்தவும்; token replay attacks-ஐ தடுக்கவும்  
+**அங்கீகரம் மற்றும் அங்கீகாரக் கட்டுப்பாடுகள்:**
+   - **கூறளிக்கக் கட்டாயமான அங்கீகாரம் ஆய்வு**: MCP சேவையக அங்கீகாரம் தாராளமான ஆய்வுகளை மேற்கொண்டு லட்சிய பயனர் மற்றும் கிளையன்ட் மட்டுமே வளங்களை அணுகுவார்கள் என்பதை உறுதி செய்யவும்
+   - **புற அடையாள வழங்குநர் ஒருங்கிணைப்பு**: தனிப்பட்ட அங்கீகாரம் செய்யாமல் Microsoft Entra ID போன்று நிறுவப்பட்ட அடையாள வழங்குநர்களைப் பயன்படுத்தவும்
+   - **Token பார்வைச் சரிபார்த்தல்**: Token கள் உங்கள் MCP சேவையகத்துக்கே குறிப்பிடமாய் வழங்கப்பட்டதா என்பதை எப்போதும் சரிபார்க்கவும் - மேலோட்ட token-ஐ ஏற்காதீர்கள்
+   - **சரியான Token வாழ்நாள்**: பாதுகாப்பான token சுழற்சி, காலாவதியை குறித்த கொள்கைகள் மற்றும் token மீண்டும் பயன்படுத்தப்படுவதைத் தடுக்கும் முறைகளை அமல் படுத்தவும்
 
-**Token பாதுகாப்பான சேமிப்பு:**
-   - Azure Key Vault அல்லது இதற்கு இணையான பாதுகாப்பான credential stores-ஐ பயன்படுத்தவும்  
-   - Tokens-ஐ rest மற்றும் transit-இல் encryption செய்யவும்  
-   - Unauthorized access-ஐ கண்டறிய credential rotation மற்றும் monitoring-ஐ சீராக செயல்படுத்தவும்  
+**பாதுகாக்கப்பட்ட Token சேமிப்பு:**
+   - அனைத்து ரகசியங்களுக்கும் Azure Key Vault அல்லது அதே போன்ற பாதுகாப்பான நற்சான்றுகள் சேமிப்புகளைப் பயன்படுத்தவும்
+   - Token க்கு தரைக்கலமாகவும் நேர்மாற்றத்தில் உள்ளவையாகவும் குறியாக்கம் செய்யவும்
+   - தவறான அணுகலை தடுக்கும் சமய சான்று சுழற்சி மற்றும் கண்காணிப்பு
 
-## 2. **Session மேலாண்மை & Transport பாதுகாப்பு**
+## 2. **Session மேலாண்மை மற்றும் போக்குவரத்து பாதுகாப்பு**
 
-**Session பாதுகாப்பு நடைமுறைகள்:**
-   - **Cryptographically Secure Session IDs**: பாதுகாப்பான random number generators மூலம் உருவாக்கப்பட்ட non-deterministic session IDs-ஐ பயன்படுத்தவும்  
-   - **User-Specific Binding**: `<user_id>:<session_id>` போன்ற formats-ஐ session IDs-ஐ user identities-க்கு bind செய்ய cross-user session abuse-ஐ தடுக்கவும்  
-   - **Session Lifecycle Management**: Expiration, rotation, invalidation ஆகியவற்றை சரியாக செயல்படுத்த vulnerability windows-ஐ குறைக்கவும்  
-   - **HTTPS/TLS Enforcement**: Session ID interception-ஐ தடுக்க அனைத்து தொடர்புகளுக்கும் HTTPS கட்டாயமாக செயல்படுத்தவும்  
+**பாதுகாப்பான Session நடைமுறைகள்:**
+   - **குறியாக்க பயன்பாட்டுடன் பாதுகாப்பான Session IDs**: பாதுகாப்பான மாதிரிப்பெறாத session ID களை பாதுகாப்பான சீரிழவில்லாத எண்ணி உற்பத்தியாளர்களைப் பயன்படுத்தி உருவாக்கவும்
+   - **பயன் சோம்பல் பிணைப்பு**: `<user_id>:<session_id>` போன்ற வடிவங்களை பயன்படுத்தி பயனரின் அடையாளத்துடன் session IDs ஐ பிணைத்து பயனருக்கு மாறுபட்ட session மோசடிகளை தடுக்கும்
+   - **Session வாழ்நாள் மேலாண்மை**: பாதுகாப்பு சாளரங்களை குறைக்கும் வகையில் சரியான காலாவதி, சுழற்சி மற்றும் செல்லாததாக்குதல் நடைமுறைகளை அமல் படுத்தவும்
+   - **HTTPS/TLS கட்டாயப்படுத்தல்**: session ID சேதி பிரவேசத்தைத் தடுப்பதற்காக அனைத்து தொடர்புகளுக்கும் HTTPS கட்டாயம்
 
-**Transport Layer Security:**
-   - TLS 1.3-ஐ சரியான certificate management-இன் மூலம் configure செய்யவும்  
-   - முக்கியமான தொடர்புகளுக்கு certificate pinning-ஐ செயல்படுத்தவும்  
-   - Certificates-ஐ சீராக rotate செய்து validity-ஐ சரிபார்க்கவும்  
+**போக்குவரத்து படுக்கை பாதுகாப்பு:**
+   - சான்றிதழ் மேலாண்மையால் TLS 1.3 ஐ சாத்தியமுள்ள இடங்களில் உள்ளமைக்கவும்
+   - முக்கிய இணைப்புகளுக்கான சான்றிதழ் பூட்டுமானம் செய்வது
+   - சான்றிதழ் பொதுநிலை மாற்றம் மற்றும் செல்லுபடியான தனித்துவம் பரிசோதனை
 
-## 3. **AI-க்கு தனித்துவமான அச்சுறுத்தல்களைத் தடுக்க 🤖**
+## 3. **AI-க்கு தனித்துவமான அச்சுறுத்தல் பாதுகாப்பு** 🤖
 
 **Prompt Injection பாதுகாப்பு:**
-   - **Microsoft Prompt Shields**: Malicious instructions-ஐ advanced detection மற்றும் filtering செய்ய AI Prompt Shields-ஐ deploy செய்யவும்  
-   - **Input Sanitization**: Injection attacks மற்றும் confused deputy பிரச்சினைகளைத் தடுக்க inputs-ஐ validate செய்து sanitize செய்யவும்  
-   - **Content Boundaries**: Trusted instructions மற்றும் வெளிப்புற உள்ளடக்கத்தை வேறுபடுத்த delimiter மற்றும் datamarking systems-ஐ பயன்படுத்தவும்  
+   - **Microsoft Prompt Shields**: தீங்கு விளையும் உத்தரவுகளை கண்டறிய மற்றும் தடுக்க AI Prompt Shields களை செயல்படுத்தவும்
+   - **உள்ளீட்டு சுத்திகரிப்பு**: எல்லா உள்ளீடுகளையும் சரிபார்த்து சுத்திகரித்து injection மற்றும் confused deputy பிரச்சனைகளைத் தடுக்கும்
+   - **உள்ளடக்கு எல்லைகள்**: நம்பகமான உத்தரவுகளுக்கும் புற உள்ளடக்கத்திற்குமான வேறுபாட்டை அடையாளம் காண delimiter மற்றும் data marking முறைகளைக் பயன்படுத்தவும்
 
-**Tool Poisoning தடுப்பு:**
-   - **Tool Metadata Validation**: Tool definitions integrity checks-ஐ செயல்படுத்த unexpected changes-ஐ கண்காணிக்கவும்  
-   - **Dynamic Tool Monitoring**: Runtime behavior-ஐ கண்காணித்து unexpected execution patterns-க்கு alerting அமைக்கவும்  
-   - **Approval Workflows**: Tool modifications மற்றும் capability changes-க்கு explicit user approval-ஐ தேவைப்படுத்தவும்  
+**கருவி விஷபத்திரு தடுப்பு:**
+   - **கருவி மெட்டாடேட்டா சரிபார்த்தல்**: கருவி வரையறைகளுக்கான ஒத்துழைப்பு சோதனைகள் மற்றும் எதிர்பாராத மாற்றங்களை கண்காணிக்கவும்
+   - **இயங்கும் நேர கருவி கண்காணிப்பு**: எதிர்பாராத செயலாக்க முறைகளுக்கு கண்காணிப்பு மற்றும் எச்சரிக்கை அமைக்கவும்
+   - **அனுமதி வேலைகள்**: கருவி மாற்றங்கள் மற்றும் திறன் மாற்றங்களுக்கு பயனர் ஒப்புதலை அவசியம் செய்யவும்
 
-## 4. **Access Control & Permissions**
+## 4. **அணுகல் கட்டுப்பாடு மற்றும் அனுமதிகள்**
 
-**Principle of Least Privilege:**
-   - MCP சேவைகளுக்கு தேவையான குறைந்த permissions மட்டுமே வழங்கவும்  
-   - Fine-grained permissions-உடன் role-based access control (RBAC)-ஐ செயல்படுத்தவும்  
-   - Privilege escalation-ஐ தடுக்க permissions-ஐ சீராக மதிப்பீடு செய்து கண்காணிக்கவும்  
+**குறைந்தபட்ச அனுமதி 원칙ம்:**
+   - MCP சேவையகங்கள் தேவையான குறைந்தபட்ச அனுமதிகளை மட்டுமே வழங்க வேண்டும்
+   - நுட்பமான அனுமதி மட்டங்களில் அடிப்படையாய் கட்டுப்பாடுகளை அமல் படுத்தவும்
+   - அனுமதி சரிபார்ப்பு மற்றும் தொடர்ச்சியான கண்காணிப்பு மூலம் மேலாண்மையை உறுதி செய்யவும்
 
-**Runtime Permission Controls:**
-   - Resource exhaustion attacks-ஐ தடுக்க resource limits-ஐ செயல்படுத்தவும்  
-   - Tool execution environments-க்கு container isolation-ஐ பயன்படுத்தவும்  
-   - Administrative functions-க்கு just-in-time access-ஐ செயல்படுத்தவும்  
+**இயங்கும் நேர அனுமதி கட்டுப்பாடுகள்:**
+   - வளங்களைக் குறைக்கும் விதத்தில் வள முறிப்பு தாக்குதல்களைத் தடுக்கும்
+   - கருவி இயக்க வளங்களுக்கு தனித்தானியக் கட்டுப்பாடு
+   - நிர்வாக செயல்பாடுகளுக்கு நேரத்தில் அணுகலை வழங்கும் நடைமுறை
 
-## 5. **Content Safety & Monitoring**
+## 5. **உள்ளடக்கம் பாதுகாப்பு மற்றும் கண்காணிப்பு**
 
-**Content Safety செயல்படுத்தல்:**
-   - **Azure Content Safety Integration**: Hateful content, jailbreak முயற்சிகள் மற்றும் policy மீறல்களை கண்டறிய Azure Content Safety-ஐ பயன்படுத்தவும்  
-   - **Behavioral Analysis**: MCP சேவை மற்றும் tool execution-இல் உள்ள runtime anomalies-ஐ கண்டறிய runtime behavioral monitoring-ஐ செயல்படுத்தவும்  
-   - **Comprehensive Logging**: Authentication முயற்சிகள், tool invocations மற்றும் security நிகழ்வுகளை tamper-proof storage-இல் பதிவு செய்யவும்  
+**உள்ளடக்க பாதுகாப்பு நடைமுறைகள்:**
+   - **Azure Content Safety ஒருங்கிணைப்பு**: Azure Content Safety வை ஆபத்தான உள்ளடக்கம், jailbreak முயற்சிகள் மற்றும் கொள்கை மீறல்கள் கண்டறிய பயன்படுத்தவும்
+   - **நடத்தை பகுப்பாய்வு**: MCP சேவையக மற்றும் கருவி செயலாக்கங்களில் முற்றிலும் நடத்தை கண்காணிப்பு அமல் படுத்தவும்
+   - **விரிவான பதிவு**: அனைத்து அங்கீகார முயற்சிகளும், கருவி அழைப்புகளும் மற்றும் பாதுகாப்பு நிகழ்வுகளும் பாதுகாப்பான, திருத்த முடியாத இடத்தில் பதிவு செய்யப்படும்
 
 **தொடர்ச்சியான கண்காணிப்பு:**
-   - Unauthorized access முயற்சிகள் மற்றும் சந்தேகமான patterns-க்கு real-time alerting  
-   - SIEM systems-உடன் ஒருங்கிணைத்து centralized security event management  
-   - MCP செயல்பாடுகளின் security audits மற்றும் penetration testing-ஐ சீராக செயல்படுத்தவும்  
+   - சந்தேகமான முறைகளுக்கான நேரடி எச்சரிக்கைகள் மற்றும் தவறான அணுகல் முயற்சிகள்
+   - மையமாக்கப்பட்ட பாதுகாப்பு நிகழ்வு மேலாணக்கூடிய SIEM அமைப்புடன் ஒருங்கிணைப்பு
+   - MCP அமல்களில் பாதுகாப்பு ஆய்வுகள் மற்றும் குழப்பல் சோதனைகள்
 
-## 6. **Supply Chain Security**
+## 6. **சப்ளை சேன் பாதுகாப்பு**
 
-**Component Verification:**
-   - **Dependency Scanning**: Vulnerability scanning-ஐ software dependencies மற்றும் AI components-க்கு automated முறையில் செயல்படுத்தவும்  
-   - **Provenance Validation**: Models, data sources மற்றும் வெளிப்புற சேவைகளின் origin, licensing மற்றும் integrity-ஐ சரிபார்க்கவும்  
-   - **Signed Packages**: Cryptographically signed packages-ஐ deploy செய்யும் முன் signatures-ஐ validate செய்யவும்  
+**கூட்டு பகுப்பாய்வு:**
+   - அனைத்து மென்பொருள் சார்புகளுக்கும் மற்றும் AI கூறுகளுக்கும் தானியங்கி அசல் பிழை கண்டறிதல்
+   - மாதிரிகள், தரவுத் தெருக்கள் மற்றும் புற சேவைகளின் தோற்றம், உரிமம் மற்றும் ஒத்துழைப்பு சரிபார்ப்பு
+   - கையெழுத்திடப்பட்ட தொகுதிகள் பயன்படுத்தி வெளியீட்டு முன்பாக கையெழுத்துகளை சரிபார்க்கவும்
 
-**Secure Development Pipeline:**
-   - **GitHub Advanced Security**: Secret scanning, dependency analysis மற்றும் CodeQL static analysis-ஐ செயல்படுத்தவும்  
-   - **CI/CD Security**: Automated deployment pipelines-இல் security validation-ஐ ஒருங்கிணைக்கவும்  
-   - **Artifact Integrity**: Cryptographic verification-ஐ deployed artifacts மற்றும் configurations-க்கு செயல்படுத்தவும்  
+**பாதுகாப்பான மேம்பாட்டு குழாயகம்:**
+   - **GitHub முன்னேற்ற பாதுகாப்பு**: ரகசியம் சோதனை, சார்பு பகுப்பாய்வு மற்றும் CodeQL நிலையான பகுப்பாய்வு
+   - **CI/CD பாதுகாப்பு**: தானியங்கிய வெளியீட்டு குழாயங்களில் பாதுகாப்பு சரிபார்ப்பு
+   - **வினைப்பொருள் ஒத்துழைப்பு**: வெளியிடப்பட்ட ஆவணங்கள் மற்றும் கட்டமைப்புகளுக்கு குறியாக்க சரிபார்ப்பு
 
-## 7. **OAuth Security & Confused Deputy Prevention**
+## 7. **OAuth பாதுகாப்பு மற்றும் Confused Deputy தடுப்பு**
 
-**OAuth 2.1 செயல்படுத்தல்:**
-   - **PKCE Implementation**: Authorization requests-க்கு Proof Key for Code Exchange (PKCE)-ஐ பயன்படுத்தவும்  
-   - **Explicit Consent**: Confused deputy attacks-ஐ தடுக்க ஒவ்வொரு dynamic client-க்கும் பயனர் ஒப்புதலைப் பெறவும்  
-   - **Redirect URI Validation**: Redirect URIs மற்றும் client identifiers-ஐ கடுமையாக validate செய்யவும்  
+**OAuth 2.1 நடைமுறை:**
+   - **PKCE நடைமுறை**: அனைத்து அங்கீகார கோரிக்கைகளுக்கும் Proof Key for Code Exchange (PKCE) பயன்படுத்தவும்
+   - **தனிப்பட்ட ஒப்புதல்**: confused deputy தாக்குதல்களை தடுப்பதற்கான ஒவ்வொரு கிளையன்டுக்கும் பயனர் அனுமதி பெறுவது அவசியம்
+   - **Redirect URI பரிசோதனை**: redirect URI களை கடுமையாக பரிசோதித்தல் மற்றும் client அடையாளங்களைக் கவனிக்கவும்
 
-**Proxy Security:**
-   - Static client ID exploitation மூலம் authorization bypass-ஐ தடுக்கவும்  
-   - Third-party API access-க்கு சரியான consent workflows-ஐ செயல்படுத்தவும்  
-   - Authorization code theft மற்றும் unauthorized API access-ஐ கண்காணிக்கவும்  
+**Proxy பாதுகாப்பு:**
+   - ஸ்திர client ID பலன்கள் மூலம் அங்கீகார தவிர்க்கல் தடுப்பு
+   - மூன்றாம் parti API அணுகலுக்கு சரியான அனுமதி வேலைநடவடிக்கைகள்
+   - அங்கீகாரக் கோட் திருட்டும் தவறான API அணுகலும் கண்காணிப்பு
 
-## 8. **Incident Response & Recovery**
+## 8. **நிகழ்வு பதில் மற்றும் மீட்பு**
 
-**Rapid Response திறன்கள்:**
-   - **Automated Response**: Credential rotation மற்றும் threat containment-க்கு automated systems-ஐ செயல்படுத்தவும்  
-   - **Rollback Procedures**: Known-good configurations மற்றும் components-க்கு விரைவாக revert செய்யும் திறனை உருவாக்கவும்  
-   - **Forensic Capabilities**: Incident investigation-க்கு விரிவான audit trails மற்றும் logging-ஐ செயல்படுத்தவும்  
+**விரைவான பதில் திறன்கள்:**
+   - **தானியங்கி பதில்**: சான்று சுழற்சி மற்றும் அச்சுறுத்தல் கட்டுப்பாடு தானியங்கிய முறைகள்
+   - **மீட்பு நடைமுறைகள்**: அறிவிக்கப்பட்ட நல்ல கட்டமைப்புகளுக்கும் கூறுகளுக்கும் விரைவாக திரும்பும் திறன்
+   - **தரவு ஆய்வு வகையியல்**: நிகழ்வு விசாரணைக்கு விரிவான கணக்கெடுப்புகள் மற்றும் பதிவுகள்
 
-**Communications & Coordination:**
-   - Security incidents-க்கு தெளிவான escalation செயல்முறைகள்  
-   - அமைப்பின் incident response குழுக்களுடன் ஒருங்கிணைப்பு  
-   - Security incident simulations மற்றும் tabletop exercises-ஐ சீராக செயல்படுத்தவும்  
+**தொடர்பு மற்றும் ஒருங்கிணைப்பு:**
+   - பாதுகாப்பு நிகழ்வுகளுக்கான தெளிவான ஏற்றுமதி நடைமுறைகள்
+   - நிறுவன நிகழ்வு பதில் குழுக்களுடன் ஒருங்கிணைப்பு
+   - பாதுகாப்பு நிகழ்வு மாதிரிகள் மற்றும் டேபிள்டாப் பயிற்சிகள்
 
-## 9. **Compliance & Governance**
+## 9. **கட்டுப்பாடு மற்றும் நிர்வாகம்**
 
-**Regulatory Compliance:**
-   - MCP செயல்பாடுகள் GDPR, HIPAA, SOC 2 போன்ற தொழில்துறை-specific தேவைகளை பூர்த்தி செய்ய வேண்டும்  
-   - AI data processing-க்கு data classification மற்றும் privacy controls-ஐ செயல்படுத்தவும்  
-   - Compliance auditing-க்கு விரிவான ஆவணங்களை பராமரிக்கவும்  
+**கட்டுப்பாட்டு ஒத்திசைவு:**
+   - MCP செயல்பாட்டுகள் தொழில்துறைக்கு வகைப்படுத்தப்பட்ட விதிகளுடன் (GDPR, HIPAA, SOC 2) இணங்குதல்
+   - AI தரவு செயலாக்கத்திற்கான தரவுப் பிரிவு மற்றும் தனியுரிமை கட்டுப்பாடுகள்
+   - ஒத்துழைவு கண்காணிப்புக்கான விரிவான ஆவணப்படுத்தல்
 
-**Change Management:**
-   - MCP system மாற்றங்களுக்கு formal security review செயல்முறைகள்  
-   - Configuration changes-க்கு version control மற்றும் approval workflows  
-   - Compliance assessments மற்றும் gap analysis-ஐ சீராக செயல்படுத்தவும்  
+**மாற்ற மேலாண்மை:**
+   - அனைத்து MCP அமைப்பு மாற்றங்களுக்கு முறையான பாதுகாப்பு ஆய்வாக்கையாளர்கள்
+   - கட்டமைப்பு மாற்றங்களுக்கு பதிப்பு மேலாண்மை மற்றும் ஒப்புதல் வேலைநடவடிக்கைகள்
+   - கட்டுப்பாட்டு மதிப்பீடுகள் மற்றும் முன்னோட்ட சோதனைகள்
 
-## 10. **Advanced Security Controls**
+## 10. **மேம்பட்ட பாதுகாப்பு கட்டுப்பாடுகள்**
 
-**Zero Trust Architecture:**
-   - **Never Trust, Always Verify**: Users, devices மற்றும் connections-ஐ தொடர்ச்சியாக validate செய்யவும்  
-   - **Micro-segmentation**: MCP components-ஐ தனித்துவமாக isolate செய்ய network controls  
-   - **Conditional Access**: Risk-based access controls-ஐ current context மற்றும் behavior-க்கு ஏற்ப செயல்படுத்தவும்  
+**சுழற்சி நம்பிக்கை வரைபடம்:**
+   - **எந்நேரமும் பரிசோதிக்கவும், ஒருபோதும் நம்பாதீர்கள்**: பயனர்கள், சாதனங்கள் மற்றும் தொடர்புகள் தொடர்ச்சியான பரிசோதனை
+   - **சிறு பகுப்பு(network segmentation)**: தனிப்பட்ட MCP கூறுகளை தனிமைப்படுத்தும் நுட்பமான நெட்வொர்க் கட்டுப்பாடுகள்
+   - **நிபந்தனை அணுகல்**: தற்போதைய சூழல் மற்றும் நடத்தை அடிப்படையிலான ஆபத்து மூலம் மூலத்துவ அணுகல் கட்டுப்பாடுகள்
 
-**Runtime Application Protection:**
-   - **Runtime Application Self-Protection (RASP)**: Real-time threat detection-க்கு RASP techniques-ஐ deploy செய்யவும்  
-   - **Application Performance Monitoring**: Attacks-ஐ குறிக்க performance anomalies-ஐ monitor செய்யவும்  
-   - **Dynamic Security Policies**: Current threat landscape-க்கு ஏற்ப security policies-ஐ adapt செய்யவும்  
+**இயங்கும் நேர பயன்பாட்டு பாதுகாப்பு:**
+   - **இயங்கும் நேர பயன்பாட்டு தானியம் பாதுகாப்பு (RASP)**: நேரடி அச்சுறுத்தல் கண்டறிதல் தொழில்நுட்பங்கள்
+   - **பயன்பாட்டு செயல்திறன் கண்காணிப்பு**: தாக்குதல்களின் அறிகுறிகளான செயல்திறன் விலகல்களை கண்காணிக்கவும்
+   - **இயங்கும் பாதுகாப்பு கொள்கைகள்**: தற்போதைய அச்சுறுத்தல் சூழ்நிலைக்கு ஏற்ப திருத்தப்படும் பாதுகாப்பு கொள்கைகள்
 
-## 11. **Microsoft Security Ecosystem Integration**
+## 11. **Microsoft பாதுகாப்பு சூழல் ஒருங்கிணைப்பு**
 
-**Comprehensive Microsoft Security:**
-   - **Microsoft Defender for Cloud**: MCP workloads-க்கு cloud security posture management  
-   - **Azure Sentinel**: Advanced threat detection-க்கு cloud-native SIEM மற்றும் SOAR திறன்கள்  
-   - **Microsoft Purview**: AI workflows மற்றும் data sources-க்கு data governance மற்றும் compliance  
+**விரிவான Microsoft பாதுகாப்பு:**
+   - **Microsoft Defender for Cloud**: MCP பணிகள் க்கான மெய்வள மேலாண்மை
+   - **Azure Sentinel**: மேம்பட்ட அச்சுறுத்தல் கண்டறிதலுக்கு மேகதள SIEM மற்றும் SOAR செயல்பாடுகள்
+   - **Microsoft Purview**: AI பணிகள் மற்றும் தரவுத்தேர்க்கைகளுக்கான தரவு நிர்வாகம் மற்றும் ஒத்திசைவு
 
-**Identity & Access Management:**
-   - **Microsoft Entra ID**: Conditional access policies-உடன் enterprise identity management  
-   - **Privileged Identity Management (PIM)**: Administrative functions-க்கு just-in-time access மற்றும் approval workflows  
-   - **Identity Protection**: Risk-based conditional access மற்றும் automated threat response  
+**அடையாளம் மற்றும் அணுகல் மேலாண்மை:**
+   - **Microsoft Entra ID**: நிபந்தனை தன்மையுடன் நிறுவனம் அடையாள மேலாண்மை
+   - **Privileged Identity Management (PIM)**: நிர்வாக செயல்பாடுகளுக்கான நேரத்தில் அணுகல் மற்றும் ஒப்புதல் வேலைநடவடிக்கை
+   - **Identity Protection**: ஆபத்து அடிப்படையிலான நிபந்தனை அணுகல் மற்றும் தானியங்கி அச்சுறுத்தல் பதில்கள்
 
-## 12. **Continuous Security Evolution**
+## 12. **தொடர்ச்சியான பாதுகாப்பு முன்னேற்றம்**
 
-**தற்போதைய நிலையை பராமரித்தல்:**
-   - **Specification Monitoring**: MCP specification updates மற்றும் security guidance changes-ஐ சீராக மதிப்பீடு செய்யவும்  
-   - **Threat Intelligence**: AI-specific threat feeds மற்றும் compromise-indicators-ஐ ஒருங்கிணைக்கவும்  
-   - **Security Community Engagement**: MCP security community மற்றும் vulnerability disclosure programs-இல் செயல்படவும்  
+**நிகழ்நிலை பேணல்:**
+   - **விவரக்குறிப்பு கண்காணிப்பு**: MCP விவரக்குறிப்பு புதுப்பிப்புகள் மற்றும் பாதுகாப்பு வழிகாட்டுதல்களில் வழக்கமான ஆய்வு
+   - **அச்சுறுத்தல் நுண்ணறிவு**: AI தனித்துவமான அச்சுறுத்தல் ஊட்டச்சத்து மற்றும் பாதிப்பு குறியீடுகள் ஒருங்கிணைப்பு
+   - **பாதுகாப்பு சமூகம் ஈடுபாடு**: MCP பாதுகாப்பு சமூகம் மற்றும் பாதிப்பு வெளிப்படுத்தல் திட்டங்களில் செயலில் இணைப்பு
 
-**Adaptive Security:**
-   - **Machine Learning Security**: Novel attack patterns-ஐ கண்டறிய ML-based anomaly detection-ஐ பயன்படுத்தவும்  
-   - **Predictive Security Analytics**: Proactive threat identification-க்கு predictive models-ஐ செயல்படுத்தவும்  
-   - **Security Automation**: Threat intelligence மற்றும் specification changes-ஐ அடிப்படையாகக் கொண்டு automated security policy updates-ஐ செயல்படுத்தவும்  
+**உடன்படக் கூடிய பாதுகாப்பு:**
+   - **இயந்திரக் கற்றல் பாதுகாப்பு**: புதிய தாக்குதல் முறைகளை கண்டறிய ML அடிப்படையிலான விலகல் கண்டறிதல்
+   - **முன்னறிவிப்பு பாதுகாப்பு பகுப்பாய்வு**: பேராசை அஞ்சல்கள் அடிப்படையில் முன்கூட்டியே அச்சுறுத்தலை அடையாளம் காண மாதிரிகள்
+   - **பாதுகாப்பு தானியக்கப்படுத்தல்**: அச்சுறுத்தல் நுண்ணறிவு மற்றும் விவரக்குறிப்பு மாற்றங்களை அடிப்படையாகக் கொண்டு தானியங்கி பாதுகாப்பு கொள்கை புதுப்பிப்புகள்
 
 ---
 
-## **முக்கிய பாதுகாப்பு வளங்கள்**
+## **முக்கிய பாதுகாப்பு ஆதாரங்கள்**
 
-### **அதிகாரப்பூர்வ MCP ஆவணங்கள்**
-- [MCP Specification (2025-06-18)](https://spec.modelcontextprotocol.io/specification/2025-06-18/)
-- [MCP Security Best Practices](https://modelcontextprotocol.io/specification/2025-06-18/basic/security_best_practices)
-- [MCP Authorization Specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization)
+### **அதிகார MCP ஆவணங்கள்**
+- [MCP விவரக்குறிப்பு (2025-11-25)](https://spec.modelcontextprotocol.io/specification/2025-11-25/)
+- [MCP பாதுகாப்பு சிறந்த நடைமுறைகள்](https://modelcontextprotocol.io/specification/2025-11-25/basic/security_best_practices)
+- [MCP அங்கீகாரம் விவரக்குறிப்பு](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization)
 
-### **Microsoft Security Solutions**
+### **OWASP MCP பாதுகாப்பு ஆதாரங்கள்**
+- [OWASP MCP Azure பாதுகாப்பு வழிகாட்டி](https://microsoft.github.io/mcp-azure-security-guide/) - Azure அமலுக்கு OWASP MCP Top 10 முழுமையான தொகுப்பு
+- [OWASP MCP Top 10](https://owasp.org/www-project-mcp-top-10/) - அதிகாரப்பூர்வ OWASP MCP பாதுகாப்பு ஆபத்துகள்
+- [MCP பாதுகாப்பு சங்கமம் பணிமனை (Sherpa)](https://azure-samples.github.io/sherpa/) - Azure இல் MCP க்கான நடைமுறை பாதுகாப்பு பயிற்சி
+
+### **Microsoft பாதுகாப்பு தீர்வுகள்**
 - [Microsoft Prompt Shields](https://learn.microsoft.com/azure/ai-services/content-safety/concepts/jailbreak-detection)
 - [Azure Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/)
-- [Microsoft Entra ID Security](https://learn.microsoft.com/entra/identity-platform/secure-least-privileged-access)
-- [GitHub Advanced Security](https://github.com/security/advanced-security)
+- [Microsoft Entra ID பாதுகாப்பு](https://learn.microsoft.com/entra/identity-platform/secure-least-privileged-access)
+- [GitHub முன்னேற்ற பாதுகாப்பு](https://github.com/security/advanced-security)
 
-### **Security Standards**
-- [OAuth 2.0 Security Best Practices (RFC 9700)](https://datatracker.ietf.org/doc/html/rfc9700)
-- [OWASP Top 10 for Large Language Models](https://genai.owasp.org/)
-- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
+### **பாதுகாப்பு மட்டங்கள்**
+- [OAuth 2.0 பாதுகாப்பு சிறந்த நடைமுறைகள் (RFC 9700)](https://datatracker.ietf.org/doc/html/rfc9700)
+- [பெரிய மொழி மாதிரிகளுக்கான OWASP Top 10](https://genai.owasp.org/)
+- [NIST AI ஆபத்து மேலாண்மை கட்டமைப்பு](https://www.nist.gov/itl/ai-risk-management-framework)
 
-### **Implementation Guides**
-- [Azure API Management MCP Authentication Gateway](https://techcommunity.microsoft.com/blog/integrationsonazureblog/azure-api-management-your-auth-gateway-for-mcp-servers/4402690)
-- [Microsoft Entra ID with MCP Servers](https://den.dev/blog/mcp-server-auth-entra-id-session/)
-
----
-
-> **Security Notice**: MCP பாதுகாப்பு நடைமுறைகள் வேகமாக மாறுகின்றன. MCP செயல்படுத்துவதற்கு முன் தற்போதைய [MCP specification](https://spec.modelcontextprotocol.io/) மற்றும் [அதிகாரப்பூர்வ பாதுகாப்பு ஆவணங்கள்](https://modelcontextprotocol.io/specification/2025-06-18/basic/security_best_practices)-ஐ சரிபார்க்கவும்.
+### **அமலாக்க வழிகாட்டிகள்**
+- [Azure API மேலாண்மை MCP அங்கீகாரம் வாயிலுக்கு](https://techcommunity.microsoft.com/blog/integrationsonazureblog/azure-api-management-your-auth-gateway-for-mcp-servers/4402690)
+- [Microsoft Entra ID உடன் MCP சேவையகங்கள்](https://den.dev/blog/mcp-server-auth-entra-id-session/)
 
 ---
 
-**குறிப்பு**:  
-இந்த ஆவணம் [Co-op Translator](https://github.com/Azure/co-op-translator) என்ற AI மொழிபெயர்ப்பு சேவையைப் பயன்படுத்தி மொழிபெயர்க்கப்பட்டுள்ளது. நாங்கள் துல்லியத்திற்காக முயற்சிக்கின்றோம், ஆனால் தானியங்கி மொழிபெயர்ப்புகளில் பிழைகள் அல்லது தவறான தகவல்கள் இருக்கக்கூடும் என்பதை கவனத்தில் கொள்ளவும். அதன் தாய்மொழியில் உள்ள மூல ஆவணம் அதிகாரப்பூர்வ ஆதாரமாகக் கருதப்பட வேண்டும். முக்கியமான தகவல்களுக்கு, தொழில்முறை மனித மொழிபெயர்ப்பு பரிந்துரைக்கப்படுகிறது. இந்த மொழிபெயர்ப்பைப் பயன்படுத்துவதால் ஏற்படும் எந்தவொரு தவறான புரிதல்கள் அல்லது தவறான விளக்கங்களுக்கு நாங்கள் பொறுப்பல்ல.
+> **பாதுகாப்பு அறிவிப்பு**: MCP பாதுகாப்பு நடைமுறைகள் விரைவாக முன்னேறுகின்றன. செயற்படுத்துவதற்கு முன்பு எப்போதும் தற்போதைய [MCP விவரக்குறிப்பு](https://spec.modelcontextprotocol.io/) மற்றும் [அதிகார பாதுகாப்பு ஆவணங்கள்](https://modelcontextprotocol.io/specification/2025-11-25/basic/security_best_practices) இணையானதை சரிபார்க்கவும்.
+
+## அடுத்த படி என்ன
+
+- வாசிக்க: [MCP பாதுகாப்பு கட்டுப்பாடுகள் 2025](./mcp-security-controls-2025.md)
+- திரும்ப: [பாதுகாப்பு தொகுதிப் பார்வை](./README.md)
+- தொடர: [தொகுதி 3: துவக்கம்](../03-GettingStarted/README.md)
+
+---
+
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**மறுப்பு**:  
+இந்த ஆவணம் [Co-op Translator](https://github.com/Azure/co-op-translator) என்ற ஏ.ஐ. மொழிபெயர்ப்பு சேவையை பயன்படுத்தி மொழிபெயர்க்கப்பட்டுள்ளது. நாம் துல்லியதற்காக முயற்சித்தாலும், தானியங்கி மொழிபெயர்ப்புகளில் பிழைகள் அல்லது தவறுகள் இருக்கக்கூடும் என்பதை தயவுசெய்து கவனியுங்கள். அசல் ஆவணம் அதன் இயல்புநிலை மொழித்தில் அதிகாரபூர்வமான மூலமாகக் கருதப்பட வேண்டும். முக்கிய தகவல்களுக்கு, தொழில்முறை மனித மொழிபெயர்ப்பை பரிந்துரைக்கிறோம். இந்த மொழிபெயர்ப்பின் பயன்பாட்டால் ஏற்பட்ட எந்த தவறான புரிதல்கள் அல்லது தவறான விளக்கங்களுக்கு நாங்கள் பொறுப்பாக்கொள்ளமாட்டோம்.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

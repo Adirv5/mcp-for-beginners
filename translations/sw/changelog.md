@@ -1,310 +1,542 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "beaeca2ae0ec007783e6310a3b63291f",
-  "translation_date": "2025-10-06T23:44:22+00:00",
-  "source_file": "changelog.md",
-  "language_code": "sw"
-}
--->
-# Rekodi ya Mabadiliko: Mtaala wa MCP kwa Kompyuta
+# Mabadiliko ya Mtaala: MCP kwa Waanzilishi
 
-Hati hii ni rekodi ya mabadiliko muhimu yaliyofanywa kwenye mtaala wa Model Context Protocol (MCP) kwa Kompyuta. Mabadiliko yameandikwa kwa mpangilio wa kinyume wa tarehe (mabadiliko mapya kwanza).
+Hati hii hutumika kama rekodi ya mabadiliko yote muhimu yaliyofanywa kwenye mtaala wa Model Context Protocol (MCP) kwa Waanzilishi. Mabadiliko yameandikwa kwa mpangilio wa mfululizo wa kinyume wa wakati (mabadiliko mapya kwanza).
+
+## Februari 5, 2026
+
+### Marekebisho ya Uthibitishaji na Uboreshaji wa Ut导航 Katika Hifadhi Yote
+
+#### Maudhui Mapya ya Mtaala Yameongezwa
+
+**Moduli 03 - Kuanzia**
+- **12-mcp-hosts/README.md**: Mwongozo mpana mpya wa kuweka mwenyeji wa MCP
+  - Mifano ya usanidi wa Claude Desktop, VS Code, Cursor, Cline, Windsurf
+  - Violezo vya usanidi wa JSON kwa wenyeji wote wakubwa
+  - Jedwali la kulinganisha aina za usafirishaji (stdio, SSE/HTTP, WebSocket)
+  - Utatuzi wa matatizo ya kawaida ya muunganisho
+  - Mbinu bora za usalama kwa usanidi wa mwenyeji
+
+- **13-mcp-inspector/README.md**: Mwongozo mpya wa uchunguzi (debugging) wa MCP Inspector
+  - Njia za ufungaji (npx, npm global, kutoka chanzo)
+  - Kuunganisha kwa seva kupitia stdio na HTTP/SSE
+  - Zana za majaribio, rasilimali, na taratibu za maoni (prompts)
+  - Muunganisho wa VS Code na MCP Inspector
+  - Matukio ya kawaida ya uchunguzi na suluhisho
+
+**Moduli 04 - Utekelezaji wa Kivitendo**
+- **pagination/README.md**: Mwongozo mpya wa utekelezaji wa ukurasa
+  - Mifumo ya ukurasa unaotegemea cursor katika Python, TypeScript, Java
+  - Uendeshaji wa ukurasa upande wa mteja
+  - Mikakati ya muundo wa cursor (isiyoeleweka vs iliyosanifiwa)
+  - Mapendekezo ya kuboresha utendaji
+
+**Moduli 05 - Mada Zinazopitia Zaidi**
+- **mcp-protocol-features/README.md**: Uchunguzi wa kina wa vipengele vipya vya itifaki
+  - Utekelezaji wa taarifa za maendeleo
+  - Mifumo ya kughairi ombi
+  - Violezo vya rasilimali zilizo na mifumo ya URI
+  - Usimamizi wa mzunguko wa maisha wa seva
+  - Udhibiti wa kiwango cha kurekodi
+  - Mifumo ya kushughulikia makosa na misimbo ya JSON-RPC
+
+#### Marekebisho ya Uwazi wa Ngazi ya Uvinjari (Faili 24+ zilizosasishwa)
+
+**README za Moduli Kuu**
+ Sasa zina viungo kwa somo la kwanza NA moduli inayofuata
+
+**Faili Ndogo za Usalama 02**
+- Nyaraka zote 5 za ziada za usalama sasa zina sehemu ya Utalifu wa Nini Kifuatacho:
+
+**Faili za Utafiti wa Kesi 09**
+- Faili zote za utafiti wa kesi sasa zina utalifu wa mfuatano:
+
+**Maabara ya AI ya Uboreshaji wa Mipango 10**
+Imeongeza sehemu ya Nini Kifuatacho kwenye muhtasari wa Moduli 10 na Moduli 11
+
+#### Marekebisho ya Msimbo na Maudhui
+
+**Sasisho za SDK na Vitegemezi**
+Imerekebisha toleo tupu la openai kuwa `^4.95.0`
+Imesasisha SDK kutoka `^1.8.0` hadi `>=1.26.0`
+Imesasisha vidokezo vya toleo la mcp kuwa `>=1.26.0`
+
+**Marekebisho ya Msimbo**
+Imerekebisha mfano batili `gpt-4o-mini` kuwa `gpt-4.1-mini`
+
+**Marekebisho ya Maudhui**
+Imerekebisha kiungo kilichovunjika `READMEmd` → `README.md`, imerekebisha kichwa cha mtaala `Module 1-3` → `Module 0-3`, imerekebisha njia yenye utofauti wa herufi kubwa na ndogo
+Imeondoa maudhui rudufu ya utafiti wa kesi 5 yaliyoharibika
+
+**Uboreshaji wa Mwongozo kwa Waanzilishi**
+Imeongeza utangulizi sahihi, malengo ya kujifunza, na masharti kwa waanzilishi
+
+#### Sasisho za Mtaala
+
+**README Kuu.md**
+- Imeongeza vipengele 3.12 (MCP Hosts), 3.13 (MCP Inspector), 4.1 (Pagination), 5.16 (Protocol Features) kwenye jedwali la mtaala
+
+**README za Moduli**
+Imeongeza masomo 12 na 13 kwenye orodha ya masomo
+Imeongeza sehemu ya Miongozo ya Kivitendo na kiungo cha ukurasa
+Imeongeza masomo 5.15 (Transport Maalum) na 5.16 (Vipengele vya Itifaki)
+
+**study_guide.md**
+- Imesasisha ramani ya mawazo na mada zote mpya: Usanidi wa MCP Hosts, MCP Inspector, Mikakati ya Ukurasa, Uchunguzi wa Kina wa Vipengele vya Itifaki
+
+## Januali 28, 2026
+
+### Mapitio ya Uzingatiaji wa MCP Specification 2025-11-25
+
+#### Uboreshaji wa Dhana Msingi (01-CoreConcepts/)
+- **Kiprogramu Kipya cha Mteja - Roots**: Imeongeza nyaraka kamili kuhusu kiprogramu cha mteja Roots, kuruhusu seva kuelewa mipaka ya mfumo wa faili na ruhusa za upatikanaji
+- **Maelezo ya Zana**: Imeongeza nyaraka kuhusu maelezo ya mienendo ya zana (`readOnlyHint`, `destructiveHint`) kwa maamuzi bora ya utekelezaji wa zana
+- **Kuitisha Zana Katika Sampuli**: Imesasisha nyaraka za Sampuli kuhusisha vigezo vya `tools` na `toolChoice` kwa kuitishwa kwa zana zinazotegemea mfano wakati wa maombi ya sampuli
+- **Uamsho wa Njia ya URL**: Imeongeza nyaraka kuhusu uamsho wa msingi wa URL kwa mwingiliano wa wavuti unaoanzishwa na seva
+- **Majukumu (Jaribio)**: Imeongeza sehemu mpya inayoelezea kipengele cha Majukumu kwa vifuniko vya utekelezaji wa kudumu na kupata matokeo kwa ucheleweshaji
+- **Msaada wa Ikoni**: Imetaja kuwa zana, rasilimali, violezo vya rasilimali, na maelekezo sasa vinaweza kujumuisha ikoni kama metadata ya ziada
+
+#### Sasisho za Nyaraka
+- **README.md**: Imeongeza kumbukumbu ya toleo la MCP Specification 2025-11-25 na maelezo ya toleo la tarehe
+- **study_guide.md**: Imeboresha ramani ya mtaala kujumuisha Majukumu na Maelezo ya Zana katika sehemu ya Dhana Msingi; imesasisha tarehe ya hati
+
+#### Uhakiki wa Uzingatiaji wa Vipengele vya MCP
+- **Toleo la Itifaki**: Imethibitisha nyaraka zote zinarejelea MCP Specification 2025-11-25 ya sasa
+- **Mlingano wa Miundo**: Imethibitisha usahihi wa nyaraka za usanifu wa tabaka mbili (Tabaka la Data + Tabaka la Usafirishaji)
+- **Nyaraka za Kiprogramu**: Imethibitisha kiprogramu za seva (Rasilimali, Maelekezo, Zana) na zile za mteja (Sampuli, Uamsho, Kurekodi, Roots)
+- **Mifumo ya Usafirishaji**: Imethibitisha usahihi wa nyaraka za usafirishaji STDIO na HTTP inayoelea (Streamable)
+- **Mwongozo wa Usalama**: Imethibitisha ulinganifu na nyaraka za Mbinu Bora za Usalama za MCP za sasa
+
+#### Vipengele Muhimu vya MCP 2025-11-25 Vilivyorekodiwa
+- **Ugunduzi wa OpenID Connect**: Ugunduzi wa seva ya uthibitishaji kupitia OIDC
+- **Nyaraka za Metadata ya OAuth Client ID**: Pendekezo la utaratibu wa usajili wa mteja
+- **JSON Schema 2020-12**: Lahaja msingi kwa ufafanuzi wa schema MCP
+- **Mfumo wa Ngazi za SDK**: Mahitaji rasmi ya msaada wa vipengele na matengenezo ya SDK
+- **Muundo wa Uongozi**: Makundi ya Kazi na Makundi ya Maslahi yamefanywa rasmi katika uongozi wa MCP
+
+### Sasisho Kuu la Nyaraka za Usalama (02-Security/)
+
+#### Uunganisho wa Warsha ya Sumu ya Usalama ya MCP (Sherpa)
+- **Rasilimali Mpana ya Mafunzo ya Vitendo**: Imeunganisha kwa kina na [Warsha ya Sumu ya Usalama ya MCP (Sherpa)](https://azure-samples.github.io/sherpa/) katika nyaraka zote za usalama
+- **Ufuatiliaji wa Njia ya Kukwea Mlima**: Imeeleza maendeleo ya hatua kwa hatua kutoka Kambi ya Msingi hadi Mlima
+- **Ulinganifu na OWASP**: Mwongozo wote wa usalama sasa unalingana na Mwongozo wa Usalama MCP Azure wa OWASP
+
+#### Uunganisho wa OWASP MCP Top 10
+- **Sehemu Mpya**: Imeongeza jedwali la Hatari 10 Kuu za Usalama za OWASP MCP na suluhisho za Azure kwenye README kuu ya Usalama
+- **Nyaraka Zinazotegemea Hatari**: Imesasisha mcp-security-controls-2025.md kwa marejeleo ya hatari za OWASP MCP kwa kila nyanja ya usalama
+- **Muundo wa Marejeleo**: Imeunganisha na muundo wa marejeleo na mifumo ya utekelezaji wa Mwongozo wa Usalama MCP Azure wa OWASP
+
+#### Faili za Usalama Zilizosasishwa
+- **README.md**: Imeongeza muhtasari wa warsha ya Sherpa, jedwali la njia ya kuanzia kampi, muhtasari wa hatari 10 kuu za OWASP MCP, na sehemu ya mafunzo ya vitendo
+- **mcp-security-controls-2025.md**: Imesasisha kichwa hadi Februari 2026, kuongeza marejeleo ya hatari za OWASP (MCP01-MCP08), kurekebisha utofauti wa toleo la sifa
+- **mcp-security-best-practices-2025.md**: Imeongeza sehemu ya rasilimali za Sherpa na OWASP, imesasisha tarehe
+- **mcp-best-practices.md**: Imeongeza sehemu ya mafunzo ya vitendo na viungo vya Sherpa na OWASP
+- **azure-content-safety-implementation.md**: Imeongeza marejeleo ya OWASP MCP06, ulinganifu na Kambi 3 ya Sherpa, na sehemu ya rasilimali za ziada
+
+#### Viungo Vipya vya Rasilimali Vimeongezwa
+- [Warsha ya Sumu ya Usalama ya MCP (Sherpa)](https://azure-samples.github.io/sherpa/)
+- [Mwongozo wa Usalama MCP Azure wa OWASP](https://microsoft.github.io/mcp-azure-security-guide/)
+- [OWASP MCP Top 10](https://owasp.org/www-project-mcp-top-10/)
+- Kurasa za hatari binafsi za OWASP MCP (MCP01-MCP10)
+
+### Ulinganifu wa MCP Specification 2025-11-25 Kwenye Mtaala Zote
+
+#### Moduli 03 - Kuanzia
+- **Nyaraka za SDK**: Imeongeza Go SDK kwenye orodha rasmi ya SDK; imesasisha rejeleo zote za SDK kulingana na MCP Specification 2025-11-25
+- **Ufafanuzi wa Usafirishaji**: Imeboresha maelezo ya usafirishaji wa STDIO na HTTP Streaming kwa rejeleo maalum ya sifa
+
+#### Moduli 04 - Utekelezaji wa Kivitendo
+- **Sasisho za SDK**: Imeongeza Go SDK; imesasisha orodha ya SDK na rejeleo la toleo la sifa
+- **Sifa za Uidhinishaji**: Imesasisha kiungo cha sifa za Uidhinishaji za MCP hadi toleo la sasa 2025-11-25
+
+#### Moduli 05 - Mada Zinazopitia Zaidi
+- **Vipengele Vipya**: Imeongeza taarifa kuhusu vipengele vipya vya MCP Specification 2025-11-25 (Majukumu, Maelezo ya Zana, Uamsho wa Njia ya URL, Roots)
+- **Rasilimali za Usalama**: Imeongeza viungo vya OWASP MCP Top 10 na warsha ya Sherpa kama marejeleo ya ziada
+
+#### Moduli 06 - Michango ya Jamii
+- **Orodha ya SDK**: Imeongeza Swift na Rust SDK; imesasisha kiungo cha sifa hadi 2025-11-25
+- **Rejeleo la Sifa**: Imesasishwa kiungo cha MCP Specification hadi URL ya sifa moja kwa moja
+
+#### Moduli 07 - Masomo Kutoka kwenye Kutangazwa kwa Awali
+- **Sasisho za Rasilimali**: Imeongeza kiungo cha MCP Specification 2025-11-25 na OWASP MCP Top 10 kama rasilimali za ziada
+
+#### Moduli 08 - Mbinu Bora
+- **Toleo la Sifa**: Imeboresha rejeleo la MCP Specification hadi 2025-11-25
+- **Rasilimali za Usalama**: Imeongeza OWASP MCP Top 10 na warsha ya Sherpa kama marejeleo ya ziada
+
+#### Moduli 10 - Uboreshaji wa Mipango ya AI
+- **Sasisho la Baji**: Imebadilisha baji la toleo la MCP kutoka toleo la SDK (1.9.3) hadi toleo la sifa (2025-11-25)
+- **Viungo vya Rasilimali**: Imeboresha kiungo cha MCP Specification; imeongeza OWASP MCP Top 10
+
+#### Moduli 11 - Maabara za Kukamata MCP Server Kivitendo
+- **Rejeleo la Sifa**: Imeboresha kiungo cha MCP Specification hadi toleo la 2025-11-25
+- **Rasilimali za Usalama**: Imeongeza OWASP MCP Top 10 kwenye rasilimali rasmi
+
+## Desemba 18, 2025
+
+### Sasisho la Nyaraka za Usalama - MCP Specification 2025-11-25
+
+#### Mbinu Bora za Usalama za MCP (02-Security/mcp-best-practices.md) - Sasisho la Toleo la Sifa
+- **Sasisho la Toleo la Itifaki**: Imesasisha rejeleo hadi MCP Specification 2025-11-25 (iliyotolewa Novemba 25, 2025)
+  - Imesasisha rejeleo zote za toleo la sifa kutoka 2025-06-18 hadi 2025-11-25
+  - Imesasisha tarehe zote za nyaraka kutoka Agosti 18, 2025 hadi Desemba 18, 2025
+  - Imethibitisha kuwa URL zote za sifa zinaelekeza kwenye nyaraka za sasa
+- **Uthibitishaji wa Maudhui**: Uthibitishaji kamili wa mbinu bora za usalama dhidi ya viwango vya hivi karibuni
+  - **Suluhisho za Usalama za Microsoft**: Imethibitisha istilahi na viungo vya sasa vya Prompt Shields (zamani "ugunduzi wa hatari za kuchomwa gerezani"), Azure Content Safety, Microsoft Entra ID, na Azure Key Vault
+  - **Usalama wa OAuth 2.1**: Imethibitisha ulinganifu na mbinu bora za usalama za OAuth za hivi karibuni
+  - **Viwango vya OWASP**: Imethibitisha marejeleo ya OWASP Top 10 kwa LLMs bado ni ya sasa
+  - **Huduma za Azure**: Imethibitisha viungo vyote vya nyaraka za Microsoft Azure na mbinu bora za sasa
+- **Ulinganifu wa Viwango**: Viwango vyote vilivyotajwa vya usalama vimethibitishwa kuwa vya sasa
+  - Mfumo wa Usimamizi wa Hatari wa AI wa NIST
+  - ISO 27001:2022
+  - Mbinu Bora za Usalama za OAuth 2.1
+  - Miundo ya usalama na uidhinishaji wa Azure
+- **Rasilimali za Utekelezaji**: Imethibitisha viungo vyote vya mwongozo wa utekelezaji na rasilimali
+  - Mifumo ya uthibitishaji wa Azure API Management
+  - Mwongozo wa kuingiza Microsoft Entra ID
+  - Usimamizi wa siri za Azure Key Vault
+  - Mifumo ya DevSecOps na suluhisho za ufuatiliaji
+
+### Hakiki ya Ubora wa Nyaraka
+- **Uzingatiaji wa Sifa**: Imedhibitisha mahitaji yote ya usalama ya MCP (LAZIMA/HARAMU) kuwa yanalingana na sifa za hivi karibuni
+- **Uhalisia wa Rasilimali**: Imethibitisha viungo vya nje vyote vya nyaraka za Microsoft, viwango vya usalama, na miongozo ya utekelezaji
+- **Mwangaza wa Mbinu Bora**: Imethibitisha upana wa mbinu bora za uthibitishaji, uidhinishaji, vitisho maalum vya AI, usalama wa mnyororo wa ugavi, na mifumo ya shirika
 
 ## Oktoba 6, 2025
 
-### Upanuzi wa Sehemu ya Kuanza – Matumizi ya Juu ya Seva & Uthibitishaji Rahisi
+### Upanuzi wa Sehemu ya Kuanzia – Matumizi ya Seva ya Juu & Uthibitishaji Rahisi
 
-#### Matumizi ya Juu ya Seva (03-GettingStarted/10-advanced)
-- **Sura Mpya Imeongezwa**: Mwongozo wa kina wa matumizi ya juu ya seva za MCP, ukijumuisha usanifu wa kawaida na wa kiwango cha chini.
-  - **Kawaida vs. Usanifu wa Kiwango cha Chini**: Ulinganisho wa kina na mifano ya msimbo katika Python na TypeScript kwa mbinu zote mbili.
-  - **Ubunifu wa Kulingana na Wahandisi**: Maelezo ya usimamizi wa zana/rasilimali/mwongozo kwa utekelezaji wa seva unaoweza kupanuka na kubadilika.
-  - **Mifumo ya Kivitendo**: Matukio halisi ambapo mifumo ya seva ya kiwango cha chini ni muhimu kwa vipengele vya juu na usanifu.
+#### Matumizi ya Seva ya Juu (03-GettingStarted/10-advanced)
+- **Sura Mpya Imeongezwa**: Imeanzisha mwongozo mpana wa matumizi ya juu ya seva za MCP, ikijumuisha usanifu wa seva za kawaida na za ngazi ya chini.
+  - **Seva za Kawaida dhidi ya Za Ngazi ya Chini**: Ulinganifu wa kina na mifano ya msimbo kwa Python na TypeScript kwa mbinu zote mbili.
+  - **Usanifu wa Menea/Msimamizi**: Ufafanuzi wa utunzaji wa zana/rasilimali/maelekezo kwa kutumia meneja kwa utekelezaji wa seva unaoweza kupanuka na kubadilika.
+  - **Mifano ya Vitendo**: Hali halisi ambapo mifumo ya ngazi ya chini ni yenye faida kwa vipengele vya juu na usanifu.
 
 #### Uthibitishaji Rahisi (03-GettingStarted/11-simple-auth)
 - **Sura Mpya Imeongezwa**: Mwongozo wa hatua kwa hatua wa kutekeleza uthibitishaji rahisi kwenye seva za MCP.
-  - **Mafunzo ya Uthibitishaji**: Maelezo wazi ya tofauti kati ya uthibitishaji na idhini, na usimamizi wa hati za kuingia.
-  - **Utekelezaji wa Uthibitishaji wa Msingi**: Mifumo ya uthibitishaji inayotegemea middleware katika Python (Starlette) na TypeScript (Express), pamoja na mifano ya msimbo.
-  - **Kuendelea na Usalama wa Juu**: Mwongozo wa kuanza na uthibitishaji rahisi na kuendelea na OAuth 2.1 na RBAC, pamoja na marejeleo ya moduli za usalama wa juu.
+  - **Dhana za Uthibitishaji**: Ufafanuzi wazi wa tofauti kati ya uthibitishaji na uidhinishaji, pamoja na usimamizi wa nyaraka.
+  - **Utekelezaji Msingi wa Uthibitishaji**: Mifumo ya uthibitishaji inayotegemea middleware katika Python (Starlette) na TypeScript (Express), ikiwa na mifano ya msimbo.
+  - **Maelekezo ya Kuendelea Kwenye Usalama wa Juu**: Mwongozo wa kuanzia na uthibitishaji rahisi na kuendelea hadi OAuth 2.1 na RBAC, pamoja na rejeleo kwa moduli za usalama wa juu.
 
-Nyongeza hizi zinatoa mwongozo wa vitendo kwa kujenga utekelezaji wa seva za MCP zilizo imara, salama, na zinazoweza kubadilika, zikichanganya dhana za msingi na mifumo ya uzalishaji ya juu.
+Ongezeo hili linatoa mwongozo wa vitendo, mikono kwa mikono kwa ujenzi wa utekelezaji wa seva wa MCP thabiti, salama, na unaobadilika, ukichanganya dhana za msingi na mifumo ya hali ya juu kwa uzalishaji.
 
 ## Septemba 29, 2025
 
-### Maabara ya Ushirikiano wa Hifadhidata ya Seva ya MCP - Njia Kamili ya Kujifunza kwa Vitendo
+### Maabara za Ujumuishaji wa Hifadhidata ya MCP Server - Njia Kamili ya Kujifunza kwa Mikono
 
-#### 11-MCPServerHandsOnLabs - Mtaala Mpya wa Ushirikiano wa Hifadhidata
-- **Njia Kamili ya Kujifunza Maabara 13**: Imeongezwa mtaala wa kina wa kujifunza kwa vitendo kwa kujenga seva za MCP zilizo tayari kwa uzalishaji na ushirikiano wa hifadhidata ya PostgreSQL.
-  - **Utekelezaji wa Dunia Halisi**: Kesi ya matumizi ya uchanganuzi wa Zava Retail inayoonyesha mifumo ya kiwango cha biashara.
-  - **Maendeleo ya Kujifunza kwa Muundo**:
-    - **Maabara 00-03: Misingi** - Utangulizi, Usanifu wa Msingi, Usalama & Multi-Tenancy, Usanidi wa Mazingira.
-    - **Maabara 04-06: Kujenga Seva ya MCP** - Ubunifu wa Hifadhidata & Schema, Utekelezaji wa Seva ya MCP, Maendeleo ya Zana.
-    - **Maabara 07-09: Vipengele vya Juu** - Ushirikiano wa Utafutaji wa Semantic, Upimaji & Urekebishaji, Ushirikiano wa VS Code.
-    - **Maabara 10-12: Uzalishaji & Mifumo Bora** - Mikakati ya Utekelezaji, Ufuatiliaji & Uangalizi, Mifumo Bora & Uboreshaji.
-  - **Teknolojia za Biashara**: Mfumo wa FastMCP, PostgreSQL na pgvector, embeddings za Azure OpenAI, Azure Container Apps, Application Insights.
-  - **Vipengele vya Juu**: Usalama wa Kiwango cha Safu (RLS), utafutaji wa semantic, ufikiaji wa data wa multi-tenant, embeddings za vector, ufuatiliaji wa wakati halisi.
+#### 11-MCPServerHandsOnLabs - Mtaala Mpya Kamili wa Ujumuishaji wa Hifadhidata
+- **Jalur Kamili la Kujifunza Maabara 13**: Imekuwa na mtaala kamili wa mazoezi ya vitendo kwa ajili ya kujenga seva za MCP tayari kwa uzalishaji zilizounganishwa na hifadhidata ya PostgreSQL  
+  - **Utekelezaji wa Halisi Duniani**: Matumizi ya Zava Retail analytics kuonyesha mifumo ya viwango vya viwanda  
+  - **Mwelekeo wa Mafunzo uliopangwa**:  
+    - **Maabara 00-03: Msingi** - Utangulizi, Mambo ya Msingi ya Usanifu, Usalama & Multi-Tenancy, Usanidi wa Mazingira  
+    - **Maabara 04-06: Ujenzi wa Seva ya MCP** - Ubunifu na Mchoro wa Hifadhidata, Utekelezaji wa Seva ya MCP, Kukuza Zana  
+    - **Maabara 07-09: Sifa Zinazoendelea** - Uunganishaji wa Utafutaji wa Semantiki, Upimaji & Urekebishaji, Uunganishaji wa VS Code  
+    - **Maabara 10-12: Uzalishaji & Mambo Bora ya Kutenda** - Mikakati ya Uenezaji, Ufuatiliaji & Uwezo wa Kuangalia, Mambo Bora & Uboreshaji  
+  - **Teknolojia za Viwanda**: Fremu ya FastMCP, PostgreSQL na pgvector, Azure OpenAI embeddings, Azure Container Apps, Application Insights  
+  - **Sifa Zaidi**: Usalama wa Ngazi ya Safu (RLS), utafutaji wa semantiki, upatikanaji wa data kwa wateja wengi, vector embeddings, ufuatiliaji wa wakati halisi  
 
-#### Uboreshaji wa Istilahi - Kubadilisha Moduli kuwa Maabara
-- **Sasisho la Kina la Nyaraka**: Zote README zimesasishwa katika 11-MCPServerHandsOnLabs kutumia istilahi ya "Maabara" badala ya "Moduli".
-  - **Vichwa vya Sehemu**: "Kile Moduli Hii Inashughulikia" imebadilishwa kuwa "Kile Maabara Hii Inashughulikia" katika maabara yote 13.
-  - **Maelezo ya Yaliyomo**: "Moduli hii inatoa..." imebadilishwa kuwa "Maabara hii inatoa..." katika nyaraka zote.
-  - **Malengo ya Kujifunza**: "Mwisho wa moduli hii..." imebadilishwa kuwa "Mwisho wa maabara hii..."
-  - **Viungo vya Uelekezaji**: Marejeleo yote ya "Moduli XX:" yamebadilishwa kuwa "Maabara XX:" katika marejeleo ya msalaba na uelekezaji.
-  - **Ufuatiliaji wa Kukamilisha**: "Baada ya kukamilisha moduli hii..." imebadilishwa kuwa "Baada ya kukamilisha maabara hii..."
-  - **Marejeleo ya Kiufundi Yaliyohifadhiwa**: Marejeleo ya moduli za Python yamehifadhiwa katika faili za usanidi (mfano, `"module": "mcp_server.main"`).
+#### Ulinganifu wa Misingi ya Maneno - Mbadala ya Moduli kwa Maabara  
+- **Sasisho Kamili la Nyaraka**: Imesasisha mifumo yote ya README katika 11-MCPServerHandsOnLabs ili kutumia neno "Lab" badala ya "Module"  
+  - **Vichwa vya Sehemu**: Imesasisha "What This Module Covers" kuwa "What This Lab Covers" katika maabara zote 13  
+  - **Maelezo ya Yaliyomo**: Kubadilisha "This module provides..." kuwa "This lab provides..." katika nyaraka zote  
+  - **Malengo ya Kujifunza**: Kubadili "By the end of this module..." kuwa "By the end of this lab..."  
+  - **Viungo vya Kuongoza**: Kubadilisha marejeleo yote ya "Module XX:" kuwa "Lab XX:" katika rufaa na urambazaji  
+  - **Ufuatiliaji wa Kukamilika**: Kubadili "After completing this module..." kuwa "After completing this lab..."  
+  - **Kuhifadhi Marejeleo ya Kiufundi**: Kuendelea kuhifadhi marejeleo ya moduli za Python katika faili za usanidi (mfano, `"module": "mcp_server.main"`)  
 
-#### Uboreshaji wa Mwongozo wa Kujifunza (study_guide.md)
-- **Ramani ya Mtaala wa Kielelezo**: Sehemu mpya ya "11. Maabara ya Ushirikiano wa Hifadhidata" imeongezwa na muundo wa maabara wa kina.
-- **Muundo wa Hifadhi**: Imeboreshwa kutoka sehemu kumi hadi kumi na moja na maelezo ya kina ya 11-MCPServerHandsOnLabs.
-- **Mwongozo wa Njia ya Kujifunza**: Maelekezo ya uelekezaji yameimarishwa kufunika sehemu 00-11.
-- **Ushirikiano wa Teknolojia**: Maelezo ya FastMCP, PostgreSQL, na huduma za Azure yameongezwa.
-- **Matokeo ya Kujifunza**: Utekelezaji wa seva zilizo tayari kwa uzalishaji, mifumo ya ushirikiano wa hifadhidata, na usalama wa kiwango cha biashara vimeangaziwa.
+#### Uboreshaji wa Mwongozo wa Masomo (study_guide.md)  
+- **Ramani ya Mtaala wa Kuona**: Kuongeza sehemu mpya "11. Database Integration Labs" na muhtasari kamili wa muundo wa maabara  
+- **Muundo wa Hifadhi**: Kusasisha kutoka sehemu kumi hadi kumi na moja na maelezo ya kina ya 11-MCPServerHandsOnLabs  
+- **Mwongozo wa Njia za Kujifunza**: Kuongeza maelekezo ya urambazaji kwa sehemu 00-11  
+- **Mambo ya Teknolojia**: Kuongeza maelezo ya FastMCP, PostgreSQL, huduma za Azure  
+- **Matokeo ya Kujifunza**: Kusisitiza maendeleo ya seva tayari kwa uzalishaji, mifumo ya uunganishaji wa hifadhidata, na usalama wa viwanda  
 
-#### Uboreshaji wa Muundo wa README Kuu
-- **Istilahi ya Kulingana na Maabara**: README.md kuu katika 11-MCPServerHandsOnLabs imesasishwa kutumia muundo wa "Maabara" kwa uthabiti.
-- **Muundo wa Njia ya Kujifunza**: Maendeleo wazi kutoka dhana za msingi hadi utekelezaji wa juu hadi utekelezaji wa uzalishaji.
-- **Mtazamo wa Dunia Halisi**: Msisitizo juu ya kujifunza kwa vitendo na mifumo ya kiwango cha biashara na teknolojia.
+#### Uboreshaji wa Muundo wa README Mkuu  
+- **Matumizi ya Maneno ya Maabara**: Kusasisha README.md kuu katika 11-MCPServerHandsOnLabs kwa kutumia muundo wa "Lab" kwa uthabiti  
+- **Mpangilio wa Njia ya Kujifunza**: Mwelekeo wazi kutoka dhana za msingi hadi utekelezaji wa hali ya juu na ueneaji kwa uzalishaji  
+- **Mwonekano wa Uhalisia Duniani**: Kusisitiza njia ya mafunzo ya vitendo inayolenga mifumo ya viwanda na teknolojia  
 
-### Uboreshaji wa Ubora wa Nyaraka & Uthabiti
-- **Msisitizo wa Kujifunza kwa Vitendo**: Njia ya maabara ya vitendo imeimarishwa katika nyaraka zote.
-- **Mtazamo wa Mifumo ya Biashara**: Utekelezaji ulio tayari kwa uzalishaji na masuala ya usalama wa kiwango cha biashara vimeangaziwa.
-- **Ushirikiano wa Teknolojia**: Ushirikiano wa kina wa huduma za kisasa za Azure na mifumo ya AI.
-- **Maendeleo ya Kujifunza**: Njia wazi na iliyopangwa kutoka dhana za msingi hadi utekelezaji wa uzalishaji.
+### Maboresho ya Ubora wa Nyaraka na Ulinganifu  
+- **Mwelekeo wa Mafunzo ya Vitendo**: Kuimarisha mtazamo wa maabara unaoendelea katika nyaraka zote  
+- **Mifumo Ya Viwanda**: Kuonyesha utekelezaji wa viwango vya viwanda na usalama  
+- **Uunganishaji wa Teknolojia**: Ufafanuzi wa huduma za kisasa za Azure na mifumo ya AI  
+- **Mwelekeo wa Mafunzo**: Njia wazi, iliyopangwa kutoka kwa dhana za msingi hadi ueneaji wa uzalishaji  
 
 ## Septemba 26, 2025
 
-### Uboreshaji wa Kesi za Matumizi - Ushirikiano wa Usajili wa MCP wa GitHub
+### Uboreshaji wa Masomo ya Kesi - Uunganishaji wa GitHub MCP Registry  
 
-#### Kesi za Matumizi (09-CaseStudy/) - Mtazamo wa Maendeleo ya Mfumo
-- **README.md**: Upanuzi mkubwa na kesi ya matumizi ya Usajili wa MCP wa GitHub.
-  - **Kesi ya Matumizi ya Usajili wa MCP wa GitHub**: Kesi mpya ya matumizi ya kina inayochunguza uzinduzi wa Usajili wa MCP wa GitHub mnamo Septemba 2025.
-    - **Uchambuzi wa Tatizo**: Uchunguzi wa kina wa changamoto za ugunduzi wa seva za MCP zilizogawanyika na utekelezaji.
-    - **Usanifu wa Suluhisho**: Mbinu ya usajili wa kati ya GitHub na usakinishaji wa VS Code kwa kubofya mara moja.
-    - **Athari za Biashara**: Uboreshaji unaoweza kupimwa katika kuanza kwa watengenezaji na tija.
-    - **Thamani ya Kistratejia**: Mtazamo wa utekelezaji wa wakala wa modular na ushirikiano wa zana mbalimbali.
-    - **Maendeleo ya Mfumo**: Kuweka msingi kama jukwaa la ushirikiano wa wakala.
-  - **Muundo wa Kesi za Matumizi Ulioboreshwa**: Kesi zote saba za matumizi zimesasishwa na muundo thabiti na maelezo ya kina.
-    - Mawakala wa Safari za AI za Azure: Msisitizo wa orchestration ya wakala mbalimbali.
-    - Ushirikiano wa Azure DevOps: Mtazamo wa kiotomatiki wa mtiririko wa kazi.
-    - Urejeshaji wa Nyaraka wa Wakati Halisi: Utekelezaji wa mteja wa console ya Python.
-    - Jenereta ya Mpango wa Kujifunza wa Maingiliano: Programu ya wavuti ya mazungumzo ya Chainlit.
-    - Nyaraka Ndani ya Mhariri: Ushirikiano wa VS Code na GitHub Copilot.
-    - Usimamizi wa API ya Azure: Mifumo ya ushirikiano wa API ya biashara.
-    - Usajili wa MCP wa GitHub: Maendeleo ya mfumo na jukwaa la jamii.
-  - **Hitimisho la Kina**: Sehemu ya hitimisho imeandikwa upya ikionyesha kesi saba za matumizi zinazojumuisha vipengele mbalimbali vya utekelezaji wa MCP.
-    - Ushirikiano wa Biashara, Orchestration ya Wakala Mbalimbali, Tija ya Watengenezaji.
-    - Maendeleo ya Mfumo, Matumizi ya Kielimu.
-    - Uboreshaji wa maarifa kuhusu mifumo ya usanifu, mikakati ya utekelezaji, na mifumo bora.
-    - Msisitizo wa MCP kama itifaki iliyopevuka, tayari kwa uzalishaji.
+#### Masomo ya Kesi (09-CaseStudy/) - Mwelekeo wa Maendeleo ya Eko-System  
+- **README.md**: Upanuzi mkubwa na somo la kesi la kina kuhusu GitHub MCP Registry  
+  - **Somo la Kesi la GitHub MCP Registry**: Somo jipya la kina linalochunguza uzinduzi wa GitHub's MCP Registry Septemba 2025  
+    - **Uchambuzi wa Tatizo**: Uchambuzi wa kina wa changamoto za kugundua na kueneza seva za MCP zilizogawanywa  
+    - **Usanifu wa Suluhisho**: Mbinu ya GitHub ya usajili wa katikati na ufungaji wa VS Code kwa bonyeza moja  
+    - **Athari za Kibiashara**: Maboresho yanayopimika katika kuwashirikisha waendelezaji na uzalishaji  
+    - **Thamani ya Kimkakati**: Mkazo kwenye uenezi wa mawakala wa moduli na umoja wa vyombo tofauti  
+    - **Maendeleo ya Eko-System**: Kuonesha kama jukwaa la msingi kwa mfumo wa kiwakala  
+  - **Muundo Ulioboreshwa wa Somo la Kesi**: Kusasisha matini na maelezo ya masomo yote saba kwa muundo thabiti na maelezo kamili  
+    - Maajenti wa Safari Azure AI: Mkazo wa kupanga maajenti wengi  
+    - Uunganishaji wa Azure DevOps: Mkazo wa otomatiki ya mtiririko wa kazi  
+    - Upokeaji wa Nyaraka wa Wakati Halisi: Utekelezaji wa mteja wa console wa Python  
+    - Mtengeneza Mpango wa Masomo wa Maongezi: Programu ya mtandao ya mazungumzo ya Chainlit  
+    - Nyaraka Ndani ya Mhariri: Uunganishaji na VS Code na GitHub Copilot  
+    - Usimamizi wa Azure API: Mifumo ya uunganishaji wa API za viwanda  
+    - GitHub MCP Registry: Maendeleo ya eko-system na jukwaa la jumuiya  
+  - **Hitimisho Kamili**: Sehemu ya hitimisho imeandikwa upya ikisisitiza masomo saba ya kesi yanayogusa nyanja mbalimbali za utekelezaji wa MCP  
+    - Uunganishaji wa Viwanda, Uratibu wa Maajenti Wengi, Uzalishaji wa Waendelezaji  
+    - Maendeleo ya Eko-System, matumizi ya kielimu  
+    - Uongeza wa maarifa kuhusu mifumo ya usanifu, mikakati ya utekelezaji, na mbinu bora  
+    - Uthabiti wa MCP kama itifaki iliyo imara na tayari kwa uzalishaji  
 
-#### Sasisho za Mwongozo wa Kujifunza (study_guide.md)
-- **Ramani ya Mtaala wa Kielelezo**: Mindmap imesasishwa kujumuisha Usajili wa MCP wa GitHub katika sehemu ya Kesi za Matumizi.
-- **Maelezo ya Kesi za Matumizi**: Maelezo ya jumla yameimarishwa kuwa muhtasari wa kina wa kesi saba za matumizi.
-- **Muundo wa Hifadhi**: Sehemu ya 10 imesasishwa kuonyesha chanjo ya kina ya kesi za matumizi na maelezo maalum ya utekelezaji.
-- **Ujumuishaji wa Rekodi ya Mabadiliko**: Kuingizwa kwa tarehe ya Septemba 26, 2025 ikiorodhesha nyongeza ya Usajili wa MCP wa GitHub na uboreshaji wa kesi za matumizi.
-- **Sasisho za Tarehe**: Timestamp ya footer imesasishwa kuonyesha marekebisho ya hivi karibuni (Septemba 26, 2025).
+#### Sasisho za Mwongozo wa Masomo (study_guide.md)  
+- **Ramani ya Mtaala wa Kuona**: Imesasisha ramani ya mawazo kujumuisha GitHub MCP Registry katika sehemu ya Masomo ya Kesi  
+- **Maelezo ya Masomo ya Kesi**: Yameboreshwa kutoka maelezo ya jumla hadi utambuzi wa kina wa masomo saba ya kesi  
+- **Muundo wa Hifadhi**: Imesasisha sehemu ya 10 kuonyesha mafanikio kamili ya masomo ya kesi na maelezo ya utekelezaji  
+- **Uunganishaji wa Mabadiliko**: Kuongeza rekodi ya Septemba 26, 2025 inayojumuisha kuongezwa kwa GitHub MCP Registry na maboresho ya masomo ya kesi  
+- **Sasisho la Tarehe**: Sasisho la lebo ya tarehe chini kuonyesha marekebisho ya hivi karibuni (Septemba 26, 2025)  
 
-### Uboreshaji wa Ubora wa Nyaraka
-- **Uthabiti Ulioboreshwa**: Muundo wa kesi za matumizi na muundo thabiti katika mifano yote saba.
-- **Chanjo ya Kina**: Kesi za matumizi sasa zinajumuisha matukio ya biashara, tija ya watengenezaji, na maendeleo ya mfumo.
-- **Kuweka Kistratejia**: Mtazamo ulioimarishwa wa MCP kama jukwaa la msingi kwa utekelezaji wa mifumo ya wakala.
-- **Ujumuishaji wa Rasilimali**: Rasilimali za ziada zimesasishwa kujumuisha kiungo cha Usajili wa MCP wa GitHub.
+### Maboresho ya Ubora wa Nyaraka  
+- **Ulinganifu wa Mtindo**: Kurekebisha mtindo wa masomo ya kesi na muundo kwa mifano saba yote  
+- **Mazingira Kamili**: Masomo ya kesi sasa yanagusa viwanda, uzalishaji wa waendelezaji, na maendeleo ya eko-system  
+- **Mwelekeo wa Kimkakati**: Mkazo uliongezwa kuhusu MCP kama jukwaa la msingi kwa uenezi wa mifumo ya kiwakala  
+- **Uunganishaji wa Rasilimali**: Upanuzi wa rasilimali kuhusisha kiungo cha GitHub MCP Registry  
 
 ## Septemba 15, 2025
 
-### Upanuzi wa Mada za Juu - Usafirishaji Maalum & Uhandisi wa Muktadha
+### Upanuzi wa Mada Zinazoendelea - Usafirishaji Maalum & Uhandisi wa Muktadha  
 
-#### Usafirishaji Maalum wa MCP (05-AdvancedTopics/mcp-transport/) - Mwongozo Mpya wa Utekelezaji wa Juu
-- **README.md**: Mwongozo kamili wa utekelezaji wa mifumo maalum ya usafirishaji wa MCP.
-  - **Usafirishaji wa Azure Event Grid**: Utekelezaji wa usafirishaji wa matukio unaotegemea seva.
-    - Mifano ya C#, TypeScript, na Python na ushirikiano wa Azure Functions.
-    - Mifumo ya usanifu wa matukio kwa suluhisho za MCP zinazoweza kupanuka.
-    - Wapokeaji wa webhook na usimamizi wa ujumbe unaotegemea msukumo.
-  - **Usafirishaji wa Azure Event Hubs**: Utekelezaji wa usafirishaji wa utiririshaji wa kiwango cha juu.
-    - Uwezo wa utiririshaji wa wakati halisi kwa matukio ya ucheleweshaji wa chini.
-    - Mikakati ya kugawanya na usimamizi wa alama za ukaguzi.
-    - Uboreshaji wa utendaji na usimamizi wa ujumbe wa kundi.
-  - **Mifumo ya Ushirikiano wa Biashara**: Mifano ya usanifu iliyo tayari kwa uzalishaji.
-    - Usindikaji wa MCP uliosambazwa katika Azure Functions nyingi.
-    - Usanifu wa usafirishaji mseto unaochanganya aina nyingi za usafirishaji.
-    - Mikakati ya kudumu kwa ujumbe, uaminifu, na usimamizi wa makosa.
-  - **Usalama & Ufuatiliaji**: Ushirikiano wa Azure Key Vault na mifumo ya uangalizi.
-    - Uthibitishaji wa utambulisho uliosimamiwa na ufikiaji wa kiwango cha chini.
-    - Telemetry ya Application Insights na ufuatiliaji wa utendaji.
-    - Mifumo ya kuvunja mzunguko na mikakati ya uvumilivu wa makosa.
-  - **Mifumo ya Upimaji**: Mikakati ya upimaji wa kina kwa usafirishaji maalum.
-    - Upimaji wa vitengo kwa mifumo ya bandia na mifumo ya kuiga.
-    - Upimaji wa ushirikiano na Azure Test Containers.
-    - Mazingatio ya upimaji wa utendaji na mzigo.
+#### Usafirishaji Maalum wa MCP (05-AdvancedTopics/mcp-transport/) - Mwongozo Mpya wa Utekelezaji wa Juu  
+- **README.md**: Mwongozo kamili wa utekelezaji wa mifumo ya usafirishaji maalum ya MCP  
+  - **Usafirishaji wa Azure Event Grid**: Utekelezaji kamili wa usafirishaji wa tukio lisilo na seva  
+    - Mifano ya C#, TypeScript, na Python ikiwa na uunganisho wa Azure Functions  
+    - Mifumo ya usanifu unaogusa matukio kwa ufumbuzi wa MCP unaoweza kupanuka  
+    - Wapokeaji wa webhook na usindikaji wa ujumbe kwa mtindo wa kusukuma  
+  - **Usafirishaji wa Azure Event Hubs**: Utekelezaji wa usafirishaji wa mtiririko wenye mtiririko mkubwa  
+    - Uwezo wa mtiririko wa wakati halisi kwa hali za kuchelewa kidogo  
+    - Mikakati ya kugawanya sehemu na usimamizi wa alama za kukagua  
+    - Ukusanyaji wa ujumbe na uboreshaji wa utendaji  
+  - **Mifumo ya Uunganishaji wa Viwanda**: Mifano ya usanifu tayari kwa uzalishaji  
+    - Usindikaji wa MCP ulio sambazwa kupitia Azure Functions nyingi  
+    - Mifumo mchanganyiko ya usafirishaji inayochanganya aina mbalimbali  
+    - Udumu, uaminifu, na mikakati ya kushughulikia makosa ya ujumbe  
+  - **Usalama & Ufuatiliaji**: Uunganisho wa Azure Key Vault na mifumo ya kuangalia  
+    - Utambulisho wa utambulisho uliosimamiwa na upatikanaji wa kiwango cha chini  
+    - Ufuatiliaji wa utendaji wa Application Insights  
+    - Vipunguzi vya mzunguko na mifumo ya uvumilivu wa hitilafu  
+  - **Mifumo ya Upimaji**: Mikakati kamili ya upimaji kwa usafirishaji maalum  
+    - Upimaji wa vitengo kwa kutumia nakala za majaribio na mifumo ya kuonesha  
+    - Upimaji wa kuunganishwa kwa kutumia Azure Test Containers  
+    - Mambo ya kuzingatia upimaji wa utendaji na mzigo  
 
-#### Uhandisi wa Muktadha (05-AdvancedTopics/mcp-contextengineering/) - Taaluma Inayochipuka ya AI
-- **README.md**: Uchunguzi wa kina wa uhandisi wa muktadha kama uwanja unaochipuka.
-  - **Kanuni za Msingi**: Kushiriki muktadha kikamilifu, ufahamu wa maamuzi ya hatua, na usimamizi wa dirisha la muktadha.
-  - **Ulinganifu wa Itifaki ya MCP**: Jinsi muundo wa MCP unavyoshughulikia changamoto za uhandisi wa muktadha.
-    - Vikwazo vya dirisha la muktadha na mikakati ya upakiaji wa maendeleo.
-    - Uamuzi wa umuhimu na urejeshaji wa muktadha wa nguvu.
-    - Ushughulikiaji wa muktadha wa njia nyingi na masuala ya usalama.
-  - **Mbinu za Utekelezaji**: Usanifu wa nyuzi moja vs. wakala mbalimbali.
-    - Mbinu za kugawanya muktadha na kipaumbele.
-    - Upakiaji wa maendeleo wa muktadha na mikakati ya ukandamizaji.
-    - Mbinu za muktadha zilizowekwa tabaka na uboreshaji wa urejeshaji.
-  - **Mfumo wa Upimaji**: Vipimo vinavyochipuka vya tathmini ya ufanisi wa muktadha.
-    - Ufanisi wa pembejeo, utendaji, ubora, na mazingatio ya uzoefu wa mtumiaji.
-    - Mbinu za majaribio za uboreshaji wa muktadha.
-    - Uchambuzi wa kushindwa na mbinu za kuboresha.
+#### Uhandisi wa Muktadha (05-AdvancedTopics/mcp-contextengineering/) - Disipuli Inayoibuka ya AI  
+- **README.md**: Uchunguzi kamili wa uhandisi wa muktadha kama eneo jipya  
+  - **Misingi Muhimu**: Kushirikisha muktadha kwa ukamilifu, ufahamu wa uamuzi wa hatua, na usimamizi wa dirisha la muktadha  
+  - **Ulinganifu wa Itifaki ya MCP**: Jinsi usanifu wa MCP unavyoshughulikia changamoto za uhandisi wa muktadha  
+    - Mipaka ya dirisha la muktadha na mikakati ya upakiaji wa hatua kwa hatua  
+    - Uhalali wa muktadha na upokeaji wa muktadha unaobadilika  
+    - Kushughulikia muktadha wa aina nyingi na kuzingatia usalama  
+  - **Mbinu za Utekelezaji**: Miundo ya kipande kimoja dhidi ya maajenti wengi  
+    - Mbinu za kugawanya muktadha na kipaumbele  
+    - Upakiaji wa hatua kwa hatua na mikakati ya usimbaji  
+    - Mbinu za muktadha wa tabaka na uboreshaji wa upokeaji  
+  - **Mfumo wa Kupima**: Vigezo vinavyoibuka kwa tathmini ya ufanisi wa muktadha  
+    - Ufanisi wa pembejeo, utendaji, ubora, na uzoefu wa mtumiaji  
+    - Mbinu za majaribio za uboreshaji wa muktadha  
+    - Uchambuzi wa kushindwa na mbinu za kuboresha  
 
-#### Sasisho za Uelekezaji wa Mtaala (README.md)
-- **Muundo wa Moduli Ulioboreshwa**: Jedwali la mtaala limesasishwa kujumuisha mada mpya za juu.
-  - Sehemu za Uhandisi wa Muktadha (5.14) na Usafirishaji Maalum (5.15) zimeongezwa.
-  - Muundo thabiti na viungo vya uelekezaji katika moduli zote.
-  - Maelezo yamesasishwa kuonyesha wigo wa yaliyomo ya sasa.
+#### Sasisho la Urambazaji wa Mtaala (README.md)  
+- **Muundo ulioimarishwa wa Moduli**: Imesasisha jedwali la mtaala kujumuisha mada mpya za juu  
+  - Kuongeza Idara ya Uhandisi wa Muktadha (5.14) na Usafirishaji Maalum (5.15)  
+  - Muundo thabiti wa upau na viungo vya urambazaji kwa moduli zote  
+  - Maelezo yaliyo sasishwa kuendana na muktadha wa sasa  
 
-### Uboreshaji wa Muundo wa Hifadhi
-- **Uthabiti wa Majina**: "mcp transport" imebadilishwa kuwa "mcp-transport" kwa uthabiti na folda nyingine za mada za juu.
-- **Muundo wa Yaliyomo**: Folda zote za 05-AdvancedTopics sasa zinafuata muundo wa majina thabiti (mcp-[mada]).
+### Maboresho ya Muundo wa Saraka  
+- **Uwiano wa Majina**: Kubadilisha "mcp transport" kuwa "mcp-transport" ili kuendana na saraka zingine za mada za juu  
+- **Mpangilio wa Yaliyomo**: Folda zote za 05-AdvancedTopics zina muundo thabiti wa majina (mcp-[mada])  
 
-### Uboreshaji wa Ubora wa Nyaraka
-- **Ulinganifu wa Maelezo ya MCP**: Yaliyomo yote mapya yanarejelea Maelezo ya MCP ya sasa ya 2025-06-18.
-- **Mifano ya Lugha Nyingi**: Mifano ya msimbo ya kina katika C#, TypeScript, na Python.
-- **Mtazamo wa Biashara**: Mifumo iliyo tayari
-#### Mada ya Juu Usalama (05-AdvancedTopics/mcp-security/) - Utekelezaji Tayari kwa Uzalishaji
-- **README.md**: Kuandikwa upya kabisa kwa utekelezaji wa usalama wa kiwango cha biashara
-  - **Ulinganifu wa Maelezo ya Sasa**: Imesasishwa kwa Maelezo ya MCP 2025-06-18 na mahitaji ya lazima ya usalama
-  - **Uthibitishaji Ulioboreshwa**: Ujumuishaji wa Microsoft Entra ID na mifano kamili ya usalama ya .NET na Java Spring
-  - **Ujumuishaji wa Usalama wa AI**: Utekelezaji wa Microsoft Prompt Shields na Azure Content Safety na mifano ya kina ya Python
-  - **Kupunguza Vitisho vya Juu**: Mifano kamili ya utekelezaji kwa:
-    - Kuzuia Mashambulizi ya Confused Deputy kwa PKCE na uthibitishaji wa ridhaa ya mtumiaji
-    - Kuzuia Uhamishaji wa Tokeni kwa uthibitishaji wa hadhira na usimamizi salama wa tokeni
-    - Kuzuia Utekaji wa Kikao kwa kufunga kwa njia ya kriptografia na uchambuzi wa tabia
-  - **Ujumuishaji wa Usalama wa Biashara**: Ufuatiliaji wa Azure Application Insights, mifumo ya kugundua vitisho, na usalama wa mnyororo wa ugavi
-  - **Orodha ya Utekelezaji**: Udhibiti wa usalama wa lazima dhidi ya unaopendekezwa na faida za mfumo wa usalama wa Microsoft
+### Maboresho ya Ubora wa Nyaraka  
+- **Ulinganifu na Vipimo vya MCP**: Yaliyomo yote mapya yanarejea MCP Specification 2025-06-18  
+- **Mifano ya Lugha Mbalimbali**: Mifano kamili ya msimbo katika C#, TypeScript, na Python  
+- **Mwelekeo wa Viwanda**: Mifumo tayari kwa uzalishaji na uunganisho wa wingu la Azure kote  
+- **Nyaraka za Mchoro**: Ramani za Mermaid kwa usanifu na mtiririko wa michakato  
 
-### Ubora wa Nyaraka na Ulinganifu wa Viwango
-- **Marejeleo ya Maelezo**: Imesasishwa marejeleo yote kwa Maelezo ya MCP ya sasa 2025-06-18
-- **Mfumo wa Usalama wa Microsoft**: Mwongozo ulioboreshwa wa ujumuishaji katika nyaraka zote za usalama
-- **Utekelezaji wa Kivitendo**: Mifano ya kina ya msimbo katika .NET, Java, na Python na mifumo ya biashara
-- **Mpangilio wa Rasilimali**: Uainishaji kamili wa nyaraka rasmi, viwango vya usalama, na miongozo ya utekelezaji
-- **Viashiria vya Kielezo**: Alama wazi za mahitaji ya lazima dhidi ya mazoea yanayopendekezwa
+## Agosti 18, 2025
 
-#### Dhana za Msingi (01-CoreConcepts/) - Kisasa Kamili
-- **Sasisho la Toleo la Itifaki**: Imesasishwa kurejelea Maelezo ya MCP ya sasa 2025-06-18 na muundo wa tarehe (YYYY-MM-DD)
-- **Uboreshaji wa Usanifu**: Maelezo yaliyoboreshwa ya Wenyeji, Wateja, na Seva ili kuonyesha mifumo ya usanifu ya sasa ya MCP
-  - Wenyeji sasa wamefafanuliwa wazi kama programu za AI zinazoratibu miunganisho mingi ya wateja wa MCP
-  - Wateja wameelezwa kama viunganishi vya itifaki vinavyodumisha uhusiano wa moja kwa moja na seva
-  - Seva zimeboreshwa na hali za usanidi wa ndani dhidi ya wa mbali
-- **Urekebishaji wa Primitives**: Marekebisho kamili ya primitives za seva na wateja
-  - Primitives za Seva: Rasilimali (vyanzo vya data), Maelezo (templates), Zana (kazi zinazoweza kutekelezwa) na maelezo ya kina na mifano
-  - Primitives za Wateja: Sampuli (ukamilishaji wa LLM), Uchochezi (maingizo ya mtumiaji), Kumbukumbu (upelelezi/ufuatiliaji)
-  - Imesasishwa na mifumo ya sasa ya ugunduzi (`*/list`), upatikanaji (`*/get`), na utekelezaji (`*/call`)
-- **Usanifu wa Itifaki**: Mfano wa usanifu wa tabaka mbili ulianzishwa
-  - Tabaka la Data: Msingi wa JSON-RPC 2.0 na usimamizi wa mzunguko wa maisha na primitives
-  - Tabaka la Usafirishaji: STDIO (ndani) na HTTP inayoweza kutiririka na SSE (mbali) kama mifumo ya usafirishaji
-- **Mfumo wa Usalama**: Kanuni za usalama za kina ikiwa ni pamoja na ridhaa ya wazi ya mtumiaji, ulinzi wa faragha ya data, usalama wa utekelezaji wa zana, na usalama wa tabaka la usafirishaji
-- **Mifumo ya Mawasiliano**: Imesasishwa ujumbe wa itifaki kuonyesha mchakato wa kuanzisha, kugundua, kutekeleza, na kutoa taarifa
-- **Mifano ya Msimbo**: Mifano ya lugha nyingi (.NET, Java, Python, JavaScript) imesasishwa ili kuonyesha mifumo ya sasa ya MCP SDK
+### Sasisho Kamili la Nyaraka - Viwango vya MCP 2025-06-18  
+
+#### Mbinu Za Usalama Bora za MCP (02-Security/) - Uboreshaji Kamili wa Kisasa  
+- **MCP-SECURITY-BEST-PRACTICES-2025.md**: Kuandikwa upya kikamilifu kulingana na MCP Specification 2025-06-18  
+  - **Mahitaji ya Lazima**: Kuongeza mahitaji ya wazi YAUZA/HAIPASWI kutoka kwa spesifikesheni rasmi na alama za wazi za kuona  
+  - **Mbinu 12 Muhimu za Usalama**: Kuandaa upya kutoka kwa orodha ya vitu 15 hadi nyanja kamili za usalama  
+    - Usalama wa Tokeni & Uthibitishaji na uunganisho wa mtoa utambulisho wa nje  
+    - Usimamizi wa Kikao & Usalama wa Usafirishaji na mahitaji ya usimbaji  
+    - Ulinzi wa Vitisho vya AI maalum na uunganisho wa Microsoft Prompt Shields  
+    - Udhibiti wa Ufikiaji & Ruhusa kwa kanuni ya udhibiti mdogo  
+    - Usalama wa Maudhui & Ufuatiliaji na uunganisho wa Azure Content Safety  
+    - Usalama wa Mnyororo wa Ugavi na uhakikisho kamili wa vipengele  
+    - Usalama wa OAuth & Kuzuia Confused Deputy pamoja na utekelezaji wa PKCE  
+    - Majibu ya Tukio & Urejeshaji na uwezo wa otomatiki  
+    - Utimilifu & Utawala na kuendana na kanuni za udhibiti  
+    - Udhibiti wa Usalama wa Juu na usanifu wa zero trust  
+    - Uunganishaji wa Mfumo wa Usalama wa Microsoft na suluhisho kamili  
+    - Mabadiliko ya Kuendelea ya Usalama kwa mbinu zinazobadilika  
+  - **Suluhisho za Microsoft za Usalama**: Mwongozo wa uunganisho ulioimarishwa kwa Prompt Shields, Azure Content Safety, Entra ID, na GitHub Advanced Security  
+  - **Rasilimali za Utekelezaji**: Viungo vya rasilimali vilivyopangwa kwa mujibu wa Nyaraka Rasmi za MCP, Suluhisho za Usalama Microsoft, Viwango vya Usalama, na Miongozo ya Utekelezaji  
+
+#### Udhibiti wa Usalama wa Juu (02-Security/) - Utekelezaji wa Viwanda  
+- **MCP-SECURITY-CONTROLS-2025.md**: Marekebisho kamili na mfumo wa usalama wa viwanda  
+  - **Nyangwa 9 Kamili za Usalama**: Kuongeza kutoka udhibiti wa msingi hadi mfumo wa usalama wa viwanda  
+    - Uthibitishaji wa Juu & Ruhusa kwa uunganisho wa Microsoft Entra ID  
+    - Usalama wa Tokeni & Udhibiti wa Passthrough na uthibitisho kamili  
+    - Udhibiti wa Usalama wa Kikao na kuzuia udukuzi  
+    - Udhibiti Maalum wa Usalama wa AI dhidi ya sindano za prompt na kuharibu zana  
+    - Kuzuia Shambulio la Confused Deputy na usalama wa mtu wa huduma wa OAuth  
+    - Usalama wa Utekelezaji wa Zana kwa sandbox na utekaji huru  
+    - Udhibiti wa Usalama wa Mnyororo wa Ugavi kwa uhakiki wa utegemezi  
+    - Udhibiti wa Ufuatiliaji & Gundizo na uunganisho wa SIEM  
+    - Majibu ya Tukio & Urejeshaji na uwezo wa otomatiki  
+  - **Mifano ya Utekelezaji**: Kuongeza sehemu za usanidi za YAML na mifano ya msimbo  
+  - **Uunganisho wa Suluhisho za Microsoft**: Mzunguko kamili wa huduma za usalama za Azure, GitHub Advanced Security, na usimamizi wa utambulisho wa viwanda  
+
+#### Mada za Usalama Zinazoendelea (05-AdvancedTopics/mcp-security/) - Utekelezaji Tayari kwa Uzalishaji  
+- **README.md**: Kuandikwa upya kikamilifu kwa utekelezaji wa usalama wa viwanda  
+  - **Ulinganifu na Spesifikesheni ya Sasa**: Sasisho kwa MCP Specification 2025-06-18 na mahitaji ya usalama wa lazima  
+  - **Uthibitishaji Ulioboreshwa**: Uunganisho wa Microsoft Entra ID na mifano kamili ya .NET na Java Spring Security  
+  - **Uunganisho wa Usalama wa AI**: Utekelezaji wa Microsoft Prompt Shields na Azure Content Safety pamoja na mifano ya Python ya kina  
+  - **Kupunguza Vitisho vya Juu**: Mifano kamili ya utekelezaji kwa  
+    - Kuzuia Shambulio la Confused Deputy kwa PKCE na uthibitisho wa ridhaa ya mtumiaji  
+    - Kuzuia Token Passthrough kwa uthibitisho wa hadhira na usimamizi salama wa tokeni  
+    - Kuzuia Udukuzi wa Kikao kwa uunganisho wa usimbaji na uchambuzi wa tabia  
+  - **Uunganisho wa Usalama wa Viwanda**: Ufuatiliaji kwa Azure Application Insights, njia za kugundua vitisho, na usalama wa mnyororo wa ugavi  
+  - **Orodha ya Kukagua Utekelezaji**: Udhibiti wa usalama ulio wazi wa lazima dhidi ya uliopendekezwa na faida za mfumo wa usalama wa Microsoft  
+
+### Ubora wa Nyaraka & Ulinganifu wa Viwango  
+- **Marejeleo ya Spesifikesheni**: Sasisho la marejeleo yote kwa MCP Specification 2025-06-18  
+- **Mfumo wa Usalama wa Microsoft**: Mwongozo wa uunganisho ulioimarishwa katika nyaraka zote za usalama  
+- **Utekelezaji wa Vitendo**: Kuongeza mifano ya msimbo ya kina katika .NET, Java, na Python na mifumo ya viwanda  
+- **Mpangilio wa Rasilimali**: Uainishaji kamili wa nyaraka rasmi, viwango vya usalama, na miongozo ya utekelezaji  
+- **Alama za Kuonekana**: Uwekaji wazi wa mahitaji ya lazima dhidi ya mbinu zinazopendekezwa  
+
+#### Dhana za Msingi (01-CoreConcepts/) - Uboreshaji Kamili  
+- **Sasisho la Toleo la Itifaki**: Kusasisha marejeleo kwa MCP Specification 2025-06-18 na mfumo wa tarehe (YYYY-MM-DD)  
+- **Uboreshaji wa Usanifu**: Maelezo yaliyopanuliwa kuhusu Wenyeji, Wateja, na Seva kuendana na mifano ya usanifu wa MCP ya sasa
+  - Wenyeji sasa wamefafanuliwa wazi kama programu za AI zinazoratibu muunganisho ya wateja wa MCP wengi
+  - Wateja wameelezewa kama waunganishaji wa itifaki ambao huweka uhusiano wa mtoa huduma mmoja kwa mmoja
+  - Watoa huduma wameboreshwa kwa hali za usambazaji wa ndani dhidi ya mbali
+- **Urekebishaji wa Msingi**: Marekebisho kamili ya msingi wa seva na wateja
+  - Msingi wa Seva: Rasilimali (vyanzo vya data), Maagizo (vik шаблони), Zana (fanyakazi zinazoendeshwa) zikiwa na maelezo ya kina na mifano
+  - Msingi wa Mteja: Sampuli (ukamilishaji wa LLM), Uvutaji (maingizo ya mtumiaji), Kuweka kumbukumbu (kudhibiti/kuangalia)
+  - Imesasishwa na mifumo ya sasa ya ugunduzi (`*/list`), upokezaji (`*/get`), na utekelezaji (`*/call`)
+- **Muundo wa Itifaki**: Iliyoanzishwa modeli ya muundo wa tabaka mbili
+  - Tabaka la Data: Msingi wa JSON-RPC 2.0 ikiwa na usimamizi wa mzunguko wa maisha na misingi
+  - Tabaka la Usafirishaji: STDIO (ndani) na HTTP Inayoweza Kutoroka kwa SSE (nje) kwa mbinu za usafirishaji
+- **Mfumo wa Usalama**: Kanuni kamili za usalama zikiwemo idhini wazi ya mtumiaji, ulinzi wa faragha ya data, usalama wa utekelezaji wa zana, na usalama wa tabaka la usafirishaji
+- **Mifumo ya Mawasiliano**: Ujumbe wa itifaki ulisasishwa kuonyesha mchakato wa kuanzisha, ugunduzi, utekelezaji, na utangazo
+- **Mifano ya Msimbo**: Mifano ya lugha nyingi imeboreshwa (.NET, Java, Python, JavaScript) kuakisi mifumo ya sasa ya MCP SDK
 
 #### Usalama (02-Security/) - Marekebisho Kamili ya Usalama  
-- **Ulinganifu wa Viwango**: Ulinganifu kamili na mahitaji ya usalama ya Maelezo ya MCP 2025-06-18
-- **Mageuzi ya Uthibitishaji**: Mageuzi kutoka kwa seva za OAuth za kawaida hadi ugawaji wa mtoa huduma wa kitambulisho wa nje (Microsoft Entra ID)
-- **Uchambuzi wa Vitisho vya AI**: Uboreshaji wa chanjo ya vectors za mashambulizi ya AI ya kisasa
-  - Hali za mashambulizi ya sindano ya maelezo na mifano halisi
-  - Mbinu za sumu za zana na mifumo ya mashambulizi ya "rug pull"
-  - Sumu ya dirisha la muktadha na mashambulizi ya mkanganyiko wa modeli
-- **Suluhisho za Usalama za AI za Microsoft**: Chanjo kamili ya mfumo wa usalama wa Microsoft
-  - Prompt Shields za AI na mbinu za kugundua, kuonyesha, na mipaka ya juu
-  - Mifumo ya ujumuishaji wa Azure Content Safety
-  - Usalama wa Juu wa GitHub kwa ulinzi wa mnyororo wa ugavi
-- **Kupunguza Vitisho vya Juu**: Udhibiti wa usalama wa kina kwa:
-  - Utekaji wa kikao na hali maalum za mashambulizi ya MCP na mahitaji ya ID ya kikao ya kriptografia
-  - Matatizo ya Confused Deputy katika hali za wakala wa MCP na mahitaji ya ridhaa ya wazi
-  - Udhaifu wa uhamishaji wa tokeni na udhibiti wa uthibitishaji wa lazima
-- **Usalama wa Mnyororo wa Ugavi**: Chanjo ya mnyororo wa ugavi wa AI iliyopanuliwa ikiwa ni pamoja na modeli za msingi, huduma za embeddings, watoa muktadha, na API za wahusika wa tatu
-- **Usalama wa Msingi**: Ujumuishaji ulioboreshwa na mifumo ya usalama wa biashara ikiwa ni pamoja na usanifu wa zero trust na mfumo wa usalama wa Microsoft
-- **Mpangilio wa Rasilimali**: Viungo vya rasilimali vilivyopangwa kwa aina (Nyaraka Rasmi, Viwango, Utafiti, Suluhisho za Microsoft, Miongozo ya Utekelezaji)
+- **Ulinganifu na Viwango**: Ulinganifu kamili na mahitaji ya usalama ya MCP Specification 2025-06-18
+- **Mageuzi ya Uthibitishaji**: Mageuzi yaliyoandikwa kutoka seva za OAuth za kawaida hadi utoaji wa utambulisho kwa wasambazaji wa nje (Microsoft Entra ID)
+- **Uchambuzi wa Vitisho vya AI**: Ujumuishe mkubwa wa madai ya mashambulio ya AI ya kisasa
+  - Matukio yaliyofafanuliwa ya mashambulio ya kutumia maagizo yasiyo sahihi na mifano halisi
+  - Mbinu za sumu katika zana na mifumo ya mashambulio ya "rug pull"
+  - Uchafu wa dirisha la muktadha na mashambulio ya kuchanganya modeli
+- **Suluhisho za Usalama za Microsoft AI**: Ujumuishe kamili wa mfumo wa usalama wa Microsoft
+  - Mipaka ya Maagizo ya AI yenye uchunguzi wa hali ya juu, kuwaangazia, na mbinu za utoaji wa alama
+  - Mifumo ya Usalama wa Maudhui ya Azure
+  - Usalama wa Juu wa GitHub kwa ulinzi wa mnyororo wa usambazaji
+- **Kupunguza Vitisho vya Juu**: Udhibiti wa usalama wa kina kwa
+  - Kukuwa kwa kikao na matukio maalum ya mashambulio ya MCP na mahitaji ya kitambulisho cha kikao cha kriptografia
+  - Matatizo ya "deputy" waliotangazika katika hali za wakala wa MCP na mahitaji ya idhini wazi
+  - Udhaifu wa upitishaji wa tokeni na udhibiti wa lazima wa uthibitishaji
+- **Usalama wa Mnyororo wa Usambazaji**: Ujumuishe zaidi mnyororo wa usalama wa AI ikiwa ni pamoja na mifano ya msingi, huduma za embeddings, watoa huduma wa muktadha, na API za watu wengine
+- **Usalama wa Msingi**: Uingiliano ulioimarishwa na mifumo ya usalama wa kampuni ikiwa ni pamoja na usanifu wa kuamini sifuri na mfumo wa usalama wa Microsoft
+- **Mpangilio wa Rasilimali**: Viungo vya rasilimali vimeainishwa kwa aina (Nyaraka Rasmi, Viwango, Utafiti, Suluhisho za Microsoft, Miongozo ya Utekelezaji)
 
-### Uboreshaji wa Ubora wa Nyaraka
-- **Malengo ya Kujifunza Yaliyopangwa**: Malengo ya kujifunza yaliyoboreshwa na matokeo maalum, yanayoweza kutekelezwa
-- **Marejeleo ya Msalaba**: Viungo vilivyoongezwa kati ya mada zinazohusiana za usalama na dhana za msingi
-- **Taarifa za Sasa**: Imesasishwa marejeleo yote ya tarehe na viungo vya maelezo kwa viwango vya sasa
-- **Mwongozo wa Utekelezaji**: Miongozo maalum, inayoweza kutekelezwa ya utekelezaji imeongezwa katika sehemu zote mbili
+### Kuboresha Ubora wa Nyaraka
+- **Malengo ya Kujifunza Yaliyopangwa**: Malengo ya kujifunza yameimarishwa na matokeo maalum na ya utekelezaji
+- **Marejeo ya Msingi**: Viungo vimeongezwa kati ya mada zinazohusiana za usalama na dhana kuu
+- **Taarifa za Sasa**: Marejeo yote ya tarehe na viungo vya mahitaji yameboreshwa kwa viwango vya sasa
+- **Mwongozo wa Utekelezaji**: Miongozo maalum na ya utekelezaji imeongezwa katika sehemu zote mbili
 
 ## Julai 16, 2025
 
-### README na Uboreshaji wa Uabiri
-- Muundo wa uabiri wa mtaala katika README.md umerekebishwa kabisa
-- Lebo za `<details>` zimebadilishwa na muundo wa meza unaoweza kufikiwa zaidi
-- Chaguo mbadala za mpangilio zimeundwa katika folda mpya ya "alternative_layouts"
-- Mifano ya uabiri wa mtindo wa kadi, tabbed-style, na accordion-style imeongezwa
-- Sehemu ya muundo wa hifadhi ya jalada imesasishwa ili kujumuisha faili zote za hivi karibuni
-- Sehemu ya "Jinsi ya Kutumia Mtaala Huu" imeboreshwa na mapendekezo wazi
-- Viungo vya maelezo ya MCP vimesasishwa kuelekeza kwenye URL sahihi
+### README na Maboresho ya Utungaji
+- Muundo wa utungaji wa mtaala kabisa umekuwa upya katika README.md
+- Tagu za `<details>` zilibadilishwa kwa muundo wa meza unaopatikana zaidi
+- Chaguzi mbadala za mpangilio zimeundwa katika folda mpya "alternative_layouts"
+- Mifano ya utungaji wa kadi, mtindo wa kichupo, na mtindo wa accordion imeongezwa
+- Sehemu ya muundo wa hazina imesasishwa kujumuisha faili zote za hivi punde
+- Sehemu ya "Jinsi ya Kutumia Mtaala Huu" imeboreshwa kwa mapendekezo wazi
+- Viungo vya MCP specification vimesasishwa kuelekea URL sahihi
 - Sehemu ya Uhandisi wa Muktadha (5.14) imeongezwa kwenye muundo wa mtaala
 
-### Sasisho za Mwongozo wa Kujifunza
-- Mwongozo wa kujifunza umerekebishwa kabisa ili kuendana na muundo wa hifadhi ya jalada ya sasa
-- Sehemu mpya zimeongezwa kwa Wateja wa MCP na Zana, na Seva Maarufu za MCP
-- Ramani ya Mtaala wa Kielezo imesasishwa ili kuonyesha mada zote kwa usahihi
-- Maelezo ya Mada za Juu yameboreshwa ili kufunika maeneo yote maalum
-- Sehemu ya Masomo ya Kesi imesasishwa ili kuonyesha mifano halisi
-- Changelog hii kamili imeongezwa
+### Marekebisho ya Mwongozo wa Masomo
+- Mwongozo wa masomo umerekebishwa kabisa kulingana na muundo wa hazina wa sasa
+- Sehemu mpya za Wateja na Zana za MCP, na Seva Maarufu za MCP zimeongezwa
+- Ramani ya Mtaala wa Kuona imesasishwa kuelezea mada zote kwa usahihi
+- Maelezo ya Mada Zinazoendelea yameimarishwa kufunika maeneo maalum yote
+- Sehemu ya Masomo ya Kesi imesasishwa kuonyesha mifano halisi
+- Kumbukumbu hii kamili ya mabadiliko imeongezwa
 
-### Michango ya Jamii (06-CommunityContributions/)
-- Taarifa za kina kuhusu seva za MCP kwa kizazi cha picha zimeongezwa
-- Sehemu kamili ya kutumia Claude katika VSCode imeongezwa
-- Maelekezo ya usanidi wa mteja wa terminal wa Cline na matumizi yameongezwa
-- Sehemu ya wateja wa MCP imesasishwa ili kujumuisha chaguo zote maarufu za wateja
-- Mifano ya michango imeboreshwa na sampuli sahihi zaidi za msimbo
+### Michango ya Jumuiya (06-CommunityContributions/)
+- Maelezo ya kina juu ya seva za MCP za uzalishaji picha yameongezwa
+- Sehemu ya kina juu ya matumizi ya Claude katika VSCode imeongezwa
+- Maelekezo ya usanidi na matumizi ya mteja wa terminal Cline yameongezwa
+- Sehemu ya mteja wa MCP imesasishwa kujumuisha chaguzi zote maarufu za mteja
+- Mifano ya michango imeboreshwa na sampuli za msimbo sahihi zaidi
 
-### Mada za Juu (05-AdvancedTopics/)
+### Mada Zinazoendelea (05-AdvancedTopics/)
 - Folda zote za mada maalum zimepangwa kwa majina yanayolingana
-- Vifaa na mifano ya uhandisi wa muktadha imeongezwa
-- Nyaraka za ujumuishaji wa wakala wa Foundry zimeongezwa
-- Nyaraka za ujumuishaji wa usalama wa Entra ID zimeboreshwa
+- Vifaa na mifano ya uhandisi wa muktadha vimeongezwa
+- Nyaraka za kuingiza wakala wa Foundry zimeongezwa
+- Nyaraka za kuingiza usalama wa Entra ID zimeboreshwa
 
 ## Juni 11, 2025
 
 ### Uundaji wa Awali
-- Toleo la kwanza la mtaala wa MCP kwa Kompyuta lilitolewa
-- Muundo wa msingi wa sehemu zote 10 kuu uliundwa
-- Ramani ya Mtaala wa Kielezo ilitekelezwa kwa uabiri
-- Miradi ya sampuli ya awali katika lugha nyingi za programu iliongezwa
+- Toleo la kwanza la mtaala wa MCP kwa Waanzilishi limetolewa
+- Muundo wa msingi wa sehemu zote 10 kuu umetengenezwa
+- Ramani ya Mtaala wa Kuona kwa utungaji imeanzishwa
+- Miradi ya awali ya mfano katika lugha nyingi za programu imeongezwa
 
-### Kuanza (03-GettingStarted/)
-- Mifano ya utekelezaji wa seva ya kwanza iliundwa
+### Kuanzia (03-GettingStarted/)
+- Mifano ya utekelezaji wa seva ya kwanza imetengenezwa
 - Mwongozo wa maendeleo ya mteja umeongezwa
-- Maelekezo ya ujumuishaji wa mteja wa LLM yamejumuishwa
-- Nyaraka za ujumuishaji wa VS Code zimeongezwa
-- Mifano ya seva ya Server-Sent Events (SSE) ilitekelezwa
+- Maelekezo ya kuunganisha mteja wa LLM yameingizwa
+- Nyaraka za kuunganisha VS Code zimeongezwa
+- Mifano ya Seva Inayotumwa Tukio (SSE) imeanzishwa
 
-### Dhana za Msingi (01-CoreConcepts/)
+### Dhana Msingi (01-CoreConcepts/)
 - Maelezo ya kina ya usanifu wa mteja-seva yameongezwa
-- Nyaraka za vipengele muhimu vya itifaki ziliundwa
-- Mifumo ya ujumbe katika MCP iliorodheshwa
+- Nyaraka za vipengele vikuu vya itifaki zimeandikwa
+- Mifumo ya ujumbe katika MCP imeandikwa
 
 ## Mei 23, 2025
 
-### Muundo wa Hifadhi ya Jalada
-- Hifadhi ya jalada ilianzishwa na muundo wa folda wa msingi
-- Faili za README kwa kila sehemu kuu ziliundwa
-- Miundombinu ya tafsiri ilianzishwa
-- Picha na michoro ziliongezwa
+### Muundo wa Hazina
+- Hazina ilianzishwa na muundo wa folda wa msingi
+- Nyaraka za README kwa kila sehemu kuu zilitengenezwa
+- Mfumo wa tafsiri ulianzishwa
+- Rasilimali za picha na michoro zimeongezwa
 
 ### Nyaraka
-- README.md ya awali iliyo na muhtasari wa mtaala iliundwa
-- CODE_OF_CONDUCT.md na SECURITY.md ziliundwa
-- SUPPORT.md iliyo na mwongozo wa kupata msaada iliundwa
-- Muundo wa awali wa mwongozo wa kujifunza uliundwa
+- README.md ya awali yenye muhtasari wa mtaala ilitengenezwa
+- CODE_OF_CONDUCT.md na SECURITY.md ziliwekwa
+- SUPPORT.md ilianzishwa na miongozo ya kupata msaada
+- Muundo wa mwongozo wa masomo wa awali ulitengenezwa
 
 ## Aprili 15, 2025
 
 ### Mipango na Mfumo
-- Mipango ya awali ya mtaala wa MCP kwa Kompyuta ilianza
+- Mipango ya awali ya mtaala wa MCP kwa Waanzilishi
 - Malengo ya kujifunza na hadhira lengwa yalifafanuliwa
-- Muundo wa sehemu 10 za mtaala ulielezwa
+- Muundo wa sehemu 10 wa mtaala ulitayarishwa
 - Mfumo wa dhana kwa mifano na masomo ya kesi ulitengenezwa
-- Mifano ya awali ya prototype kwa dhana muhimu iliundwa
+- Mifano ya awali ya prototaipu kwa dhana kuu ilitengenezwa
 
 ---
 
-**Kanusho**:  
-Hati hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kuhakikisha usahihi, tafadhali fahamu kuwa tafsiri za kiotomatiki zinaweza kuwa na makosa au kutokuwa sahihi. Hati ya asili katika lugha yake ya awali inapaswa kuzingatiwa kama chanzo cha mamlaka. Kwa taarifa muhimu, tafsiri ya kitaalamu ya binadamu inapendekezwa. Hatutawajibika kwa kutoelewana au tafsiri zisizo sahihi zinazotokana na matumizi ya tafsiri hii.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Kiarifu cha Kutohusiana**: 
+Nyaraka hii imetafsiriwa kwa kutumia huduma ya tafsiri ya AI [Co-op Translator](https://github.com/Azure/co-op-translator). Ingawa tunajitahidi kwa usahihi, tafadhali fahamu kwamba tafsiri za kiotomatiki zinaweza kuwa na makosa au kasoro. Nyaraka asili katika lugha yake ya asili inapaswa kuzingatiwa kama chanzo cha mamlaka. Kwa taarifa muhimu, tafsiri ya kitaalamu ya mtu inashauriwa. Hatubebi dhamana kwa kutoelewana au tafsiri potofu zinazotokana na matumizi ya tafsiri hii.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

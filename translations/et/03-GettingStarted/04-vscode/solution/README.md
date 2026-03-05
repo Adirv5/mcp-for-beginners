@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5ef8f5821c1a04f7b1fc4f15098ecab8",
-  "translation_date": "2025-10-11T11:33:49+00:00",
-  "source_file": "03-GettingStarted/04-vscode/solution/README.md",
-  "language_code": "et"
-}
--->
 # Näidise käivitamine
 
 Siin eeldame, et teil on juba töötav serverikood. Palun leidke server ühest varasemast peatükist.
@@ -77,7 +68,7 @@ See vastab käsu käivitamisele, mis näeb välja selline: `node build/index.js`
 
     Peaksite nägema tööriista, mis kuvatakse vestluse tekstikasti kohal, andes teile võimaluse valida tööriista käivitamine, nagu näidatud selles visuaalis:
 
-    ![VS Code näitab tööriista käivitamise võimalust](../../../../../translated_images/vscode-agent.d5a0e0b897331060518fe3f13907677ef52b879db98c64d68a38338608f3751e.et.png)
+    ![VS Code näitab tööriista käivitamise võimalust](../../../../../translated_images/et/vscode-agent.d5a0e0b897331060.webp)
 
     Tööriista valimine peaks andma numbrilise tulemuse "23", kui teie käsk oli nagu eelnevalt mainitud.
 

@@ -1,17 +1,8 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "e5ea5e7582f70008ea9bec3b3820f20a",
-  "translation_date": "2025-10-11T13:02:15+00:00",
-  "source_file": "04-PracticalImplementation/samples/java/containerapp/README.md",
-  "language_code": "ta"
-}
--->
 ## அமைப்பு கட்டமைப்பு
 
 இந்த திட்டம், Model Context Protocol (MCP) மூலம் கணக்கீட்டு சேவைக்கு பயனர் உத்தரவுகளை அனுப்புவதற்கு முன் உள்ளடக்க பாதுகாப்பு சரிபார்ப்பை பயன்படுத்தும் ஒரு வலை பயன்பாட்டை விளக்குகிறது.
 
-![அமைப்பு கட்டமைப்பு வரைபடம்](../../../../../../translated_images/plant.b079fed84e945b7c2978993a16163bb53f0517cfe3548d2e442ff40d619ba4b4.ta.png)
+![அமைப்பு கட்டமைப்பு வரைபடம்](../../../../../../translated_images/ta/plant.b079fed84e945b7c.webp)
 
 ### இது எப்படி செயல்படுகிறது
 

@@ -1,174 +1,169 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "904b59de1de9264801242d90a42cdd9d",
-  "translation_date": "2025-09-05T11:51:55+00:00",
-  "source_file": "01-CoreConcepts/README.md",
-  "language_code": "lt"
-}
--->
-# MCP Pagrindinės Sąvokos: Model Context Protocol įvaldymas AI integracijai
+# MCP Pagrindinės Sąvokos: Modelio Konteksto Protokolo Įvaldymas AI Integracijai
 
-[![MCP Pagrindinės Sąvokos](../../../translated_images/02.8203e26c6fb5a797f38a10012061013ec66c95bb3260f6c9cfd2bf74b00860e1.lt.png)](https://youtu.be/earDzWGtE84)
+[![MCP Core Concepts](../../../translated_images/lt/02.8203e26c6fb5a797.webp)](https://youtu.be/earDzWGtE84)
 
-_(Spustelėkite paveikslėlį aukščiau, kad peržiūrėtumėte šios pamokos vaizdo įrašą)_
+_(Spustelėkite aukščiau esantį paveikslėlį, kad peržiūrėtumėte šios pamokos vaizdo įrašą)_
 
-[Model Context Protocol (MCP)](https://github.com/modelcontextprotocol) yra galingas, standartizuotas pagrindas, optimizuojantis komunikaciją tarp didelių kalbos modelių (LLM) ir išorinių įrankių, programų bei duomenų šaltinių. Šis vadovas padės jums suprasti pagrindines MCP sąvokas. Sužinosite apie jo klientų-serverių architektūrą, esminius komponentus, komunikacijos mechaniką ir geriausią praktinį įgyvendinimą.
+[Modelio Konteksto Protokolas (MCP)](https://github.com/modelcontextprotocol) yra galinga, standartizuota sistema, kuri optimizuoja komunikaciją tarp Didelių Kalbos Modelių (LLM) ir išorinių įrankių, programų bei duomenų šaltinių.  
+Šis vadovas supažindins jus su MCP pagrindinėmis sąvokomis. Sužinosite apie jo klientų-serverių architektūrą, svarbiausius komponentus, komunikacijos mechanizmus ir įgyvendinimo gerąsias praktikas.
 
-- **Aiškus vartotojo sutikimas**: Visi duomenų prieigos ir operacijų veiksmai reikalauja aiškaus vartotojo patvirtinimo prieš vykdymą. Vartotojai turi aiškiai suprasti, kokie duomenys bus pasiekiami ir kokie veiksmai bus atliekami, turėdami detalų leidimų ir autorizacijų valdymą.
+- **Aiškus Vartotojo Sutikimas**: Visas prieigos prie duomenų ir operacijų vykdymas reikalauja aiškaus vartotojo patvirtinimo prieš vykdymą. Vartotojai turi aiškiai suprasti, kokie duomenys bus pasiekiami ir kokie veiksmai bus atliekami, turėdami galimybę smulkiai kontroliuoti leidimus ir autorizacijas.
 
-- **Duomenų privatumo apsauga**: Vartotojo duomenys atskleidžiami tik su aiškiu sutikimu ir turi būti apsaugoti stipriomis prieigos kontrolėmis viso sąveikos ciklo metu. Įgyvendinimas turi užkirsti kelią neleistinam duomenų perdavimui ir išlaikyti griežtas privatumo ribas.
+- **Duomenų Privatumo Apsauga**: Vartotojo duomenys yra atskleidžiami tik su aiškiu sutikimu ir turi būti saugomi naudojant tvirtus prieigos kontrolės mechanizmus per visą sąveikos laikotarpį. Įgyvendinimai turi užkirsti kelią neįgaliotam duomenų perdavimui ir laikytis griežtų privatumo ribų.
 
-- **Įrankių vykdymo saugumas**: Kiekvienas įrankio iškvietimas reikalauja aiškaus vartotojo sutikimo, aiškiai suprantant įrankio funkcionalumą, parametrus ir galimą poveikį. Stiprios saugumo ribos turi užkirsti kelią netyčiniam, nesaugiems ar kenksmingiems įrankių vykdymams.
+- **Įrankių Vykdymo Sauga**: Kiekvienas įrankio kvietimas reikalauja aiškaus vartotojo sutikimo su aiškiu supratimu apie įrankio funkcionalumą, parametrus ir galimą poveikį. Reikalingos tvirtos saugumo ribos, kad būtų užkirstas kelias neplanuotam, nesaugiam ar kenksmingam įrankių vykdymui.
 
-- **Transporto sluoksnio saugumas**: Visos komunikacijos kanalai turėtų naudoti tinkamus šifravimo ir autentifikavimo mechanizmus. Nuotolinės jungtys turėtų įgyvendinti saugius transporto protokolus ir tinkamą kredencialų valdymą.
+- **Transporto Lygmens Saugumas**: Visos komunikacijos kanalai turi naudoti tinkamus šifravimo ir autentifikavimo mechanizmus. Nuotoliniai ryšiai turi įgyvendinti saugius transporto protokolus ir tinkamą kredencialų valdymą.
 
-#### Įgyvendinimo gairės:
+#### Įgyvendinimo gaires:
 
-- **Leidimų valdymas**: Įgyvendinkite detalius leidimų sistemas, leidžiančias vartotojams kontroliuoti, kurie serveriai, įrankiai ir ištekliai yra pasiekiami  
-- **Autentifikacija ir autorizacija**: Naudokite saugius autentifikacijos metodus (OAuth, API raktus) su tinkamu žetonų valdymu ir galiojimo pabaiga  
-- **Įvesties validacija**: Validuokite visus parametrus ir duomenų įvestis pagal apibrėžtas schemas, kad išvengtumėte injekcijos atakų  
-- **Audito žurnalai**: Palaikykite išsamius visų operacijų žurnalus saugumo stebėjimui ir atitikties užtikrinimui  
+- **Leidimų Valdymas**: Įgyvendinkite smulkiai valdomas leidimų sistemas, kurios leidžia vartotojams kontroliuoti, prie kurių serverių, įrankių ir išteklių galima prieiti
+- **Autentifikacija ir Autorizacija**: Naudokite saugius autentifikacijos metodus (OAuth, API raktus) su tinkamu žetonų valdymu ir galiojimo laikų nustatymu  
+- **Įvesties Patikrinimas**: Patikrinkite visus parametrus ir duomenų įvestis pagal apibrėžtas schemas, kad būtų išvengta injekcijos atakų
+- **Audito Įrašai**: Laikykite išsamius visų operacijų įrašus saugumo stebėsenai ir atitikčiai
 
 ## Apžvalga
 
-Šioje pamokoje nagrinėjama pagrindinė architektūra ir komponentai, sudarantys Model Context Protocol (MCP) ekosistemą. Sužinosite apie klientų-serverių architektūrą, pagrindinius komponentus ir komunikacijos mechanizmus, kurie palaiko MCP sąveikas.
+Šioje pamokoje nagrinėjama pagrindinė Modelio Konteksto Protokolo (MCP) ekosistemos architektūra ir komponentai. Sužinosite apie klientų-serverių architektūrą, reikšmingus komponentus ir komunikacijos mechanizmus, kurie užtikrina MCP sąveikas.
 
-## Pagrindiniai mokymosi tikslai
+## Svarbiausi mokymosi tikslai
 
-Pamokos pabaigoje jūs:
+Šios pamokos pabaigoje jūs:
 
 - Suprasite MCP klientų-serverių architektūrą.
-- Identifikuosite Hostų, Klientų ir Serverių vaidmenis bei atsakomybes.
-- Analizuosite pagrindines MCP savybes, kurios daro jį lankstų integracijos sluoksnį.
-- Sužinosite, kaip informacija teka MCP ekosistemoje.
-- Įgysite praktinių įžvalgų per kodų pavyzdžius .NET, Java, Python ir JavaScript.
+- Atpažinsite šeimininkų, klientų ir serverių vaidmenis ir atsakomybes.
+- Išanalizuosite pagrindines savybes, dėl kurių MCP yra lankstus integracijos sluoksnis.
+- Sužinosite, kaip teka informacija MCP ekosistemoje.
+- Įgysite praktinių įžvalgų per kodo pavyzdžius .NET, Java, Python ir JavaScript kalbomis.
 
-## MCP Architektūra: Išsamus žvilgsnis
+## MCP Architektūra: Gilus Žvilgsnis
 
-MCP ekosistema yra sukurta remiantis klientų-serverių modeliu. Ši modulinė struktūra leidžia AI programoms efektyviai sąveikauti su įrankiais, duomenų bazėmis, API ir kontekstiniais ištekliais. Panagrinėkime šią architektūrą jos pagrindiniuose komponentuose.
+MCP ekosistema yra paremta klientų-serverių modeliu. Ši modulinė struktūra leidžia DI programoms efektyviai sąveikauti su įrankiais, duomenų bazėmis, API ir kontekstiniais ištekliais. Suskirstykime šią architektūrą į pagrindinius komponentus.
 
-MCP pagrindas yra klientų-serverių architektūra, kurioje hosto programa gali prisijungti prie kelių serverių:
+Iš esmės MCP laikosi klientų-serverių architektūros, kur šeimininko programa gali jungtis prie kelių serverių:
 
 ```mermaid
 flowchart LR
-    subgraph "Your Computer"
-        Host["Host with MCP (Visual Studio, VS Code, IDEs, Tools)"]
-        S1["MCP Server A"]
-        S2["MCP Server B"]
-        S3["MCP Server C"]
-        Host <-->|"MCP Protocol"| S1
-        Host <-->|"MCP Protocol"| S2
-        Host <-->|"MCP Protocol"| S3
-        S1 <--> D1[("Local\Data Source A")]
-        S2 <--> D2[("Local\Data Source B")]
+    subgraph "Jūsų kompiuteris"
+        Host["MCP šeimininkas (Visual Studio, VS Code, IDE, įrankiai)"]
+        S1["MCP serveris A"]
+        S2["MCP serveris B"]
+        S3["MCP serveris C"]
+        Host <-->|"MCP protokolas"| S1
+        Host <-->|"MCP protokolas"| S2
+        Host <-->|"MCP protokolas"| S3
+        S1 <--> D1[("Vietinis\Duomenų šaltinis A")]
+        S2 <--> D2[("Vietinis\Duomenų šaltinis B")]
     end
-    subgraph "Internet"
-        S3 <-->|"Web APIs"| D3[("Remote\Services")]
+    subgraph "Internetas"
+        S3 <-->|"Tinklo API"| D3[("Nuotolinės\Paslaugos")]
     end
-```
-
-- **MCP Hostai**: Programos, tokios kaip VSCode, Claude Desktop, IDE ar AI įrankiai, norintys pasiekti duomenis per MCP  
+```  
+- **MCP Šeimininkai**: Programos, tokios kaip VSCode, Claude Desktop, IDE ar DI įrankiai, norintys pasiekti duomenis per MCP  
 - **MCP Klientai**: Protokolo klientai, palaikantys 1:1 ryšius su serveriais  
-- **MCP Serveriai**: Lengvos programos, kurios kiekviena atskleidžia specifines galimybes per standartizuotą Model Context Protocol  
-- **Vietiniai duomenų šaltiniai**: Jūsų kompiuterio failai, duomenų bazės ir paslaugos, kurias MCP serveriai gali saugiai pasiekti  
-- **Nuotolinės paslaugos**: Išorinės sistemos, pasiekiamos internetu, prie kurių MCP serveriai gali prisijungti per API.
+- **MCP Serveriai**: Lengvos programos, kurios kiekviena per standartizuotą Modelio Konteksto Protokolą teikia konkrečias galimybes  
+- **Vietiniai Duomenų Šaltiniai**: Jūsų kompiuterio failai, duomenų bazės ir paslaugos, prie kurių MCP serveriai gali saugiai prieiti  
+- **Nuotolinės Paslaugos**: Išorinės sistemos, prieinamos internetu, prie kurių MCP serveriai gali jungtis per API.
 
-MCP Protokolas yra besivystantis standartas, naudojantis datų pagrindu versijavimą (YYYY-MM-DD formatas). Dabartinė protokolo versija yra **2025-06-18**. Naujausius protokolo specifikacijos atnaujinimus galite rasti [čia](https://modelcontextprotocol.io/specification/2025-06-18/).
+MCP Protokolas yra evoliucionuojantis standartas, naudojantis datos pagrindu versijavimą (formatu YYYY-MM-DD). Dabartinė protokolo versija yra **2025-11-25**. Naujausią informaciją apie [protokolo specifikaciją](https://modelcontextprotocol.io/specification/2025-11-25/) galite rasti čia.
 
-### 1. Hostai
+### 1. Šeimininkai
 
-Model Context Protocol (MCP) **Hostai** yra AI programos, kurios veikia kaip pagrindinė sąsaja, per kurią vartotojai sąveikauja su protokolu. Hostai koordinuoja ir valdo ryšius su keliais MCP serveriais, sukurdami dedikuotus MCP klientus kiekvienam serverio ryšiui. Hostų pavyzdžiai:
+Modelio Konteksto Protokole (MCP), **šeimininkai** yra DI programos, veikiančios kaip pagrindinė vartotojų sąsaja, per kurią vartotojai sąveikauja su protokolu. Šeimininkai koordinuoja ir valdo ryšius su keliais MCP serveriais, sukurdami atskirą MCP klientą kiekvienam serverio ryšiui. Pavyzdžiai:
 
-- **AI Programos**: Claude Desktop, Visual Studio Code, Claude Code  
-- **Kūrimo aplinkos**: IDE ir kodų redaktoriai su MCP integracija  
-- **Individualios programos**: Specialiai sukurtos AI agentai ir įrankiai  
+- **DI Programos**: Claude Desktop, Visual Studio Code, Claude Code  
+- **Kūrimo Aplinkos**: IDE ir kodo redaktoriai su MCP integracija  
+- **Specializuotos Programos**: Tikslingai sukurtos DI agentūros ir įrankiai
 
-**Hostai** yra programos, koordinuojančios AI modelių sąveikas. Jie:
+**Šeimininkai** yra programos, koordinuojančios DI modelių sąveiką. Jie:
 
-- **Orkestruoja AI modelius**: Vykdo arba sąveikauja su LLM, kad generuotų atsakymus ir koordinuotų AI darbo eigas  
-- **Valdo klientų ryšius**: Sukuria ir palaiko vieną MCP klientą kiekvienam MCP serverio ryšiui  
-- **Kontroliuoja vartotojo sąsają**: Tvarko pokalbių eigą, vartotojo sąveikas ir atsakymų pateikimą  
-- **Užtikrina saugumą**: Valdo leidimus, saugumo apribojimus ir autentifikaciją  
-- **Tvarko vartotojo sutikimą**: Valdo vartotojo patvirtinimą dėl duomenų dalijimosi ir įrankių vykdymo  
+- **Orkestruoja DI Modelius**: Atlieka ar sąveikauja su LLM, generuoja atsakymus ir koordinuoja DI darbo eigą  
+- **Valdo Klientų Ryšius**: Sukuria ir palaiko po vieną MCP klientą kiekvienam MCP serverio ryšiui  
+- **Valdo Vartotojo Sąsają**: Tvarko pokalbių eigos valdymą, vartotojų sąveikas ir atsakymų pateikimą  
+- **Įgyvendina Saugumą**: Kontroliuoja leidimus, saugumo ribas ir autentifikaciją  
+- **Tvarko Vartotojo Sutikimą**: Valdo vartotojo patvirtinimus dėl duomenų dalijimosi ir įrankių vykdymo
 
 ### 2. Klientai
 
-**Klientai** yra esminiai komponentai, palaikantys dedikuotus vienas su vienu ryšius tarp Hostų ir MCP serverių. Kiekvienas MCP klientas yra sukuriamas Hosto, kad prisijungtų prie specifinio MCP serverio, užtikrinant organizuotus ir saugius komunikacijos kanalus. Daug klientų leidžia Hostams vienu metu prisijungti prie kelių serverių.
+**Klientai** yra esminiai komponentai, palaikantys specializuotus vienas su vienu ryšius tarp šeimininkų ir MCP serverių. Kiekvienas MCP klientas yra inicijuojamas šeimininko, kad prisijungtų prie konkretaus MCP serverio, užtikrinant organizuotus ir saugius komunikacijos kanalus. Daug klientų leidžia šeimininkams vienu metu jungtis prie kelių serverių.
 
-**Klientai** yra jungiamieji komponentai Hosto programoje. Jie:
+**Klientai** yra jungties komponentai šeimininko programoje. Jie:
 
-- **Protokolo komunikacija**: Siunčia JSON-RPC 2.0 užklausas serveriams su raginimais ir instrukcijomis  
-- **Galimybių derinimas**: Derina palaikomas funkcijas ir protokolo versijas su serveriais inicializacijos metu  
-- **Įrankių vykdymas**: Tvarko įrankių vykdymo užklausas iš modelių ir apdoroja atsakymus  
-- **Realaus laiko atnaujinimai**: Tvarko pranešimus ir realaus laiko atnaujinimus iš serverių  
-- **Atsakymų apdorojimas**: Apdoroja ir formatuoja serverių atsakymus, kad jie būtų pateikti vartotojams  
+- **Protokolo Komunikacija**: Siunčia JSON-RPC 2.0 užklausas serveriams su užuominomis ir instrukcijomis  
+- **Galimybių Derybos**: Derinasi dėl palaikomų funkcijų ir protokolo versijų su serveriais inicializacijos metu  
+- **Įrankių Vykdymas**: Tvarko įrankio vykdymo užklausas iš modelių ir apdoroja atsakymus  
+- **Realaus Laiko Atnaujinimai**: Tvarko pranešimus ir realaus laiko atnaujinimus iš serverių  
+- **Atsakymų Apdorojimas**: Apdoroja ir formatuoja serverių atsakymus vartotojams rodyti
 
 ### 3. Serveriai
 
-**Serveriai** yra programos, teikiančios kontekstą, įrankius ir galimybes MCP klientams. Jie gali veikti lokaliai (toje pačioje mašinoje kaip Hostas) arba nuotoliniu būdu (išorinėse platformose) ir yra atsakingi už klientų užklausų tvarkymą bei struktūruotų atsakymų pateikimą. Serveriai atskleidžia specifinę funkcionalumą per standartizuotą Model Context Protocol.
+**Serveriai** yra programos, teikiančios kontekstą, įrankius ir galimybes MCP klientams. Jie gali veikti vietoje ( toje pačioje mašinoje kaip šeimininkas) arba nuotoliniu būdu (išorinėse platformose) ir atsako už klientų užklausų apdorojimą bei struktūrizuotų atsakymų teikimą. Serveriai per standartizuotą Modelio Konteksto Protokolą suteikia konkrečią funkcionalumą.
 
 **Serveriai** yra paslaugos, teikiančios kontekstą ir galimybes. Jie:
 
-- **Funkcijų registracija**: Registruoja ir atskleidžia galimus primityvus (išteklius, raginimus, įrankius) klientams  
-- **Užklausų apdorojimas**: Priima ir vykdo įrankių iškvietimus, išteklių užklausas ir raginimų užklausas iš klientų  
-- **Konteksto teikimas**: Pateikia kontekstinę informaciją ir duomenis, kad pagerintų modelio atsakymus  
-- **Būsenos valdymas**: Palaiko sesijos būseną ir tvarko būsenines sąveikas, kai to reikia  
-- **Realaus laiko pranešimai**: Siunčia pranešimus apie galimybių pokyčius ir atnaujinimus prijungtiems klientams  
+- **Funkcijų Registracija**: Registruoja ir atskleidžia klientams prieinamus primityvus (ištekliai, užuominos, įrankiai)  
+- **Užklausų Apdorojimas**: Priima ir vykdo įrankių kvietimus, išteklių užklausas ir užuominų užklausas iš klientų  
+- **Konteksto Teikimas**: Teikia kontekstinę informaciją ir duomenis, kad pagerintų modelio atsakymus  
+- **Būseno Valdymas**: Laiko sesijos būseną ir tvarko būsenoje išlikusias sąveikas, kai reikia  
+- **Realaus Laiko Pranešimai**: Siunčia pranešimus apie galimybių pakeitimus ir atnaujinimus prijungtiems klientams
 
-Serverius gali kurti bet kas, norėdamas išplėsti modelio galimybes specializuota funkcionalumu, ir jie palaiko tiek lokalius, tiek nuotolinius diegimo scenarijus.
+Serverius gali kurti bet kas, kad praplėstų modelio galimybes specializuota funkcionalumu, ir jie palaiko tiek vietinius, tiek nuotolinius diegimo scenarijus.
 
-### 4. Serverio primityvai
+### 4. Serverio Primityvai
 
-Model Context Protocol (MCP) serveriai teikia tris pagrindinius **primityvus**, kurie apibrėžia pagrindinius sąveikos elementus tarp klientų, hostų ir kalbos modelių. Šie primityvai nurodo kontekstinės informacijos ir veiksmų tipus, pasiekiamus per protokolą.
+Modelio Konteksto Protokolo (MCP) serveriai teikia tris pagrindinius **primityvus**, kurie apibrėžia pagrindinius blokelius turtingoms sąveikoms tarp klientų, šeimininkų ir kalbos modelių. Šie primityvai nurodo kontekstinės informacijos ir veiksmų tipus, prieinamus per protokolą.
 
-MCP serveriai gali atskleisti bet kokį šių trijų pagrindinių primityvų derinį:
+MCP serveriai gali atskleisti bet kokią šių trijų pagrindinių primityvų kombinaciją:
 
 #### Ištekliai
 
-**Ištekliai** yra duomenų šaltiniai, teikiantys kontekstinę informaciją AI programoms. Jie atspindi statinį arba dinaminį turinį, kuris gali pagerinti modelio supratimą ir sprendimų priėmimą:
+**Ištekliai** yra duomenų šaltiniai, teikiantys kontekstinę informaciją DI programoms. Jie atstovauja statinį arba dinaminį turinį, kuris gali pagerinti modelio supratimą ir sprendimų priėmimą:
 
-- **Kontekstiniai duomenys**: Struktūruota informacija ir kontekstas AI modelio suvartojimui  
-- **Žinių bazės**: Dokumentų saugyklos, straipsniai, vadovai ir moksliniai darbai  
-- **Vietiniai duomenų šaltiniai**: Failai, duomenų bazės ir vietinė sistemos informacija  
-- **Išoriniai duomenys**: API atsakymai, interneto paslaugos ir nuotolinės sistemos duomenys  
-- **Dinaminis turinys**: Realaus laiko duomenys, kurie atnaujinami pagal išorines sąlygas  
+- **Kontekstinė Informacija**: Struktūruota informacija ir kontekstas DI modeliui  
+- **Žinių Bazės**: Dokumentų saugyklos, straipsniai, vadovai ir moksliniai darbai  
+- **Vietiniai Duomenų Šaltiniai**: Failai, duomenų bazės ir vietinė sistemos informacija  
+- **Išoriniai Duomenys**: API atsakymai, interneto paslaugos ir nuotoliniai sistemos duomenys  
+- **Dinaminis Turinys**: Realiojo laiko duomenys, kurie atnaujinami pagal išorines sąlygas
 
-Ištekliai identifikuojami pagal URI ir palaiko atradimą per `resources/list` bei gavimą per `resources/read` metodus:
+Ištekliai identifikuojami URI ir palaiko atradimą per `resources/list`, bei gavimą per `resources/read` metodus:
 
 ```text
 file://documents/project-spec.md
 database://production/users/schema
 api://weather/current
 ```
+  
+#### Užuominos
 
-#### Raginimai
+**Užuominos** yra pakartotinai naudojami šablonai, padedantys struktūruoti sąveikas su kalbos modeliais. Jos suteikia standartizuotus sąveikos šablonus ir šabloninius darbo srautus:
 
-**Raginimai** yra daugkartinio naudojimo šablonai, padedantys struktūruoti sąveikas su kalbos modeliais. Jie teikia standartizuotus sąveikos modelius ir šabloninius darbo eigas:
+- **Šablonu pagrįstos sąveikos**: Iš anksto struktūruoti pranešimai ir pokalbių pradmenys  
+- **Darbo srautų šablonai**: Standartizuotos sekos bendroms užduotims ir sąveikoms  
+- **Pavyzdiniai šablonai**: Šablonai su pavyzdžiais modelio instrukcijoms  
+- **Sisteminės užuominos**: Pagrindinės užuominos, apibrėžiančios modelio elgseną ir kontekstą  
+- **Dinaminių šablonai**: Parametrizuotos užuominos, prisitaikančios prie konkrečių kontekstų
 
-- **Šabloninės sąveikos**: Iš anksto struktūruotos žinutės ir pokalbių pradžios  
-- **Darbo eigos šablonai**: Standartizuotos sekos įprastoms užduotims ir sąveikoms  
-- **Few-shot pavyzdžiai**: Pavyzdžiais pagrįsti šablonai modelio instrukcijoms  
-- **Sisteminiai raginimai**: Pagrindiniai raginimai, apibrėžiantys modelio elgesį ir kontekstą  
-- **Dinaminiai šablonai**: Parametrizuoti raginimai, prisitaikantys prie specifinių kontekstų  
-
-Raginimai palaiko kintamųjų pakeitimą ir gali būti atrasti per `prompts/list` bei gauti per `prompts/get`:
+Užuominos palaiko kintamųjų keitimą ir gali būti randamos per `prompts/list` bei gaunamos su `prompts/get`:
 
 ```markdown
 Generate a {{task_type}} for {{product}} targeting {{audience}} with the following requirements: {{requirements}}
 ```
-
+  
 #### Įrankiai
 
-**Įrankiai** yra vykdomos funkcijos, kurias AI modeliai gali iškviesti, kad atliktų specifinius veiksmus. Jie atspindi MCP ekosistemos „veiksmažodžius“, leidžiančius modeliams sąveikauti su išorinėmis sistemomis:
+**Įrankiai** yra vykdomos funkcijos, kurias DI modeliai gali iškviesti atlikti specifinius veiksmus. Jie atspindi MCP ekosistemos "veiksmažodžius", leidžiančius modeliams sąveikauti su išorinėmis sistemomis:
 
-- **Vykdomos funkcijos**: Atskirti veiksmai, kuriuos modeliai gali iškviesti su specifiniais parametrais  
-- **Išorinės sistemos integracija**: API iškvietimai, duomenų bazės užklausos, failų operacijos, skaičiavimai  
+- **Vykdomos funkcijos**: Atskiri veiksmai, kuriuos modeliai gali iškviesti su specifiniais parametrais  
+- **Išorinės sistemos integracija**: API kvietimai, duomenų bazės užklausos, failų operacijos, skaičiavimai  
 - **Unikali tapatybė**: Kiekvienas įrankis turi unikalų pavadinimą, aprašymą ir parametrų schemą  
-- **Struktūruotas I/O**: Įrankiai priima validuotus parametrus ir grąžina struktūruotus, tipizuotus atsakymus  
-- **Veiksmų galimybės**: Leidžia modeliams atlikti realius veiksmus ir gauti gyvus duomenis  
+- **Struktūruota I/O**: Įrankiai priima patikrintus parametrus ir grąžina struktūrizuotus, tipizuotus atsakymus  
+- **Veiksmų galimybės**: Leidžia modeliams atlikti realaus pasaulio veiksmus ir gauti gyvus duomenis
 
-Įrankiai apibrėžiami JSON Schema parametrų validacijai ir atrandami per `tools/list`, vykdomi per `tools/call`:
+Įrankiai aprašomi JSON Schema, kad būtų vykdoma parametrų validacija, ir atrandami per `tools/list`, vykdomi per `tools/call`. Įrankiai taip pat gali turėti **piktogramas** kaip papildomą metaduomenį geresniam vartotojo sąsajos pristatymui.
+
+**Įrankių Anotacijos**: Įrankiai palaiko elgesio anotacijas (pvz., `readOnlyHint`, `destructiveHint`), kurios nurodo, ar įrankis yra tik skaitymui skirtas arba destruktyvus, padedančios klientams priimti informuotus sprendimus dėl įrankio vykdymo.
+
+Pavyzdinė įrankio apibrėžtis:
 
 ```typescript
 server.tool(
@@ -179,101 +174,154 @@ server.tool(
     max_results: z.number().default(10).describe("Maximum results to return")
   }, 
   async (params) => {
-    // Execute search and return structured results
+    // Vykdyti paiešką ir grąžinti struktūrizuotus rezultatus
     return await productService.search(params);
   }
 );
 ```
+  
+## Klientų Primityvai
 
-## Klientų primityvai
+Modelio Konteksto Protokole (MCP), **klientai** gali atskleisti primityvus, kurie leidžia serveriams prašyti papildomų galimybių iš šeimininko programos. Šie klientų pusės primityvai leidžia turtingesnes, interaktyvesnes serverių įgyvendinimo galimybes, galinčias pasiekti DI modelio galimybes ir vartotojo sąveikas.
 
-Model Context Protocol (MCP) **klientai** gali atskleisti primityvus, leidžiančius serveriams prašyti papildomų galimybių iš hosto programos. Šie klientų pusės primityvai leidžia turtingesnius, interaktyvesnius serverių įgyvendinimus, kurie gali pasiekti AI modelio galimybes ir vartotojo sąveikas.
+### Imtinių (Sampling)
 
-### Pavyzdžių generavimas
+**Imtinės** leidžia serveriams prašyti kalbos modelio pabaigų iš kliento DI programos. Šis primityvas leidžia serveriams naudotis LLM galimybėmis, nepateikiant savo modelio priklausomybių:
 
-**Pavyzdžių generavimas** leidžia serveriams prašyti kalbos modelio užbaigimų iš kliento AI programos. Šis primityvas leidžia serveriams pasiekti LLM galimybes be savo modelio priklausomybių:
+- **Modelio Nepriklausoma Prieiga**: Serveriai gali prašyti generuoti atsakymus be LLM SDK ar valdymo  
+- **Serverio Inicijuotas DI**: Leidžia serveriams savarankiškai generuoti turinį naudodami kliento DI modelį  
+- **Rekursyvios LLM Sąveikos**: Palaiko sudėtingas situacijas, kai serveriams reikalinga DI pagalba apdorojimui  
+- **Dinaminis Turinio Generavimas**: Leidžia serveriams kurti kontekstinius atsakymus naudojant šeimininko modelį  
+- **Įrankių Kvietimų Parama**: Serveriai gali įtraukti `tools` ir `toolChoice` parametrus, kad leistų kliento modeliui vykdyti įrankius imtinių metu
 
-- **Modelio nepriklausoma prieiga**: Serveriai gali prašyti užbaigimų be LLM SDK ar modelio prieigos valdymo  
-- **Serverio inicijuotas AI**: Leidžia serveriams autonomiškai generuoti turinį naudojant kliento AI modelį  
-- **Recursyvios LLM sąveikos**: Palaiko sudėtingus scenarijus, kur serveriams reikia AI pagalbos apdorojimui  
-- **Dinaminis turinio generavimas**: Leidžia serveriams kurti kontekstinius atsakymus naudojant hosto modelį  
+Imtinės inicijuojamos per `sampling/complete` metodą, kuriuo serveriai siunčia užklausas klientams.
 
-Pavyzdžių generavimas inicijuojamas per `sampling/complete` metodą, kur serveriai siunčia užbaigimo užklausas klientams.
+### Šaknys (Roots)
 
-### Informacijos rinkimas  
+**Šaknys** suteikia standartizuotą būdą klientams atskleisti failų sistemos ribas serveriams, padedant serveriams suprasti, kurias direktorijas ir failus jie gali pasiekti:
 
-**Informacijos rinkimas** leidžia serveriams prašyti papildomos informacijos arba patvirtinimo iš vartotojų per kliento sąsają:
+- **Failų Sistemos Ribos**: Nustato ribas, kur serveriai gali veikti failų sistemoje  
+- **Prieigos Kontrolė**: Padeda serveriams suprasti, prie kurių katalogų ir failų jie turi leidimą prieiti  
+- **Dinaminiai Atnaujinimai**: Klientai gali informuoti serverius, kai šaknų sąrašas keičiasi  
+- **URI pagrindu identifikavimas**: Šaknys naudoja `file://` URI, identifikuojančius prieinamus katalogus ir failus
 
-- **Vartotojo įvesties užklausos**: Serveriai gali prašyti papildomos informacijos, kai to reikia įrankio vykdymui  
-- **Patvirtinimo dialogai**: Prašo vartotojo patvirtinimo jautriems ar reikšmingiems veiksmams  
-- **Interaktyvios darbo eigos**: Leidžia serveriams kurti žingsnis po žingsnio vartotojo sąveikas  
-- **Dinaminis parametrų rinkimas**: Surenka trūkstamus arba pasirenkamus parametrus įrankio vykdymo metu  
+Šaknys randamos per `roots/list` metodą, o klientai siunčia `notifications/roots/list_changed`, kai šaknys keičiasi.
 
-Informacijos rinkimo užklausos atliekamos naudojant `elicitation/request` metodą, kad surinktų vartotojo įvestį per kliento sąsają.
+### Klausinėjimas (Elicitation)
 
-### Žurnalavimas
+**Klausinėjimas** leidžia serveriams prašyti papildomos informacijos arba patvirtinimo iš vartotojų per kliento sąsają:
 
-**Žurnalavimas** leidžia serveriams siųsti struktūruotus žurnalų pranešimus klientams, skirtus derinimui, stebėjimui ir operaciniam matomumui:
+- **Vartotojo Įvesties Pateikimas**: Serveriai gali prašyti papildomos informacijos, kai to reikia įrankių vykdymui  
+- **Patvirtinimo Dialogai**: Prašo vartotojo patvirtinimo jautriems ar svarbiems veiksmams  
+- **Interaktyvūs Darbo Srautai**: Leidžia serveriams kurti žingsnis po žingsnio vartotojo sąveikas  
+- **Dinaminis Parametrų Rinkimas**: Surenka trūkstamus arba pasirenkamus parametrus įrankių vykdymo metu
 
-- **Derinimo palaikymas**: Leidžia serveriams pateikti detalius vykdymo žurnalus problemų sprendimui  
-- **Operacinis stebėjimas**: Siunčia būsenos atnaujinimus ir našumo metrikas klientams  
-- **Klaidų ataskaitos**: Pateikia detalią klaidų kontekstą ir diagnostinę informaciją  
-- **Audito pėdsakai**: Kuria išsamius serverio operacijų ir sprendimų žurnalus  
+Klausinėjimo užklausos atliekamos naudojant `elicitation/request` metodą, kad būtų surinkta vartotojo įvestis per kliento sąsają.
 
-Žurnalų pranešimai siunčiami klientams, kad būtų
-- **JSON-RPC 2.0 Protokolas**: Visa komunikacija vyksta naudojant standartizuotą JSON-RPC 2.0 žinučių formatą metodų iškvietimams, atsakymams ir pranešimams
-- **Gyvavimo ciklo valdymas**: Tvarko ryšio inicializavimą, galimybių derinimą ir sesijos nutraukimą tarp klientų ir serverių
-- **Serverio primityvai**: Leidžia serveriams teikti pagrindines funkcijas per įrankius, išteklius ir šablonus
-- **Kliento primityvai**: Leidžia serveriams prašyti LLM pavyzdžių, gauti vartotojo įvestį ir siųsti žurnalo pranešimus
-- **Pranešimai realiuoju laiku**: Palaiko asinchroninius pranešimus dinamiškiems atnaujinimams be apklausos
+**URL Režimo Klausinėjimas**: Serveriai taip pat gali prašyti URL pagrindu veikiančių vartotojo sąveikų, leidžiančių nukreipti vartotojus į išorines interneto svetaines autentifikavimui, patvirtinimui ar duomenų įvedimui.
 
-#### Pagrindinės funkcijos:
+### Registravimas (Logging)
 
-- **Protokolo versijos derinimas**: Naudoja datomis pagrįstą versijavimą (YYYY-MM-DD), kad užtikrintų suderinamumą
-- **Galimybių atradimas**: Klientai ir serveriai keičiasi palaikomų funkcijų informacija inicializacijos metu
-- **Būsenos sesijos**: Išlaiko ryšio būseną per kelias sąveikas, kad būtų užtikrintas konteksto tęstinumas
+**Registravimas** leidžia serveriams siųsti struktūruotus logų pranešimus klientams, skirtus klaidų diagnozavimui, stebėsenai ir operaciniam matomumui:
+
+- **Klaidų Nustatymo Parama**: Leidžia serveriams pateikti detalius vykdymo įrašus trikčiai spręsti  
+- **Operacijų Stebėsena**: Siunčia būsenos atnaujinimus ir našumo metriką klientams  
+- **Klaidų Ataskaitos**: Teikia išsamią klaidų kontekstinę ir diagnostinę informaciją  
+- **Audito Takeliai**: Kuria išsamius serverio veiksmų ir sprendimų įrašus
+
+Registravimo pranešimai siunčiami klientams, kad būtų užtikrintas skaidrumas dėl serverių veiklos ir palengvintas klaidų radimas.
+
+## Informacijos Srautas MCP
+
+Modelio Konteksto Protokolas (MCP) apibrėžia struktūruotą informacijos srautą tarp šeimininkų, klientų, serverių ir modelių. Šio srauto supratimas padeda aiškiai matyti, kaip apdorojami vartotojo prašymai ir kaip išoriniai įrankiai bei duomenys integruojami į modelio atsakymus.
+
+- **Šeimininkas Inicializuoja Ryšį**  
+  Šeimininko programa (pvz., IDE ar pokalbių sąsaja) užmezga ryšį su MCP serveriu, paprastai per STDIO, WebSocket arba kitą palaikomą transportą.
+
+- **Galimybių Derybos**  
+  Klientas (integruotas į šeimininką) ir serveris keičiasi informacija apie palaikomas funkcijas, įrankius, išteklius ir protokolo versijas. Tai užtikrina abipusį supratimą apie sesijos galimybes.
+
+- **Vartotojo Prašymas**  
+  Vartotojas sąveikauja su šeimininku (pvz., įveda užuominą ar komandą). Šeimininkas surenka šį įvestį ir perduoda klientui apdorojimui.
+
+- **Ištekliaus ar Įrankio Naudojimas**  
+  - Klientas gali paprašyti papildomo konteksto ar išteklių iš serverio (pvz., failų, duomenų bazių įrašų ar žinių bazės straipsnių), kad praturtintų modelio supratimą.  
+  - Jei modelis nusprendžia, kad reikia įrankio (pvz., duomenų gavimui, skaičiavimo atlikimui ar API kvietimui), klientas siunčia įrankio kvietimo užklausą serveriui, nurodydamas įrankio pavadinimą ir parametrus.
+
+- **Serverio Vykdymas**  
+Serveris gauna išteklių ar įrankių užklausą, atlieka reikiamus veiksmus (pvz., vykdo funkciją, užklausia duomenų bazę ar atsiunčia failą) ir grąžina rezultatus klientui struktūrizuotu formatu.
+
+- **Atsakymo generavimas**  
+  Klientas integruoja serverio atsakymus (išteklių duomenis, įrankių rezultatus ir kt.) į vykstantį modelio sąveikos procesą. Modelis naudoja šią informaciją, kad sugeneruotų išsamų ir kontekstualiai tinkamą atsakymą.
+
+- **Rezultatų pateikimas**  
+  Pagrindinė sistema gauna galutinį klientų išvestį ir pateikia ją vartotojui, dažnai įtraukdama tiek modelio sugeneruotą tekstą, tiek įrankių vykdymo ar išteklių paieškos rezultatus.
+
+Šis srautas leidžia MCP palaikyti pažangias, interaktyvias ir kontekstualiai jautrias dirbtinio intelekto programas, sklandžiai sujungiant modelius su išoriniais įrankiais ir duomenų šaltiniais.
+
+## Protokolo architektūra ir sluoksniai
+
+MCP susideda iš dviejų atskirų architektūrinių sluoksnių, kurie kartu sudaro pilną komunikacijos sistemą:
+
+### Duomenų sluoksnis
+
+**Duomenų sluoksnis** įgyvendina pagrindinį MCP protokolą, naudojant **JSON-RPC 2.0** kaip pagrindą. Šis sluoksnis apibrėžia žinučių struktūrą, semantiką ir sąveikos modelius:
+
+#### Pagrindiniai komponentai:
+
+- **JSON-RPC 2.0 protokolas**: visa komunikacija vyksta pagal standartizuotą JSON-RPC 2.0 žinučių formatą metodų kvietimams, atsakymams ir pranešimams
+- **Gyvavimo ciklo valdymas**: tvarko ryšio inicializavimą, galimybių derybas ir sesijos nutraukimą tarp klientų ir serverių
+- **Serverio primityvai**: leidžia serveriams teikti pagrindines funkcijas per įrankius, išteklius ir užklausas
+- **Kliento primityvai**: leidžia serveriams prašyti LLM imčių, vartotojo įvesties ir siųsti žurnalo pranešimus
+- **Realaus laiko pranešimai**: palaiko asinchroninius pranešimus dinamiškiems atnaujinimams be nuolatinio tikrinimo
+
+#### Svarbiausios savybės:
+
+- **Protokolo versijos derybos**: naudoja datos pagrindu grindžiamą versijavimą (YYYY-MM-DD), kad užtikrintų suderinamumą
+- **Galimybių atradimas**: klientai ir serveriai keičiasi palaikomų funkcijų informacija inicializavimo metu
+- **Būsenos išlaikymas**: palaiko ryšio būseną per kelias sąveikas, kad būtų išlaikyta konteksto tęstinumas
 
 ### Transporto sluoksnis
 
-**Transporto sluoksnis** valdo komunikacijos kanalus, žinučių rėminimą ir autentifikaciją tarp MCP dalyvių:
+**Transporto sluoksnis** valdo komunikacijos kanalus, žinučių formavimą ir autentifikavimą tarp MCP dalyvių:
 
 #### Palaikomi transporto mechanizmai:
 
 1. **STDIO transportas**:
-   - Naudoja standartinius įvesties/išvesties srautus tiesioginei procesų komunikacijai
-   - Optimalus vietiniams procesams toje pačioje mašinoje be tinklo apkrovos
-   - Dažnai naudojamas vietinėse MCP serverio implementacijose
+   - naudoja standartinius įvesties/išvesties srautus tiesioginei procesų komunikacijai
+   - optimalus vietiniams procesams tame pačiame įrenginyje be tinklo vėlavimų
+   - dažnai naudojamas vietinėms MCP serverio implementacijoms
 
-2. **Srautinio HTTP transportas**:
-   - Naudoja HTTP POST klientų ir serverių žinutėms  
-   - Pasirenkami serverio siunčiami įvykiai (SSE) serverio ir kliento srautui
-   - Leidžia nuotolinę serverio komunikaciją per tinklus
-   - Palaiko standartinę HTTP autentifikaciją (autentifikacijos žetonai, API raktai, pritaikyti antraštės)
-   - MCP rekomenduoja OAuth saugiam autentifikavimui žetonais
+2. **Streamable HTTP transportas**:
+   - naudoja HTTP POST klientų-siuntėjų žinutėms  
+   - neprivaloma Server-Sent Events (SSE) serverio-kliento srautui
+   - leidžia nuotolinę serverių komunikaciją per tinklus
+   - palaiko standartinę HTTP autentifikaciją (nešėjo žetonai, API raktai, nestandartiniai antraštės)
+   - MCP rekomenduoja OAuth saugiai autentifikacijai su žetonais
 
 #### Transporto abstrakcija:
 
-Transporto sluoksnis abstrahuoja komunikacijos detales nuo duomenų sluoksnio, leidžiant naudoti tą patį JSON-RPC 2.0 žinučių formatą per visus transporto mechanizmus. Ši abstrakcija leidžia programoms sklandžiai pereiti tarp vietinių ir nuotolinių serverių.
+Transporto sluoksnis abstrahuoja komunikacijos detales nuo duomenų sluoksnio, leidžiant naudoti tą patį JSON-RPC 2.0 žinučių formatą visuose transporto mechanizmuose. Ši abstrakcija leidžia programoms sklandžiai pereiti tarp vietinių ir nuotolinių serverių.
 
 ### Saugumo aspektai
 
-MCP implementacijos turi laikytis kelių svarbių saugumo principų, kad užtikrintų saugias, patikimas ir saugias sąveikas per visas protokolo operacijas:
+MCP įgyvendinimai turi laikytis kelių svarbių saugumo principų, užtikrinančių saugias, patikimas ir saugias sąveikas per visą protokolo veikimą:
 
-- **Vartotojo sutikimas ir kontrolė**: Vartotojai turi aiškiai sutikti prieš prieinant prie duomenų ar atliekant operacijas. Jie turi turėti aiškią kontrolę, kokie duomenys yra dalijami ir kokie veiksmai yra autorizuoti, palaikomi intuityvių vartotojo sąsajų peržiūrai ir veiklų patvirtinimui.
+- **Vartotojo sutikimas ir valdymas**: vartotojai turi aiškiai sutikti prieš gaunant duomenis ar atliekant veiksmus. Jie turi aiškiai kontroliuoti, kokie duomenys dalijami ir kuriems veiksmams suteikiamas leidimas, palaikomi intuityvios vartotojo sąsajos peržiūrai ir veiksmų patvirtinimui.
 
-- **Duomenų privatumas**: Vartotojo duomenys turėtų būti atskleidžiami tik su aiškiu sutikimu ir turi būti apsaugoti tinkamomis prieigos kontrolėmis. MCP implementacijos turi apsaugoti nuo neautorizuoto duomenų perdavimo ir užtikrinti, kad privatumas būtų išlaikytas per visas sąveikas.
+- **Duomenų privatumas**: vartotojo duomenys atskleidžiami tik gavus aiškų sutikimą ir privalo būti apsaugoti tinkamomis prieigos kontrolėmis. MCP įgyvendinimai turi apsaugoti nuo neteisėtos duomenų perdavimo ir užtikrinti privatumo išlaikymą per visas sąveikas.
 
-- **Įrankių saugumas**: Prieš naudojant bet kokį įrankį, reikalingas aiškus vartotojo sutikimas. Vartotojai turėtų aiškiai suprasti kiekvieno įrankio funkcionalumą, o tvirtos saugumo ribos turi būti užtikrintos, kad būtų išvengta netyčinio ar nesaugaus įrankio vykdymo.
+- **Įrankių saugumas**: prieš kviečiant bet kurį įrankį reikia gauti aiškų vartotojo sutikimą. Vartotojai turi aiškiai suprasti kiekvieno įrankio funkcionalumą, o griežtos saugumo ribos turi užkirsti kelią neplanuotam ar nesaugiam įrankių vykdymui.
 
-Laikydamasis šių saugumo principų, MCP užtikrina vartotojų pasitikėjimą, privatumą ir saugumą per visas protokolo sąveikas, tuo pačiu leidžiant galingas AI integracijas.
+Laikantis šių saugumo principų, MCP užtikrina vartotojų pasitikėjimą, privatumą ir saugumą per visus protokolo veiksmus, taip pat leidžia galingas DI integracijas.
 
 ## Kodo pavyzdžiai: pagrindiniai komponentai
 
-Žemiau pateikiami kodo pavyzdžiai keliomis populiariomis programavimo kalbomis, iliustruojantys, kaip įgyvendinti pagrindinius MCP serverio komponentus ir įrankius.
+Žemiau pateikti kelių populiarių programavimo kalbų kodo pavyzdžiai, iliustruojantys, kaip įgyvendinti pagrindinius MCP serverio komponentus ir įrankius.
 
 ### .NET pavyzdys: paprasto MCP serverio kūrimas su įrankiais
 
-Praktinis .NET kodo pavyzdys, demonstruojantis, kaip įgyvendinti paprastą MCP serverį su pritaikytais įrankiais. Šis pavyzdys parodo, kaip apibrėžti ir registruoti įrankius, tvarkyti užklausas ir prijungti serverį naudojant Model Context Protocol.
+Čia pateiktas praktinis .NET kodo pavyzdys, demonstruojantis, kaip įgyvendinti paprastą MCP serverį su pritaikytais įrankiais. Šis pavyzdys rodo, kaip apibrėžti ir užregistruoti įrankius, tvarkyti užklausas ir prijungti serverį naudojant Model Context Protocol.
 
 ```csharp
 using System;
@@ -334,7 +382,7 @@ public class WeatherData
 
 ### Java pavyzdys: MCP serverio komponentai
 
-Šis pavyzdys demonstruoja tą patį MCP serverį ir įrankių registraciją kaip aukščiau pateiktame .NET pavyzdyje, tačiau įgyvendintą Java kalba.
+Šiame pavyzdyje demonstruojama ta pati MCP serverio ir įrankių registracija kaip aukščiau pateiktame .NET pavyzdyje, tačiau įgyvendinta Java kalba.
 
 ```java
 import io.modelcontextprotocol.server.McpServer;
@@ -345,23 +393,23 @@ import io.modelcontextprotocol.server.tool.ToolResponse;
 
 public class WeatherMcpServer {
     public static void main(String[] args) throws Exception {
-        // Create an MCP server
+        // Sukurkite MCP serverį
         McpServer server = McpServer.builder()
             .name("Weather MCP Server")
             .version("1.0.0")
             .build();
             
-        // Register a weather tool
+        // Užregistruokite oro sąlygų įrankį
         server.registerTool(McpToolDefinition.builder("weatherTool")
             .description("Gets current weather for a location")
             .parameter("location", String.class)
             .execute((ToolExecutionContext ctx) -> {
                 String location = ctx.getParameter("location", String.class);
                 
-                // Get weather data (simplified)
+                // Gaukite oro duomenis (supaprastinta)
                 WeatherData data = getWeatherData(location);
                 
-                // Return formatted response
+                // Grąžinkite suformatuotą atsakymą
                 return ToolResponse.content(
                     String.format("Temperature: %.1f°F, Conditions: %s, Location: %s", 
                     data.getTemperature(), 
@@ -371,18 +419,18 @@ public class WeatherMcpServer {
             })
             .build());
         
-        // Connect the server using stdio transport
+        // Prijunkite serverį naudojant stdio transportą
         try (StdioServerTransport transport = new StdioServerTransport()) {
             server.connect(transport);
             System.out.println("Weather MCP Server started");
-            // Keep server running until process is terminated
+            // Laikykite serverį veikiančią, kol procesas bus nutrauktas
             Thread.currentThread().join();
         }
     }
     
     private static WeatherData getWeatherData(String location) {
-        // Implementation would call a weather API
-        // Simplified for example purposes
+        // Įgyvendinimas kviečia oro sąlygų API
+        // Supaprastinta pavyzdinio naudojimo tikslais
         return new WeatherData(72.5, "Sunny", location);
     }
 }
@@ -414,11 +462,11 @@ class WeatherData {
 
 ### Python pavyzdys: MCP serverio kūrimas
 
-Šis pavyzdys naudoja fastmcp, todėl įsitikinkite, kad pirmiausia jį įdiegėte:
+Šiame pavyzdyje naudojamas fastmcp, todėl prašome jį pirmiausiai įdiegti:
 
 ```python
 pip install fastmcp
-```  
+```
 Kodo pavyzdys:
 
 ```python
@@ -427,7 +475,7 @@ import asyncio
 from fastmcp import FastMCP
 from fastmcp.transports.stdio import serve_stdio
 
-# Create a FastMCP server
+# Sukurkite FastMCP serverį
 mcp = FastMCP(
     name="Weather MCP Server",
     version="1.0.0"
@@ -442,7 +490,7 @@ def get_weather(location: str) -> dict:
         "location": location
     }
 
-# Alternative approach using a class
+# Alternatyvus požiūris naudojant klasę
 class WeatherTools:
     @mcp.tool()
     def forecast(self, location: str, days: int = 1) -> dict:
@@ -455,39 +503,39 @@ class WeatherTools:
             ]
         }
 
-# Register class tools
+# Užregistruokite klasės įrankius
 weather_tools = WeatherTools()
 
-# Start the server
+# Paleiskite serverį
 if __name__ == "__main__":
     asyncio.run(serve_stdio(mcp))
 ```
 
 ### JavaScript pavyzdys: MCP serverio kūrimas
 
-Šis pavyzdys parodo MCP serverio kūrimą JavaScript kalba ir kaip registruoti du su oru susijusius įrankius.
+Šiame pavyzdyje rodoma, kaip sukurti MCP serverį JavaScript kalba ir kaip užregistruoti du oru susijusius įrankius.
 
 ```javascript
-// Using the official Model Context Protocol SDK
+// Naudojant oficialų Model Context Protocol SDK
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { z } from "zod"; // For parameter validation
+import { z } from "zod"; // Parametrų tikrinimui
 
-// Create an MCP server
+// Sukurti MCP serverį
 const server = new McpServer({
   name: "Weather MCP Server",
   version: "1.0.0"
 });
 
-// Define a weather tool
+// Apibrėžti orų įrankį
 server.tool(
   "weatherTool",
   {
     location: z.string().describe("The location to get weather for")
   },
   async ({ location }) => {
-    // This would normally call a weather API
-    // Simplified for demonstration
+    // Paprastai tai kviečia orų API
+    // Supaprastinta demonstracijai
     const weatherData = await getWeatherData(location);
     
     return {
@@ -501,7 +549,7 @@ server.tool(
   }
 );
 
-// Define a forecast tool
+// Apibrėžti prognozių įrankį
 server.tool(
   "forecastTool",
   {
@@ -509,8 +557,8 @@ server.tool(
     days: z.number().default(3).describe("Number of days for forecast")
   },
   async ({ location, days }) => {
-    // This would normally call a weather API
-    // Simplified for demonstration
+    // Paprastai tai kviečia orų API
+    // Supaprastinta demonstracijai
     const forecast = await getForecastData(location, days);
     
     return {
@@ -524,9 +572,9 @@ server.tool(
   }
 );
 
-// Helper functions
+// Pagalbinės funkcijos
 async function getWeatherData(location) {
-  // Simulate API call
+  // Simuliuoti API kvietimą
   return {
     temperature: 72.5,
     conditions: "Sunny",
@@ -535,7 +583,7 @@ async function getWeatherData(location) {
 }
 
 async function getForecastData(location, days) {
-  // Simulate API call
+  // Simuliuoti API kvietimą
   return Array.from({ length: days }, (_, i) => ({
     day: i + 1,
     temperature: 70 + Math.floor(Math.random() * 10),
@@ -543,92 +591,103 @@ async function getForecastData(location, days) {
   }));
 }
 
-// Connect the server using stdio transport
+// Prisijungti prie serverio naudojant stdio transportą
 const transport = new StdioServerTransport();
 server.connect(transport).catch(console.error);
 
 console.log("Weather MCP Server started");
 ```
 
-Šis JavaScript pavyzdys demonstruoja, kaip sukurti MCP klientą, kuris prisijungia prie serverio, siunčia užklausą ir apdoroja atsakymą, įskaitant bet kokius įrankių iškvietimus.
+Šis JavaScript pavyzdys demonstruoja, kaip sukurti MCP klientą, kuris jungiasi prie serverio, siunčia užklausą ir apdoroja atsakymą, įskaitant visas įrankių kvietimų vykdymo detales.
 
 ## Saugumas ir autorizacija
 
-MCP apima kelis įmontuotus konceptus ir mechanizmus saugumo ir autorizacijos valdymui per visą protokolą:
+MCP apima keletą įmontuotų koncepcijų ir mechanizmų, skirtų saugumui ir autorizacijai valdyti per visą protokolo veikimą:
 
-1. **Įrankių leidimų kontrolė**:  
-   Klientai gali nurodyti, kokius įrankius modelis gali naudoti sesijos metu. Tai užtikrina, kad prieinami tik aiškiai autorizuoti įrankiai, sumažinant netyčinių ar nesaugių operacijų riziką. Leidimai gali būti dinamiškai konfigūruojami pagal vartotojo pageidavimus, organizacines politiką ar sąveikos kontekstą.
+1. **Įrankių leidimų valdymas**:  
+  Klientai gali nurodyti, kuriuos įrankius modelis gali naudoti sesijos metu. Tai užtikrina, kad prieinami būtų tik aiškiai įgalioti įrankiai, sumažinant nepageidautinų ar nesaugių veiksmų riziką. Leidimai gali būti dinamiškai nustatomi pagal vartotojų pageidavimus, organizacijos politiką ar sąveikos kontekstą.
 
 2. **Autentifikacija**:  
-   Serveriai gali reikalauti autentifikacijos prieš suteikiant prieigą prie įrankių, išteklių ar jautrių operacijų. Tai gali apimti API raktus, OAuth žetonus ar kitas autentifikacijos schemas. Tinkama autentifikacija užtikrina, kad tik patikimi klientai ir vartotojai gali naudoti serverio galimybes.
+  Serveriai gali reikalauti autentifikacijos prieš suteikiant prieigą prie įrankių, išteklių ar jautrių veiksmų. Tai gali būti API raktai, OAuth žetonai ar kitos autentifikacijos schemos. Teisinga autentifikacija užtikrina, kad tik patikimi klientai ir vartotojai galėtų naudoti serverio galimybes.
 
-3. **Validacija**:  
-   Parametrų validacija yra privaloma visiems įrankių iškvietimams. Kiekvienas įrankis apibrėžia laukiamus tipus, formatus ir apribojimus savo parametrams, o serveris validuoja gaunamas užklausas atitinkamai. Tai apsaugo nuo neteisingo ar kenksmingo įvesties patekimo į įrankių implementacijas ir padeda išlaikyti operacijų vientisumą.
+3. **Patikra**:  
+  Visi įrankių kvietimai turi parametrų patikrą. Kiekvienas įrankis apibrėžia parametrų laukiamus tipus, formatus ir apribojimus, o serveris patikrina gaunamas užklausas. Tai apsaugo nuo netinkamos ar kenksmingos įvesties pateikimo į įrankių įgyvendinimą ir padeda išlaikyti veiksmų vientisumą.
 
-4. **Naudojimo apribojimai**:  
-   Siekiant užkirsti kelią piktnaudžiavimui ir užtikrinti sąžiningą serverio išteklių naudojimą, MCP serveriai gali įgyvendinti naudojimo apribojimus įrankių iškvietimams ir išteklių prieigai. Apribojimai gali būti taikomi vartotojui, sesijai ar globaliai ir padeda apsaugoti nuo paslaugų atsisakymo atakų ar per didelio išteklių naudojimo.
+4. **Pralaidumo ribojimas**:  
+  Siekiant apsaugoti nuo piktnaudžiavimo ir užtikrinti teisingą serverio išteklių naudojimą, MCP serveriai gali taikyti kvietimų įrankiams ir prieigos prie išteklių pralaidumo ribojimą. Pralaidumo ribos gali būti taikomos pagal vartotoją, sesiją arba globaliai, padedančios apsisaugoti nuo paslaugos atsisakymo atakų ar per didelio išteklių sunaudojimo.
 
-Sujungus šiuos mechanizmus, MCP suteikia saugų pagrindą kalbos modelių integracijai su išoriniais įrankiais ir duomenų šaltiniais, tuo pačiu suteikiant vartotojams ir kūrėjams detalią prieigos ir naudojimo kontrolę.
+Derinant šiuos mechanizmus MCP suteikia saugią platformą integruoti kalbos modelius su išoriniais įrankiais ir duomenų šaltiniais, kartu suteikiant vartotojams ir kūrėjams detalias priemones prieigos ir naudojimo kontrolei.
 
-## Protokolo žinutės ir komunikacijos eiga
+## Protokolo žinutės ir komunikacijos srautas
 
-MCP komunikacija naudoja struktūrizuotas **JSON-RPC 2.0** žinutes, kad palengvintų aiškias ir patikimas sąveikas tarp hostų, klientų ir serverių. Protokolas apibrėžia specifinius žinučių modelius skirtingoms operacijų rūšims:
+MCP komunikacijai naudojamos struktūruotos **JSON-RPC 2.0** žinutės, leidžiančios užtikrinti aiškią ir patikimą sąveiką tarp pagrindų, klientų ir serverių. Protokolas apibrėžia specifinius žinučių modelius įvairiems veiksmų tipams:
 
-### Pagrindiniai žinučių tipai:
+### Pagrindinės žinutės rūšys:
 
 #### **Inicializacijos žinutės**
-- **`initialize` Užklausa**: Užmezga ryšį ir derina protokolo versiją bei galimybes
-- **`initialize` Atsakymas**: Patvirtina palaikomas funkcijas ir serverio informaciją  
-- **`notifications/initialized`**: Signalizuoja, kad inicializacija baigta ir sesija paruošta
+- **`initialize` užklausa**: užmezga ryšį ir derasi dėl protokolo versijos bei galimybių
+- **`initialize` atsakymas**: patvirtina palaikomas funkcijas ir serverio informaciją  
+- **`notifications/initialized`**: signalizuoja, kad inicializacija baigta ir sesija pasirengusi
 
 #### **Atradimo žinutės**
-- **`tools/list` Užklausa**: Atranda serverio turimus įrankius
-- **`resources/list` Užklausa**: Išvardija turimus išteklius (duomenų šaltinius)
-- **`prompts/list` Užklausa**: Gauti turimus šablonus
+- **`tools/list` užklausa**: atranda serverio siūlomus įrankius
+- **`resources/list` užklausa**: išvardina turimus išteklius (duomenų šaltinius)
+- **`prompts/list` užklausa**: gauna turimus užklausų šablonus
 
 #### **Vykdymo žinutės**  
-- **`tools/call` Užklausa**: Vykdo konkretų įrankį su pateiktais parametrais
-- **`resources/read` Užklausa**: Gauti turinį iš konkretaus ištekliaus
-- **`prompts/get` Užklausa**: Gauti šabloną su pasirenkamais parametrais
+- **`tools/call` užklausa**: vykdo konkretų įrankį su pateiktais parametrais
+- **`resources/read` užklausa**: gauna turinį iš konkretaus ištekliaus
+- **`prompts/get` užklausa**: ištraukia užklausos šabloną su neprivalomais parametrais
 
 #### **Kliento pusės žinutės**
-- **`sampling/complete` Užklausa**: Serveris prašo LLM užbaigimo iš kliento
-- **`elicitation/request`**: Serveris prašo vartotojo įvesties per kliento sąsają
-- **Žurnalo žinutės**: Serveris siunčia struktūrizuotas žurnalo žinutes klientui
+- **`sampling/complete` užklausa**: serveris prašo užbaigimo iš LLM per klientą
+- **`elicitation/request`**: serveris prašo vartotojo įvesties per kliento sąsają
+- Žurnalo žinutės: serveris siunčia struktūruotus žurnalo pranešimus klientui
 
 #### **Pranešimų žinutės**
-- **`notifications/tools/list_changed`**: Serveris praneša klientui apie įrankių pokyčius
-- **`notifications/resources/list_changed`**: Serveris praneša klientui apie išteklių pokyčius  
-- **`notifications/prompts/list_changed`**: Serveris praneša klientui apie šablonų pokyčius
+- **`notifications/tools/list_changed`**: serveris informuoja klientą apie įrankių pakeitimus
+- **`notifications/resources/list_changed`**: serveris informuoja klientą apie išteklių pakeitimus  
+- **`notifications/prompts/list_changed`**: serveris informuoja klientą apie užklausų šablonų pakeitimus
 
 ### Žinučių struktūra:
 
 Visos MCP žinutės atitinka JSON-RPC 2.0 formatą su:
-- **Užklausų žinutėmis**: Įtraukia `id`, `method` ir pasirenkamus `params`
-- **Atsakymų žinutėmis**: Įtraukia `id` ir arba `result`, arba `error`  
-- **Pranešimų žinutėmis**: Įtraukia `method` ir pasirenkamus `params` (be `id` ar atsakymo)
+- **Užklausos žinutėmis**: turi `id`, `method` ir neprivalomus `params`
+- **Atsakymo žinutėmis**: turi `id` ir arba `result`, arba `error`  
+- **Pranešimų žinutėmis**: turi `method` ir neprivalomus `params` (nėra `id`, nereikalaujama atsakymo)
 
-Ši struktūrizuota komunikacija užtikrina patikimas, atsekamas ir išplečiamas sąveikas, palaikančias pažangius scenarijus, tokius kaip atnaujinimai realiuoju laiku, įrankių grandinės ir tvirtas klaidų tvarkymas.
+Ši struktūruota komunikacija užtikrina patikimas, sekančias ir plečiamas sąveikas, palaikančias pažangias scenarijus, tokias kaip realaus laiko atnaujinimai, įrankių grandinavimas ir patikimas klaidų tvarkymas.
 
-## Pagrindiniai akcentai
+### Užduotys (Eksperimentinė funkcija)
 
-- **Architektūra**: MCP naudoja klientų-serverių architektūrą, kur hostai valdo kelis klientų ryšius su serveriais
-- **Dalyviai**: Ekosistemą sudaro hostai (AI programos), klientai (protokolo jungtys) ir serveriai (galimybių teikėjai)
-- **Transporto mechanizmai**: Komunikacija palaiko STDIO (vietinį) ir srautinį HTTP su pasirenkamu SSE (nuotolinį)
-- **Pagrindiniai primityvai**: Serveriai teikia įrankius (vykdomas funkcijas), išteklius (duomenų šaltinius) ir šablonus (šablonus)
-- **Kliento primityvai**: Serveriai gali prašyti pavyzdžių (LLM užbaigimų), įvesties (vartotojo įvesties) ir žurnalų iš klientų
-- **Protokolo pagrindas**: Sukurtas ant JSON-RPC 2.0 su datomis pagrįstu versijavimu (dabartinis: 2025-06-18)
-- **Realaus laiko galimybės**: Palaiko pranešimus dinamiškiems atnaujinimams ir sinchronizacijai realiuoju laiku
-- **Saugumas pirmiausia**: Aiškus vartotojo sutikimas, duomenų privatumo apsauga ir saugus transportas yra pagrindiniai reikalavimai
+**Užduotys** yra eksperimentinė funkcija, suteikianti tvirtus vykdymo apvalkalus, leidžiančius atidėtą rezultatų gavimą ir būseno stebėjimą MCP užklausų atveju:
+
+- **Ilgalaikės operacijos**: seka brangias kompiuterines užduotis, darbų automatizavimą ir partijų apdorojimą
+- **Atidėti rezultatai**: leidžia tikrinti užduoties būseną ir gauti rezultatus operacijoms užbaigus
+- **Būseno stebėjimas**: stebi užduoties eigą per apibrėžtas gyvavimo ciklo būsenas
+- **Daugiapakopės operacijos**: palaiko sudėtingus darbo procesus, apimančius kelias sąveikas
+
+Užduotys apgaubia standartines MCP užklausas, leisdamos naudoti asinchroninius vykdymo modelius operacijoms, kurios negali būti įvykdytos iš karto.
+
+## Pagrindinės pastabos
+
+- **Architektūra**: MCP naudoja klientas-serveris architektūrą, kur pagrindai valdo kelis klientų ryšius su serveriais
+- **Dalyviai**: ekosistemoje yra pagrindai (DI programos), klientai (protokolo jungtys) ir serveriai (galimybių teikėjai)
+- **Transporto mechanizmai**: komunikacija palaiko STDIO (vietinį) ir Streamable HTTP su neprivalomu SSE (nuotolinį)
+- **Pagrindiniai primityvai**: serveriai eksponuoja įrankius (vykdomas funkcijas), išteklius (duomenų šaltinius) ir užklausas (šablonus)
+- **Kliento primityvai**: serveriai gali prašyti pavyzdžių generavimo (LLM užbaigimai su įrankių kvietimų palaikymu), įvedimo (vartotojo įvesties įskaitant URL režimą), šaknų (failų sistemos ribos) ir žurnalo iš klientų
+- **Eksperimentinės funkcijos**: užduotys suteikia tvirtus vykdymo apvalkalus ilgalaikėms operacijoms
+- **Protokolo pagrindas**: paremtas JSON-RPC 2.0 su datos pagrindu grindžiamu versijavimu (dabartinė: 2025-11-25)
+- **Realaus laiko galimybės**: palaiko pranešimus dinamiškiems atnaujinimams ir realaus laiko sinchronizacijai
+- **Pirmoje vietoje saugumas**: aiškus vartotojo sutikimas, duomenų privatumo apsauga ir saugus transportas yra pagrindiniai reikalavimai
 
 ## Užduotis
 
-Sukurkite paprastą MCP įrankį, kuris būtų naudingas jūsų srityje. Apibrėžkite:
-1. Įrankio pavadinimą
-2. Kokius parametrus jis priims
-3. Kokį rezultatą jis grąžins
-4. Kaip modelis galėtų naudoti šį įrankį vartotojo problemoms spręsti
-
+Sukurkite paprastą MCP įrankį, kuris būtų naudingas jūsų domenui. Apibrėžkite:
+1. Kaip būtų pavadintas įrankis
+2. Kokius parametrus jis priimtų
+3. Kokį rezultatą grąžintų
+4. Kaip modelis galėtų panaudoti šį įrankį vartotojo problemų sprendimui
 
 ---
 
@@ -638,5 +697,7 @@ Toliau: [2 skyrius: Saugumas](../02-Security/README.md)
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **Atsakomybės apribojimas**:  
-Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, atkreipiame dėmesį, kad automatiniai vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba turėtų būti laikomas autoritetingu šaltiniu. Kritinei informacijai rekomenduojama naudotis profesionalių vertėjų paslaugomis. Mes neprisiimame atsakomybės už nesusipratimus ar klaidingus aiškinimus, kylančius dėl šio vertimo naudojimo.
+Šis dokumentas buvo išverstas naudojant dirbtinio intelekto vertimo paslaugą [Co-op Translator](https://github.com/Azure/co-op-translator). Nors siekiame tikslumo, prašome atkreipti dėmesį, kad automatizuoti vertimai gali turėti klaidų ar netikslumų. Originalus dokumentas jo gimtąja kalba turi būti laikomas autoritetingu šaltiniu. Svarbiai informacijai rekomenduojamas profesionalus žmogiškas vertimas. Mes neatsakome už bet kokius nesusipratimus ar neteisingus interpretavimus, kylančius naudojant šį vertimą.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

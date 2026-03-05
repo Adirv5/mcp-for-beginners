@@ -1,110 +1,114 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "f400d87053221363769113c24f117248",
-  "translation_date": "2025-10-06T22:25:51+00:00",
-  "source_file": "03-GettingStarted/README.md",
-  "language_code": "ja"
-}
--->
-## はじめに  
+## Getting Started  
 
-[![最初のMCPサーバーを構築する](../../../translated_images/04.0ea920069efd979a0b2dad51e72c1df7ead9c57b3305796068a6cee1f0dd6674.ja.png)](https://youtu.be/sNDZO9N4m9Y)
+[![Build Your First MCP Server](../../../translated_images/ja/04.0ea920069efd979a.webp)](https://youtu.be/sNDZO9N4m9Y)
 
-_(上の画像をクリックすると、このレッスンの動画が視聴できます)_
+_(上の画像をクリックすると、このレッスンのビデオを視聴できます)_
 
-このセクションは以下のレッスンで構成されています：
+このセクションはいくつかのレッスンで構成されています：
 
-- **1 最初のサーバー**: 最初のレッスンでは、初めてのサーバーを作成し、インスペクターツールを使って検査する方法を学びます。これはサーバーをテストしデバッグするための貴重な方法です。[レッスンへ](01-first-server/README.md)
+- **1 Your first server**、最初のレッスンでは、最初のサーバーを作成し、インスペクターツールで検査する方法を学びます。これはサーバーのテストとデバッグに役立ちます。[レッスンへ](01-first-server/README.md)
 
-- **2 クライアント**: このレッスンでは、サーバーに接続できるクライアントを作成する方法を学びます。[レッスンへ](02-client/README.md)
+- **2 Client**、このレッスンでは、サーバーに接続できるクライアントの書き方を学びます。[レッスンへ](02-client/README.md)
 
-- **3 LLMを使用したクライアント**: クライアントをさらに良くする方法として、LLMを追加してサーバーと「交渉」できるようにする方法を学びます。[レッスンへ](03-llm-client/README.md)
+- **3 Client with LLM**、さらに良いクライアントの作成方法として、LLMを追加し、サーバーと「交渉」しながら動作させる方法を学びます。[レッスンへ](03-llm-client/README.md)
 
-- **4 Visual Studio CodeでGitHub Copilot Agentモードのサーバーを利用する**: MCPサーバーをVisual Studio Code内で実行する方法を学びます。[レッスンへ](04-vscode/README.md)
+- **4 Consuming a server GitHub Copilot Agent mode in Visual Studio Code**。ここでは、Visual Studio Code内からMCPサーバーを実行する方法を見ていきます。[レッスンへ](04-vscode/README.md)
 
-- **5 stdioトランスポートサーバー**: 現行の仕様では、MCPサーバーとクライアント間の通信に推奨される標準であるstdioトランスポートについて学びます。安全なサブプロセスベースの通信を提供します。[レッスンへ](05-stdio-server/README.md)
+- **5 stdio Transport Server**、stdioトランスポートは、ローカルのMCPサーバーとクライアント間通信の標準として推奨されており、組み込みのプロセス分離を伴う安全なサブプロセス通信を提供します。[レッスンへ](05-stdio-server/README.md)
 
-- **6 MCPを使用したHTTPストリーミング (Streamable HTTP)**: 最新のHTTPストリーミング、進捗通知、Streamable HTTPを使用したスケーラブルでリアルタイムなMCPサーバーとクライアントの実装方法を学びます。[レッスンへ](06-http-streaming/README.md)
+- **6 HTTP Streaming with MCP (Streamable HTTP)**。最新のHTTPストリーミングトランスポート（[MCP Specification 2025-11-25](https://spec.modelcontextprotocol.io/specification/2025-11-25/basic/transports/#streamable-http)で推奨されるリモートMCPサーバー向けアプローチ）、進捗通知、Streamable HTTPを使ったスケーラブルでリアルタイムなMCPサーバーとクライアントの実装について学びます。[レッスンへ](06-http-streaming/README.md)
 
-- **7 VSCode用AIツールキットの活用**: MCPクライアントとサーバーを利用しテストする方法を学びます。[レッスンへ](07-aitk/README.md)
+- **7 Utilising AI Toolkit for VSCode**、MCPクライアントとサーバーの利用とテストに役立つツールの活用方法を学びます。[レッスンへ](07-aitk/README.md)
 
-- **8 テスト**: このレッスンでは、サーバーとクライアントをさまざまな方法でテストする方法に焦点を当てます。[レッスンへ](08-testing/README.md)
+- **8 Testing**。ここでは特にサーバーとクライアントを様々な方法でテストする方法に焦点をあてます。[レッスンへ](08-testing/README.md)
 
-- **9 デプロイ**: この章では、MCPソリューションをデプロイするさまざまな方法を検討します。[レッスンへ](09-deployment/README.md)
+- **9 Deployment**。この章では、MCPソリューションの異なるデプロイ方法を見ていきます。[レッスンへ](09-deployment/README.md)
 
-- **10 高度なサーバー使用法**: この章では、高度なサーバー使用法について説明します。[レッスンへ](./10-advanced/README.md)
+- **10 Advanced server usage**。高度なサーバー利用法について説明します。[レッスンへ](./10-advanced/README.md)
 
-- **11 認証**: この章では、Basic AuthからJWTやRBACを使用した簡単な認証を追加する方法を説明します。ここから始めて、第5章の高度なトピックを確認し、第2章の推奨事項を通じて追加のセキュリティ強化を行うことをお勧めします。[レッスンへ](./11-simple-auth/README.md)
+- **11 Auth**。Basic AuthからJWTやRBACを使ったシンプルな認証の追加方法を扱います。ここから始めて、第5章の高度なトピックや第2章の推奨事項による追加のセキュリティ強化も検討することを推奨します。[レッスンへ](./11-simple-auth/README.md)
 
-Model Context Protocol (MCP)は、アプリケーションがLLMにコンテキストを提供する方法を標準化するオープンプロトコルです。MCPはAIアプリケーションのUSB-Cポートのようなもので、AIモデルをさまざまなデータソースやツールに接続する標準的な方法を提供します。
+- **12 MCP Hosts**。Claude Desktop、Cursor、Cline、Windsurfなどの人気MCPホストクライアントの構成と利用方法、トランスポート種類やトラブルシューティングを学びます。[レッスンへ](./12-mcp-hosts/README.md)
 
-## 学習目標
+- **13 MCP Inspector**。MCP Inspectorツールを用いてMCPサーバーを対話的にデバッグおよびテストする方法を学びます。ツール、リソース、プロトコルメッセージのトラブルシューティングも習得します。[レッスンへ](./13-mcp-inspector/README.md)
+
+- **14 Sampling**。MCPクライアントと連携するMCPサーバーの作成、特にLLM関連タスクでの協調作業を行います。[レッスンへ](./14-sampling/README.md)
+
+- **15 MCP Apps**。UI命令で応答も行うMCPサーバーを構築します。[レッスンへ](./15-mcp-apps/README.md)
+
+Model Context Protocol (MCP)は、アプリケーションがLLMにコンテキストを提供する方法を標準化するオープンプロトコルです。MCPはUSB-Cポートのようなもので、AIモデルを様々なデータソースやツールに標準化された方法で接続します。
+
+## Learning Objectives
 
 このレッスンの終了時には、以下ができるようになります：
 
-- C#、Java、Python、TypeScript、JavaScriptでMCPの開発環境をセットアップする
-- カスタム機能（リソース、プロンプト、ツール）を備えた基本的なMCPサーバーを構築しデプロイする
-- MCPサーバーに接続するホストアプリケーションを作成する
-- MCPの実装をテストしデバッグする
+- C#, Java, Python, TypeScript, JavaScriptでMCPの開発環境をセットアップする
+- カスタム機能（リソース、プロンプト、ツール）を備えた基本的なMCPサーバーの構築とデプロイ
+- MCPサーバーに接続するホストアプリケーションの作成
+- MCP実装のテストとデバッグ
 - 一般的なセットアップの課題とその解決策を理解する
-- MCPの実装を人気のあるLLMサービスに接続する
+- MCP実装を人気のあるLLMサービスに接続する
 
-## MCP環境のセットアップ
+## Setting Up Your MCP Environment
 
-MCPを使用する前に、開発環境を準備し基本的なワークフローを理解することが重要です。このセクションでは、MCPをスムーズに開始するための初期設定手順を案内します。
+MCPを扱う前に、開発環境の準備と基本的なワークフローを理解することが重要です。このセクションでは、スムーズにMCPを始めるための初期設定手順を案内します。
 
-### 前提条件
+### Prerequisites
 
-MCP開発に取り組む前に、以下を確認してください：
+MCP開発に入る前に、以下を用意してください：
 
-- **開発環境**: 選択した言語（C#、Java、Python、TypeScript、JavaScript）に対応する環境
-- **IDE/エディター**: Visual Studio、Visual Studio Code、IntelliJ、Eclipse、PyCharm、または最新のコードエディター
-- **パッケージマネージャー**: NuGet、Maven/Gradle、pip、またはnpm/yarn
-- **APIキー**: ホストアプリケーションで使用する予定のAIサービス用
+- **開発環境**：C#, Java, Python, TypeScript, JavaScriptから選択した言語の環境
+- **IDE/エディター**：Visual Studio、Visual Studio Code、IntelliJ、Eclipse、PyCharm、または任意のモダンコードエディター
+- **パッケージマネージャー**：NuGet、Maven/Gradle、pip、npm/yarn
+- **APIキー**：ホストアプリケーションで使用する予定のAIサービスのAPIキー
 
-### 公式SDK
+### Official SDKs
 
-次の章では、Python、TypeScript、Java、.NETを使用して構築されたソリューションを紹介します。以下は公式にサポートされているSDKです。
+今後の章ではPython、TypeScript、Java、.NETを使ったソリューションが示されます。以下は公式にサポートされているSDKです。
 
-MCPは複数の言語向けに公式SDKを提供しています：
-- [C# SDK](https://github.com/modelcontextprotocol/csharp-sdk) - Microsoftとの共同で管理
-- [Java SDK](https://github.com/modelcontextprotocol/java-sdk) - Spring AIとの共同で管理
+MCPは複数の言語用に公式SDKを提供しています（[MCP Specification 2025-11-25](https://spec.modelcontextprotocol.io/specification/2025-11-25/)に準拠）：
+- [C# SDK](https://github.com/modelcontextprotocol/csharp-sdk) - Microsoftとの連携でメンテナンス
+- [Java SDK](https://github.com/modelcontextprotocol/java-sdk) - Spring AIと連携してメンテナンス
 - [TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk) - 公式TypeScript実装
-- [Python SDK](https://github.com/modelcontextprotocol/python-sdk) - 公式Python実装
+- [Python SDK](https://github.com/modelcontextprotocol/python-sdk) - 公式Python実装（FastMCP）
 - [Kotlin SDK](https://github.com/modelcontextprotocol/kotlin-sdk) - 公式Kotlin実装
-- [Swift SDK](https://github.com/modelcontextprotocol/swift-sdk) - Loopwork AIとの共同で管理
+- [Swift SDK](https://github.com/modelcontextprotocol/swift-sdk) - Loopwork AIと連携してメンテナンス
 - [Rust SDK](https://github.com/modelcontextprotocol/rust-sdk) - 公式Rust実装
+- [Go SDK](https://github.com/modelcontextprotocol/go-sdk) - 公式Go実装
 
-## 重要なポイント
+## Key Takeaways
 
-- MCP開発環境のセットアップは、言語固有のSDKを使用することで簡単に行えます
-- MCPサーバーの構築には、明確なスキーマを持つツールの作成と登録が含まれます
-- MCPクライアントはサーバーやモデルに接続し、拡張機能を活用します
-- 信頼性の高いMCP実装にはテストとデバッグが不可欠です
-- デプロイメントオプションは、ローカル開発からクラウドベースのソリューションまで幅広く対応しています
+- MCPの開発環境は言語別SDKで簡単にセットアップ可能
+- MCPサーバー構築にはスキーマ定義されたツールを作成・登録することが重要
+- MCPクライアントはサーバーやモデルに接続し拡張機能を活用できる
+- テストとデバッグは信頼性あるMCP実装に不可欠
+- デプロイ方法はローカル開発からクラウドまで多様
 
-## 実践
+## Practicing
 
-このセクションのすべての章で紹介される演習を補完するサンプルセットを用意しています。さらに、各章には独自の演習と課題も含まれています。
+このセクションのすべての章で出てくる演習を補完するサンプルセットがあります。各章には独自の演習と課題も含まれています。
 
-- [Java電卓](./samples/java/calculator/README.md)
-- [.Net電卓](../../../03-GettingStarted/samples/csharp)
-- [JavaScript電卓](./samples/javascript/README.md)
-- [TypeScript電卓](./samples/typescript/README.md)
-- [Python電卓](../../../03-GettingStarted/samples/python)
+- [Java Calculator](./samples/java/calculator/README.md)
+- [.Net Calculator](../../../03-GettingStarted/samples/csharp)
+- [JavaScript Calculator](./samples/javascript/README.md)
+- [TypeScript Calculator](./samples/typescript/README.md)
+- [Python Calculator](../../../03-GettingStarted/samples/python)
 
-## 追加リソース
+## Additional Resources
 
-- [AzureでModel Context Protocolを使用してエージェントを構築する](https://learn.microsoft.com/azure/developer/ai/intro-agents-mcp)
-- [Azure Container AppsでリモートMCP (Node.js/TypeScript/JavaScript)](https://learn.microsoft.com/samples/azure-samples/mcp-container-ts/mcp-container-ts/)
-- [.NET OpenAI MCPエージェント](https://learn.microsoft.com/samples/azure-samples/openai-mcp-agent-dotnet/openai-mcp-agent-dotnet/)
+- [Build Agents using Model Context Protocol on Azure](https://learn.microsoft.com/azure/developer/ai/intro-agents-mcp)
+- [Remote MCP with Azure Container Apps (Node.js/TypeScript/JavaScript)](https://learn.microsoft.com/samples/azure-samples/mcp-container-ts/mcp-container-ts/)
+- [.NET OpenAI MCP Agent](https://learn.microsoft.com/samples/azure-samples/openai-mcp-agent-dotnet/openai-mcp-agent-dotnet/)
 
-## 次のステップ
+## What's next
 
-次へ: [最初のMCPサーバーを作成する](01-first-server/README.md)
+最初のレッスンから始めましょう： [Creating your first MCP Server](01-first-server/README.md)
+
+このモジュールを完了したら次に進みます： [Module 4: Practical Implementation](../04-PracticalImplementation/README.md)
 
 ---
 
-**免責事項**:  
-この文書は、AI翻訳サービス[Co-op Translator](https://github.com/Azure/co-op-translator)を使用して翻訳されています。正確性を追求しておりますが、自動翻訳には誤りや不正確な部分が含まれる可能性があることをご承知ください。元の言語で記載された文書が正式な情報源とみなされるべきです。重要な情報については、専門の人間による翻訳を推奨します。この翻訳の使用に起因する誤解や誤解釈について、当方は責任を負いません。
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**免責事項**：  
+本書類はAI翻訳サービス「Co-op Translator」（https://github.com/Azure/co-op-translator）を使用して翻訳されました。正確性の向上に努めておりますが、自動翻訳には誤りや不正確な部分が含まれる可能性があります。原文の言語によるオリジナル文書が正本として扱われるべきです。重要な情報については、専門の人間による翻訳を推奨いたします。本翻訳の利用に起因する誤解や誤訳について、一切の責任を負いかねますのでご了承ください。
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

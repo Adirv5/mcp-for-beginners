@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "13231e9951b68efd9df8c56bd5cdb27e",
-  "translation_date": "2025-10-11T11:37:53+00:00",
-  "source_file": "03-GettingStarted/samples/java/calculator/README.md",
-  "language_code": "et"
-}
--->
 # Põhiline Kalkulaatori MCP Teenus
 
 See teenus pakub põhilisi kalkulaatori operatsioone Model Context Protocoli (MCP) kaudu, kasutades Spring Booti koos WebFlux transpordiga. Teenus on loodud lihtsa näitena algajatele, kes õpivad MCP rakendusi.
@@ -201,7 +192,7 @@ MCP Inspector on kasulik tööriist MCP teenustega suhtlemiseks. Selle kalkulaat
    - Klõpsake "List Tools", et näha saadaolevaid kalkulaatori operatsioone
    - Valige tööriist ja klõpsake "Run Tool", et operatsiooni käivitada
 
-![MCP Inspectori ekraanipilt](../../../../../../translated_images/tool.c75a0b2380efcf1a47a8478f54380a36ddcca7943b98f56dabbac8b07e15c3bb.et.png)
+![MCP Inspectori ekraanipilt](../../../../../../translated_images/et/tool.c75a0b2380efcf1a.webp)
 
 ### Dockeri kasutamine
 

@@ -1,26 +1,19 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "83d32e5c5dd838d4b87a730cab88db77",
-  "translation_date": "2025-09-30T22:56:47+00:00",
-  "source_file": "11-MCPServerHandsOnLabs/README.md",
-  "language_code": "en"
-}
--->
 # 🚀 MCP Server with PostgreSQL - Complete Learning Guide
 
 ## 🧠 Overview of the MCP Database Integration Learning Path
 
-This comprehensive guide teaches you how to create production-ready **Model Context Protocol (MCP) servers** that integrate with databases, using a practical retail analytics implementation. You'll explore enterprise-grade patterns like **Row Level Security (RLS)**, **semantic search**, **Azure AI integration**, and **multi-tenant data access**.
+This comprehensive learning guide teaches you how to build production-ready **Model Context Protocol (MCP) servers** that integrate with databases through a practical retail analytics implementation. You'll learn enterprise-grade patterns including **Row Level Security (RLS)**, **semantic search**, **Azure AI integration**, and **multi-tenant data access**.
 
-Whether you're a backend developer, AI engineer, or data architect, this guide offers structured learning with real-world examples and hands-on exercises, walking you through the MCP server at https://github.com/microsoft/MCP-Server-and-PostgreSQL-Sample-Retail.
+Whether you're a backend developer, AI engineer, or data architect, this guide provides structured learning with real-world examples and hands-on exercises which walks you through the following MCP server https://github.com/microsoft/MCP-Server-and-PostgreSQL-Sample-Retail.
 
 ## 🔗 Official MCP Resources
 
 - 📘 [MCP Documentation](https://modelcontextprotocol.io/) – Detailed tutorials and user guides
-- 📜 [MCP Specification](https://modelcontextprotocol.io/docs/) – Protocol architecture and technical references
+- 📜 [MCP Specification (2025-11-25)](https://spec.modelcontextprotocol.io/specification/2025-11-25/) – Protocol architecture and technical references
 - 🧑‍💻 [MCP GitHub Repository](https://github.com/modelcontextprotocol) – Open-source SDKs, tools, and code samples
 - 🌐 [MCP Community](https://github.com/orgs/modelcontextprotocol/discussions) – Join discussions and contribute to the community
+- 🔒 [OWASP MCP Top 10](https://microsoft.github.io/mcp-azure-security-guide/mcp/) – Security best practices and risk mitigations
+
 
 ## 🧭 MCP Database Integration Learning Path
 
@@ -48,7 +41,7 @@ Whether you're a backend developer, AI engineer, or data architect, this guide o
 
 ### 💻 What You'll Build
 
-By the end of this learning path, you'll have created a complete **Zava Retail Analytics MCP Server** featuring:
+By the end of this learning path, you'll have built a complete **Zava Retail Analytics MCP Server** featuring:
 
 - **Multi-table retail database** with customer orders, products, and inventory
 - **Row Level Security** for store-based data isolation
@@ -59,7 +52,7 @@ By the end of this learning path, you'll have created a complete **Zava Retail A
 
 ## 🎯 Prerequisites for Learning
 
-To maximize your learning experience, you should have:
+To get the most out of this learning path, you should have:
 
 - **Programming Experience**: Familiarity with Python (preferred) or similar languages
 - **Database Knowledge**: Basic understanding of SQL and relational databases
@@ -165,5 +158,7 @@ Begin your journey with **[Lab 00: Introduction to MCP Database Integration](./0
 
 ---
 
-**Disclaimer**:  
-This document has been translated using the AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we aim for accuracy, please note that automated translations may contain errors or inaccuracies. The original document in its native language should be regarded as the authoritative source. For critical information, professional human translation is recommended. We are not responsible for any misunderstandings or misinterpretations resulting from the use of this translation.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Disclaimer**:
+This document has been translated using the AI translation service [Co-op Translator](https://github.com/Azure/co-op-translator). While we strive for accuracy, please be aware that automated translations may contain errors or inaccuracies. The original document in its native language should be considered the authoritative source. For critical information, professional human translation is recommended. We are not liable for any misunderstandings or misinterpretations arising from the use of this translation.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

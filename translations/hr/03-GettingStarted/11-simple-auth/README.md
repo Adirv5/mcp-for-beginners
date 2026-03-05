@@ -1,34 +1,25 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "5b00b8a8971a07d2d8803be4c9f138f8",
-  "translation_date": "2025-10-07T01:06:38+00:00",
-  "source_file": "03-GettingStarted/11-simple-auth/README.md",
-  "language_code": "hr"
-}
--->
-# Jednostavna autentifikacija
+# Simple auth
 
-MCP SDK-ovi podržavaju korištenje OAuth 2.1, što je prilično složen proces koji uključuje koncepte poput auth servera, resource servera, slanja vjerodajnica, dobivanja koda, zamjene koda za bearer token, sve dok konačno ne dobijete podatke o resursima. Ako niste upoznati s OAuth-om, koji je sjajan za implementaciju, dobra je ideja započeti s osnovnom razinom autentifikacije i postupno graditi prema sve boljoj sigurnosti. Zato ovaj poglavlje postoji – da vas vodi prema naprednijoj autentifikaciji.
+MCP SDK podržavaju korištenje OAuth 2.1 što je, da budemo iskreni, prilično složen proces koji uključuje koncepte poput auth servera, resource servera, slanja vjerodajnica, dobivanja koda, zamjene koda za bearer token dok konačno ne dobijete podatke resursa. Ako niste upoznati s OAuth-om, što je sjajna stvar za implementirati, dobra je ideja početi s nekom osnovnom razinom autentikacije i razvijati se prema sve boljoj i boljoj sigurnosti. Zato ovaj poglavlje postoji, da vas izgradi do naprednije autentikacije.
 
-## Autentifikacija, što pod time mislimo?
+## Auth, što pod tim mislimo?
 
-Autentifikacija je skraćenica za provjeru identiteta i autorizaciju. Ideja je da trebamo učiniti dvije stvari:
+Auth je skraćenica za autentikaciju i autorizaciju. Ideja je da treba učiniti dvije stvari:
 
-- **Provjera identiteta**, proces kojim utvrđujemo hoćemo li nekome dopustiti ulazak u našu "kuću", odnosno imaju li pravo biti "ovdje", tj. pristupiti našem resource serveru gdje se nalaze značajke MCP Servera.
-- **Autorizacija**, proces kojim utvrđujemo treba li korisnik imati pristup specifičnim resursima koje traži, primjerice određenim narudžbama ili proizvodima, ili je dopušteno samo čitanje sadržaja, ali ne i brisanje, kao drugi primjer.
+- **Autentikacija**, što je proces utvrđivanja dopuštamo li osobi da uđe u naš dom, da li imaju pravo biti "ovdje", odnosno imati pristup našem resource serveru gdje se nalaze značajke našeg MCP Servera.
+- **Autorizacija**, je proces utvrđivanja ima li korisnik pristup tim specifičnim resursima za koje traži pristup, na primjer te narudžbe ili ti proizvodi ili smije li samo čitati sadržaj, ali ne i brisati kao drugi primjer.
 
-## Vjerodajnice: kako sustavu kažemo tko smo
+## Vjerodajnice: kako kažemo sustavu tko smo
 
-Većina web programera razmišlja o pružanju vjerodajnica serveru, obično tajne koja pokazuje imaju li pravo biti ovdje ("provjera identiteta"). Ova vjerodajnica obično je base64 kodirana verzija korisničkog imena i lozinke ili API ključ koji jedinstveno identificira određenog korisnika.
+Većina web programera obično razmišlja u smislu slanja vjerodajnice serveru, obično tajni podatak koji kaže imaju li dozvolu biti ovdje "Autentikacija". Ta vjerodajnica obično je base64 kodirana verzija korisničkog imena i lozinke ili API ključ koji jedinstveno identificira određenog korisnika.
 
-To uključuje slanje putem zaglavlja nazvanog "Authorization", ovako:
+To uključuje slanje putem zaglavlja nazvanog "Authorization" ovako:
 
 ```json
 { "Authorization": "secret123" }
 ```
 
-Ovo se obično naziva osnovnom autentifikacijom. Kako cjelokupni proces funkcionira može se opisati na sljedeći način:
+Ovo se obično naziva osnovna autentikacija (basic authentication). Kako ukupni tijek zatim funkcionira je na sljedeći način:
 
 ```mermaid
 sequenceDiagram
@@ -36,13 +27,12 @@ sequenceDiagram
    participant Client
    participant Server
 
-   User->>Client: show me data
-   Client->>Server: show me data, here's my credential
-   Server-->>Client: 1a, I know you, here's your data
-   Server-->>Client: 1b, I don't know you, 401 
+   User->>Client: pokaži mi podatke
+   Client->>Server: pokaži mi podatke, ovo su moje vjerodajnice
+   Server-->>Client: 1a, znam te, evo tvojih podataka
+   Server-->>Client: 1b, ne poznajem te, 401 
 ```
-
-Sada kada razumijemo kako to funkcionira s aspekta toka, kako to implementirati? Većina web servera ima koncept nazvan middleware, dio koda koji se izvršava kao dio zahtjeva i može provjeriti vjerodajnice. Ako su vjerodajnice valjane, zahtjev se propušta dalje. Ako zahtjev nema valjane vjerodajnice, dobivate grešku autentifikacije. Pogledajmo kako se to može implementirati:
+Sad kad razumijemo kako to funkcionira s aspekta tijeka, kako ga implementirati? Većina web servera ima koncept koji se zove middleware, dio koda koji se izvršava kao dio zahtjeva i može provjeriti vjerodajnice, a ako su vjerodajnice valjane može pustiti zahtjev da prođe. Ako zahtjev nema valjane vjerodajnice, dobit ćete auth grešku. Pogledajmo kako se to može implementirati:
 
 **Python**
 
@@ -62,23 +52,23 @@ class AuthMiddleware(BaseHTTPMiddleware):
         print("Valid token, proceeding...")
        
         response = await call_next(request)
-        # add any customer headers or change in the response in some way
+        # dodajte bilo koje korisničke zaglavlja ili na neki način promijenite odgovor
         return response
 
 
 starlette_app.add_middleware(CustomHeaderMiddleware)
 ```
 
-Ovdje smo:
+Ovdje imamo:
 
-- Kreirali middleware nazvan `AuthMiddleware` čija se metoda `dispatch` poziva od strane web servera.
-- Dodali middleware na web server:
+- Kreiran middleware nazvan `AuthMiddleware` čija se metoda `dispatch` poziva od strane web servera.
+- Dodan middleware u web server:
 
     ```python
     starlette_app.add_middleware(AuthMiddleware)
     ```
 
-- Napisali logiku validacije koja provjerava je li zaglavlje Authorization prisutno i je li poslana tajna valjana:
+- Napisana logika validacije koja provjerava nalazi li se zaglavlje Authorization i je li poslana tajna valjana:
 
     ```python
     has_header = request.headers.get("Authorization")
@@ -91,19 +81,19 @@ Ovdje smo:
         return Response(status_code=403, content="Forbidden")
     ```
 
-    Ako je tajna prisutna i valjana, dopuštamo zahtjevu da prođe pozivom `call_next` i vraćamo odgovor.
+    Ako je tajna prisutna i valjana, pustimo zahtjev da prođe pozivom `call_next` i vratimo odgovor.
 
     ```python
     response = await call_next(request)
-    # add any customer headers or change in the response in some way
+    # dodajte bilo koje korisničke zaglavlja ili na neki način promijenite odgovor
     return response
     ```
 
-Kako to funkcionira: ako se web zahtjev pošalje prema serveru, middleware će se pozvati i, s obzirom na njegovu implementaciju, ili će dopustiti zahtjevu da prođe ili će vratiti grešku koja ukazuje da klijent nema dopuštenje za nastavak.
+Kako to radi je da će middleware biti pozvan ako se napravi web zahtjev prema serveru i s obzirom na implementaciju, ili će pustiti zahtjev da prođe ili će vratiti grešku koja indicira da klijent nema pravo nastaviti.
 
 **TypeScript**
 
-Ovdje kreiramo middleware koristeći popularni framework Express i presrećemo zahtjev prije nego što stigne do MCP Servera. Evo koda za to:
+Ovdje kreiramo middleware s popularnim frameworkom Express i prekidamo zahtjev prije nego što dođe do MCP Servera. Evo koda za to:
 
 ```typescript
 function isValid(secret) {
@@ -111,54 +101,54 @@ function isValid(secret) {
 }
 
 app.use((req, res, next) => {
-    // 1. Authorization header present?  
+    // 1. Je li zaglavlje ovlaštenja prisutno?
     if(!req.headers["Authorization"]) {
         res.status(401).send('Unauthorized');
     }
     
     let token = req.headers["Authorization"];
 
-    // 2. Check validity.
+    // 2. Provjerite valjanost.
     if(!isValid(token)) {
         res.status(403).send('Forbidden');
     }
 
    
     console.log('Middleware executed');
-    // 3. Passes request to the next step in the request pipeline.
+    // 3. Prosljeđuje zahtjev na sljedeći korak u cjevovodu zahtjeva.
     next();
 });
 ```
 
 U ovom kodu:
 
-1. Provjeravamo je li zaglavlje Authorization uopće prisutno; ako nije, šaljemo grešku 401.
-2. Provjeravamo je li vjerodajnica/token valjan; ako nije, šaljemo grešku 403.
-3. Na kraju prosljeđujemo zahtjev u pipeline zahtjeva i vraćamo traženi resurs.
+1. Provjeravamo je li zaglavlje Authorization uopće prisutno, ako nije, šaljemo 401 grešku.
+2. Provjeravamo je li vjerodajnica/token valjan, ako nije, šaljemo 403 grešku.
+3. Na kraju prosljeđuje zahtjev u cijev zahtjeva i vraća traženi resurs.
 
-## Vježba: Implementacija autentifikacije
+## Vježba: Implementirajte autentikaciju
 
-Iskoristimo naše znanje i pokušajmo implementirati autentifikaciju. Evo plana:
+Uzmemo naše znanje i pokušamo implementirati. Evo plana:
 
 Server
 
-- Kreirajte web server i MCP instancu.
-- Implementirajte middleware za server.
+- Kreirati web server i MCP instancu.
+- Implementirati middleware za server.
 
-Klijent 
+Klijent
 
-- Pošaljite web zahtjev s vjerodajnicom putem zaglavlja.
+- Poslati web zahtjev, s vjerodajnicom, preko zaglavlja.
 
 ### -1- Kreirajte web server i MCP instancu
 
-U prvom koraku trebamo kreirati instancu web servera i MCP Servera.
+U prvom koraku moramo kreirati instancu web servera i MCP Server.
 
 **Python**
 
-Ovdje kreiramo MCP server instancu, starlette web aplikaciju i hostiramo je pomoću uvicorn-a.
+Ovdje kreiramo instancu MCP servera, kreiramo starlette web aplikaciju i hostamo je putem uvicorn.
 
 ```python
-# creating MCP Server
+# kreiranje MCP poslužitelja
 
 app = FastMCP(
     name="MCP Resource Server",
@@ -168,10 +158,10 @@ app = FastMCP(
     debug=True
 )
 
-# creating starlette web app
+# kreiranje starlette web aplikacije
 starlette_app = app.streamable_http_app()
 
-# serving app via uvicorn
+# pokretanje aplikacije putem uvicorn
 async def run(starlette_app):
     import uvicorn
     config = uvicorn.Config(
@@ -189,8 +179,8 @@ run(starlette_app)
 U ovom kodu:
 
 - Kreiramo MCP Server.
-- Konstruiramo starlette web aplikaciju iz MCP Servera, `app.streamable_http_app()`.
-- Hostiramo i pokrećemo web aplikaciju koristeći uvicorn `server.serve()`.
+- Konstruiramo starlette web app iz MCP Servera, `app.streamable_http_app()`.
+- Hostamo i služimo web app koristeći uvicorn `server.serve()`.
 
 **TypeScript**
 
@@ -202,10 +192,10 @@ const server = new McpServer({
       version: "1.0.0"
     });
 
-    // ... set up server resources, tools, and prompts ...
+    // ... postavite resurse poslužitelja, alate i upute ...
 ```
 
-Ova kreacija MCP Servera mora se dogoditi unutar naše definicije rute POST /mcp, pa premjestimo gornji kod ovako:
+Ovu kreaciju MCP Servera moramo napraviti unutar definicije rute POST /mcp, pa uzmimo gornji kod i premjestimo ga ovako:
 
 ```typescript
 import express from "express";
@@ -217,33 +207,33 @@ import { isInitializeRequest } from "@modelcontextprotocol/sdk/types.js"
 const app = express();
 app.use(express.json());
 
-// Map to store transports by session ID
+// Mapa za spremanje transporta po ID-u sesije
 const transports: { [sessionId: string]: StreamableHTTPServerTransport } = {};
 
-// Handle POST requests for client-to-server communication
+// Obradi POST zahtjeve za komunikaciju klijent-poslužitelj
 app.post('/mcp', async (req, res) => {
-  // Check for existing session ID
+  // Provjeri postoji li ID sesije
   const sessionId = req.headers['mcp-session-id'] as string | undefined;
   let transport: StreamableHTTPServerTransport;
 
   if (sessionId && transports[sessionId]) {
-    // Reuse existing transport
+    // Ponovno upotrijebi postojeći transport
     transport = transports[sessionId];
   } else if (!sessionId && isInitializeRequest(req.body)) {
-    // New initialization request
+    // Novi zahtjev za inicijalizaciju
     transport = new StreamableHTTPServerTransport({
       sessionIdGenerator: () => randomUUID(),
       onsessioninitialized: (sessionId) => {
-        // Store the transport by session ID
+        // Spremi transport po ID-u sesije
         transports[sessionId] = transport;
       },
-      // DNS rebinding protection is disabled by default for backwards compatibility. If you are running this server
-      // locally, make sure to set:
+      // Zaštita od DNS rebindinga je prema zadanim postavkama isključena radi unatrag kompatibilnosti. Ako pokrećete ovaj poslužitelj
+      // lokalno, pobrinite se da postavite:
       // enableDnsRebindingProtection: true,
       // allowedHosts: ['127.0.0.1'],
     });
 
-    // Clean up transport when closed
+    // Očisti transport kada se zatvori
     transport.onclose = () => {
       if (transport.sessionId) {
         delete transports[transport.sessionId];
@@ -254,12 +244,12 @@ app.post('/mcp', async (req, res) => {
       version: "1.0.0"
     });
 
-    // ... set up server resources, tools, and prompts ...
+    // ... postavi resurse poslužitelja, alate i naredbe ...
 
-    // Connect to the MCP server
+    // Poveži se na MCP poslužitelj
     await server.connect(transport);
   } else {
-    // Invalid request
+    // Nevažeći zahtjev
     res.status(400).json({
       jsonrpc: '2.0',
       error: {
@@ -271,11 +261,11 @@ app.post('/mcp', async (req, res) => {
     return;
   }
 
-  // Handle the request
+  // Obradi zahtjev
   await transport.handleRequest(req, res, req.body);
 });
 
-// Reusable handler for GET and DELETE requests
+// Ponovno upotrebljivi rukovatelj za GET i DELETE zahtjeve
 const handleSessionRequest = async (req: express.Request, res: express.Response) => {
   const sessionId = req.headers['mcp-session-id'] as string | undefined;
   if (!sessionId || !transports[sessionId]) {
@@ -287,10 +277,10 @@ const handleSessionRequest = async (req: express.Request, res: express.Response)
   await transport.handleRequest(req, res);
 };
 
-// Handle GET requests for server-to-client notifications via SSE
+// Obradi GET zahtjeve za obavijesti s poslužitelja na klijenta preko SSE-a
 app.get('/mcp', handleSessionRequest);
 
-// Handle DELETE requests for session termination
+// Obradi DELETE zahtjeve za završetak sesije
 app.delete('/mcp', handleSessionRequest);
 
 app.listen(3000);
@@ -298,33 +288,33 @@ app.listen(3000);
 
 Sada vidite kako je kreacija MCP Servera premještena unutar `app.post("/mcp")`.
 
-Prijeđimo na sljedeći korak kreiranja middlewarea kako bismo mogli validirati dolazne vjerodajnice.
+Krenimo na sljedeći korak stvaranja middlewarea kako bismo mogli validirati dolazne vjerodajnice.
 
 ### -2- Implementirajte middleware za server
 
-Prijeđimo na dio s middlewareom. Ovdje ćemo kreirati middleware koji traži vjerodajnicu u zaglavlju `Authorization` i validira je. Ako je prihvatljiva, zahtjev će nastaviti raditi ono što treba (npr. popis alata, čitanje resursa ili bilo koju MCP funkcionalnost koju klijent traži).
+Sljedeće je implementacija middleware dijela. Ovdje ćemo napraviti middleware koji traži vjerodajnicu u `Authorization` zaglavlju i validira je. Ako je prihvatljiva, zahtjev će ići dalje da radi što treba (npr. navesti alate, čitati resurs ili bilo koju MCP funkcionalnost za koju klijent traži).
 
 **Python**
 
-Za kreiranje middlewarea trebamo kreirati klasu koja nasljeđuje `BaseHTTPMiddleware`. Dva zanimljiva dijela su:
+Za kreiranje middlewarea, trebamo napraviti klasu koja nasljeđuje `BaseHTTPMiddleware`. Dva su zanimljiva dijela:
 
-- Zahtjev `request`, iz kojeg čitamo informacije o zaglavljima.
-- `call_next`, povratni poziv koji trebamo pozvati ako klijent donese vjerodajnicu koju prihvaćamo.
+- Zahtjev `request`, iz kojeg čitamo zaglavlja.
+- `call_next` callback koji trebamo pozvati ako klijent ima prihvatljivu vjerodajnicu.
 
-Prvo, trebamo obraditi slučaj kada zaglavlje `Authorization` nedostaje:
+Prvo, moramo obraditi slučaj ako `Authorization` zaglavlje nedostaje:
 
 ```python
 has_header = request.headers.get("Authorization")
 
-# no header present, fail with 401, otherwise move on.
+# ne postoji zaglavlje, neuspjeh s 401, inače nastavi dalje.
 if not has_header:
     print("-> Missing Authorization header!")
     return Response(status_code=401, content="Unauthorized")
 ```
 
-Ovdje šaljemo poruku 401 Unauthorized jer klijent ne prolazi autentifikaciju.
+Ovdje šaljemo poruku 401 unauthorized jer klijent nije uspio u autentikaciji.
 
-Zatim, ako je vjerodajnica poslana, trebamo provjeriti njezinu valjanost ovako:
+Sljedeće, ako je vjerodajnica poslana, provjeravamo je li valjana ovako:
 
 ```python
  if not valid_token(has_header):
@@ -332,7 +322,7 @@ Zatim, ako je vjerodajnica poslana, trebamo provjeriti njezinu valjanost ovako:
     return Response(status_code=403, content="Forbidden")
 ```
 
-Primijetite kako gore šaljemo poruku 403 Forbidden. Pogledajmo cijeli middleware koji implementira sve što smo gore spomenuli:
+Primijetite kako ovdje šaljemo poruku 403 forbidden. Pogledajmo cjeloviti middleware koji implementira sve gore navedeno:
 
 ```python
 class AuthMiddleware(BaseHTTPMiddleware):
@@ -355,32 +345,33 @@ class AuthMiddleware(BaseHTTPMiddleware):
 
 ```
 
-Odlično, ali što je s funkcijom `valid_token`? Evo je dolje:
+Super, ali što je s funkcijom `valid_token`? Evo je ispod:
+:
 
 ```python
-# DON'T use for production - improve it !!
+# NE koristite za produkciju - poboljšajte to !!
 def valid_token(token: str) -> bool:
-    # remove the "Bearer " prefix
+    # uklonite prefiks "Bearer "
     if token.startswith("Bearer "):
         token = token[7:]
         return token == "secret-token"
     return False
 ```
 
-Ovo bi se očito trebalo poboljšati.
+Ovo se naravno može unaprijediti.
 
-VAŽNO: Nikada ne biste trebali imati tajne poput ove u kodu. Idealno bi bilo da vrijednost za usporedbu dohvatite iz izvora podataka ili IDP-a (identity service provider) ili, još bolje, da IDP obavi validaciju.
+VAŽNO: Nikada ne biste smjeli imati tajne poput ovih u kodu. Idealno je da vrijednost s kojom se uspoređujete dohvatite iz izvora podataka ili od IDP (identity service provider) ili još bolje, neka IDP izvrši validaciju.
 
 **TypeScript**
 
-Za implementaciju s Expressom trebamo pozvati metodu `use` koja prihvaća funkcije middlewarea.
+Za implementaciju s Express-om, treba pozvati metodu `use` koja prima middleware funkcije.
 
-Trebamo:
+Moramo:
 
-- Interagirati s varijablom zahtjeva kako bismo provjerili proslijeđenu vjerodajnicu u svojstvu `Authorization`.
-- Validirati vjerodajnicu, i ako je valjana, dopustiti zahtjevu da nastavi i da MCP zahtjev klijenta obavi ono što treba (npr. popis alata, čitanje resursa ili bilo što MCP povezano).
+- Interagirati s varijablom zahtjeva kako bismo provjerili poslanu vjerodajnicu u svojstvu `Authorization`.
+- Validirati vjerodajnicu, a ako je valjana dozvoliti zahtjevu da nastavi i da MCP zahtjev klijenta izvrši što treba (npr. navesti alate, čitati resurs ili bilo što drugo vezano za MCP).
 
-Ovdje provjeravamo je li zaglavlje `Authorization` prisutno, a ako nije, zaustavljamo zahtjev:
+Ovdje provjeravamo postoji li `Authorization` zaglavlje i ako ne, zaustavljamo zahtjev:
 
 ```typescript
 if(!req.headers["authorization"]) {
@@ -389,9 +380,9 @@ if(!req.headers["authorization"]) {
 }
 ```
 
-Ako zaglavlje nije poslano, dobit ćete grešku 401.
+Ako zaglavlje uopće nije poslano, dobijete 401.
 
-Zatim provjeravamo je li vjerodajnica valjana; ako nije, ponovno zaustavljamo zahtjev, ali s malo drugačijom porukom:
+Sljedeće, provjeravamo je li vjerodajnica valjana, ako nije opet zaustavljamo zahtjev, ali s porukom malo drugačijom:
 
 ```typescript
 if(!isValid(token)) {
@@ -400,9 +391,9 @@ if(!isValid(token)) {
 } 
 ```
 
-Primijetite kako sada dobivate grešku 403.
+Primijetite da sada dobijate 403 grešku.
 
-Evo cijelog koda:
+Evo cjelovitog koda:
 
 ```typescript
 app.use((req, res, next) => {
@@ -425,18 +416,18 @@ app.use((req, res, next) => {
 });
 ```
 
-Postavili smo web server da prihvati middleware za provjeru vjerodajnice koju klijent, nadamo se, šalje. Što je s klijentom?
+Postavili smo web server da prihvati middleware koji provjerava vjerodajnicu koju nam klijent šalje. A što s klijentom?
 
-### -3- Pošaljite web zahtjev s vjerodajnicom putem zaglavlja
+### -3- Pošaljite web zahtjev s vjerodajnicom preko zaglavlja
 
-Moramo osigurati da klijent prosljeđuje vjerodajnicu putem zaglavlja. Kako ćemo koristiti MCP klijent za to, trebamo shvatiti kako se to radi.
+Moramo osigurati da klijent šalje vjerodajnicu kroz zaglavlje. Kako ćemo koristiti MCP klijenta za to, moramo saznati kako se to radi.
 
 **Python**
 
-Za klijenta trebamo proslijediti zaglavlje s našom vjerodajnicom ovako:
+Za klijenta, moramo poslati zaglavlje s vjerodajnicom ovako:
 
 ```python
-# DON'T hardcode the value, have it at minimum in an environment variable or a more secure storage
+# NEMOJTE tvrdo kodirati vrijednost, držite je barem u varijabli okoline ili u sigurnijem spremištu
 token = "secret-token"
 
 async with streamablehttp_client(
@@ -453,24 +444,24 @@ async with streamablehttp_client(
         ) as session:
             await session.initialize()
       
-            # TODO, what you want done in the client, e.g list tools, call tools etc.
+            # TODO, što želite da se napravi na klijentu, npr. popis alata, poziv alata itd.
 ```
 
-Primijetite kako popunjavamo svojstvo `headers` ovako: `headers = {"Authorization": f"Bearer {token}"}`.
+Primijetite kako popunjavamo svojstvo `headers` ovako ` headers = {"Authorization": f"Bearer {token}"}`.
 
 **TypeScript**
 
 Ovo možemo riješiti u dva koraka:
 
-1. Popuniti konfiguracijski objekt s našom vjerodajnicom.
+1. Popuniti konfiguracijski objekt našom vjerodajnicom.
 2. Proslijediti konfiguracijski objekt transportu.
 
 ```typescript
 
-// DON'T hardcode the value like shown here. At minimum have it as a env variable and use something like dotenv (in dev mode).
+// NEMOJTE tvrdo kodirati vrijednost kao što je prikazano ovdje. Najmanje je imajte kao varijablu okoline i koristite nešto poput dotenv (u razvojnom načinu).
 let token = "secret123"
 
-// define a client transport option object
+// definirajte objekt opcija klijentskog prijenosa
 let options: StreamableHTTPClientTransportOptions = {
   sessionId: sessionId,
   requestInit: {
@@ -480,7 +471,7 @@ let options: StreamableHTTPClientTransportOptions = {
   }
 };
 
-// pass the options object to the transport
+// proslijedite objekt opcija prijenosu
 async function main() {
    const transport = new StreamableHTTPClientTransport(
       new URL(serverUrl),
@@ -488,46 +479,46 @@ async function main() {
    );
 ```
 
-Ovdje vidite kako smo morali kreirati objekt `options` i postaviti naše zaglavlje pod svojstvo `requestInit`.
+Ovdje vidite kako smo morali napraviti `options` objekt i staviti zaglavlja unutar svojstva `requestInit`.
 
-VAŽNO: Kako to poboljšati odavde? Pa, trenutna implementacija ima nekoliko problema. Prvo, prosljeđivanje vjerodajnice na ovaj način prilično je rizično osim ako barem nemate HTTPS. Čak i tada, vjerodajnica može biti ukradena, pa trebate sustav u kojem možete lako opozvati token i dodati dodatne provjere, poput toga odakle dolazi zahtjev, događa li se prečesto (ponašanje poput bota) i slično. Ukratko, postoji cijeli niz zabrinutosti.
+VAŽNO: Kako to dalje unaprijediti? Trenutna implementacija ima nekoliko problema. Prvo, slanje vjerodajnice ovako je prilično rizično osim ako nemate barem HTTPS. Čak i tada, vjerodajnica može biti ukradena pa trebate sustav gdje lako možete opozvati token i dodati dodatne provjere poput odakle u svijetu dolazi, događa li se zahtjev prečesto (ponašanje poput bota), ukratko, postoji cijeli niz problema.
 
-Treba reći, međutim, da je za vrlo jednostavne API-je gdje ne želite da itko poziva vaš API bez autentifikacije ono što imamo ovdje dobar početak.
+Ipak treba reći, za vrlo jednostavne API-je gdje ne želite da netko poziva vaš API bez autentikacije, ovo što imamo ovdje je dobar početak.
 
-S tim rečenim, pokušajmo malo pojačati sigurnost korištenjem standardiziranog formata poput JSON Web Tokena, poznatog kao JWT ili "JOT" tokeni.
+S tim rečeno, pokušajmo ojačati sigurnost malo koristeći standardizirani format poput JSON Web Tokena, također poznatih kao JWT ili "JOT" tokeni.
 
 ## JSON Web Tokeni, JWT
 
-Dakle, pokušavamo poboljšati stvari od slanja vrlo jednostavnih vjerodajnica. Koja su neposredna poboljšanja koja dobivamo usvajanjem JWT-a?
+Dakle, pokušavamo unaprijediti stvari u odnosu na slanje vrlo jednostavnih vjerodajnica. Koje su neposredne prednosti koje dobivamo usvajanjem JWT?
 
-- **Poboljšanja sigurnosti**. Kod osnovne autentifikacije, korisničko ime i lozinka šalju se kao base64 kodirani token (ili se šalje API ključ) iznova i iznova, što povećava rizik. S JWT-om, šaljete korisničko ime i lozinku i dobivate token zauzvrat, koji je također vremenski ograničen, što znači da će isteći. JWT omogućuje jednostavno korištenje precizne kontrole pristupa koristeći uloge, opsege i dozvole.
-- **Bezdržavnost i skalabilnost**. JWT-ovi su samostalni, nose sve informacije o korisniku i eliminiraju potrebu za pohranom sesija na strani servera. Token se također može lokalno validirati.
-- **Interoperabilnost i federacija**. JWT-ovi su središnji dio Open ID Connecta i koriste se s poznatim pružateljima identiteta poput Entra ID-a, Google Identity-a i Auth0-a. Također omogućuju korištenje jedinstvene prijave i još mnogo toga, čineći ih pogodnim za poslovne sustave.
-- **Modularnost i fleksibilnost**. JWT-ovi se također mogu koristiti s API Gatewayima poput Azure API Managementa, NGINX-a i drugih. Podržavaju scenarije autentifikacije i komunikaciju servera sa serverom, uključujući scenarije impersonacije i delegacije.
-- **Performanse i keširanje**. JWT-ovi se mogu keširati nakon dekodiranja, što smanjuje potrebu za parsiranjem. Ovo posebno pomaže kod aplikacija s velikim prometom jer poboljšava propusnost i smanjuje opterećenje na vašoj infrastrukturi.
-- **Napredne značajke**. Također podržavaju introspekciju (provjeru valjanosti na serveru) i opoziv (onemogućavanje tokena).
+- **Poboljšanja sigurnosti**. U osnovnoj autentikaciji šaljete korisničko ime i lozinku kao base64 kodirani token (ili šaljete API ključ) iznova i iznova, što povećava rizik. S JWT-om šaljete korisničko ime i lozinku i dobivate token zauzvrat, a on je vremenski ograničen što znači da će isteći. JWT omogućuje jednostavnu upotrebu detaljne kontrole pristupa koristeći uloge, opsege i dozvole.
+- **Bezstanje i skalabilnost**. JWT-ovi su samostalni, nose sve korisničke informacije i eliminiraju potrebu pohrane sessiona na strani servera. Token se također može lokalno validirati.
+- **Interoperabilnost i federacija**. JWT je srž Open ID Connecta i koristi se s poznatim davateljima identiteta poput Entra ID, Google Identity i Auth0. Također omogućuje korištenje single sign on i mnogo više, što ga čini razinom poduzeća.
+- **Modularnost i fleksibilnost**. JWT se može koristiti i s API Gateway-ima kao što su Azure API Management, NGINX i drugi. Podržava scenarije autentikacije i komunikaciju server-server uključujući scenarije impersonacije i delegacije.
+- **Performanse i cacheiranje**. JWT se može keširati nakon dekodiranja što smanjuje potrebu za parsanjem. Ovo pomaže osobito kod aplikacija s velikim prometom jer poboljšava propusnost i smanjuje opterećenje na infrastrukturu.
+- **Napredne značajke**. Podržava introspekciju (provjeru valjanosti na serveru) i opoziv (nedozvoljavanje tokena).
 
-S obzirom na sve ove prednosti, pogledajmo kako možemo podići našu implementaciju na višu razinu.
+Sa svim ovim prednostima, pogledajmo kako možemo podići našu implementaciju na višu razinu.
 
-## Pretvaranje osnovne autentifikacije u JWT
+## Pretvaranje osnovne autentikacije u JWT
 
 Dakle, promjene koje trebamo napraviti na visokoj razini su:
 
-- **Naučiti konstruirati JWT token** i pripremiti ga za slanje od klijenta prema serveru.
-- **Validirati JWT token**, i ako je valjan, omogućiti klijentu pristup našim resursima.
-- **Sigurna pohrana tokena**. Kako pohraniti ovaj token.
-- **Zaštita ruta**. Trebamo zaštititi rute, u našem slučaju, trebamo zaštititi rute i specifične MCP značajke.
-- **Dodavanje refresh tokena**. Osigurati da kreiramo token koji je kratkotrajan, ali refresh token koji je dugotrajan i može se koristiti za dobivanje novih tokena ako isteknu. Također osigurati da postoji endpoint za osvježavanje i strategija rotacije.
+- **Naučiti kako konstruirati JWT token** i pripremiti ga za slanje od klijenta do servera.
+- **Validirati JWT token** i ako je valjan, dati klijentu pristup našim resursima.
+- **Sigurno spremanje tokena**. Kako pohranjujemo token.
+- **Zaštititi rute**. Trebamo zaštititi rute, u našem slučaju zaštititi rute i određene MCP funkcionalnosti.
+- **Dodati refresh tokene**. Osigurati da kreiramo tokene koji su kratkotrajnog vijeka, ali i refresh tokene koji su dugotrajnog vijeka i mogu se koristiti za dobivanje novih tokena ako istekne. Također, osigurati postojanje refresh endpointa i strategiju rotacije.
 
-### -1- Konstruiranje JWT tokena
+### -1- Konstruirajte JWT token
 
 Prvo, JWT token ima sljedeće dijelove:
 
-- **zaglavlje**, algoritam koji se koristi i tip tokena.
-- **payload**, tvrdnje, poput sub (korisnik ili entitet kojeg token predstavlja. U scenariju autentifikacije ovo je obično korisnički ID), exp (kada istječe), role (uloga).
-- **potpis**, potpisan tajnom ili privatnim ključem.
+- **zaglavlje (header)**, korišteni algoritam i tip tokena.
+- **payload**, tvrdnje (claims), poput sub (korisnik ili entitet kojeg token predstavlja. U auth scenariju to je obično userid), exp (kad isteče) uloga (role)
+- **potpis (signature)**, potpisan s tajnim ključem ili privatnim ključem.
 
-Za ovo ćemo trebati konstruirati zaglavlje, payload i kodirani token.
+Za ovo ćemo trebati konstruirati header, payload i kodirani token.
 
 **Python**
 
@@ -538,7 +529,7 @@ import jwt
 from jwt.exceptions import ExpiredSignatureError, InvalidTokenError
 import datetime
 
-# Secret key used to sign the JWT
+# Tajni ključ korišten za potpisivanje JWT-a
 secret_key = 'your-secret-key'
 
 header = {
@@ -546,27 +537,27 @@ header = {
     "typ": "JWT"
 }
 
-# the user info andits claims and expiry time
+# korisničke informacije i njihove tvrdnje te vrijeme isteka
 payload = {
-    "sub": "1234567890",               # Subject (user ID)
-    "name": "User Userson",                # Custom claim
-    "admin": True,                     # Custom claim
-    "iat": datetime.datetime.utcnow(),# Issued at
-    "exp": datetime.datetime.utcnow() + datetime.timedelta(hours=1)  # Expiry
+    "sub": "1234567890",               # Subjekt (ID korisnika)
+    "name": "User Userson",                # Prilagođena tvrdnja
+    "admin": True,                     # Prilagođena tvrdnja
+    "iat": datetime.datetime.utcnow(),# Vrijeme izdavanja
+    "exp": datetime.datetime.utcnow() + datetime.timedelta(hours=1)  # Vrijeme isteka
 }
 
-# encode it
+# kodiraj to
 encoded_jwt = jwt.encode(payload, secret_key, algorithm="HS256", headers=header)
 ```
 
-U gornjem kodu smo:
+U gornjem kodu:
 
-- Definirali zaglavlje koristeći HS256 kao algoritam i tip postavili na JWT.
-- Konstruirali payload koji sadrži subjekt ili korisnički ID, korisničko ime, ulogu, kada je izdan i kada istječe, čime implementiramo vremenski ograničen aspekt koji smo ranije spomenuli.
+- Definirali smo header koristeći HS256 kao algoritam i tip JWT.
+- Konstruirali payload koji sadrži subjekt ili korisnički id, korisničko ime, ulogu, kada je izdan i kada istječe, implementirajući vremenski ograničeni aspekt koji smo spomenuli ranije.
 
 **TypeScript**
 
-Ovdje ćemo trebati neke ovisnosti koje će nam pomoći u konstruiranju JWT tokena.
+Ovdje ćemo trebati neke ovisnosti koje će nam pomoći u konstrukciji JWT tokena.
 
 Ovisnosti
 
@@ -576,29 +567,29 @@ npm install jsonwebtoken
 npm install --save-dev @types/jsonwebtoken
 ```
 
-Sada kada to imamo, kreirajmo zaglavlje, payload i kroz to kreirajmo kodirani token.
+Sad kad imamo to na mjestu, kreirajmo header, payload i kroz to kreirajmo kodirani token.
 
 ```typescript
 import jwt from 'jsonwebtoken';
 
-const secretKey = 'your-secret-key'; // Use env vars in production
+const secretKey = 'your-secret-key'; // Koristite varijable okoline u produkciji
 
-// Define the payload
+// Definirajte podatke
 const payload = {
   sub: '1234567890',
   name: 'User usersson',
   admin: true,
-  iat: Math.floor(Date.now() / 1000), // Issued at
-  exp: Math.floor(Date.now() / 1000) + 60 * 60 // Expires in 1 hour
+  iat: Math.floor(Date.now() / 1000), // Izdan u
+  exp: Math.floor(Date.now() / 1000) + 60 * 60 // Istječe za 1 sat
 };
 
-// Define the header (optional, jsonwebtoken sets defaults)
+// Definirajte zaglavlje (opcionalno, jsonwebtoken postavlja zadane vrijednosti)
 const header = {
   alg: 'HS256',
   typ: 'JWT'
 };
 
-// Create the token
+// Kreirajte token
 const token = jwt.sign(payload, secretKey, {
   algorithm: 'HS256',
   header: header
@@ -609,21 +600,21 @@ console.log('JWT:', token);
 
 Ovaj token je:
 
-Potpisan koristeći HS256
-Valjan 1 sat
-Sadrži tvrdnje poput sub, name, admin, iat i exp.
+Potpisan korištenjem HS256
+Vrijedi 1 sat
+Uključuje tvrdnje kao sub, name, admin, iat i exp.
 
-### -2- Validacija tokena
+### -2- Validirajte token
 
-Također ćemo trebati validirati token, što bismo trebali učiniti na serveru kako bismo osigurali da ono što klijent šalje zaista jest valjano. Postoji mnogo provjera koje bismo trebali napraviti, od validacije strukture do valjanosti. Također se preporučuje dodavanje drugih provjera kako biste vidjeli je li korisnik u vašem sustavu i više.
+Također ćemo trebati validirati token, to trebamo raditi na serveru kako bismo osigurali da je ono što nam klijent šalje zaista valjano. Postoji niz provjera koje treba učiniti od validacije njegove strukture do valjanosti. Također se potiče da dodate dodatne provjere da vidite nalazi li se korisnik u vašem sustavu i slično.
 
-Za validaciju tokena trebamo ga dekodirati kako bismo ga mogli pročitati i zatim početi provjeravati njegovu valjanost:
+Za validaciju tokena, trebamo ga dekodirati da bismo ga mogli pročitati i započeti provjeru valjanosti:
 
 **Python**
 
 ```python
 
-# Decode and verify the JWT
+# Dekodirajte i provjerite JWT
 try:
     decoded = jwt.decode(token, secret_key, algorithms=["HS256"])
     print("✅ Token is valid.")
@@ -637,11 +628,11 @@ except InvalidTokenError as e:
 
 ```
 
-U ovom kodu pozivamo `jwt.decode` koristeći token, tajni ključ i odabrani algoritam kao ulaz. Primijetite kako koristimo try-catch konstrukciju jer neuspjela validacija dovodi do podizanja greške.
+U ovom kodu pozivamo `jwt.decode` koristeći token, tajni ključ i odabrani algoritam kao ulaz. Primijetite kako koristimo try-catch konstrukciju jer neuspjela validacija baca grešku.
 
 **TypeScript**
 
-Ovdje trebamo pozvati `jwt.verify` kako bismo dobili dekodiranu verziju tokena koju možemo dalje analizirati. Ako ovaj poziv ne uspije, to znači da je struktura tokena neispravna ili više nije valjan.
+Ovdje trebamo pozvati `jwt.verify` da dobijemo dekodiranu verziju tokena koju možemo dalje analizirati. Ako ovaj poziv ne uspije, to znači da je struktura tokena neispravna ili više nije valjan.
 
 ```typescript
 
@@ -653,18 +644,18 @@ try {
 }
 ```
 
-NAPOMENA: Kao što je ranije spomenuto, trebali bismo provesti dodatne provjere kako bismo osigurali da ovaj token ukazuje na korisnika u našem sustavu i osigurali da korisnik ima prava koja tvrdi da ima.
-Sljedeće, pogledajmo kontrolu pristupa temeljenu na ulogama, poznatu kao RBAC.
+NAPOMENA: Kao što je ranije spomenuto, trebali bismo napraviti dodatne provjere kako bismo osigurali da ovaj token označava korisnika u našem sustavu i da korisnik posjeduje prava koja tvrdi da ima.
+Sljedeće, pogledajmo kontrolu pristupa temeljenu na ulogama, također poznatu kao RBAC.
 
-## Dodavanje kontrole pristupa temeljene na ulogama
+## Dodavanje kontrole pristupa temeljenog na ulogama
 
-Ideja je da želimo izraziti da različite uloge imaju različite dozvole. Na primjer, pretpostavljamo da administrator može raditi sve, da obični korisnici mogu čitati/pisati, a da gost može samo čitati. Stoga, evo nekih mogućih razina dozvola:
+Ideja je da želimo izraziti da različite uloge imaju različite ovlasti. Na primjer, pretpostavljamo da admin može sve, da obični korisnici mogu čitati/pisati, a da gost može samo čitati. Stoga, evo nekoliko mogućih razina dopuštenja:
 
 - Admin.Write 
 - User.Read
 - Guest.Read
 
-Pogledajmo kako možemo implementirati takvu kontrolu pomoću middlewarea. Middlewarei se mogu dodati po ruti, kao i za sve rute.
+Pogledajmo kako možemo implementirati takvu kontrolu pomoću middleware-a. Middleware se može dodavati po ruti kao i za sve rute.
 
 **Python**
 
@@ -673,8 +664,8 @@ from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.responses import JSONResponse
 import jwt
 
-# DON'T have the secret in the code like, this is for demonstration purposes only. Read it from a safe place.
-SECRET_KEY = "your-secret-key" # put this in env variable
+# NEMOJTE imati tajnu u kodu, ovo je samo za demonstraciju. Pročitajte je s sigurnog mjesta.
+SECRET_KEY = "your-secret-key" # stavite ovo u varijablu okoline
 REQUIRED_PERMISSION = "User.Read"
 
 class JWTPermissionMiddleware(BaseHTTPMiddleware):
@@ -701,25 +692,25 @@ class JWTPermissionMiddleware(BaseHTTPMiddleware):
 
 ```
 
-Postoji nekoliko različitih načina za dodavanje middlewarea, kao što je prikazano dolje:
+Postoji nekoliko različitih načina za dodavanje middleware-a kao u nastavku:
 
 ```python
 
-# Alt 1: add middleware while constructing starlette app
+# Alt 1: dodaj middleware tijekom konstrukcije starlette aplikacije
 middleware = [
     Middleware(JWTPermissionMiddleware)
 ]
 
 app = Starlette(routes=routes, middleware=middleware)
 
-# Alt 2: add middleware after starlette app is a already constructed
+# Alt 2: dodaj middleware nakon što je starlette aplikacija već konstruirana
 starlette_app.add_middleware(JWTPermissionMiddleware)
 
-# Alt 3: add middleware per route
+# Alt 3: dodaj middleware po ruti
 routes = [
     Route(
         "/mcp",
-        endpoint=..., # handler
+        endpoint=..., # rukovatelj
         middleware=[Middleware(JWTPermissionMiddleware)]
     )
 ]
@@ -734,7 +725,7 @@ app.use((req, res, next) => {
     console.log('Request received:', req.method, req.url, req.headers);
     console.log('Headers:', req.headers["authorization"]);
 
-    // 1. Check if authorization header has been sent
+    // 1. Provjerite je li zaglavlje autorizacije poslano
 
     if(!req.headers["authorization"]) {
         res.status(401).send('Unauthorized');
@@ -743,13 +734,13 @@ app.use((req, res, next) => {
     
     let token = req.headers["authorization"];
 
-    // 2. Check if token is valid
+    // 2. Provjerite je li token valjan
     if(!isValid(token)) {
         res.status(403).send('Forbidden');
         return;
     }  
 
-    // 3. Check if token user exist in our system
+    // 3. Provjerite postoji li korisnik tokena u našem sustavu
     if(!isExistingUser(token)) {
         res.status(403).send('Forbidden');
         console.log("User does not exist");
@@ -757,7 +748,7 @@ app.use((req, res, next) => {
     }
     console.log("User exists");
 
-    // 4. Verify the token has the right permissions
+    // 4. Potvrdite ima li token odgovarajuće dozvole
     if(!hasScopes(token, ["User.Read"])){
         res.status(403).send('Forbidden - insufficient scopes');
     }
@@ -770,14 +761,14 @@ app.use((req, res, next) => {
 
 ```
 
-Postoji nekoliko stvari koje možemo omogućiti našem middlewareu i koje bi naš middleware TREBAO raditi, naime:
+Postoji prilično mnogo stvari koje možemo dopustiti našem middleware-u i koje NAŠ middleware TREBA raditi, naime:
 
-1. Provjeriti je li prisutan zaglavlje za autorizaciju
-2. Provjeriti je li token valjan, pozivamo `isValid`, što je metoda koju smo napisali za provjeru integriteta i valjanosti JWT tokena.
-3. Provjeriti postoji li korisnik u našem sustavu, to bismo trebali provjeriti.
+1. Provjeriti je li zaglavlje za autorizaciju prisutno
+2. Provjeriti je li token valjan, zovemo `isValid` što je metoda koju smo napisali za provjeru integriteta i valjanosti JWT tokena.
+3. Provjeriti da korisnik postoji u našem sustavu, to bi trebali provjeriti.
 
    ```typescript
-    // users in DB
+    // korisnici u bazi podataka
    const users = [
      "user1",
      "User usersson",
@@ -786,14 +777,14 @@ Postoji nekoliko stvari koje možemo omogućiti našem middlewareu i koje bi na�
    function isExistingUser(token) {
      let decodedToken = verifyToken(token);
 
-     // TODO, check if user exists in DB
+     // TODO, provjeriti postoji li korisnik u bazi podataka
      return users.includes(decodedToken?.name || "");
    }
    ```
 
-   Gore smo kreirali vrlo jednostavan popis `users`, koji bi očito trebao biti u bazi podataka.
+   Iznad smo kreirali vrlo jednostavnu listu `users`, koja bi naravno trebala biti u bazi podataka.
 
-4. Dodatno, trebali bismo također provjeriti ima li token odgovarajuće dozvole.
+4. Dodatno, također bismo trebali provjeriti ima li token odgovarajuća dopuštenja.
 
    ```typescript
    if(!hasScopes(token, ["User.Read"])){
@@ -801,7 +792,7 @@ Postoji nekoliko stvari koje možemo omogućiti našem middlewareu i koje bi na�
    }
    ```
 
-   U gornjem kodu iz middlewarea provjeravamo sadrži li token dozvolu User.Read, ako ne, šaljemo 403 grešku. Dolje je pomoćna metoda `hasScopes`.
+   U ovom kodu iz middleware-a gore provjeravamo da li token sadrži dopuštenje User.Read, ako ne, šaljemo 403 grešku. Dolje je pomoćna metoda `hasScopes`.
 
    ```typescript
    function hasScopes(scope: string, requiredScopes: string[]) {
@@ -850,17 +841,17 @@ app.use((err, req, res, next) => {
 
 ```
 
-Sada ste vidjeli kako se middleware može koristiti za autentifikaciju i autorizaciju, ali što je s MCP-om, mijenja li to način na koji radimo autentifikaciju? Saznajmo u sljedećem odjeljku.
+Sada ste vidjeli kako se middleware može koristiti i za autentikaciju i za autorizaciju, što je s MCP-om, mijenja li to način na koji radimo autentikaciju? Pogledajmo u sljedećem poglavlju.
 
 ### -3- Dodavanje RBAC-a u MCP
 
-Do sada ste vidjeli kako možete dodati RBAC putem middlewarea, međutim, za MCP ne postoji jednostavan način za dodavanje RBAC-a po MCP značajci, pa što radimo? Pa, jednostavno moramo dodati kod poput ovog koji provjerava ima li klijent prava za pozivanje određenog alata:
+Do sada ste vidjeli kako možete dodati RBAC preko middleware-a, no za MCP nema jednostavan način da se doda RBAC po značajci MCP-a, pa što onda učiniti? Pa, jednostavno morate dodati kod poput ovoga koji provjerava u ovom slučaju ima li klijent prava za pozivanje određenog alata:
 
-Imate nekoliko različitih izbora kako postići RBAC po značajci, evo nekih:
+Imate nekoliko različitih opcija kako postići RBAC po značajci, evo nekih:
 
-- Dodajte provjeru za svaki alat, resurs, prompt gdje trebate provjeriti razinu dozvole.
+- Dodajte provjeru za svaki alat, resurs, prompt gdje trebate provjeriti razinu dopuštenja.
 
-   **Python**
+   **python**
 
    ```python
    @tool()
@@ -868,10 +859,10 @@ Imate nekoliko različitih izbora kako postići RBAC po značajci, evo nekih:
       try:
           check_permissions(role="Admin.Write", request)
       catch:
-        pass # client failed authorization, raise authorization error
+        pass # klijent nije uspio autorizaciju, podigni grešku autorizacije
    ```
 
-   **TypeScript**
+   **typescript**
 
    ```typescript
    server.registerTool(
@@ -885,7 +876,7 @@ Imate nekoliko različitih izbora kako postići RBAC po značajci, evo nekih:
       
       try {
         checkPermissions("Admin.Write", request);
-        // todo, send id to productService and remote entry
+        // za napraviti, poslati id u productService i udaljeni unos
       } catch(Exception e) {
         console.log("Authorization error, you're not allowed");  
       }
@@ -898,7 +889,7 @@ Imate nekoliko različitih izbora kako postići RBAC po značajci, evo nekih:
    ```
 
 
-- Koristite napredni pristup serveru i rukovatelje zahtjeva kako biste minimizirali broj mjesta na kojima trebate izvršiti provjeru.
+- Koristite napredni pristup serveru i rukovatelje zahtjeva kako biste minimalizirali broj mjesta na kojima morate napraviti provjeru.
 
    **Python**
 
@@ -910,21 +901,21 @@ Imate nekoliko različitih izbora kako postići RBAC po značajci, evo nekih:
    }
 
    def has_permission(user_permissions, required_permissions) -> bool:
-      # user_permissions: list of permissions the user has
-      # required_permissions: list of permissions required for the tool
+      # user_permissions: popis dozvola koje korisnik ima
+      # required_permissions: popis dozvola potrebnih za alat
       return any(perm in user_permissions for perm in required_permissions)
 
    @server.call_tool()
    async def handle_call_tool(
      name: str, arguments: dict[str, str] | None
    ) -> list[types.TextContent]:
-    # Assume request.user.permissions is a list of permissions for the user
+    # Pretpostavi da je request.user.permissions popis dozvola za korisnika
      user_permissions = request.user.permissions
      required_permissions = tool_permission.get(name, [])
      if not has_permission(user_permissions, required_permissions):
-        # Raise error "You don't have permission to call tool {name}"
+        # Podigni pogrešku "Nemate dozvolu za pozivanje alata {name}"
         raise Exception(f"You don't have permission to call tool {name}")
-     # carry on and call tool
+     # nastavi i pozovi alat
      # ...
    ```   
    
@@ -934,7 +925,7 @@ Imate nekoliko različitih izbora kako postići RBAC po značajci, evo nekih:
    ```typescript
    function hasPermission(userPermissions: string[], requiredPermissions: string[]): boolean {
        if (!Array.isArray(userPermissions) || !Array.isArray(requiredPermissions)) return false;
-       // Return true if user has at least one required permission
+       // Vraća true ako korisnik ima barem jednu potrebnu dozvolu
        
        return requiredPermissions.some(perm => userPermissions.includes(perm));
    }
@@ -948,29 +939,29 @@ Imate nekoliko različitih izbora kako postići RBAC po značajci, evo nekih:
          return new Error(`You don't have permission to call ${name}`);
       }
   
-      // carry on..
+      // nastavi..
    });
    ```
 
-   Napomena, trebate osigurati da vaš middleware dodjeljuje dekodirani token svojstvu korisnika zahtjeva kako bi gornji kod bio jednostavan.
+   Napomena, trebat ćete osigurati da vaš middleware dodijeli dekodirani token u svojstvo user objekta zahtjeva kako bi gornji kod bio pojednostavljen.
 
-### Zaključak
+### Sažetak
 
-Sada kada smo raspravili kako dodati podršku za RBAC općenito i za MCP posebno, vrijeme je da pokušate implementirati sigurnost sami kako biste osigurali da ste razumjeli predstavljene koncepte.
+Sada kada smo raspravili kako dodati podršku za RBAC općenito i za MCP posebno, vrijeme je da pokušate implementirati sigurnost samostalno kako biste bili sigurni da ste razumjeli koncepte koji su vam predstavljeni.
 
-## Zadatak 1: Izgradite MCP server i MCP klijent koristeći osnovnu autentifikaciju
+## Zadatak 1: Izgradite MCP server i MCP klijenta koristeći osnovnu autentikaciju
 
-Ovdje ćete primijeniti ono što ste naučili u smislu slanja vjerodajnica kroz zaglavlja.
+Ovdje ćete primijeniti ono što ste naučili o slanju vjerodajnica putem zaglavlja.
 
 ## Rješenje 1
 
 [Rješenje 1](./code/basic/README.md)
 
-## Zadatak 2: Nadogradite rješenje iz Zadatka 1 na korištenje JWT-a
+## Zadatak 2: Nadogradite rješenje iz zadatka 1 na korištenje JWT-a
 
 Uzmite prvo rješenje, ali ovaj put ga poboljšajmo.
 
-Umjesto osnovne autentifikacije, koristimo JWT.
+Umjesto osnovne autentikacije, koristimo JWT.
 
 ## Rješenje 2
 
@@ -978,17 +969,23 @@ Umjesto osnovne autentifikacije, koristimo JWT.
 
 ## Izazov
 
-Dodajte RBAC po alatu kako je opisano u odjeljku "Dodavanje RBAC-a u MCP".
+Dodajte RBAC po alatu koji smo opisali u odjeljku "Dodavanje RBAC-a u MCP".
 
 ## Sažetak
 
-Nadamo se da ste puno naučili u ovom poglavlju, od potpune odsutnosti sigurnosti, do osnovne sigurnosti, do JWT-a i kako se može dodati u MCP.
+Nadamo se da ste puno naučili u ovom poglavlju, od nikakve sigurnosti, preko osnovne sigurnosti, do JWT-a i kako ga dodati u MCP.
 
-Izgradili smo solidnu osnovu s prilagođenim JWT-ovima, ali kako se skaliramo, prelazimo na model identiteta temeljen na standardima. Usvajanje IdP-a poput Entre ili Keycloaka omogućuje nam da izdavanje tokena, validaciju i upravljanje životnim ciklusom prepustimo pouzdanoj platformi — oslobađajući nas da se fokusiramo na logiku aplikacije i korisničko iskustvo.
+Izgradili smo solidnu osnovu s prilagođenim JWT-ovima, ali kako rastemo, pomičemo se prema modelu identiteta temeljenom na standardima. Usvajanje IdP-a kao što su Entra ili Keycloak omogućuje nam da prebacimo izdavanje tokena, provjeru i upravljanje životnim ciklusom na pouzdanu platformu — oslobađajući nas da se usredotočimo na logiku aplikacije i korisničko iskustvo.
 
-Za to imamo [naprednije poglavlje o Enti](../../05-AdvancedTopics/mcp-security-entra/README.md)
+Za to imamo naprednije [poglavlje o Entr-i](../../05-AdvancedTopics/mcp-security-entra/README.md)
+
+## Što slijedi
+
+- Sljedeće: [Postavljanje MCP hostova](../12-mcp-hosts/README.md)
 
 ---
 
-**Izjava o odricanju odgovornosti**:  
-Ovaj dokument je preveden pomoću AI usluge za prevođenje [Co-op Translator](https://github.com/Azure/co-op-translator). Iako nastojimo osigurati točnost, imajte na umu da automatski prijevodi mogu sadržavati pogreške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati autoritativnim izvorom. Za ključne informacije preporučuje se profesionalni prijevod od strane čovjeka. Ne preuzimamo odgovornost za nesporazume ili pogrešna tumačenja koja proizlaze iz korištenja ovog prijevoda.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Odricanje od odgovornosti**:
+Ovaj je dokument preveden pomoću AI usluge za prevođenje [Co-op Translator](https://github.com/Azure/co-op-translator). Iako težimo točnosti, imajte na umu da automatski prijevodi mogu sadržavati pogreške ili netočnosti. Izvorni dokument na izvornom jeziku treba smatrati autoritativnim izvorom. Za kritične informacije preporuča se profesionalni ljudski prijevod. Ne snosimo odgovornost za bilo kakve nesporazume ili pogrešne interpretacije koje proizlaze iz korištenja ovog prijevoda.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "13231e9951b68efd9df8c56bd5cdb27e",
-  "translation_date": "2025-10-11T11:37:29+00:00",
-  "source_file": "03-GettingStarted/samples/java/calculator/README.md",
-  "language_code": "ta"
-}
--->
 # அடிப்படை கணிகையாளர் MCP சேவை
 
 இந்த சேவை Model Context Protocol (MCP) மூலம் அடிப்படை கணிகையாளர் செயல்பாடுகளை வழங்குகிறது, Spring Boot மற்றும் WebFlux போக்குவரத்து பயன்படுத்தி. MCP செயல்பாடுகளை அறிந்து கொள்ளும் தொடக்க நிலை பயிற்சியாளர்களுக்கு இது ஒரு எளிய உதாரணமாக வடிவமைக்கப்பட்டுள்ளது.
@@ -201,7 +192,7 @@ MCP Inspector MCP சேவைகளுடன் தொடர்பு கொள
    - "List Tools" என்பதைக் கிளிக் செய்து கிடைக்கும் கணிகையாளர் செயல்பாடுகளைப் பார்க்கவும்
    - ஒரு கருவியைத் தேர்ந்தெடுத்து "Run Tool" என்பதைக் கிளிக் செய்து ஒரு செயல்பாட்டை இயக்கவும்
 
-![MCP Inspector Screenshot](../../../../../../translated_images/tool.c75a0b2380efcf1a47a8478f54380a36ddcca7943b98f56dabbac8b07e15c3bb.ta.png)
+![MCP Inspector Screenshot](../../../../../../translated_images/ta/tool.c75a0b2380efcf1a.webp)
 
 ### Docker பயன்படுத்துதல்
 

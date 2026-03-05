@@ -1,110 +1,114 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "f400d87053221363769113c24f117248",
-  "translation_date": "2025-10-11T11:29:10+00:00",
-  "source_file": "03-GettingStarted/README.md",
-  "language_code": "et"
-}
--->
 ## Alustamine  
 
-[![Ehita oma esimene MCP server](../../../translated_images/04.0ea920069efd979a0b2dad51e72c1df7ead9c57b3305796068a6cee1f0dd6674.et.png)](https://youtu.be/sNDZO9N4m9Y)
+[![Ehita oma esimene MCP server](../../../translated_images/et/04.0ea920069efd979a.webp)](https://youtu.be/sNDZO9N4m9Y)
 
 _(Klõpsa ülaloleval pildil, et vaadata selle õppetunni videot)_
 
 See osa koosneb mitmest õppetunnist:
 
-- **1 Sinu esimene server**, esimeses õppetunnis õpid, kuidas luua oma esimene server ja uurida seda inspektori tööriistaga, mis on väärtuslik viis serveri testimiseks ja silumiseks, [õppetunnini](01-first-server/README.md)
+- **1 Sinu esimene server**, selles esimeses õppetunnis õpid, kuidas luua oma esimene server ja vaadata seda inspector tööriista abil, mis on väärtuslik viis serveri testimiseks ja silumiseks, [õppetunni juurde](01-first-server/README.md)
 
-- **2 Klient**, selles õppetunnis õpid, kuidas kirjutada klienti, mis saab serveriga ühendust luua, [õppetunnini](02-client/README.md)
+- **2 Klient**, selles õppetunnis õpid, kuidas kirjutada klient, kes suudab su serveriga ühenduda, [õppetunni juurde](02-client/README.md)
 
-- **3 Klient koos LLM-iga**, veelgi parem viis kliendi kirjutamiseks on lisada sellele LLM, et see saaks serveriga "läbirääkimisi pidada", mida teha, [õppetunnini](03-llm-client/README.md)
+- **3 Klient koos LLM-iga**, veel parem viis kliendi kirjutamiseks on lisada sellele LLM, nii et ta saab "läbirääkimisi pidada" sinu serveriga selle üle, mida teha, [õppetunni juurde](03-llm-client/README.md)
 
-- **4 Serveri kasutamine GitHub Copilot Agent režiimis Visual Studio Code'is**. Siin vaatame, kuidas käivitada MCP serverit Visual Studio Code'i sees, [õppetunnini](04-vscode/README.md)
+- **4 Serveri GitHub Copilot Agent režiimi kasutamine Visual Studio Code’is**. Siin vaatame, kuidas käivitada meie MCP server Visual Studio Code keskkonnas, [õppetunni juurde](04-vscode/README.md)
 
-- **5 stdio Transport Server** stdio transport on praeguses spetsifikatsioonis soovitatav standard MCP serveri ja kliendi vaheliseks suhtluseks, pakkudes turvalist alamsüsteemipõhist kommunikatsiooni [õppetunnini](05-stdio-server/README.md)
+- **5 stdio transport server** stdio transport on soovitatud standard kohalikuks MCP serveri ja kliendi vaheliseks suhtluseks, pakkudes turvalist alamhulgi-põhist suhtlust koos sisseehitatud protsessi isoleerimisega [õppetunni juurde](05-stdio-server/README.md)
 
-- **6 HTTP voogedastus MCP-ga (Streamable HTTP)**. Õpi kaasaegse HTTP voogedastuse, edenemisteavituste ja skaleeritavate reaalajas MCP serverite ja klientide rakendamise kohta Streamable HTTP abil. [õppetunnini](06-http-streaming/README.md)
+- **6 HTTP voogedastus MCP-ga (Voogedastatav HTTP)**. Õpi kaasaegse HTTP voogedastusprotsessi kohta (soovitatud lähenemine kaugete MCP serverite puhul vastavalt [MCP spetsifikatsioonile 2025-11-25](https://spec.modelcontextprotocol.io/specification/2025-11-25/basic/transports/#streamable-http)), edenemiseteavitusi ning kuidas rakendada skaleeritavaid reaalajas MCP servereid ja kliente, kasutades Voogedastatavat HTTP-d. [õppetunni juurde](06-http-streaming/README.md)
 
-- **7 AI tööriistakomplekti kasutamine VSCode'is** MCP klientide ja serverite tarbimiseks ja testimiseks [õppetunnini](07-aitk/README.md)
+- **7 AI tööriistakomplekti kasutamine VSCode jaoks** oma MCP klientide ja serverite tarbimiseks ning testimiseks [õppetunni juurde](07-aitk/README.md)
 
-- **8 Testimine**. Siin keskendume eriti sellele, kuidas testida serverit ja klienti erinevatel viisidel, [õppetunnini](08-testing/README.md)
+- **8 Testimine**. Siin keskendume eelkõige sellele, kuidas saame oma serverit ja klienti erinevat moodi testida, [õppetunni juurde](08-testing/README.md)
 
-- **9 Juurutamine**. Selles peatükis vaatame erinevaid viise MCP lahenduste juurutamiseks, [õppetunnini](09-deployment/README.md)
+- **9 Haldus ja paigaldus**. See peatükk vaatleb erinevaid viise, kuidas oma MCP lahendusi juurutada, [õppetunni juurde](09-deployment/README.md)
 
-- **10 Täiustatud serveri kasutamine**. See peatükk käsitleb serveri täiustatud kasutamist, [õppetunnini](./10-advanced/README.md)
+- **10 Täiustatud serverikasutus**. See peatükk käsitleb serveri täiustatud kasutamist, [õppetunni juurde](./10-advanced/README.md)
 
-- **11 Autentimine**. See peatükk käsitleb lihtsa autentimise lisamist, alates Basic Authist kuni JWT ja RBAC-i kasutamiseni. Soovitame alustada siit ja seejärel vaadata Täiustatud teemasid 5. peatükis ning rakendada täiendavat turvalisuse tugevdamist 2. peatüki soovituste järgi, [õppetunnini](./11-simple-auth/README.md)
+- **11 Autentimine**. See peatükk käsitleb lihtsa autentimise lisamist, alates Basic Auth-ist kuni JWT ja RBAC kasutamiseni. Soovitame alustada siit ja seejärel vaadata edasi Täiustatud teemadesse peatükis 5 ning tugevdada turvalisust vastavalt soovitustele peatükis 2, [õppetunni juurde](./11-simple-auth/README.md)
 
-Model Context Protocol (MCP) on avatud protokoll, mis standardiseerib, kuidas rakendused pakuvad konteksti LLM-idele. MCP-d võib mõelda kui USB-C porti AI rakenduste jaoks - see pakub standardiseeritud viisi AI mudelite ühendamiseks erinevate andmeallikate ja tööriistadega.
+- **12 MCP Hostid**. Konfigureeri ja kasuta populaarseid MCP hostikliente, sealhulgas Claude Desktop, Cursor, Cline ja Windsurf. Õpi transporditüüpe ja tõrkeotsingut, [õppetunni juurde](./12-mcp-hosts/README.md)
+
+- **13 MCP Inspector**. Silu ja testi oma MCP servereid interaktiivselt, kasutades MCP Inspector tööriista. Õpi tõrkeotsingutööriistu, ressursse ja protokollo sõnumeid, [õppetunni juurde](./13-mcp-inspector/README.md)
+
+- **14 Valimi koostamine**. Loo MCP servereid, mis teevad koostööd MCP klientidega LLM-iga seotud ülesannetes. [õppetunni juurde](./14-sampling/README.md)
+
+- **15 MCP Rakendused**. Ehita MCP servereid, mis vastavad ka kasutajaliidese juhistega, [õppetunni juurde](./15-mcp-apps/README.md)
+
+Model Context Protocol (MCP) on avatud protokoll, mis standardiseerib, kuidas rakendused pakuvad konteksti LLM-idele. Mõtle MCP-le nagu USB-C port AI rakenduste jaoks – see pakub standardiseeritud viisi, kuidas ühendada AI mudeleid erinevate andmeallikate ja tööriistadega.
 
 ## Õpieesmärgid
 
-Selle õppetunni lõpuks oskad:
+Selle õppetunni lõpuks suudad:
 
-- Seadistada MCP arenduskeskkondi C#, Java, Python, TypeScripti ja JavaScripti jaoks
-- Luua ja juurutada põhifunktsioonidega MCP servereid (ressursid, käsud ja tööriistad)
-- Luua hostrakendusi, mis ühenduvad MCP serveritega
+- Häälestada arenduskeskkonnad MCP jaoks C#, Java, Python, TypeScript ja JavaScript keeltes
+- Ehita ja juuruta põhikujul MCP servereid kohandatud omadustega (ressursid, promptid ja tööriistad)
+- Loo hostrakendusi, mis ühenduvad MCP serveritega
 - Testida ja siluda MCP rakendusi
-- Mõista levinud seadistusprobleeme ja nende lahendusi
-- Ühendada oma MCP rakendusi populaarsete LLM teenustega
+- Mõista tavalisi häälestusväljakutseid ja nende lahendusi
+- Ühendada oma MCP rakendused populaarsete LLM teenustega
 
 ## MCP keskkonna seadistamine
 
-Enne MCP-ga töötamise alustamist on oluline ette valmistada oma arenduskeskkond ja mõista põhitöövoogu. See osa juhendab sind algseadistuse sammude kaudu, et tagada MCP-ga sujuv algus.
+Enne MCP-ga töötamist on oluline valmistada ette oma arenduskeskkond ja mõista põhivoogu. See osa juhendab sind esialgsete seadistamisetappide kaudu, et tagada sujuv algus MCP-ga.
 
-### Eeltingimused
+### Nõuded
 
-Enne MCP arendusse sukeldumist veendu, et sul oleks:
+Enne MCP arendusse sukeldumist veendu, et sul on olemas:
 
-- **Arenduskeskkond**: Valitud keele jaoks (C#, Java, Python, TypeScript või JavaScript)
-- **IDE/Redaktor**: Visual Studio, Visual Studio Code, IntelliJ, Eclipse, PyCharm või mõni kaasaegne koodiredaktor
-- **Paketihaldurid**: NuGet, Maven/Gradle, pip või npm/yarn
-- **API võtmed**: AI teenuste jaoks, mida plaanid kasutada oma hostrakendustes
+- **Arenduskeskkond**: valitud programmeerimiskeele jaoks (C#, Java, Python, TypeScript või JavaScript)
+- **IDE/Editorr**: Visual Studio, Visual Studio Code, IntelliJ, Eclipse, PyCharm või mõni moodne tekstiredaktor
+- **Pakihaldurid**: NuGet, Maven/Gradle, pip või npm/yarn
+- **API Võtmed**: mis tahes AI teenustele, mida plaanid oma hostrakendustes kasutada
 
 ### Ametlikud SDK-d
 
-Järgmistes peatükkides näed lahendusi, mis on ehitatud Pythonis, TypeScriptis, Javas ja .NET-is. Siin on kõik ametlikult toetatud SDK-d.
+Järgmistes peatükkides näed lahendusi, mis on ehitatud Pythoniga, TypeScriptiga, Javaga ja .NETiga. Siin on kõik ametlikult toetatud SDK-d.
 
-MCP pakub ametlikke SDK-sid mitmele keelele:
-- [C# SDK](https://github.com/modelcontextprotocol/csharp-sdk) - Hooldatud koostöös Microsoftiga
-- [Java SDK](https://github.com/modelcontextprotocol/java-sdk) - Hooldatud koostöös Spring AI-ga
-- [TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk) - Ametlik TypeScripti rakendus
-- [Python SDK](https://github.com/modelcontextprotocol/python-sdk) - Ametlik Pythoni rakendus
-- [Kotlin SDK](https://github.com/modelcontextprotocol/kotlin-sdk) - Ametlik Kotlin rakendus
-- [Swift SDK](https://github.com/modelcontextprotocol/swift-sdk) - Hooldatud koostöös Loopwork AI-ga
-- [Rust SDK](https://github.com/modelcontextprotocol/rust-sdk) - Ametlik Rusti rakendus
+MCP pakub ametlikke SDK-sid mitmetes keeltes (vastavalt [MCP spetsifikatsioonile 2025-11-25](https://spec.modelcontextprotocol.io/specification/2025-11-25/)):
+- [C# SDK](https://github.com/modelcontextprotocol/csharp-sdk) - Hooldatakse koostöös Microsoftiga
+- [Java SDK](https://github.com/modelcontextprotocol/java-sdk) - Hooldatakse koostöös Spring AI-ga
+- [TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk) - Ametlik TypeScripti teostus
+- [Python SDK](https://github.com/modelcontextprotocol/python-sdk) - Ametlik Python teostus (FastMCP)
+- [Kotlin SDK](https://github.com/modelcontextprotocol/kotlin-sdk) - Ametlik Kotlin teostus
+- [Swift SDK](https://github.com/modelcontextprotocol/swift-sdk) - Hooldatakse koostöös Loopwork AI-ga
+- [Rust SDK](https://github.com/modelcontextprotocol/rust-sdk) - Ametlik Rusti teostus
+- [Go SDK](https://github.com/modelcontextprotocol/go-sdk) - Ametlik Go teostus
 
-## Olulised punktid
+## Olulised õppetunnid
 
-- MCP arenduskeskkonna seadistamine on lihtne keelespetsiifiliste SDK-dega
-- MCP serverite loomine hõlmab tööriistade loomist ja registreerimist selgete skeemidega
-- MCP kliendid ühenduvad serverite ja mudelitega, et kasutada laiendatud võimalusi
-- Testimine ja silumine on usaldusväärsete MCP rakenduste jaoks hädavajalik
-- Juurutamisvõimalused ulatuvad kohalikust arendusest pilvepõhiste lahendusteni
+- MCP arenduskeskkonna seadistamine on lihtne keelspetsiifiliste SDK-de abil
+- MCP serverite ehitamine hõlmab tööriistade loomist ja registreerimist selgete skeemidega
+- MCP kliendid ühenduvad serverite ja mudelitega, et kasutada laiendatud võimekusi
+- Testimine ja silumine on hädavajalikud usaldusväärsete MCP rakenduste jaoks
+- Paigaldusvõimalused ulatuvad kohalikust arendusest pilvepõhiste lahendusteni
 
 ## Harjutamine
 
-Meil on harjutuste komplekt, mis täiendab kõigi selle osa peatükkide ülesandeid. Lisaks on igal peatükil oma harjutused ja ülesanded.
+Meil on hulk näiteid, mis täiendavad kõigis selle jao peatükkides näidatud harjutusi. Lisaks on igal peatükil ka oma harjutused ja ülesanded.
 
 - [Java kalkulaator](./samples/java/calculator/README.md)
 - [.Net kalkulaator](../../../03-GettingStarted/samples/csharp)
-- [JavaScript kalkulaator](./samples/javascript/README.md)
+- [JavaScript kalkulaator](../../../03-GettingStarted/samples/javascript)
 - [TypeScript kalkulaator](./samples/typescript/README.md)
 - [Python kalkulaator](../../../03-GettingStarted/samples/python)
 
 ## Täiendavad ressursid
 
-- [Ehita agendid Model Context Protocoli abil Azure'is](https://learn.microsoft.com/azure/developer/ai/intro-agents-mcp)
-- [Kaug-MCP Azure Container Appsiga (Node.js/TypeScript/JavaScript)](https://learn.microsoft.com/samples/azure-samples/mcp-container-ts/mcp-container-ts/)
-- [.NET OpenAI MCP Agent](https://learn.microsoft.com/samples/azure-samples/openai-mcp-agent-dotnet/openai-mcp-agent-dotnet/)
+- [Agentide loomine Model Context Protocol abil Azure’is](https://learn.microsoft.com/azure/developer/ai/intro-agents-mcp)
+- [Kaug-MCP Azure konteinerirakendustega (Node.js/TypeScript/JavaScript)](https://learn.microsoft.com/samples/azure-samples/mcp-container-ts/mcp-container-ts/)
+- [.NET OpenAI MCP agent](https://learn.microsoft.com/samples/azure-samples/openai-mcp-agent-dotnet/openai-mcp-agent-dotnet/)
 
 ## Mis edasi
 
-Järgmine: [Esimese MCP serveri loomine](01-first-server/README.md)
+Alusta esimesest õppetunnist: [Sinu esimese MCP serveri loomine](01-first-server/README.md)
+
+Kui oled selle mooduli lõpule viinud, jätka: [Moodul 4: Praktiline rakendamine](../04-PracticalImplementation/README.md)
 
 ---
 
-**Lahtiütlus**:  
-See dokument on tõlgitud, kasutades AI tõlketeenust [Co-op Translator](https://github.com/Azure/co-op-translator). Kuigi püüame tagada täpsust, palun arvestage, et automaatsed tõlked võivad sisaldada vigu või ebatäpsusi. Algne dokument selle algkeeles tuleks lugeda autoriteetseks allikaks. Olulise teabe puhul on soovitatav kasutada professionaalset inimtõlget. Me ei vastuta selle tõlke kasutamisest tulenevate arusaamatuste või valede tõlgenduste eest.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Vastutusest loobumine**:
+See dokument on tõlgitud tehisintellekti tõlketeenuse [Co-op Translator](https://github.com/Azure/co-op-translator) abil. Kuigi püüame tagada täpsust, olge teadlikud, et automaatsed tõlked võivad sisaldada vigu või ebatäpsusi. Originaaldokument selle emakeeles tuleks pidada autoriteetseks allikaks. Kritilise teabe puhul soovitatakse kasutada professionaalset inimtõlget. Me ei vastuta selle tõlke kasutamisest tulenevate arusaamatuste või valesti tõlgenduste eest.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

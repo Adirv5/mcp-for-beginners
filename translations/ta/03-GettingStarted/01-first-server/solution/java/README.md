@@ -1,12 +1,3 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "ed9cab32cc67c12d8969b407aa47100a",
-  "translation_date": "2025-10-11T11:45:05+00:00",
-  "source_file": "03-GettingStarted/01-first-server/solution/java/README.md",
-  "language_code": "ta"
-}
--->
 # அடிப்படை கணிகையாளர் MCP சேவை
 
 இந்த சேவை Model Context Protocol (MCP) மூலம் அடிப்படை கணிகையாளர் செயல்பாடுகளை வழங்குகிறது, Spring Boot மற்றும் WebFlux போக்குவரத்துடன். MCP செயல்பாடுகளைப் பற்றி கற்றுக்கொள்வதற்கான தொடக்க நிலை உதாரணமாக இது வடிவமைக்கப்பட்டுள்ளது.
@@ -72,7 +63,7 @@ MCP Inspector MCP சேவைகளுடன் தொடர்பு கொள
    - "List Tools" கிளிக் செய்து கிடைக்கும் கணிகையாளர் செயல்பாடுகளைப் பார்க்கவும்
    - ஒரு கருவியைத் தேர்ந்தெடுத்து "Run Tool" கிளிக் செய்து செயல்பாட்டை இயக்கவும்
 
-![MCP Inspector Screenshot](../../../../../../translated_images/tool.40e180a7b0d0fe2067cf96435532b01f63f7f8619d6b0132355a04b426b669ac.ta.png)
+![MCP Inspector Screenshot](../../../../../../translated_images/ta/tool.40e180a7b0d0fe20.webp)
 
 ---
 

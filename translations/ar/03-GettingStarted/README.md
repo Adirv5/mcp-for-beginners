@@ -1,110 +1,114 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "f400d87053221363769113c24f117248",
-  "translation_date": "2025-10-06T22:04:11+00:00",
-  "source_file": "03-GettingStarted/README.md",
-  "language_code": "ar"
-}
--->
-## البدء  
+## بدء الاستخدام  
 
-[![إنشاء أول خادم MCP](../../../translated_images/04.0ea920069efd979a0b2dad51e72c1df7ead9c57b3305796068a6cee1f0dd6674.ar.png)](https://youtu.be/sNDZO9N4m9Y)
+[![بناء أول خادم MCP لك](../../../translated_images/ar/04.0ea920069efd979a.webp)](https://youtu.be/sNDZO9N4m9Y)
 
-_(انقر على الصورة أعلاه لمشاهدة فيديو الدرس)_
+_(انقر على الصورة أعلاه لمشاهدة فيديو هذا الدرس)_
 
 تتكون هذه القسم من عدة دروس:
 
-- **1 أول خادم لك**، في هذا الدرس الأول، ستتعلم كيفية إنشاء أول خادم لك واستخدام أداة الفحص لتجربته وتصحيحه، وهي طريقة قيمة لاختبار وتصحيح الخادم الخاص بك، [إلى الدرس](01-first-server/README.md)
+- **1 خادمك الأول**، في هذا الدرس الأول، ستتعلم كيفية إنشاء خادمك الأول وفحصه باستخدام أداة المفتش، وهي طريقة قيمة لاختبار وتصحيح الخادم، [إلى الدرس](01-first-server/README.md)
 
-- **2 العميل**، في هذا الدرس، ستتعلم كيفية كتابة عميل يمكنه الاتصال بالخادم الخاص بك، [إلى الدرس](02-client/README.md)
+- **2 العميل**، في هذا الدرس، ستتعلم كيفية كتابة عميل يمكنه الاتصال بخادمك، [إلى الدرس](02-client/README.md)
 
-- **3 العميل مع LLM**، طريقة أفضل لكتابة عميل هي بإضافة LLM إليه ليتمكن من "التفاوض" مع الخادم الخاص بك حول ما يجب القيام به، [إلى الدرس](03-llm-client/README.md)
+- **3 العميل مع LLM**، طريقة أفضل لكتابة عميل هي بإضافة LLM إليه بحيث يمكنه "التفاوض" مع خادمك حول ما يجب فعله، [إلى الدرس](03-llm-client/README.md)
 
-- **4 استهلاك خادم في وضع GitHub Copilot Agent في Visual Studio Code**. هنا، سنستعرض تشغيل خادم MCP الخاص بنا من داخل Visual Studio Code، [إلى الدرس](04-vscode/README.md)
+- **4 استخدام وضع وكيل GitHub Copilot في Visual Studio Code**. هنا، ننظر إلى تشغيل خادم MCP من داخل Visual Studio Code، [إلى الدرس](04-vscode/README.md)
 
-- **5 خادم النقل عبر stdio** النقل عبر stdio هو المعيار الموصى به للتواصل بين خادم MCP والعميل في المواصفات الحالية، حيث يوفر اتصالاً آمناً يعتمد على العمليات الفرعية، [إلى الدرس](05-stdio-server/README.md)
+- **5 خادم النقل stdio** نقل stdio هو المعيار الموصى به للتواصل المحلي بين خادم MCP والعميل، ويوفر اتصال آمن قائم على العمليات الفرعية مع عزل مدمج للعمليات [إلى الدرس](05-stdio-server/README.md)
 
-- **6 البث عبر HTTP مع MCP (HTTP القابل للبث)**. تعرف على البث الحديث عبر HTTP، إشعارات التقدم، وكيفية تنفيذ خوادم وعملاء MCP قابلة للتوسع في الوقت الحقيقي باستخدام HTTP القابل للبث، [إلى الدرس](06-http-streaming/README.md)
+- **6 البث HTTP مع MCP (HTTP قابل للبث)**. تعلّم حول نقل بث HTTP الحديث (النهج الموصى به لخوادم MCP البعيدة وفقًا لـ [مواصفة MCP 2025-11-25](https://spec.modelcontextprotocol.io/specification/2025-11-25/basic/transports/#streamable-http))، إشعارات التقدم، وكيفية تنفيذ خوادم وعملاء MCP قابلة للتوسع في الوقت الحقيقي باستخدام HTTP القابل للبث. [إلى الدرس](06-http-streaming/README.md)
 
-- **7 استخدام أدوات الذكاء الاصطناعي لـ VSCode** لاستهلاك واختبار عملاء وخوادم MCP الخاصة بك، [إلى الدرس](07-aitk/README.md)
+- **7 استخدام مجموعة أدوات الذكاء الاصطناعي لـ VSCode** لاستهلاك واختبار عملاء وخوادم MCP الخاصة بك [إلى الدرس](07-aitk/README.md)
 
-- **8 الاختبار**. هنا سنركز بشكل خاص على كيفية اختبار الخادم والعميل بطرق مختلفة، [إلى الدرس](08-testing/README.md)
+- **8 الاختبار**. هنا سوف نركز بشكل خاص على كيفية اختبار خادمنا وعميلنا بطرق مختلفة، [إلى الدرس](08-testing/README.md)
 
-- **9 النشر**. هذا الفصل سيستعرض طرق مختلفة لنشر حلول MCP الخاصة بك، [إلى الدرس](09-deployment/README.md)
+- **9 النشر**. هذه الفصل سينظر في طرق مختلفة لنشر حلول MCP الخاصة بك، [إلى الدرس](09-deployment/README.md)
 
-- **10 استخدام الخادم المتقدم**. يغطي هذا الفصل استخدام الخادم المتقدم، [إلى الدرس](./10-advanced/README.md)
+- **10 الاستخدام المتقدم للخادم**. يغطي هذا الفصل الاستخدام المتقدم للخادم، [إلى الدرس](./10-advanced/README.md)
 
-- **11 المصادقة**. يغطي هذا الفصل كيفية إضافة مصادقة بسيطة، من المصادقة الأساسية إلى استخدام JWT وRBAC. يُشجعك على البدء هنا ثم النظر في المواضيع المتقدمة في الفصل الخامس وإجراء تعزيز إضافي للأمان عبر التوصيات في الفصل الثاني، [إلى الدرس](./11-simple-auth/README.md)
+- **11 المصادقة**. يتناول هذا الفصل كيفية إضافة مصادقة بسيطة، من المصادقة الأساسية إلى استخدام JWT وRBAC. يُشجع على البدء هنا ثم الاطلاع على المواضيع المتقدمة في الفصل 5 وأداء تعزيز أمني إضافي عبر التوصيات في الفصل 2، [إلى الدرس](./11-simple-auth/README.md)
 
-بروتوكول سياق النموذج (MCP) هو بروتوكول مفتوح يحدد كيفية توفير التطبيقات للسياق لـ LLMs. فكر في MCP كأنه منفذ USB-C لتطبيقات الذكاء الاصطناعي - يوفر طريقة موحدة لتوصيل نماذج الذكاء الاصطناعي بمصادر البيانات والأدوات المختلفة.
+- **12 مضيفو MCP**. تكوين واستخدام عملاء MCP شائعين مثل Claude Desktop وCursor وCline وWindsurf. تعلّم أنواع النقل واستكشاف الأخطاء وإصلاحها، [إلى الدرس](./12-mcp-hosts/README.md)
+
+- **13 مفتش MCP**. تصحيح واختبار خوادم MCP الخاصة بك تفاعليًا باستخدام أداة MCP Inspector. تعلّم استكشاف الأخطاء وأدواتها ومواردها ورسائل البروتوكول، [إلى الدرس](./13-mcp-inspector/README.md)
+
+- **14 أخذ العينات**. إنشاء خوادم MCP تتعاون مع عملاء MCP في مهام مرتبطة بـ LLM. [إلى الدرس](./14-sampling/README.md)
+
+- **15 تطبيقات MCP**. بناء خوادم MCP التي ترد أيضًا بتعليمات واجهة المستخدم، [إلى الدرس](./15-mcp-apps/README.md)
+
+بروتوكول سياق النموذج (MCP) هو بروتوكول مفتوح يوحّد كيفية توفير التطبيقات للسياق لنماذج اللغة الكبيرة. اعتبر MCP كمنفذ USB-C لتطبيقات الذكاء الاصطناعي - فهو يوفر طريقة موحدة لربط نماذج الذكاء الاصطناعي بمصادر بيانات مختلفة وأدوات.
 
 ## أهداف التعلم
 
-بنهاية هذا الدرس، ستكون قادرًا على:
+بحلول نهاية هذا الدرس، ستكون قادرًا على:
 
-- إعداد بيئات التطوير لـ MCP باستخدام C#، Java، Python، TypeScript، وJavaScript
+- إعداد بيئات التطوير لـ MCP في C# وJava وPython وTypeScript وJavaScript
 - بناء ونشر خوادم MCP الأساسية مع ميزات مخصصة (الموارد، المطالبات، والأدوات)
 - إنشاء تطبيقات مضيفة تتصل بخوادم MCP
-- اختبار وتصحيح تنفيذات MCP
-- فهم تحديات الإعداد الشائعة وحلولها
-- توصيل تنفيذات MCP الخاصة بك بخدمات LLM الشهيرة
+- اختبار وتصحيح تطبيقات MCP
+- فهم التحديات الشائعة في الإعداد وحلولها
+- ربط تطبيقات MCP الخاصة بك بخدمات LLM الشائعة
 
 ## إعداد بيئة MCP الخاصة بك
 
-قبل البدء في العمل مع MCP، من المهم إعداد بيئة التطوير الخاصة بك وفهم سير العمل الأساسي. ستوجهك هذه القسم خلال خطوات الإعداد الأولية لضمان بداية سلسة مع MCP.
+قبل البدء في العمل مع MCP، من المهم تحضير بيئة التطوير الخاصة بك وفهم سير العمل الأساسي. سيرشدك هذا القسم خلال خطوات الإعداد الأولية لضمان بداية سلسة مع MCP.
 
-### المتطلبات الأساسية
+### المتطلبات المسبقة
 
-قبل الغوص في تطوير MCP، تأكد من توفر:
+قبل الغوص في تطوير MCP، تأكد من:
 
-- **بيئة التطوير**: للغة التي اخترتها (C#، Java، Python، TypeScript، أو JavaScript)
-- **IDE/المحرر**: Visual Studio، Visual Studio Code، IntelliJ، Eclipse، PyCharm، أو أي محرر حديث
+- **بيئة التطوير**: للغة المختارة (C# أو Java أو Python أو TypeScript أو JavaScript)
+- **بيئة تطوير متكاملة/محرر**: Visual Studio أو Visual Studio Code أو IntelliJ أو Eclipse أو PyCharm أو أي محرر كود حديث
 - **مديري الحزم**: NuGet، Maven/Gradle، pip، أو npm/yarn
-- **مفاتيح API**: لأي خدمات ذكاء اصطناعي تخطط لاستخدامها في تطبيقاتك المضيفة
+- **مفاتيح API**: لأي خدمات ذكاء اصطناعي تخطط لاستخدامها في تطبيقات المضيف لديك
 
-### SDKs الرسمية
+### مجموعات تطوير البرامج الرسمية
 
-في الفصول القادمة، سترى حلولًا مبنية باستخدام Python، TypeScript، Java و.NET. هنا جميع SDKs المدعومة رسميًا.
+في الفصول القادمة سترى حلولًا مبنية باستخدام Python وTypeScript وJava و.NET. إليك جميع مجموعات تطوير البرامج المدعومة رسميًا.
 
-يوفر MCP SDKs رسمية لعدة لغات:
-- [C# SDK](https://github.com/modelcontextprotocol/csharp-sdk) - يتم صيانته بالتعاون مع Microsoft
-- [Java SDK](https://github.com/modelcontextprotocol/java-sdk) - يتم صيانته بالتعاون مع Spring AI
-- [TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk) - التنفيذ الرسمي لـ TypeScript
-- [Python SDK](https://github.com/modelcontextprotocol/python-sdk) - التنفيذ الرسمي لـ Python
-- [Kotlin SDK](https://github.com/modelcontextprotocol/kotlin-sdk) - التنفيذ الرسمي لـ Kotlin
-- [Swift SDK](https://github.com/modelcontextprotocol/swift-sdk) - يتم صيانته بالتعاون مع Loopwork AI
-- [Rust SDK](https://github.com/modelcontextprotocol/rust-sdk) - التنفيذ الرسمي لـ Rust
+يوفر MCP مجموعات تطوير برامج رسمية لعدة لغات (متوافقة مع [مواصفة MCP 2025-11-25](https://spec.modelcontextprotocol.io/specification/2025-11-25/)):
+- [مجموعة تطوير C#](https://github.com/modelcontextprotocol/csharp-sdk) - تتم الصيانة بالتعاون مع Microsoft
+- [مجموعة تطوير Java](https://github.com/modelcontextprotocol/java-sdk) - تتم الصيانة بالتعاون مع Spring AI
+- [مجموعة تطوير TypeScript](https://github.com/modelcontextprotocol/typescript-sdk) - التنفيذ الرسمي لـ TypeScript
+- [مجموعة تطوير Python](https://github.com/modelcontextprotocol/python-sdk) - التنفيذ الرسمي لـ Python (FastMCP)
+- [مجموعة تطوير Kotlin](https://github.com/modelcontextprotocol/kotlin-sdk) - التنفيذ الرسمي لـ Kotlin
+- [مجموعة تطوير Swift](https://github.com/modelcontextprotocol/swift-sdk) - تتم الصيانة بالتعاون مع Loopwork AI
+- [مجموعة تطوير Rust](https://github.com/modelcontextprotocol/rust-sdk) - التنفيذ الرسمي لـ Rust
+- [مجموعة تطوير Go](https://github.com/modelcontextprotocol/go-sdk) - التنفيذ الرسمي لـ Go
 
-## النقاط الرئيسية
+## النقاط الأساسية
 
-- إعداد بيئة تطوير MCP أمر بسيط باستخدام SDKs الخاصة بكل لغة
-- بناء خوادم MCP يتطلب إنشاء وتسجيل أدوات ذات مخططات واضحة
+- إعداد بيئة تطوير MCP سهل باستخدام مجموعات تطوير البرامج الخاصة بكل لغة
+- بناء خوادم MCP يتضمن إنشاء وتسجيل أدوات مع مخططات واضحة
 - عملاء MCP يتصلون بالخوادم والنماذج للاستفادة من القدرات الموسعة
-- الاختبار والتصحيح ضروريان لتنفيذات MCP الموثوقة
+- الاختبار والتصحيح ضروريان لتطبيقات MCP موثوقة
 - خيارات النشر تتراوح بين التطوير المحلي والحلول السحابية
 
 ## الممارسة
 
-لدينا مجموعة من العينات التي تكمل التمارين التي ستراها في جميع الفصول في هذا القسم. بالإضافة إلى ذلك، يحتوي كل فصل أيضًا على تمارينه ومهامه الخاصة.
+لدينا مجموعة من العينات التي تكمل التمارين التي سترىها في جميع فصول هذا القسم. بالإضافة إلى ذلك يحتوي كل فصل على تمارينه وتكليفاته الخاصة
 
-- [Java Calculator](./samples/java/calculator/README.md)
-- [.Net Calculator](../../../03-GettingStarted/samples/csharp)
-- [JavaScript Calculator](./samples/javascript/README.md)
-- [TypeScript Calculator](./samples/typescript/README.md)
-- [Python Calculator](../../../03-GettingStarted/samples/python)
+- [حاسبة Java](./samples/java/calculator/README.md)
+- [حاسبة .Net](../../../03-GettingStarted/samples/csharp)
+- [حاسبة JavaScript](./samples/javascript/README.md)
+- [حاسبة TypeScript](./samples/typescript/README.md)
+- [حاسبة Python](../../../03-GettingStarted/samples/python)
 
 ## موارد إضافية
 
-- [إنشاء وكلاء باستخدام بروتوكول سياق النموذج على Azure](https://learn.microsoft.com/azure/developer/ai/intro-agents-mcp)
-- [MCP عن بُعد مع تطبيقات Azure Container (Node.js/TypeScript/JavaScript)](https://learn.microsoft.com/samples/azure-samples/mcp-container-ts/mcp-container-ts/)
-- [.NET OpenAI MCP Agent](https://learn.microsoft.com/samples/azure-samples/openai-mcp-agent-dotnet/openai-mcp-agent-dotnet/)
+- [بناء وكلاء باستخدام بروتوكول سياق النموذج على Azure](https://learn.microsoft.com/azure/developer/ai/intro-agents-mcp)
+- [MCP البعيد مع تطبيقات Azure الحاوية (Node.js/TypeScript/JavaScript)](https://learn.microsoft.com/samples/azure-samples/mcp-container-ts/mcp-container-ts/)
+- [وكيل MCP لـ .NET OpenAI](https://learn.microsoft.com/samples/azure-samples/openai-mcp-agent-dotnet/openai-mcp-agent-dotnet/)
 
 ## ما التالي
 
-التالي: [إنشاء أول خادم MCP الخاص بك](01-first-server/README.md)
+ابدأ بالدرس الأول: [إنشاء أول خادم MCP لك](01-first-server/README.md)
+
+بمجرد الانتهاء من هذه الوحدة، تابع إلى: [الوحدة 4: التنفيذ العملي](../04-PracticalImplementation/README.md)
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **إخلاء المسؤولية**:  
-تم ترجمة هذا المستند باستخدام خدمة الترجمة بالذكاء الاصطناعي [Co-op Translator](https://github.com/Azure/co-op-translator). بينما نسعى لتحقيق الدقة، يرجى العلم أن الترجمات الآلية قد تحتوي على أخطاء أو عدم دقة. يجب اعتبار المستند الأصلي بلغته الأصلية المصدر الرسمي. للحصول على معلومات حاسمة، يُوصى بالترجمة البشرية الاحترافية. نحن غير مسؤولين عن أي سوء فهم أو تفسيرات خاطئة تنشأ عن استخدام هذه الترجمة.
+تمت ترجمة هذا المستند باستخدام خدمة الترجمة الآلية [Co-op Translator](https://github.com/Azure/co-op-translator). بينما نسعى جاهدين لتحقيق الدقة، يرجى العلم أن الترجمات الآلية قد تحتوي على أخطاء أو عدم دقة. يجب اعتبار المستند الأصلي بلغته الأصلية المصدر الموثوق به. للمعلومات الهامة، يُنصح باستخدام ترجمة بشرية احترافية. نحن غير مسؤولين عن أي سوء تفاهم أو تفسيرات خاطئة ناتجة عن استخدام هذه الترجمة.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

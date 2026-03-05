@@ -1,198 +1,222 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "56ad2bfef916cebf4443ef2d620d06e5",
-  "translation_date": "2025-10-24T09:24:27+00:00",
-  "source_file": "README.md",
-  "language_code": "he"
-}
--->
-![MCP-for-beginners](../../translated_images/mcp-beginners.2ce2b317996369ff66c5b72e25eff9d4288ab2741fc70c0b4e523d1ae1e249fd.he.png)
+![MCP-למתחילים](../../translated_images/he/mcp-beginners.2ce2b317996369ff.webp) 
 
-[![GitHub contributors](https://img.shields.io/github/contributors/microsoft/mcp-for-beginners.svg)](https://GitHub.com/microsoft/mcp-for-beginners/graphs/contributors)  
-[![GitHub issues](https://img.shields.io/github/issues/microsoft/mcp-for-beginners.svg)](https://GitHub.com/microsoft/mcp-for-beginners/issues)  
-[![GitHub pull-requests](https://img.shields.io/github/issues-pr/microsoft/mcp-for-beginners.svg)](https://GitHub.com/microsoft/mcp-for-beginners/pulls)  
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![תורמי GitHub](https://img.shields.io/github/contributors/microsoft/mcp-for-beginners.svg)](https://GitHub.com/microsoft/mcp-for-beginners/graphs/contributors)
+[![נושאים ב-GitHub](https://img.shields.io/github/issues/microsoft/mcp-for-beginners.svg)](https://GitHub.com/microsoft/mcp-for-beginners/issues)
+[![בקשות משיכה ב-GitHub](https://img.shields.io/github/issues-pr/microsoft/mcp-for-beginners.svg)](https://GitHub.com/microsoft/mcp-for-beginners/pulls)
+[![ברוכים הבאים לבקשות משיכה](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-[![GitHub watchers](https://img.shields.io/github/watchers/microsoft/mcp-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/mcp-for-beginners/watchers)  
-[![GitHub forks](https://img.shields.io/github/forks/microsoft/mcp-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/mcp-for-beginners/fork)  
-[![GitHub stars](https://img.shields.io/github/stars/microsoft/mcp-for-beginners?style=social&label=Star)](https://GitHub.com/microsoft/mcp-for-beginners/stargazers)
+[![עוקבים ב-GitHub](https://img.shields.io/github/watchers/microsoft/mcp-for-beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/mcp-for-beginners/watchers)
+[![מעצורים ב-GitHub](https://img.shields.io/github/forks/microsoft/mcp-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/mcp-for-beginners/fork)
+[![כוכבים ב-GitHub](https://img.shields.io/github/stars/microsoft/mcp-for-beginners?style=social&label=Star)](https://GitHub.com/microsoft/mcp-for-beginners/stargazers)
 
-[![Microsoft Azure AI Foundry Discord](https://dcbadge.limes.pink/api/server/ByRwuEEgH4)](https://discord.com/invite/ByRwuEEgH4)
 
-עקבו אחר השלבים הבאים כדי להתחיל להשתמש במשאבים אלו:  
-1. **פיצול המאגר**: לחצו [![GitHub forks](https://img.shields.io/github/forks/microsoft/mcp-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/mcp-for-beginners/fork)  
-2. **שכפול המאגר**: `git clone https://github.com/microsoft/mcp-for-beginners.git`  
-3. [**הצטרפו ל-Discord של Azure AI Foundry ופגשו מומחים ומפתחים נוספים**](https://discord.com/invite/ByRwuEEgH4)
+[![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
-### 🌐 תמיכה רב-לשונית
+עקבו אחר השלבים הבאים כדי להתחיל להשתמש במשאבים האלה:
+1. **פוצלו את המאגר**: לחצו על [![מעצורים ב-GitHub](https://img.shields.io/github/forks/microsoft/mcp-for-beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/mcp-for-beginners/fork)
+2. **שכפלו את המאגר**:  `git clone https://github.com/microsoft/mcp-for-beginners.git`
+3. **הצטרפו ל** [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)
 
-#### נתמך באמצעות GitHub Action (אוטומטי ותמיד מעודכן)
 
-[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh/README.md) | [Chinese (Traditional, Hong Kong)](../hk/README.md) | [Chinese (Traditional, Macau)](../mo/README.md) | [Chinese (Traditional, Taiwan)](../tw/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](./README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../br/README.md) | [Portuguese (Portugal)](../pt/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
+### 🌐 תמיכה רב-שפתית
 
-# 🚀 תכנית לימודים של פרוטוקול הקשר מודל (MCP) למתחילים
+#### נתמכת באמצעות GitHub Action (אוטומטית ותמיד מעודכנת)
 
-## **למדו MCP עם דוגמאות קוד מעשיות ב-C#, Java, JavaScript, Rust, Python ו-TypeScript**
+<!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
+[Arabic](../ar/README.md) | [Bengali](../bn/README.md) | [Bulgarian](../bg/README.md) | [Burmese (Myanmar)](../my/README.md) | [Chinese (Simplified)](../zh-CN/README.md) | [Chinese (Traditional, Hong Kong)](../zh-HK/README.md) | [Chinese (Traditional, Macau)](../zh-MO/README.md) | [Chinese (Traditional, Taiwan)](../zh-TW/README.md) | [Croatian](../hr/README.md) | [Czech](../cs/README.md) | [Danish](../da/README.md) | [Dutch](../nl/README.md) | [Estonian](../et/README.md) | [Finnish](../fi/README.md) | [French](../fr/README.md) | [German](../de/README.md) | [Greek](../el/README.md) | [Hebrew](./README.md) | [Hindi](../hi/README.md) | [Hungarian](../hu/README.md) | [Indonesian](../id/README.md) | [Italian](../it/README.md) | [Japanese](../ja/README.md) | [Kannada](../kn/README.md) | [Korean](../ko/README.md) | [Lithuanian](../lt/README.md) | [Malay](../ms/README.md) | [Malayalam](../ml/README.md) | [Marathi](../mr/README.md) | [Nepali](../ne/README.md) | [Nigerian Pidgin](../pcm/README.md) | [Norwegian](../no/README.md) | [Persian (Farsi)](../fa/README.md) | [Polish](../pl/README.md) | [Portuguese (Brazil)](../pt-BR/README.md) | [Portuguese (Portugal)](../pt-PT/README.md) | [Punjabi (Gurmukhi)](../pa/README.md) | [Romanian](../ro/README.md) | [Russian](../ru/README.md) | [Serbian (Cyrillic)](../sr/README.md) | [Slovak](../sk/README.md) | [Slovenian](../sl/README.md) | [Spanish](../es/README.md) | [Swahili](../sw/README.md) | [Swedish](../sv/README.md) | [Tagalog (Filipino)](../tl/README.md) | [Tamil](../ta/README.md) | [Telugu](../te/README.md) | [Thai](../th/README.md) | [Turkish](../tr/README.md) | [Ukrainian](../uk/README.md) | [Urdu](../ur/README.md) | [Vietnamese](../vi/README.md)
 
-## 🧠 סקירה כללית של תכנית הלימודים של פרוטוקול הקשר מודל  
-ברוכים הבאים למסע שלכם אל פרוטוקול הקשר מודל! אם אי פעם תהיתם כיצד יישומי AI מתקשרים עם כלים ושירותים שונים, אתם עומדים לגלות את הפתרון האלגנטי שמשנה את הדרך שבה מפתחים בונים מערכות חכמות.
+> **מעדיפים לשכפל מקומית?**
+>
+> מאגר זה כולל יותר מ-50 תרגומים, מה שמגדיל משמעותית את גודל ההורדה. כדי לשכפל בלי תרגומים, השתמשו ב-sparse checkout:
+>
+> **Bash / macOS / Linux:**
+> ```bash
+> git clone --filter=blob:none --sparse https://github.com/microsoft/mcp-for-beginners.git
+> cd mcp-for-beginners
+> git sparse-checkout set --no-cone '/*' '!translations' '!translated_images'
+> ```
+>
+> **CMD (Windows):**
+> ```cmd
+> git clone --filter=blob:none --sparse https://github.com/microsoft/mcp-for-beginners.git
+> cd mcp-for-beginners
+> git sparse-checkout set --no-cone "/*" "!translations" "!translated_images"
+> ```
+>
+> זה נותן לכם את כל מה שצריך כדי לסיים את הקורס עם הורדה מהירה יותר.
+<!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
 
-חשבו על MCP כמתרגם אוניברסלי ליישומי AI - בדיוק כמו שיציאות USB מאפשרות לכם לחבר כל מכשיר למחשב שלכם, MCP מאפשר למודלים של AI להתחבר לכל כלי או שירות בצורה סטנדרטית. בין אם אתם בונים את הצ'אטבוט הראשון שלכם או עובדים על זרימות עבודה מורכבות של AI, הבנת MCP תעניק לכם את הכוח ליצור יישומים גמישים ומתקדמים יותר.
+# 🚀 תוכנית לימודים לפרוטוקול הקשר דגם (MCP) למתחילים
 
-תכנית הלימודים הזו נבנתה בסבלנות ובדאגה למסע הלמידה שלכם. נתחיל עם מושגים פשוטים שאתם כבר מכירים ונבנה את המומחיות שלכם דרך תרגול מעשי בשפת התכנות המועדפת עליכם. כל שלב כולל הסברים ברורים, דוגמאות מעשיות והרבה עידוד לאורך הדרך.
+## **למדו MCP עם דוגמאות קוד מעשיות ב-C#, Java, JavaScript, Rust, Python, ו-TypeScript**
 
-בסיום המסע הזה, תרגישו בטוחים לבנות שרתי MCP משלכם, לשלב אותם עם פלטפורמות AI פופולריות ולהבין כיצד הטכנולוגיה הזו מעצבת את עתיד פיתוח יישומי AI. בואו נתחיל את ההרפתקה המרגשת הזו יחד!
+## 🧠 סקירה כללית על תוכנית הלימודים של Model Context Protocol
+ברוכים הבאים למסע שלכם אל פרוטוקול הקשר הדגם! אם תהיתם אי פעם כיצד יישומי בינה מלאכותית מתקשרים עם כלי ושירותים שונים, אתם עומדים לגלות את הפתרון האלגנטי שמשנה את הדרך שבה מפתחים בונים מערכות חכמות.
+
+תחשבו על MCP כמערכת תרגום אוניברסלית ליישומי בינה מלאכותית – בדיוק כמו שיציאות USB מאפשרות לכם לחבר כל התקן למחשב, MCP מאפשרת למודלים של בינה מלאכותית להתחבר לכל כלי או שירות בצורה סטנדרטית. בין אם אתם בונים את צ'טבוט הראשון שלכם או עובדים על תהליכי עבודה מורכבים בבינה מלאכותית, הבנת MCP תעניק לכם את הכוח ליצור יישומים מוכשרים וגמישים יותר.
+
+תוכנית הלימודים הזו מעוצבת בסבלנות ובקפידה בשביל מסע הלמידה שלכם. נתחיל עם מושגים פשוטים שכבר מכירים ותוך כדי התקדמות נבנה את המומחיות שלכם באמצעות תרגול מעשי בשפת התכנות האהובה עליכם. כל שלב כולל הסברים ברורים, דוגמאות מעשיות והרבה עידוד לאורך הדרך.
+
+בסיום המסע הזה, תרגישו בטוחים לבנות שרתי MCP משלכם, לשלבם עם פלטפורמות AI פופולריות ולהבין איך הטכנולוגיה הזו מעצבת את עתיד הפיתוח של בינה מלאכותית. הבה נתחיל את ההרפתקה המרגשת הזו ביחד!
 
 ### תיעוד רשמי ומפרטים
 
-משאבים אלו הופכים ליותר ויותר מועילים ככל שההבנה שלכם גדלה, אבל אל תרגישו לחץ לקרוא הכל מיד. התחילו עם התחומים שמעניינים אתכם ביותר!  
-- 📘 [תיעוד MCP](https://modelcontextprotocol.io/) – זהו המשאב שלכם למדריכים צעד-אחר-צעד ומדריכי משתמש. התיעוד נכתב מתוך מחשבה על מתחילים, ומספק דוגמאות ברורות שתוכלו לעקוב אחריהן בקצב שלכם.  
-- 📜 [מפרט MCP](https://modelcontextprotocol.io/docs/) – חשבו על זה כמדריך עזר מקיף. ככל שתתקדמו בתכנית הלימודים, תמצאו את עצמכם חוזרים לכאן כדי לחפש פרטים ספציפיים ולחקור תכונות מתקדמות.  
-- 📜 [מפרט MCP המקורי](https://spec.modelcontextprotocol.io/) – מכיל פרטים טכניים נוספים שיכולים להיות מועילים ליישומים מתקדמים. הוא שם כשאתם צריכים אותו, אבל אל תדאגו לגביו כשאתם רק מתחילים.  
-- 🧑‍💻 [מאגר GitHub של MCP](https://github.com/modelcontextprotocol) – כאן תמצאו SDKs, כלים ודוגמאות קוד בשפות תכנות שונות. זה כמו אוצר של דוגמאות מעשיות ורכיבים מוכנים לשימוש.  
-- 🌐 [קהילת MCP](https://github.com/orgs/modelcontextprotocol/discussions) – הצטרפו ללומדים אחרים ולמפתחים מנוסים בדיונים על MCP. זו קהילה תומכת שבה שאלות מתקבלות בברכה וידע משותף בחופשיות.
+תוכנית זו תואמת את **מפרט MCP מ-2025-11-25** (הגרסה היציבה האחרונה). מפרט ה-MCP משתמש בגרסאות מבוססות תאריכים (בפורמט YYYY-MM-DD) כדי להבטיח מעקב ברור אחרי גרסאות הפרוטוקול.
+
+המשאבים האלה הופכים ליותר יקרים עם ההתקדמות שלכם, אבל אל תרגישו לחץ לקרוא הכל מיד. התחילו עם הנושאים שמעניינים אתכם ביותר!
+- 📘 [תיעוד MCP](https://modelcontextprotocol.io/) – זהו המשאב הראשי שלכם למדריכים שלב אחר שלב ומדריכי משתמש. התיעוד נכתב במיוחד למתחילים, ומספק דוגמאות ברורות שניתן לעקוב אחריהן בקצב שלכם.
+- 📜 [מפרט MCP](https://modelcontextprotocol.io/specification/2025-11-25) – תחשבו עליו כמדריך המקיף שלכם. ככל שתתקדמו בתוכנית, תמצאו את עצמכם חוזרים לכאן לבדוק פרטים מסוימים ולחקור תכונות מתקדמות.
+- 📜 [גרסאות מפרט MCP](https://modelcontextprotocol.io/specification/versioning) – כאן תמצאו מידע על היסטוריית גרסאות הפרוטוקול ואיך MCP משתמש במערכת גרסאות מבוססת תאריך (פורמט YYYY-MM-DD).
+- 🧑‍💻 [מאגר GitHub של MCP](https://github.com/modelcontextprotocol) – כאן תמצאו ערכות פיתוח, כלים, ודוגמאות קוד בשפות תכנות שונות. זהו אוצר דוגמאות מעשיות ורכיבים מוכנים לשימוש.
+- 🌐 [קהילת MCP](https://github.com/orgs/modelcontextprotocol/discussions) – הצטרפו ללומדים אחרים ומפתחים מנוסים בדיונים על MCP. זוהי קהילה תומכת שבה שאלות מתקבלות בברכה והידע משותף בחופשיות.
 
 ## מטרות הלמידה
 
-בסיום תכנית הלימודים הזו, תרגישו בטוחים ונרגשים לגבי היכולות החדשות שלכם. הנה מה שתשיגו:
+בסיום תוכנית הלימודים, תרגישו בטוחים ונרגשים מהיכולות החדשות שלכם. הנה מה שתשיגו:
 
-• **הבנת יסודות MCP**: תבינו מהו פרוטוקול הקשר מודל ולמה הוא משנה את הדרך שבה יישומי AI עובדים יחד, באמצעות אנלוגיות ודוגמאות ברורות.  
+• **הבנת יסודות MCP**: תבינו מהו פרוטוקול הקשר דגם ולמה הוא ממהפכן את הדרך שבה יישומי בינה מלאכותית עובדים יחד, באמצעות אנלוגיות ודוגמאות שמוסברות בצורה נגישה.
 
-• **בניית שרת MCP ראשון**: תיצרו שרת MCP עובד בשפת התכנות המועדפת עליכם, החל מדוגמאות פשוטות ועד לפיתוח מיומנויות צעד-אחר-צעד.  
+• **בניית שרת MCP ראשון**: תיצרו שרת MCP עובד בשפת התכנות המועדפת עליכם, תתחילו מדוגמאות פשוטות ותפתחו את כישוריכם בשלבים.
 
-• **חיבור מודלי AI לכלים אמיתיים**: תלמדו כיצד לגשר על הפער בין מודלי AI לשירותים אמיתיים, ולהעניק ליישומים שלכם יכולות חדשות ועוצמתיות.  
+• **חיבור מודלים של AI לכלים אמיתיים**: תלמדו כיצד לגשר על הפער בין מודלי בינה מלאכותית לשירותים אמיתיים, ולספק יישומים עם יכולות חדשות וחזקות.
 
-• **יישום שיטות אבטחה מומלצות**: תבינו כיצד לשמור על יישומי MCP שלכם בטוחים ומאובטחים, ולהגן על היישומים והמשתמשים שלכם.  
+• **יישום שיטות אבטחה מיטביות**: תבינו כיצד לשמור על יישומי MCP שלכם בטוחים, ולהגן על היישומים והמשתמשים שלכם.
 
-• **פריסה בביטחון**: תדעו כיצד לקחת את פרויקטי MCP שלכם מפיתוח לפריסה, עם אסטרטגיות פריסה מעשיות שעובדות בעולם האמיתי.  
+• **פריסה עם ביטחון**: תדעו כיצד לקחת את פרויקטי MCP שלכם מהפיתוח אל הייצור, עם אסטרטגיות פריסה מעשיות שעובדות במציאות.
 
-• **הצטרפות לקהילת MCP**: תהפכו לחלק מקהילה הולכת וגדלה של מפתחים שמעצבים את עתיד פיתוח יישומי AI.
+• **הצטרפות לקהילת MCP**: תהפכו לחלק מקהילה מתפתחת של מפתחים בעלי השפעה על עתיד פיתוח יישומי בינה מלאכותית.
 
 ## רקע חיוני
 
-לפני שנצלול לפרטים של MCP, בואו נוודא שאתם מרגישים בנוח עם כמה מושגים בסיסיים. אל תדאגו אם אתם לא מומחים בתחומים אלו - נסביר כל מה שצריך לדעת תוך כדי!
+לפני שנצלול לפרטי MCP, יש לוודא שאתם מרגישים נוח עם כמה מושגים בסיסיים. אל תדאגו אם אינכם מומחים בתחומים אלה – נסביר כל מה שתצטרכו לדעת לאורך הדרך!
 
-### הבנת פרוטוקולים (הבסיס)
+### הבנת פרוטוקולים (היסוד)
 
-חשבו על פרוטוקול כמו כללים לשיחה. כשאתם מתקשרים לחבר, שניכם יודעים לומר "שלום" כשעונים, לדבר בתורות ולומר "להתראות" כשמסיימים. תוכנות מחשב זקוקות לכללים דומים כדי לתקשר בצורה יעילה.
+תחשבו על פרוטוקול כמו הכללים לשיחה. כשאתם מתקשרים עם חבר, שניכם יודעים לומר "שלום" כשעונים, לדבר בתורות, ולומר "להתראות" בסיום. תוכניות מחשב צריכות כללים דומים כדי לתקשר בצורה יעילה.
 
-MCP הוא פרוטוקול - סט של כללים מוסכמים שעוזרים למודלי AI ויישומים לנהל "שיחות" פרודוקטיביות עם כלים ושירותים. בדיוק כמו שכללי שיחה הופכים את התקשורת האנושית לחלקה יותר, MCP הופך את התקשורת של יישומי AI לאמינה ועוצמתית יותר.
+MCP הוא פרוטוקול – סט של כללים מוסכמים שמאפשרים למודלים ויישומי בינה מלאכותית לנהל "שיחות" פרודוקטיביות עם כלים ושירותים. ממש כמו שכללי שיחה הופכים את התקשורת האנושית לחלקה יותר, MCP עושה את התקשורת בין יישומי AI למהימנה וחזקה יותר.
 
-### יחסי לקוח-שרת (איך תוכנות עובדות יחד)
+### יחסי לקוח-שרת (איך תוכניות עובדות יחד)
 
-אתם כבר משתמשים ביחסי לקוח-שרת כל יום! כשאתם משתמשים בדפדפן אינטרנט (הלקוח) כדי לבקר באתר, אתם מתחברים לשרת אינטרנט ששולח לכם את תוכן הדף. הדפדפן יודע איך לבקש מידע, והשרת יודע איך להגיב.
+אתם כבר משתמשים ביחסי לקוח-שרת כל יום! כשאתם משתמשים בדפדפן (הלקוח) כדי לבקר באתר, אתם מתחברים לשרת שלוחש לכם את תוכן הדף. הדפדפן יודע איך לבקש מידע, והשרת יודע איך להשיב.
 
-ב-MCP, יש לנו מערכת יחסים דומה: מודלי AI פועלים כלקוחות שמבקשים מידע או פעולות, בעוד ששרתי MCP מספקים את היכולות הללו. זה כמו שיש לכם עוזר מועיל (השרת) שה-AI יכול לבקש ממנו לבצע משימות ספציפיות.
+ב-MCP יש לנו מערכת דומה: מודלים של AI הם לקוחות שמבקשים מידע או פעולות, בעוד ששרתי MCP מספקים את היכולות האלה. זה כמו לעובד מסייע (השרת) שה-AI יכול לפנות אליו לבצע משימות מסוימות.
 
 ### למה סטנדרטיזציה חשובה (להפוך דברים לעובדים יחד)
 
-דמיינו אם כל יצרן רכב היה משתמש במשאבות דלק בצורות שונות - הייתם צריכים מתאם שונה לכל רכב! סטנדרטיזציה פירושה הסכמה על גישות משותפות כדי שדברים יעבדו יחד בצורה חלקה.
+דמיינו שכל יצרן רכב היה משתמש בצורות משאבות דלק שונות – הייתם צריכים מתאם אחר לכל רכב! סטנדרטיזציה היא ההסכמה על גישות משותפות כך שהדברים יעבדו יחד בצורה חלקה.
 
-MCP מספק את הסטנדרטיזציה הזו ליישומי AI. במקום שכל מודל AI יצטרך קוד מותאם אישית כדי לעבוד עם כל כלי, MCP יוצר דרך אוניברסלית לתקשר. זה אומר שמפתחים יכולים לבנות כלים פעם אחת ולגרום להם לעבוד עם מערכות AI רבות ושונות.
+MCP מספק את הסטנדרטיזציה הזו ליישומי בינה מלאכותית. במקום שכל מודל AI יצטרך קוד מותאם אישית לכל כלי, MCP יוצר דרך אוניברסלית לתקשר. המשמעות היא שמפתחים יכולים לבנות כלי פעם אחת, והיא תעבוד עם מערכות AI רבות ושונות.
 
-## 🧭 סקירה כללית של מסלול הלמידה שלכם
+## 🧭 סקירת מסלול הלמידה שלכם
 
-המסע שלכם עם MCP מובנה בקפידה כדי לבנות את הביטחון והמיומנויות שלכם באופן הדרגתי. כל שלב מציג מושגים חדשים תוך חיזוק מה שלמדתם כבר.
+מסע ה-MCP שלכם בנוי בקפידה כדי לבנות את הביטחון והכישורים שלכם בהדרגה. כל שלב מציג מושגים חדשים תוך חיזוק מה שלמדתם עד כה.
 
-### 🌱 שלב היסודות: הבנת הבסיס (מודולים 0-2)
+### 🌱 שלב יסוד: הבנת היסודות (מודולים 0-2)
 
-כאן מתחילה ההרפתקה שלכם! נציג בפניכם מושגי MCP באמצעות אנלוגיות מוכרות ודוגמאות פשוטות. תבינו מהו MCP, למה הוא קיים ואיך הוא משתלב בעולם הרחב של פיתוח AI.
+זה המקום שבו ההרפתקה שלכם מתחילה! נציג לכם את מושגי MCP עם אנלוגיות מוכרות ודוגמאות פשוטות. תבינו מה זה MCP, למה זה קיים ואיך הוא משתלב בעולם הרחב של פיתוח בינה מלאכותית.
 
-• **מודול 0 - מבוא ל-MCP**: נתחיל בחקר מהו MCP ולמה הוא כל כך חשוב ליישומי AI מודרניים. תראו דוגמאות אמיתיות של MCP בפעולה ותבינו איך הוא פותר בעיות נפוצות שמפתחים מתמודדים איתן.  
+• **מודול 0 - מבוא ל-MCP**: נתחיל בחקירת מהו MCP ולמה הוא כל כך חשוב ליישומי AI מודרניים. תראו דוגמאות מהעולם האמיתי ל-MCP בפעולה ותבינו איך הוא פותר בעיות נפוצות למפתחים.
 
-• **מודול 1 - הסבר מושגים מרכזיים**: כאן תלמדו את אבני הבניין החיוניות של MCP. נשתמש בהרבה אנלוגיות ודוגמאות חזותיות כדי לוודא שהמושגים הללו ירגישו טבעיים ומובנים.  
+• **מודול 1 - הסבר מושגים מרכזיים**: כאן תלמדו את האבני הבניין החיוניות של MCP. נשתמש בהרבה אנלוגיות ודוגמאות ויזואליות כדי לוודא שהמושגים האלו מרגישים טבעיים וברורים.
 
-• **מודול 2 - אבטחה ב-MCP**: אבטחה אולי נשמעת מרתיעה, אבל נראה לכם איך MCP כולל תכונות בטיחות מובנות ונלמד אתכם שיטות עבודה מומלצות שמגנות על היישומים שלכם מההתחלה.
+• **מודול 2 - אבטחה ב-MCP**: אבטחה אולי נשמעת מפחידה, אבל נראה לכם איך MCP כולל תכונות בטיחות מובנות ונלמד אתכם את השיטות הטובות ביותר להגנה על היישומים שלכם מההתחלה.
 
-### 🔨 שלב הבנייה: יצירת יישומים ראשונים (מודול 3)
+### 🔨 שלב בנייה: יצירת היישומים הראשונים שלכם (מודול 3)
 
-כאן מתחיל הכיף האמיתי! תקבלו ניסיון מעשי בבניית שרתי ולקוחות MCP אמיתיים. אל תדאגו - נתחיל פשוט ונדריך אתכם בכל שלב.
+עכשיו הכיף האמיתי מתחיל! תקבלו ניסיון מעשי בבניית שרתי MCP ולקוחות של ממש. אל תדאגו – נתחיל בפשטות ונדריך אתכם בכל שלב.
+מודול זה כולל מספר מדריכים מעשיים המאפשרים לך להתנסות בשפת התכנות המועדפת עליך. תיצור את השרת הראשון שלך, תבנה לקוח שיתחבר אליו, ואפילו תשתלב עם כלים פופולריים לפיתוח כגון VS Code.
 
-מודול זה כולל מדריכים מעשיים רבים שמאפשרים לכם לתרגל בשפת התכנות המועדפת עליכם. תיצרו את השרת הראשון שלכם, תבנו לקוח שיתחבר אליו ואפילו תשולבו עם כלי פיתוח פופולריים כמו VS Code.
-
-כל מדריך כולל דוגמאות קוד מלאות, טיפים לפתרון בעיות והסברים על למה אנחנו עושים בחירות עיצוביות מסוימות. בסיום שלב זה, יהיו לכם יישומי MCP עובדים שתוכלו להתגאות בהם!
+כל מדריך כולל דוגמאות קוד שלמות, טיפים לפתרון בעיות והסברים מדוע אנו עושים בחירות עיצוב מסוימות. בסיום שלב זה, יהיה לך מימושי MCP שעובדים ושתוכל להיות גאה בהם!
 
 ### 🚀 שלב הצמיחה: מושגים מתקדמים ויישום בעולם האמיתי (מודולים 4-5)
 
-עם הבסיס שנרכש, אתם מוכנים לחקור תכונות MCP מתוחכמות יותר. נסקור אסטרטגיות יישום מעשיות, טכניקות איתור באגים ונושאים מתקדמים כמו שילוב AI רב-מודלי.
+לאחר ששליטת ביסודות, אתה מוכן לחקור תכונות מתוחכמות יותר של MCP. נסקור אסטרטגיות יישום מעשיות, טכניקות ניפוי שגיאות ונושאים מתקדמים כמו אינטגרציה של AI רב-מודאלי.
 
-תלמדו גם איך להרחיב את יישומי MCP שלכם לשימוש בפרודקשן ולשלב עם פלטפורמות ענן כמו Azure. מודולים אלו מכינים אתכם לבנות פתרונות MCP שיכולים להתמודד עם דרישות העולם האמיתי.
+תלמד גם כיצד להרחיב את מימושי ה-MCP שלך לשימוש בפרודקשן ולהשתלב עם פלטפורמות ענן כמו Azure. מודולים אלה מכינים אותך לבניית פתרונות MCP שיכולים להתמודד עם דרישות מהעולם האמיתי.
 
-### 🌟 שלב המומחיות: קהילה והתמחות (מודולים 6-11)
-השלב האחרון מתמקד בהצטרפות לקהילת MCP והתמחות בתחומים שמעניינים אותך ביותר. תלמד כיצד לתרום לפרויקטים פתוחים של MCP, ליישם דפוסי אימות מתקדמים ולבנות פתרונות מקיפים עם שילוב מסדי נתונים.
+### 🌟 שלב המאסטר: קהילה והתמחות (מודולים 6-11)
 
-מודול 11 ראוי לציון מיוחד - זהו מסלול למידה מעשי הכולל 13 מעבדות שמלמדות אותך לבנות שרתי MCP מוכנים לייצור עם שילוב PostgreSQL. זה כמו פרויקט גמר שמאגד את כל מה שלמדת!
+השלב הסופי מתמקד בהצטרפות לקהילת ה-MCP והתמחות בתחומים שמעניינים אותך במיוחד. תלמד כיצד לתרום לפרויקטים של MCP בקוד פתוח, ליישם דפוסי אימות מתקדמים ולבנות פתרונות מקיפים המשולבים עם בסיסי נתונים.
 
-### 📚 מבנה תכנית הלימודים המלאה
+מודול 11 ראוי לציון מיוחד - זהו מסלול למידה מעשי שלם בן 13 מעבדות המלמד אותך לבנות שרתי MCP מוכנים לפרודקשן עם אינטגרציה של PostgreSQL. זהו כמו פרויקט גמר שמאגד את כל מה שלמדת!
+
+### 📚 מבנה תוכנית הלימודים המלאה
 
 | מודול | נושא | תיאור | קישור |
-|-------|------|--------|-------|
-| **מודול 1-3: יסודות** | | | |
-| 00 | מבוא ל-MCP | סקירה כללית של פרוטוקול Model Context ומשמעותו בצינורות AI | [קרא עוד](./00-Introduction/README.md) |
-| 01 | הסבר על מושגים מרכזיים | חקירה מעמיקה של מושגי MCP מרכזיים | [קרא עוד](./01-CoreConcepts/README.md) |
-| 02 | אבטחה ב-MCP | איומי אבטחה ופרקטיקות מומלצות | [קרא עוד](./02-Security/README.md) |
-| 03 | התחלה עם MCP | הגדרת סביבה, שרתים/לקוחות בסיסיים, אינטגרציה | [קרא עוד](./03-GettingStarted/README.md) |
-| **מודול 3: בניית שרת ולקוח ראשונים** | | | |
-| 3.1 | שרת ראשון | יצירת שרת MCP ראשון | [מדריך](./03-GettingStarted/01-first-server/README.md) |
-| 3.2 | לקוח ראשון | פיתוח לקוח MCP בסיסי | [מדריך](./03-GettingStarted/02-client/README.md) |
-| 3.3 | לקוח עם LLM | שילוב מודלים של שפה גדולה | [מדריך](./03-GettingStarted/03-llm-client/README.md) |
+|--------|-------|-------------|------|
+| **מודול 0-3: יסודות** | | | |
+| 00 | הקדמה ל-MCP | סקירה על פרוטוקול Model Context וחשיבותו בצינורות AI | [לקרא עוד](./00-Introduction/README.md) |
+| 01 | הסבר על מושגים מרכזיים | חקר מעמיק של מושגי הליבה של MCP | [לקרא עוד](./01-CoreConcepts/README.md) |
+| 02 | אבטחה ב-MCP | איומי אבטחה ופרקטיקות מיטביות | [לקרא עוד](./02-Security/README.md) |
+| 03 | התחלה עם MCP | הקמת סביבה, שרתים/לקוחות בסיסיים, אינטגרציה | [לקרא עוד](./03-GettingStarted/README.md) |
+| **מודול 3: בניית השרת והלקוח הראשון שלך** | | | |
+| 3.1 | השרת הראשון | צור את שרת ה-MCP הראשון שלך | [מדריך](./03-GettingStarted/01-first-server/README.md) |
+| 3.2 | הלקוח הראשון | פתח לקוח MCP בסיסי | [מדריך](./03-GettingStarted/02-client/README.md) |
+| 3.3 | לקוח עם LLM | אינטגרציה עם מודלים שפתיים גדולים | [מדריך](./03-GettingStarted/03-llm-client/README.md) |
 | 3.4 | אינטגרציה עם VS Code | שימוש בשרתי MCP ב-VS Code | [מדריך](./03-GettingStarted/04-vscode/README.md) |
-| 3.5 | שרת stdio | יצירת שרתים באמצעות stdio transport | [מדריך](./03-GettingStarted/05-stdio-server/README.md) |
-| 3.6 | סטרימינג HTTP | יישום סטרימינג HTTP ב-MCP | [מדריך](./03-GettingStarted/06-http-streaming/README.md) |
+| 3.5 | שרת stdio | יצירת שרתים באמצעות תחבורה stdio | [מדריך](./03-GettingStarted/05-stdio-server/README.md) |
+| 3.6 | הזרמת HTTP | יישום הזרמת HTTP ב-MCP | [מדריך](./03-GettingStarted/06-http-streaming/README.md) |
 | 3.7 | ערכת כלים AI | שימוש בערכת כלים AI עם MCP | [מדריך](./03-GettingStarted/07-aitk/README.md) |
-| 3.8 | בדיקות | בדיקת יישום שרת MCP | [מדריך](./03-GettingStarted/08-testing/README.md) |
-| 3.9 | פריסה | פריסת שרתי MCP לייצור | [מדריך](./03-GettingStarted/09-deployment/README.md) |
-| 3.10 | שימוש מתקדם בשרת | שימוש בשרתים מתקדמים לתכונות מתקדמות ושיפור הארכיטקטורה | [מדריך](./03-GettingStarted/10-advanced/README.md) |
-| 3.11 | אימות פשוט | פרק שמראה לך אימות מההתחלה ו-RBAC | [מדריך](./03-GettingStarted/11-simple-auth/README.md) |
+| 3.8 | בדיקות | בדוק את מימוש שרת ה-MCP שלך | [מדריך](./03-GettingStarted/08-testing/README.md) |
+| 3.9 | פריסה | פרוס שרתי MCP לפרודקשן | [מדריך](./03-GettingStarted/09-deployment/README.md) |
+| 3.10 | שימוש מתקדם בשרת | השתמש בשרתי MCP מתקדמים למאפיינים מורכבים ולארכיטקטורה משופרת | [מדריך](./03-GettingStarted/10-advanced/README.md) |
+| 3.11 | אימות פשוט | פרק המציג אימות מהיסוד ו-RBAC | [מדריך](./03-GettingStarted/11-simple-auth/README.md) |
+| 3.12 | מארחי MCP | קבע הגדרות ל-Claude Desktop, Cursor, Cline ומארחי MCP נוספים | [מדריך](./03-GettingStarted/12-mcp-hosts/README.md) |
+| 3.13 | בודק MCP | נפה שגיאות ובדוק שרתי MCP עם כלי Inspector | [מדריך](./03-GettingStarted/13-mcp-inspector/README.md) |
+| 3.14 | דגימה | השתמש בדגימה לשיתוף פעולה עם הלקוח | [מדריך](./03-GettingStarted/14-sampling/README.md) |
+| 3.15 | אפליקציות MCP | בנה אפליקציות MCP | [מדריך](./03-GettingStarted/15-mcp-apps/README.md) |
+
 | **מודול 4-5: מעשי ומתקדם** | | | |
-| 04 | יישום מעשי | SDKs, ניפוי שגיאות, בדיקות, תבניות פקודות לשימוש חוזר | [קרא עוד](./04-PracticalImplementation/README.md) |
-| 05 | נושאים מתקדמים ב-MCP | AI רב-מודאלי, סקיילינג, שימוש ארגוני | [קרא עוד](./05-AdvancedTopics/README.md) |
-| 5.1 | אינטגרציה עם Azure | אינטגרציה של MCP עם Azure | [מדריך](./05-AdvancedTopics/mcp-integration/README.md) |
+| 04 | יישום מעשי | SDKים, ניפוי שגיאות, בדיקות, תבניות פרומפט לשימוש חוזר | [לקרא עוד](./04-PracticalImplementation/README.md) |
+| 4.1 | עמודים | טיפול בקבוצות תוצאות גדולות באמצעות דפדוף מבוסס סמן | [מדריך](./04-PracticalImplementation/pagination/README.md) |
+| 05 | נושאים מתקדמים ב-MCP | AI רב-מודאלי, סקיילינג, שימוש ארגוני | [לקרא עוד](./05-AdvancedTopics/README.md) |
+| 5.1 | אינטגרציית Azure | אינטגרציה של MCP עם Azure | [מדריך](./05-AdvancedTopics/mcp-integration/README.md) |
 | 5.2 | רב-מודאליות | עבודה עם מודאליות מרובות | [מדריך](./05-AdvancedTopics/mcp-multi-modality/README.md) |
-| 5.3 | הדגמת OAuth2 | יישום אימות OAuth2 | [מדריך](./05-AdvancedTopics/mcp-oauth2-demo/README.md) |
-| 5.4 | הקשרים ראשיים | הבנה ויישום הקשרים ראשיים | [מדריך](./05-AdvancedTopics/mcp-root-contexts/README.md) |
-| 5.5 | ניתוב | אסטרטגיות ניתוב MCP | [מדריך](./05-AdvancedTopics/mcp-routing/README.md) |
+| 5.3 | דמו OAuth2 | יישום אימות OAuth2 | [מדריך](./05-AdvancedTopics/mcp-oauth2-demo/README.md) |
+| 5.4 | הקשר שורש | הבן ויישם הקשרים שורשיים | [מדריך](./05-AdvancedTopics/mcp-root-contexts/README.md) |
+| 5.5 | ניתוב | אסטרטגיות ניתוב ב-MCP | [מדריך](./05-AdvancedTopics/mcp-routing/README.md) |
 | 5.6 | דגימה | טכניקות דגימה ב-MCP | [מדריך](./05-AdvancedTopics/mcp-sampling/README.md) |
-| 5.7 | סקיילינג | סקיילינג של יישומי MCP | [מדריך](./05-AdvancedTopics/mcp-scaling/README.md) |
-| 5.8 | אבטחה | שיקולי אבטחה מתקדמים | [מדריך](./05-AdvancedTopics/mcp-security/README.md) |
-| 5.9 | חיפוש באינטרנט | יישום יכולות חיפוש באינטרנט | [מדריך](./05-AdvancedTopics/web-search-mcp/README.md) |
-| 5.10 | סטרימינג בזמן אמת | בניית פונקציונליות סטרימינג בזמן אמת | [מדריך](./05-AdvancedTopics/mcp-realtimestreaming/README.md) |
-| 5.11 | חיפוש בזמן אמת | יישום חיפוש בזמן אמת | [מדריך](./05-AdvancedTopics/mcp-realtimesearch/README.md) |
+| 5.7 | סקיילינג | הרחבת מימושי MCP | [מדריך](./05-AdvancedTopics/mcp-scaling/README.md) |
+| 5.8 | אבטחה | התייחסויות אבטחה מתקדמות | [מדריך](./05-AdvancedTopics/mcp-security/README.md) |
+| 5.9 | חיפוש רשת | יישום יכולות חיפוש באינטרנט | [מדריך](./05-AdvancedTopics/web-search-mcp/README.md) |
+| 5.10 | הזרמת זמן אמת | בניית פונקציונליות הזרמה בזמן אמת | [מדריך](./05-AdvancedTopics/mcp-realtimestreaming/README.md) |
+| 5.11 | חיפוש זמן אמת | יישום חיפוש בזמן אמת | [מדריך](./05-AdvancedTopics/mcp-realtimesearch/README.md) |
 | 5.12 | אימות Entra ID | אימות עם Microsoft Entra ID | [מדריך](./05-AdvancedTopics/mcp-security-entra/README.md) |
-| 5.13 | אינטגרציה עם Foundry | אינטגרציה עם Azure AI Foundry | [מדריך](./05-AdvancedTopics/mcp-foundry-agent-integration/README.md) |
-| 5.14 | הנדסת הקשרים | טכניקות להנדסת הקשרים יעילה | [מדריך](./05-AdvancedTopics/mcp-contextengineering/README.md) |
-| 5.15 | MCP Custom Transport | יישומי Custom Transport | [מדריך](./05-AdvancedTopics/mcp-transport/README.md) |
-| **מודול 6-10: קהילה ופרקטיקות מומלצות** | | | |
-| 06 | תרומות לקהילה | כיצד לתרום לאקוסיסטם MCP | [מדריך](./06-CommunityContributions/README.md) |
-| 07 | תובנות מהאימוץ המוקדם | סיפורי יישום בעולם האמיתי | [מדריך](./07-LessonsFromEarlyAdoption/README.md) |
-| 08 | פרקטיקות מומלצות ל-MCP | ביצועים, עמידות בפני תקלות, חוסן | [מדריך](./08-BestPractices/README.md) |
-| 09 | מקרי מבחן של MCP | דוגמאות יישום מעשיות | [מדריך](./09-CaseStudy/README.md) |
-| 10 | סדנה מעשית | בניית שרת MCP עם ערכת כלים AI | [מעבדה](./10-StreamliningAIWorkflowsBuildingAnMCPServerWithAIToolkit/README.md) |
-| **מודול 11: מעבדת MCP Server מעשית** | | | |
-| 11 | שילוב מסד נתונים בשרת MCP | מסלול למידה מעשי מקיף הכולל 13 מעבדות לשילוב PostgreSQL | [מעבדות](./11-MCPServerHandsOnLabs/README.md) |
-| 11.1 | מבוא | סקירה כללית של MCP עם שילוב מסד נתונים ושימוש בניתוחים קמעונאיים | [מעבדה 00](./11-MCPServerHandsOnLabs/00-Introduction/README.md) |
+| 5.13 | אינטגרציית Foundry | אינטגרציה עם Azure AI Foundry | [מדריך](./05-AdvancedTopics/mcp-foundry-agent-integration/README.md) |
+| 5.14 | הנדסת הקשר | טכניקות להנדסת הקשר יעילה | [מדריך](./05-AdvancedTopics/mcp-contextengineering/README.md) |
+| 5.15 | תחבורה מותאמת אישית ב-MCP | מימושי תחבורה מותאמים אישית | [מדריך](./05-AdvancedTopics/mcp-transport/README.md) |
+| 5.16 | תכונות פרוטוקול | התראות על התקדמות, ביטול, תבניות משאבים | [מדריך](./05-AdvancedTopics/mcp-protocol-features/README.md) |
+| **מודול 6-10: קהילה ופרקטיקות מיטביות** | | | |
+| 06 | תרומות קהילתיות | כיצד לתרום לאקוסיסטם MCP | [מדריך](./06-CommunityContributions/README.md) |
+| 07 | תובנות מאימוץ מוקדם | סיפורי יישום מהעולם האמיתי | [מדריך](./07-LessonsfromEarlyAdoption/README.md) |
+| 08 | פרקטיקות מיטביות ל-MCP | ביצועים, עמידות לתקלות, חוסן | [מדריך](./08-BestPractices/README.md) |
+| 09 | מקרי בוחן MCP | דוגמאות יישום מעשיות | [מדריך](./09-CaseStudy/README.md) |
+| 10 | סדנת מעשית | בניית שרת MCP עם ערכת כלים AI | [מעבדה](./10-StreamliningAIWorkflowsBuildingAnMCPServerWithAIToolkit/README.md) |
+| **מודול 11: מעבדת שרת MCP מעשית** | | | |
+| 11 | אינטגרציה של שרת MCP עם בסיסי נתונים | מסלול למידה מעשי מקיף בן 13 מעבדות לאינטגרציה עם PostgreSQL | [מעבדות](./11-MCPServerHandsOnLabs/README.md) |
+| 11.1 | הקדמה | סקירה של MCP עם אינטגרציה למסד נתונים ומקרה שימוש של ניתוח קמעונאי | [מעבדה 00](./11-MCPServerHandsOnLabs/00-Introduction/README.md) |
 | 11.2 | ארכיטקטורה מרכזית | הבנת ארכיטקטורת שרת MCP, שכבות מסד נתונים ודפוסי אבטחה | [מעבדה 01](./11-MCPServerHandsOnLabs/01-Architecture/README.md) |
-| 11.3 | אבטחה ורב-שוכנות | אבטחה ברמת שורה, אימות וגישה לנתונים רב-שוכנתיים | [מעבדה 02](./11-MCPServerHandsOnLabs/02-Security/README.md) |
-| 11.4 | הגדרת סביבה | הגדרת סביבת פיתוח, Docker, משאבי Azure | [מעבדה 03](./11-MCPServerHandsOnLabs/03-Setup/README.md) |
-| 11.5 | עיצוב מסד נתונים | הגדרת PostgreSQL, עיצוב סכמת קמעונאות ונתוני דוגמה | [מעבדה 04](./11-MCPServerHandsOnLabs/04-Database/README.md) |
-| 11.6 | יישום שרת MCP | בניית שרת FastMCP עם שילוב מסד נתונים | [מעבדה 05](./11-MCPServerHandsOnLabs/05-MCP-Server/README.md) |
-| 11.7 | פיתוח כלים | יצירת כלים לשאילתות מסד נתונים ואינטרוספקציה של סכמות | [מעבדה 06](./11-MCPServerHandsOnLabs/06-Tools/README.md) |
-| 11.8 | חיפוש סמנטי | יישום הטמעות וקטוריות עם Azure OpenAI ו-pgvector | [מעבדה 07](./11-MCPServerHandsOnLabs/07-Semantic-Search/README.md) |
-| 11.9 | בדיקות וניפוי שגיאות | אסטרטגיות בדיקה, כלים לניפוי שגיאות וגישות לאימות | [מעבדה 08](./11-MCPServerHandsOnLabs/08-Testing/README.md) |
-| 11.10 | אינטגרציה עם VS Code | הגדרת אינטגרציה של VS Code עם MCP ושימוש בצ'אט AI | [מעבדה 09](./11-MCPServerHandsOnLabs/09-VS-Code/README.md) |
-| 11.11 | אסטרטגיות פריסה | פריסת Docker, Azure Container Apps ושיקולי סקיילינג | [מעבדה 10](./11-MCPServerHandsOnLabs/10-Deployment/README.md) |
+| 11.3 | אבטחה וריבוי שוכרים | אבטחת רמת שורה, אימות וגישה לנתונים מרובי שוכרים | [מעבדה 02](./11-MCPServerHandsOnLabs/02-Security/README.md) |
+| 11.4 | הקמת סביבה | הקמת סביבת פיתוח, Docker, משאבי Azure | [מעבדה 03](./11-MCPServerHandsOnLabs/03-Setup/README.md) |
+| 11.5 | עיצוב מסד נתונים | הקמת PostgreSQL, עיצוב סכמת קמעונאות ונתוני דוגמה | [מעבדה 04](./11-MCPServerHandsOnLabs/04-Database/README.md) |
+| 11.6 | מימוש שרת MCP | בניית שרת FastMCP עם אינטגרציה למסד נתונים | [מעבדה 05](./11-MCPServerHandsOnLabs/05-MCP-Server/README.md) |
+| 11.7 | פיתוח כלים | יצירת כלים לשאילתות מסד נתונים ואינטרוספקציה לסכמה | [מעבדה 06](./11-MCPServerHandsOnLabs/06-Tools/README.md) |
+| 11.8 | חיפוש סמנטי | יישום טמיעות וקטוריות עם Azure OpenAI ו-pgvector | [מעבדה 07](./11-MCPServerHandsOnLabs/07-Semantic-Search/README.md) |
+| 11.9 | בדיקות וניפוי שגיאות | אסטרטגיות בדיקה, כלים לניפוי שגיאות וגישות אימות | [מעבדה 08](./11-MCPServerHandsOnLabs/08-Testing/README.md) |
+| 11.10 | אינטגרציה עם VS Code | קביעת אינטגרציה של VS Code MCP ושימוש בצ'אט AI | [מעבדה 09](./11-MCPServerHandsOnLabs/09-VS-Code/README.md) |
+| 11.11 | אסטרטגיות פריסה | פריסת Docker, Azure Container Apps והתחשבות בסקיילינג | [מעבדה 10](./11-MCPServerHandsOnLabs/10-Deployment/README.md) |
 | 11.12 | ניטור | Application Insights, רישום, ניטור ביצועים | [מעבדה 11](./11-MCPServerHandsOnLabs/11-Monitoring/README.md) |
-| 11.13 | פרקטיקות מומלצות | אופטימיזציית ביצועים, חיזוק אבטחה וטיפים לייצור | [מעבדה 12](./11-MCPServerHandsOnLabs/12-Best-Practices/README.md) |
+| 11.13 | פרקטיקות מיטביות | אופטימיזציה של ביצועים, חיזוק אבטחה וטיפים לפרודקשן | [מעבדה 12](./11-MCPServerHandsOnLabs/12-Best-Practices/README.md) |
 
-### 💻 פרויקטי קוד לדוגמה
+### 💻 פרויקטי דוגמה בקוד
 
-אחד החלקים המרגשים ביותר בלמידת MCP הוא לראות את כישורי הקוד שלך מתפתחים בהדרגה. עיצבנו את דוגמאות הקוד שלנו כך שיתחילו פשוטות ויהפכו למורכבות יותר ככל שההבנה שלך מעמיקה. כך אנו מציגים את המושגים - עם קוד שקל להבין אך מדגים עקרונות אמיתיים של MCP, תבין לא רק מה הקוד הזה עושה, אלא גם מדוע הוא בנוי כך וכיצד הוא משתלב ביישומי MCP רחבים יותר.
+אחד החלקים המרתקים בלמידת MCP הוא לראות את יכולות הקוד שלך מתפתחות בהדרגה. תכננו את דוגמאות הקוד שלנו כך שיתחילו פשוטות ויתקדמו למורכבות ככל שההבנה שלך מעמיקה. כך אנו מציגים מושגים - עם קוד שקל להבין אך שממחיש עקרונות אמיתיים של MCP, תבין לא רק מה הקוד הזה עושה, אלא מדוע הוא בנוי כך ואיך הוא משתלב באפליקציות MCP גדולות יותר.
 
-#### דוגמאות בסיסיות של מחשבון MCP
+#### דוגמאות בסיסיות למחשבון MCP
 
 | שפה | תיאור | קישור |
-|-----|-------|-------|
+|----------|-------------|------|
 | C# | דוגמת שרת MCP | [צפה בקוד](./03-GettingStarted/samples/csharp/README.md) |
 | Java | מחשבון MCP | [צפה בקוד](./03-GettingStarted/samples/java/calculator/README.md) |
 | JavaScript | הדגמת MCP | [צפה בקוד](./03-GettingStarted/samples/javascript/README.md) |
@@ -200,161 +224,128 @@ MCP מספק את הסטנדרטיזציה הזו ליישומי AI. במקום 
 | TypeScript | דוגמת MCP | [צפה בקוד](./03-GettingStarted/samples/typescript/README.md) |
 | Rust | דוגמת MCP | [צפה בקוד](./03-GettingStarted/samples/rust/README.md) |
 
-#### יישומי MCP מתקדמים
+#### מימושי MCP מתקדמים
 
 | שפה | תיאור | קישור |
-|-----|-------|-------|
+|----------|-------------|------|
 | C# | דוגמה מתקדמת | [צפה בקוד](./04-PracticalImplementation/samples/csharp/README.md) |
-| Java עם Spring | דוגמת אפליקציית קונטיינר | [צפה בקוד](./04-PracticalImplementation/samples/java/containerapp/README.md) |
+| Java עם Spring | דוגמת Container App | [צפה בקוד](./04-PracticalImplementation/samples/java/containerapp/README.md) |
 | JavaScript | דוגמה מתקדמת | [צפה בקוד](./04-PracticalImplementation/samples/javascript/README.md) |
-| Python | יישום מורכב | [צפה בקוד](../../04-PracticalImplementation/samples/python/READMEmd) |
-| TypeScript | דוגמת קונטיינר | [צפה בקוד](./04-PracticalImplementation/samples/typescript/README.md) |
+| Python | מימוש מורכב | [צפה בקוד](./04-PracticalImplementation/samples/python/README.md) |
+| TypeScript | דוגמת Container | [צפה בקוד](./04-PracticalImplementation/samples/typescript/README.md) |
 
-## 🎯 דרישות מקדימות ללמידת MCP
 
-כדי להפיק את המירב מתכנית הלימודים הזו, כדאי שיהיה לך:
+## 🎯 דרישות מוקדמות ללימוד MCP
 
+כדי להפיק את המרב מתוכנית הלימודים הזו, עליך שיהיו לך:
 - ידע בסיסי בתכנות לפחות באחת מהשפות הבאות: C#, Java, JavaScript, Python, או TypeScript  
 - הבנה של מודל לקוח-שרת ו-APIs  
 - היכרות עם מושגי REST ו-HTTP  
 - (אופציונלי) רקע במושגי AI/ML  
 
-- הצטרפות לדיוני הקהילה שלנו לתמיכה  
+- השתתפות בדיוני הקהילה שלנו לתמיכה  
 
-## 📚 מדריך לימוד ומשאבים
+## 📚 מדריך לימוד ומשאבים  
 
-מאגר זה כולל מספר משאבים שיעזרו לך לנווט וללמוד בצורה יעילה:
+מאגר זה כולל מספר משאבים כדי לעזור לך לנווט וללמוד בצורה יעילה:  
 
-### מדריך לימוד
+### מדריך לימוד  
 
-מדריך לימוד מקיף [Study Guide](./study_guide.md) זמין כדי לעזור לך לנווט במאגר זה בצורה יעילה. מפת תכנית לימודים חזותית זו מציגה כיצד כל הנושאים מתחברים ומספקת הדרכה כיצד להשתמש בפרויקטים לדוגמה בצורה יעילה. זה מועיל במיוחד אם אתה לומד חזותי שאוהב לראות את התמונה הגדולה.
+[מדריך לימוד](./study_guide.md) מקיף זמין שיעזור לך לנווט במאגר זה ביעילות. מפה ויזואלית זו של תוכנית הלימודים מציגה כיצד כל הנושאים מחוברים ומספקת הנחיות כיצד להשתמש בפרויקטים לדוגמה בצורה יעילה. זה מועיל במיוחד אם אתה לומד בצורה ויזואלית שאוהבת לראות את התמונה הכוללת.  
 
-המדריך כולל:
-- מפת תכנית לימודים חזותית המציגה את כל הנושאים המכוסים  
+המדריך כולל:  
+- מפה ויזואלית של תוכנית הלימודים המציגה את כל הנושאים  
 - פירוט מפורט של כל חלקי המאגר  
-- הדרכה כיצד להשתמש בפרויקטים לדוגמה  
+- הנחיות לשימוש בפרויקטים לדוגמה  
 - מסלולי למידה מומלצים לרמות מיומנות שונות  
 - משאבים נוספים להשלמת מסע הלמידה שלך  
 
-### יומן שינויים
+### רישום שינויים  
 
-אנו מנהלים [Changelog](./changelog.md) מפורט שעוקב אחר כל העדכונים המשמעותיים לחומרי תכנית הלימודים, כך שתוכל להישאר מעודכן עם השיפורים והתוספות האחרונים.  
-- תוספות תוכן חדשות  
+אנו מנהלים רישום שינויים מפורט ב-[Changelog](./changelog.md) שעוקב אחרי כל העדכונים המשמעותיים בחומרי הלימוד, כך שתוכל להתעדכן בשיפורים והוספות אחרונות.  
+- הוספת תכנים חדשים  
 - שינויים מבניים  
 - שיפורי תכונות  
 - עדכוני תיעוד  
 
-## 🛠️ כיצד להשתמש בתכנית הלימודים הזו בצורה יעילה
+## 🛠️ כיצד להשתמש בתוכנית הלימודים הזו ביעילות  
 
-כל שיעור במדריך זה כולל:
+כל שיעור במדריך זה כולל:  
 
 1. הסברים ברורים על מושגי MCP  
-2. דוגמאות קוד חיות במספר שפות  
+2. דוגמאות קוד חיות בכמה שפות  
 3. תרגילים לבניית יישומי MCP אמיתיים  
 4. משאבים נוספים ללומדים מתקדמים  
 
-## תוכן לפי דרישה 
-
-### [MCP Dev Days יולי 2025](https://developer.microsoft.com/en-us/reactor/series/S-1563/)  
-#### [➡️צפה לפי דרישה - MCP Dev Days](https://developer.microsoft.com/en-us/reactor/series/S-1563/)  
-היכונו לשני ימים של תובנות טכניות מעמיקות, חיבור קהילתי ולמידה מעשית ב-MCP Dev Days, אירוע וירטואלי המוקדש לפרוטוקול Model Context (MCP) — הסטנדרט המתהווה שמגשר בין מודלי AI לכלים שהם מסתמכים עליהם.  
-ניתן לצפות ב-MCP Dev Days על ידי הרשמה בעמוד האירוע שלנו: https://aka.ms/mcpdevdays.
-
-#### [יום 1: פרודוקטיביות MCP, כלי פיתוח וקהילה:](https://developer.microsoft.com/en-us/reactor/series/S-1563/)
-
-היום הראשון מוקדש להעצמת מפתחים לשלב את MCP בתהליך הפיתוח שלהם ולחגוג את הקהילה המדהימה של MCP. נצטרף לחברי קהילה ולשותפים כמו Arcade, Block, Okta ו-Neon כדי לראות כיצד הם משתפים פעולה עם Microsoft לעיצוב מערכת MCP פתוחה ומורחבת.  
-דוגמאות מעשיות בעולם האמיתי ב-VS Code, Visual Studio, GitHub Copilot וכלים פופולריים בקהילה  
-תהליכי עבודה מעשיים וממוקדי הקשר  
-מפגשים ותובנות בהובלת הקהילה  
-בין אם אתם רק מתחילים עם MCP או כבר עובדים איתו, יום 1 יספק השראה ותובנות מעשיות להמשך הדרך.
-
-#### [יום 2: בניית שרתי MCP בביטחון](https://developer.microsoft.com/en-us/reactor/series/S-1563/)
-
-היום השני מיועד לבוני MCP. נעמיק באסטרטגיות יישום ובשיטות עבודה מומלצות ליצירת שרתי MCP ושילוב MCP בתהליכי העבודה של AI.
-
-#### נושאים כוללים:
-
-- בניית שרתי MCP ושילובם בחוויות סוכנים  
-- פיתוח מונחה הנחיות  
-- שיטות עבודה מומלצות לאבטחה  
-- שימוש בבניית בלוקים כמו Functions, ACA ו-API Management  
-- התאמת רישום וכלים (1P + 3P)  
-
-אם אתם מפתחים, בוני כלים או אסטרטגים למוצרי AI, היום הזה מלא בתובנות שתצטרכו כדי לבנות פתרונות MCP מאובטחים, ניתנים להרחבה ומוכנים לעתיד.
-
-### מחנה MCP - אוגוסט 2025  
-למדו בסשנים אינטנסיביים כיצד ליצור שרתי MCP, לשלב עם VS Code ולפרוס באופן מקצועי על Azure בהתבסס על תוכן מתוכנית MCP למתחילים.  
-צאו עם מיומנויות מעשיות בטכנולוגיה שחברות גדולות כבר משתמשות בה.
-
-#### [➡️צפו לפי דרישה במחנה MCP | אנגלית](https://developer.microsoft.com/en-us/reactor/series/s-1568/)  
-#### [➡️צפו לפי דרישה במחנה MCP | ברזיל](https://developer.microsoft.com/en-us/reactor/series/S-1566/)  
-#### [➡️צפו לפי דרישה במחנה MCP | ספרדית](https://developer.microsoft.com/en-us/reactor/series/S-1567/)  
-
-### בואו ללמוד MCP עם C# - סדרת מדריכים  
-בואו ללמוד על פרוטוקול הקשר מודל (MCP), מסגרת חדשנית שנועדה לתקנן אינטראקציות בין מודלים של AI ואפליקציות לקוח.  
-במפגש ידידותי למתחילים זה, נציג לכם את MCP ונדריך אתכם ביצירת שרת MCP ראשון שלכם.  
+### בואו נלמד את MCP עם C# - סדרת הדרכה  
+בואו נלמד על פרוטוקול הקשר מודל (MCP), מסגרת חדשנית שמטרתה לאחד את האינטראקציות בין מודלי AI ליישומי לקוח. באמצעות מושב זה למתחילים, נציג לך את MCP ונדריך אותך ביצירת שרת MCP ראשון משלך.  
 #### C#: [https://aka.ms/letslearnmcp-csharp](https://aka.ms/letslearnmcp-csharp)  
 #### Java: [https://aka.ms/letslearnmcp-java](https://aka.ms/letslearnmcp-java)  
 #### JavaScript: [https://aka.ms/letslearnmcp-javascript](https://aka.ms/letslearnmcp-javascript)  
 #### Python: [https://aka.ms/letslearnmcp-python](https://aka.ms/letslearnmcp-python)  
 
-## 🎓 המסע שלכם עם MCP מתחיל
+## 🎓 המסע שלך עם MCP מתחיל  
 
-ברכות! עשיתם את הצעד הראשון במסע מרגש שירחיב את יכולות התכנות שלכם ויחבר אתכם לחזית הפיתוח של AI.
+מברכות! זהו הצעד הראשון שלך במסע מרתק שיפתח בפניך יכולות תכנות חדשות ויחבר אותך לקדמת הטכנולוגיה בפיתוח AI.  
 
-### מה שכבר השגתם
+### מה שכבר הצלחת לעשות  
 
-על ידי קריאת ההקדמה הזו, כבר התחלתם לבנות את הבסיס לידע שלכם ב-MCP. אתם מבינים מה זה MCP, למה זה חשוב, וכיצד התוכנית הזו תתמוך במסע הלמידה שלכם. זה הישג משמעותי והתחלה של המומחיות שלכם בטכנולוגיה חשובה זו.
+בקראת הקריאה במבוא זה התחלת כבר לבנות את יסודות ההבנה של MCP. אתה מבין מה זה MCP, למה זה חשוב, וכיצד תוכנית הלימודים הזו תתמוך במסע הלמידה שלך. זו הישג משמעותי ותחילת המומחיות שלך בטכנולוגיה חשובה זו.  
 
-### ההרפתקה שמחכה לכם
+### ההרפתקה הבאה  
 
-כשתתקדמו במודולים, זכרו שכל מומחה היה פעם מתחיל. המושגים שעשויים להיראות מורכבים עכשיו יהפכו לטבע שני ככל שתתרגלו ותיישמו אותם. כל צעד קטן בונה יכולות עוצמתיות שישרתו אתכם לאורך הקריירה הפיתוחית שלכם.
+כיתה תתקדם דרך המודולים, זכור שכל מומחה היה בתחילה מתחיל. המושגים שלפעמים נראים מסובכים כעת יהפכו לטבע שני כשאתה מתרגל ומיישם אותם. כל צעד קטן בונה יכולות עצומות שישרתו אותך לאורך כל הקריירה שלך בפיתוח.  
 
-### רשת התמיכה שלכם
+### רשת התמיכה שלך  
 
-אתם מצטרפים לקהילה של לומדים ומומחים שמלאים תשוקה ל-MCP ושמחים לעזור לאחרים להצליח. בין אם אתם נתקעים באתגר תכנות או מתרגשים לשתף פריצת דרך, הקהילה כאן כדי לתמוך במסע שלכם.
+אתה מצטרף לקהילה של לומדים ומומחים שמונעים על ידי תשוקה ל-MCP ונרגשים לעזור לאחרים להצליח. בין אם אתה תקוע באתגר קידוד או מתלהב לשתף פריצת דרך, הקהילה כאן כדי לתמוך במסע שלך.  
 
-אם אתם נתקלים בקשיים או יש לכם שאלות על בניית אפליקציות AI, הצטרפו לדיונים עם לומדים אחרים ומפתחים מנוסים על MCP. זו קהילה תומכת שבה שאלות מתקבלות בברכה וידע משותף בחופשיות.
+אם אתה נתקל בקשיים או יש לך שאלות לגבי בניית אפליקציות AI, הצטרף ללומדים ומפתחים מנוסים בדיונים על MCP. זו קהילה תומכת שבה שאלות מתקבלות בברכה והידע משותף בחופשיות.  
 
-[![Azure AI Foundry Discord](https://img.shields.io/badge/Discord-Azure_AI_Foundry_Community_Discord-blue?style=for-the-badge&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
+[![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG)  
 
-אם יש לכם משוב על מוצרים או שגיאות בזמן הבנייה, בקרו ב:
+אם יש לך משוב על מוצר או שגיאות בעת הפיתוח בקר באתר:  
 
-[![Azure AI Foundry Developer Forum](https://img.shields.io/badge/GitHub-Azure_AI_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)
+[![Microsoft Foundry Developer Forum](https://img.shields.io/badge/GitHub-Microsoft_Foundry_Developer_Forum-blue?style=for-the-badge&logo=github&color=000000&logoColor=fff)](https://aka.ms/foundry/forum)  
 
-### מוכנים להתחיל?
+### מוכן להתחיל?  
 
-ההרפתקה שלכם עם MCP מתחילה עכשיו! התחילו עם מודול 0 כדי לצלול לחוויות הראשונות שלכם עם MCP, או חקרו את הפרויקטים לדוגמה כדי לראות מה תבנו. זכרו - כל מומחה התחיל בדיוק במקום שבו אתם נמצאים עכשיו, ועם סבלנות ותרגול, תופתעו ממה שתוכלו להשיג.
+ההרפתקה שלך ב-MCP מתחילה עכשיו! התחל במודול 0 כדי לצלול אל החוויות המעשי שלך עם MCP, או חפש בפרויקטים לדוגמה כדי לראות מה תבנה. זכור - כל מומחה התחיל בדיוק במקום שבו אתה נמצא כעת, ועם סבלנות ותרגול, תתפלא מה תוכל להשיג.  
 
-ברוכים הבאים לעולם פיתוח פרוטוקול הקשר מודל. בואו נבנה משהו מדהים יחד!
+ברוך הבא לעולם פיתוח פרוטוקול הקשר מודל. בוא נבנה משהו מדהים ביחד!  
 
-## 🤝 תרומה לקהילת הלמידה
+## 🤝 תרומה לקהילת הלמידה  
 
-התוכנית הזו מתחזקת בזכות תרומות של לומדים כמוכם! בין אם אתם מתקנים טעות, מציעים הסבר ברור יותר או מוסיפים דוגמה חדשה, התרומות שלכם עוזרות למתחילים אחרים להצליח.
+תוכנית הלימודים הזו מתחזקת בזכות תרומות מלומדים כמוך! בין אם אתה מתקן טעות טיפוגרפית, מציע הסבר ברור יותר, או מוסיף דוגמה חדשה, התרומות שלך עוזרות למתחילים נוספים להצליח.  
 
-תודה ל-Microsoft Valued Professional [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) על תרומתו לדוגמאות קוד.
+תודה למקצוען ממיקרוסופט [Shivam Goyal](https://www.linkedin.com/in/shivam2003/) על תרומת דוגמאות הקוד.  
 
-תהליך התרומה נועד להיות מזמין ותומך. רוב התרומות דורשות הסכם רישיון תורם (CLA), אך הכלים האוטומטיים ידריכו אתכם בתהליך בצורה חלקה.
+תהליך התרומה תוכנן להיות ידידותי ותומך. רוב התרומות דורשות הסכם רישיון תורם (CLA), אבל הכלים האוטומטיים ינחו אותך בתהליך בצורה חלקה.  
 
-## 📜 למידה בקוד פתוח
+## 📜 למידה בקוד פתוח  
 
-כל התוכנית הזו זמינה תחת רישיון MIT [LICENSE](../../LICENSE), מה שאומר שאתם יכולים להשתמש, לשנות ולשתף אותה בחופשיות. זה תומך במשימה שלנו להפוך את הידע על MCP לנגיש למפתחים בכל מקום.
+כל תוכנית הלימודים זמינה תחת רישיון MIT [LICENSE](../../LICENSE), כלומר ניתן להשתמש בה, לשנות ולשתף בחופשיות. זה תומך במטרתנו להפוך את הידע על MCP לנגיש למפתחים בכל מקום.  
+## 🤝 קווי הנחיה לתרומה  
 
-## 🤝 הנחיות לתרומה
+פרויקט זה מקבל בברכה תרומות והצעות. רוב התרומות מחייבות הסכמה להסכם רישיון תורם (CLA) המצהיר כי יש לך את הזכות, ואתה אכן מעניק לנו את הזכויות להשתמש בתרומתך. לפרטים, בקר בכתובת <https://cla.opensource.microsoft.com>.  
 
-הפרויקט הזה מקבל בברכה תרומות והצעות. רוב התרומות דורשות מכם להסכים להסכם רישיון תורם (CLA) שמצהיר שיש לכם את הזכות, ואתם אכן מעניקים לנו את הזכויות להשתמש בתרומתכם. לפרטים, בקרו ב-<https://cla.opensource.microsoft.com>.
+כאשר אתה שולח בקשת משיכה, רובוט CLA יבדוק אוטומטית אם יש צורך לספק CLA ויעטר את ה-PR בהתאם (למשל, בדיקת מצב, תגובה). פשוט עקוב אחר ההוראות שניתנו על ידי הרובוט. תצטרך לעשות זאת רק פעם אחת בכל המאגר הכולל שימוש ב-CLA שלנו.  
 
-כשאתם מגישים בקשת משיכה, בוט CLA יקבע באופן אוטומטי אם אתם צריכים לספק CLA ויעטר את הבקשה בהתאם (לדוגמה, בדיקת סטטוס, תגובה). פשוט עקבו אחרי ההוראות שסופקו על ידי הבוט. תצטרכו לעשות זאת רק פעם אחת בכל המאגרים שמשתמשים ב-CLA שלנו.
+פרויקט זה אימץ את [קוד ההתנהגות של קוד פתוח של מיקרוסופט](https://opensource.microsoft.com/codeofconduct/). למידע נוסף עיין ב-[שאלות נפוצות על קוד ההתנהגות](https://opensource.microsoft.com/codeofconduct/faq/) או פנה ל-[opencode@microsoft.com](mailto:opencode@microsoft.com) עם שאלות או הערות נוספות.  
 
-הפרויקט הזה אימץ את [קוד ההתנהגות של Microsoft Open Source](https://opensource.microsoft.com/codeofconduct/).  
-למידע נוסף, ראו את [שאלות נפוצות על קוד ההתנהגות](https://opensource.microsoft.com/codeofconduct/faq/) או צרו קשר עם [opencode@microsoft.com](mailto:opencode@microsoft.com) לכל שאלה או הערה נוספת.
+---  
 
----
-
-*מוכנים להתחיל את המסע שלכם עם MCP? התחילו עם [מודול 00 - מבוא ל-MCP](./00-Introduction/README.md) ועשו את הצעדים הראשונים שלכם בעולם פיתוח פרוטוקול הקשר מודל!*
+*מוכן להתחיל את מסע ה-MCP שלך? התחל עם [מודול 00 - מבוא ל-MCP](./00-Introduction/README.md) ועשה את הצעדים הראשונים בעולם פיתוח פרוטוקול הקשר מודל!*  
 
 ## 🎒 קורסים נוספים  
-הצוות שלנו מייצר קורסים נוספים! בדקו:
+הצוות שלנו מפיק קורסים נוספים! בדוק את:  
+
+<!-- CO-OP TRANSLATOR OTHER COURSES START -->  
+### LangChain  
+[![LangChain4j למתחילים](https://img.shields.io/badge/LangChain4j%20for%20Beginners-22C55E?style=for-the-badge&&labelColor=E5E7EB&color=0553D6)](https://aka.ms/langchain4j-for-beginners)  
+[![LangChain.js למתחילים](https://img.shields.io/badge/LangChain.js%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=0553D6)](https://aka.ms/langchainjs-for-beginners?WT.mc_id=m365-94501-dwahlin)  
+[![LangChain למתחילים](https://img.shields.io/badge/LangChain%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=0553D6)](https://github.com/microsoft/langchain-for-beginners?WT.mc_id=m365-94501-dwahlin)  
+---  
 
 ### Azure / Edge / MCP / סוכנים  
 [![AZD למתחילים](https://img.shields.io/badge/AZD%20for%20Beginners-0078D4?style=for-the-badge&labelColor=E5E7EB&color=0078D4)](https://github.com/microsoft/AZD-for-beginners?WT.mc_id=academic-105485-koreyst)  
@@ -362,7 +353,7 @@ MCP מספק את הסטנדרטיזציה הזו ליישומי AI. במקום 
 [![MCP למתחילים](https://img.shields.io/badge/MCP%20for%20Beginners-009688?style=for-the-badge&labelColor=E5E7EB&color=009688)](https://github.com/microsoft/mcp-for-beginners?WT.mc_id=academic-105485-koreyst)  
 [![סוכני AI למתחילים](https://img.shields.io/badge/AI%20Agents%20for%20Beginners-00C49A?style=for-the-badge&labelColor=E5E7EB&color=00C49A)](https://github.com/microsoft/ai-agents-for-beginners?WT.mc_id=academic-105485-koreyst)  
 
----
+---  
 
 ### סדרת AI גנרטיבי  
 [![AI גנרטיבי למתחילים](https://img.shields.io/badge/Generative%20AI%20for%20Beginners-8B5CF6?style=for-the-badge&labelColor=E5E7EB&color=8B5CF6)](https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)  
@@ -370,26 +361,29 @@ MCP מספק את הסטנדרטיזציה הזו ליישומי AI. במקום 
 [![AI גנרטיבי (Java)](https://img.shields.io/badge/Generative%20AI%20(Java)-C084FC?style=for-the-badge&labelColor=E5E7EB&color=C084FC)](https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst)  
 [![AI גנרטיבי (JavaScript)](https://img.shields.io/badge/Generative%20AI%20(JavaScript)-E879F9?style=for-the-badge&labelColor=E5E7EB&color=E879F9)](https://github.com/microsoft/generative-ai-with-javascript?WT.mc_id=academic-105485-koreyst)  
 
----
+---  
 
-### למידה בסיסית  
-[![ML למתחילים](https://img.shields.io/badge/ML%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=22C55E)](https://aka.ms/ml-beginners?WT.mc_id=academic-105485-koreyst)  
+### למידה עיקרית  
+[![למידת מכונה למתחילים](https://img.shields.io/badge/ML%20for%20Beginners-22C55E?style=for-the-badge&labelColor=E5E7EB&color=22C55E)](https://aka.ms/ml-beginners?WT.mc_id=academic-105485-koreyst)  
 [![מדעי הנתונים למתחילים](https://img.shields.io/badge/Data%20Science%20for%20Beginners-84CC16?style=for-the-badge&labelColor=E5E7EB&color=84CC16)](https://aka.ms/datascience-beginners?WT.mc_id=academic-105485-koreyst)  
 [![AI למתחילים](https://img.shields.io/badge/AI%20for%20Beginners-A3E635?style=for-the-badge&labelColor=E5E7EB&color=A3E635)](https://aka.ms/ai-beginners?WT.mc_id=academic-105485-koreyst)  
-[![סייבר למתחילים](https://img.shields.io/badge/Cybersecurity%20for%20Beginners-F97316?style=for-the-badge&labelColor=E5E7EB&color=F97316)](https://github.com/microsoft/Security-101?WT.mc_id=academic-96948-sayoung)  
-[![פיתוח אתרים למתחילים](https://img.shields.io/badge/Web%20Dev%20for%20Beginners-EC4899?style=for-the-badge&labelColor=E5E7EB&color=EC4899)](https://aka.ms/webdev-beginners?WT.mc_id=academic-105485-koreyst)  
+[![סייברסקיוריטי למתחילים](https://img.shields.io/badge/Cybersecurity%20for%20Beginners-F97316?style=for-the-badge&labelColor=E5E7EB&color=F97316)](https://github.com/microsoft/Security-101?WT.mc_id=academic-96948-sayoung)  
+[![פיתוח ווב למתחילים](https://img.shields.io/badge/Web%20Dev%20for%20Beginners-EC4899?style=for-the-badge&labelColor=E5E7EB&color=EC4899)](https://aka.ms/webdev-beginners?WT.mc_id=academic-105485-koreyst)  
 [![IoT למתחילים](https://img.shields.io/badge/IoT%20for%20Beginners-14B8A6?style=for-the-badge&labelColor=E5E7EB&color=14B8A6)](https://aka.ms/iot-beginners?WT.mc_id=academic-105485-koreyst)  
 [![פיתוח XR למתחילים](https://img.shields.io/badge/XR%20Development%20for%20Beginners-38BDF8?style=for-the-badge&labelColor=E5E7EB&color=38BDF8)](https://github.com/microsoft/xr-development-for-beginners?WT.mc_id=academic-105485-koreyst)  
 
----
+---  
 
 ### סדרת Copilot  
-[![Copilot לתכנות זוגי עם AI](https://img.shields.io/badge/Copilot%20for%20AI%20Paired%20Programming-FACC15?style=for-the-badge&labelColor=E5E7EB&color=FACC15)](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)  
-[![Copilot עבור C#/.NET](https://img.shields.io/badge/Copilot%20for%20C%23/.NET-FBBF24?style=for-the-badge&labelColor=E5E7EB&color=FBBF24)](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)  
-[![הרפתקאות Copilot](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)  
-<!-- סוף קורסים אחרים של CO-OP TRANSLATOR -->
+
+[![קופילוט לתכנות מזווג מבוסס AI](https://img.shields.io/badge/Copilot%20for%20AI%20Paired%20Programming-FACC15?style=for-the-badge&labelColor=E5E7EB&color=FACC15)](https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst)
+[![קופילוט ל-C#/.NET](https://img.shields.io/badge/Copilot%20for%20C%23/.NET-FBBF24?style=for-the-badge&labelColor=E5E7EB&color=FBBF24)](https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst)
+[![הרפתקת קופילוט](https://img.shields.io/badge/Copilot%20Adventure-FDE68A?style=for-the-badge&labelColor=E5E7EB&color=FDE68A)](https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst)
+<!-- CO-OP TRANSLATOR OTHER COURSES END -->
 
 ---
 
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
 **כתב ויתור**:  
-מסמך זה תורגם באמצעות שירות תרגום AI [Co-op Translator](https://github.com/Azure/co-op-translator). למרות שאנו שואפים לדיוק, יש להיות מודעים לכך שתרגומים אוטומטיים עשויים להכיל שגיאות או אי דיוקים. המסמך המקורי בשפתו המקורית צריך להיחשב כמקור סמכותי. עבור מידע קריטי, מומלץ להשתמש בתרגום מקצועי אנושי. איננו אחראים לאי הבנות או לפרשנויות שגויות הנובעות משימוש בתרגום זה.
+מסמך זה תורגם באמצעות שירות התרגום המבוסס בינה מלאכותית [Co-op Translator](https://github.com/Azure/co-op-translator). למרות שאנו שואפים לדייק, יש להיות מודעים לכך כי תרגומים אוטומטיים עלולים להכיל טעויות או אי דיוקים. יש לראות במסמך המקורי בשפתו המקורית את המקור המוסמך. למידע קריטי מומלץ לבצע תרגום מקצועי על ידי אדם. אנו לא אחראים לכל אי הבנה או פרשנות מוטעית הנובעים משימוש בתרגום זה.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->

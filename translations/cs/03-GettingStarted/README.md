@@ -1,92 +1,93 @@
-<!--
-CO_OP_TRANSLATOR_METADATA:
-{
-  "original_hash": "f400d87053221363769113c24f117248",
-  "translation_date": "2025-10-06T23:53:15+00:00",
-  "source_file": "03-GettingStarted/README.md",
-  "language_code": "cs"
-}
--->
 ## Začínáme  
 
-[![Vytvořte svůj první MCP server](../../../translated_images/04.0ea920069efd979a0b2dad51e72c1df7ead9c57b3305796068a6cee1f0dd6674.cs.png)](https://youtu.be/sNDZO9N4m9Y)
+[![Vytvořte svůj první MCP server](../../../translated_images/cs/04.0ea920069efd979a.webp)](https://youtu.be/sNDZO9N4m9Y)
 
-_(Klikněte na obrázek výše pro zhlédnutí videa této lekce)_
+_(Klikněte na obrázek výše pro zobrazení videa této lekce)_
 
-Tato sekce obsahuje několik lekcí:
+Tato sekce se skládá z několika lekcí:
 
-- **1 Váš první server**, v této první lekci se naučíte, jak vytvořit svůj první server a prozkoumat ho pomocí inspektorového nástroje, což je cenný způsob testování a ladění serveru, [k lekci](01-first-server/README.md)
+- **1 Váš první server**, v této první lekci se naučíte, jak vytvořit svůj první server a prohlédnout si jej pomocí nástroje inspector, což je užitečný způsob, jak testovat a ladit server, [k lekci](01-first-server/README.md)
 
-- **2 Klient**, v této lekci se naučíte, jak napsat klienta, který se může připojit k vašemu serveru, [k lekci](02-client/README.md)
+- **2 Klient**, v této lekci se naučíte, jak napsat klienta, který se dokáže připojit k vašemu serveru, [k lekci](02-client/README.md)
 
-- **3 Klient s LLM**, ještě lepší způsob psaní klienta je přidání LLM, aby mohl „vyjednávat“ s vaším serverem o tom, co dělat, [k lekci](03-llm-client/README.md)
+- **3 Klient s LLM**, ještě lepším způsobem psaní klienta je přidání LLM, takže může s vaším serverem "jednat" o tom, co dělat, [k lekci](03-llm-client/README.md)
 
-- **4 Spotřebování serveru v režimu GitHub Copilot Agent ve Visual Studio Code**. Zde se podíváme na spuštění našeho MCP serveru přímo z Visual Studio Code, [k lekci](04-vscode/README.md)
+- **4 Konzumace režimu Agenta GitHub Copilot serveru ve Visual Studio Code**. Zde se podíváme, jak spustit náš MCP Server přímo ve Visual Studio Code, [k lekci](04-vscode/README.md)
 
-- **5 stdio Transport Server** stdio transport je doporučený standard pro komunikaci mezi MCP serverem a klientem v aktuální specifikaci, poskytující bezpečnou komunikaci založenou na podprocesech [k lekci](05-stdio-server/README.md)
+- **5 stdio Transport Server** stdio transport je doporučený standard pro lokální komunikaci MCP server-klient, poskytující bezpečnou komunikaci na bázi podprocesů s vestavěnou izolací procesů [k lekci](05-stdio-server/README.md)
 
-- **6 HTTP Streaming s MCP (Streamable HTTP)**. Naučte se o moderním HTTP streamování, notifikacích o průběhu a jak implementovat škálovatelné, real-time MCP servery a klienty pomocí Streamable HTTP. [k lekci](06-http-streaming/README.md)
+- **6 HTTP Streaming s MCP (Streamable HTTP)**. Naučte se o moderním HTTP streamovacím transportu (doporučený přístup pro vzdálené MCP servery dle [MCP Specifikace 2025-11-25](https://spec.modelcontextprotocol.io/specification/2025-11-25/basic/transports/#streamable-http)), notifikacích průběhu a jak implementovat škálovatelné, real-time MCP servery a klienty pomocí Streamable HTTP. [k lekci](06-http-streaming/README.md)
 
-- **7 Využití AI Toolkit pro VSCode** k testování a spotřebování vašich MCP klientů a serverů [k lekci](07-aitk/README.md)
+- **7 Využití AI Toolkit pro VSCode** k používání a testování vašich MCP Klientů a Serverů [k lekci](07-aitk/README.md)
 
-- **8 Testování**. Zde se zaměříme zejména na to, jak můžeme testovat náš server a klient různými způsoby, [k lekci](08-testing/README.md)
+- **8 Testování**. Zde se zaměříme především na různé způsoby, jak testovat náš server a klienta, [k lekci](08-testing/README.md)
 
-- **9 Nasazení**. Tato kapitola se zaměří na různé způsoby nasazení vašich MCP řešení, [k lekci](09-deployment/README.md)
+- **9 Nasazení**. Tato kapitola se podívá na různé způsoby nasazování vašich MCP řešení, [k lekci](09-deployment/README.md)
 
-- **10 Pokročilé použití serveru**. Tato kapitola pokrývá pokročilé použití serveru, [k lekci](./10-advanced/README.md)
+- **10 Pokročilé používání serveru**. Tato kapitola pokrývá pokročilé použití serveru, [k lekci](./10-advanced/README.md)
 
-- **11 Autentizace**. Tato kapitola se zabývá tím, jak přidat jednoduchou autentizaci, od Basic Auth po použití JWT a RBAC. Doporučujeme začít zde a poté se podívat na pokročilá témata v kapitole 5 a provést další zabezpečení podle doporučení v kapitole 2, [k lekci](./11-simple-auth/README.md)
+- **11 Autentizace**. Tato kapitola vysvětluje, jak přidat jednoduchou autentizaci, od Basic Auth po použití JWT a RBAC. Doporučuje se začít zde a poté se podívat na pokročilá témata v kapitole 5 a provést další zabezpečení podle doporučení v kapitole 2, [k lekci](./11-simple-auth/README.md)
 
-Model Context Protocol (MCP) je otevřený protokol, který standardizuje způsob, jakým aplikace poskytují kontext LLM. MCP si můžete představit jako USB-C port pro AI aplikace - poskytuje standardizovaný způsob připojení AI modelů k různým datovým zdrojům a nástrojům.
+- **12 MCP Hosté**. Konfigurace a používání populárních MCP host klientů včetně Claude Desktop, Cursor, Cline a Windsurf. Naučte se typy transportů a řešení problémů, [k lekci](./12-mcp-hosts/README.md)
+
+- **13 MCP Inspector**. Interaktivně ladit a testovat vaše MCP servery pomocí nástroje MCP Inspector. Naučte se diagnostikovat nástroje, zdroje a protokolové zprávy, [k lekci](./13-mcp-inspector/README.md)
+
+- **14 Sampling**. Vytvářejte MCP Servery, které spolupracují s MCP klienty na úlohách souvisejících s LLM. [k lekci](./14-sampling/README.md)
+
+- **15 MCP Apps**. Stavte MCP Servery, které také odpovídají s UI instrukcemi, [k lekci](./15-mcp-apps/README.md)
+
+Model Context Protocol (MCP) je otevřený protokol, který standardizuje, jak aplikace poskytují kontext LLM modelům. MCP si představte jako USB-C port pro AI aplikace – poskytuje standardizovaný způsob připojení AI modelů k různým zdrojům dat a nástrojům.
 
 ## Cíle učení
 
 Na konci této lekce budete schopni:
 
-- Nastavit vývojová prostředí pro MCP v C#, Java, Python, TypeScript a JavaScript
-- Vytvořit a nasadit základní MCP servery s vlastními funkcemi (zdroje, výzvy a nástroje)
-- Vytvořit hostitelské aplikace, které se připojují k MCP serverům
+- Nastavit vývojové prostředí pro MCP v C#, Java, Python, TypeScript a JavaScript
+- Vytvářet a nasazovat základní MCP servery s vlastními funkcemi (zdroje, výzvy a nástroje)
+- Vytvářet hostitelské aplikace, které se připojují k MCP serverům
 - Testovat a ladit implementace MCP
-- Porozumět běžným problémům při nastavení a jejich řešením
-- Připojit vaše implementace MCP k populárním LLM službám
+- Pochopit běžné problémy při nastavení a jejich řešení
+- Připojit vaše MCP implementace k populárním LLM službám
 
 ## Nastavení vašeho MCP prostředí
 
-Než začnete pracovat s MCP, je důležité připravit vaše vývojové prostředí a pochopit základní pracovní postup. Tato sekce vás provede počátečními kroky nastavení, aby byl váš start s MCP hladký.
+Než začnete pracovat s MCP, je důležité připravit si vývojové prostředí a pochopit základní workflow. Tato sekce vás provede úvodními kroky, aby byl start s MCP plynulý.
 
-### Předpoklady
+### Požadavky
 
 Než se pustíte do vývoje MCP, ujistěte se, že máte:
 
-- **Vývojové prostředí**: Pro vámi zvolený jazyk (C#, Java, Python, TypeScript nebo JavaScript)
-- **IDE/Editor**: Visual Studio, Visual Studio Code, IntelliJ, Eclipse, PyCharm nebo jakýkoli moderní editor kódu
+- **Vývojové prostředí**: Pro vybraný jazyk (C#, Java, Python, TypeScript nebo JavaScript)
+- **IDE/Editory**: Visual Studio, Visual Studio Code, IntelliJ, Eclipse, PyCharm nebo jakýkoli moderní kódový editor
 - **Správce balíčků**: NuGet, Maven/Gradle, pip nebo npm/yarn
-- **API klíče**: Pro jakékoli AI služby, které plánujete použít ve vašich hostitelských aplikacích
+- **API klíče**: Pro všechny AI služby, které plánujete v host aplikacích používat
+
 
 ### Oficiální SDK
 
-V nadcházejících kapitolách uvidíte řešení postavená pomocí Pythonu, TypeScriptu, Javy a .NET. Zde jsou všechny oficiálně podporované SDK.
+V následujících kapitolách uvidíte řešení postavená pomocí Pythonu, TypeScriptu, Javy a .NET. Zde jsou všechny oficiálně podporované SDK.
 
-MCP poskytuje oficiální SDK pro více jazyků:
+MCP poskytuje oficiální SDK pro několik jazyků (v souladu s [MCP Specifikací 2025-11-25](https://spec.modelcontextprotocol.io/specification/2025-11-25/)):
 - [C# SDK](https://github.com/modelcontextprotocol/csharp-sdk) - Udržováno ve spolupráci s Microsoftem
 - [Java SDK](https://github.com/modelcontextprotocol/java-sdk) - Udržováno ve spolupráci se Spring AI
 - [TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk) - Oficiální implementace TypeScriptu
-- [Python SDK](https://github.com/modelcontextprotocol/python-sdk) - Oficiální implementace Pythonu
+- [Python SDK](https://github.com/modelcontextprotocol/python-sdk) - Oficiální implementace Pythonu (FastMCP)
 - [Kotlin SDK](https://github.com/modelcontextprotocol/kotlin-sdk) - Oficiální implementace Kotlinu
 - [Swift SDK](https://github.com/modelcontextprotocol/swift-sdk) - Udržováno ve spolupráci s Loopwork AI
 - [Rust SDK](https://github.com/modelcontextprotocol/rust-sdk) - Oficiální implementace Rustu
+- [Go SDK](https://github.com/modelcontextprotocol/go-sdk) - Oficiální implementace Go
 
-## Klíčové poznatky
+## Hlavní poznatky
 
-- Nastavení vývojového prostředí MCP je jednoduché díky SDK specifickým pro jazyk
-- Vytváření MCP serverů zahrnuje tvorbu a registraci nástrojů s jasnými schématy
+- Nastavení vývojového prostředí pro MCP je jednoduché pomocí jazykově specifických SDK
+- Vytváření MCP serverů zahrnuje vytváření a registraci nástrojů s jasnými schématy
 - MCP klienti se připojují k serverům a modelům, aby využili rozšířené schopnosti
-- Testování a ladění jsou nezbytné pro spolehlivé implementace MCP
+- Testování a ladění jsou nezbytné pro spolehlivé MCP implementace
 - Možnosti nasazení sahají od lokálního vývoje po cloudová řešení
 
 ## Procvičování
 
-Máme sadu ukázek, které doplňují cvičení, jež uvidíte ve všech kapitolách této sekce. Navíc každá kapitola má své vlastní cvičení a úkoly.
+Máme sadu ukázek, které doplňují cvičení, jež uvidíte ve všech kapitolách této sekce. Každá kapitola má také své vlastní cvičení a úkoly.
 
 - [Java Kalkulačka](./samples/java/calculator/README.md)
 - [.Net Kalkulačka](../../../03-GettingStarted/samples/csharp)
@@ -102,9 +103,13 @@ Máme sadu ukázek, které doplňují cvičení, jež uvidíte ve všech kapitol
 
 ## Co dál
 
-Další: [Vytvoření vašeho prvního MCP serveru](01-first-server/README.md)
+Začněte první lekcí: [Vytvoření vašeho prvního MCP serveru](01-first-server/README.md)
+
+Jakmile dokončíte tento modul, pokračujte na: [Modul 4: Praktická implementace](../04-PracticalImplementation/README.md)
 
 ---
 
-**Prohlášení**:  
-Tento dokument byl přeložen pomocí služby AI pro překlad [Co-op Translator](https://github.com/Azure/co-op-translator). I když se snažíme o přesnost, mějte prosím na paměti, že automatizované překlady mohou obsahovat chyby nebo nepřesnosti. Původní dokument v jeho rodném jazyce by měl být považován za autoritativní zdroj. Pro důležité informace se doporučuje profesionální lidský překlad. Neodpovídáme za žádná nedorozumění nebo nesprávné interpretace vyplývající z použití tohoto překladu.
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+**Upozornění**:  
+Tento dokument byl přeložen pomocí služby automatického překladu AI [Co-op Translator](https://github.com/Azure/co-op-translator). Přestože usilujeme o přesnost, mějte prosím na paměti, že automatizované překlady mohou obsahovat chyby nebo nepřesnosti. Originální dokument v jeho mateřském jazyce by měl být považován za závazný zdroj. Pro důležité informace je doporučen profesionální lidský překlad. Nebereme žádnou odpovědnost za nedorozumění nebo nesprávné výklady vyplývající z použití tohoto překladu.
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
